@@ -1,0 +1,40 @@
+header {
+  height: 150px;
+  background-color: #10a097;
+  display: flex;
+  margin-bottom: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  padding-right: 10%;
+
+  .img_block {
+    margin-left: 10%;
+    height: 150px;
+    width: 150px;
+    display: inline;
+  }
+  .inner_text {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+
+    .top {
+      display: flex;
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  }
+
+  .login {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    //margin-bottom: 20px;
+  }
+}

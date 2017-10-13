@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "css": "node-sass --output-style compressed static/sass/style-new.scss --output static/css"
+    "css": "node-sass --output-style compressed public/static/sass/style-new.scss --output public/static/css",
+    "csswatch": "node-sass --output-style compressed public/static/sass/style-new.scss --output public/static/css --watch"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +27,9 @@
     "core-js": "^2.4.1",
     "node-sass": "^4.5.3",
     "rxjs": "^5.4.1",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "serve-static": "latest",
+    "express": "latest"
   },
   "devDependencies": {
     "@angular/cli": "1.2.7",

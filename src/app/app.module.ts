@@ -2,13 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {ODCommonModule} from './core/od-common.module';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import {ODRoutingModule} from './od-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ODCommonModule.forRoot(),
+    ODRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    MainpageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

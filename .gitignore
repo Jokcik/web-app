@@ -4,7 +4,7 @@
 /dist
 /tmp
 /out-tsc
-/static/css/style-new.css
+/public/static/css/style-new.css
 
 # dependencies
 /node_modules
