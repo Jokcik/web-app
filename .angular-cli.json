@@ -1,5 +1,4 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
     "name": "web-app"
   },
@@ -8,8 +7,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -17,7 +15,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "od",
       "styles": [
         "styles.css"
       ],
@@ -36,16 +34,12 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
     },
     {
-      "project": "src/tsconfig.spec.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
     }
   ],
   "test": {
@@ -55,6 +49,13 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "class": {
+      "spec": false
+    },
+    "component": {
+      "spec": true,
+      "inlineStyle": false,
+      "inlineTemplate": false
+    }
   }
 }
