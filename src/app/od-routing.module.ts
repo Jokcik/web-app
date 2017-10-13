@@ -4,6 +4,8 @@ import {MainpageComponent} from './mainpage/mainpage.component';
 
 export const routes: Routes = [
   {path: '', component: MainpageComponent, pathMatch: 'full'},
+  {path: 'schools', loadChildren: 'app/schools/schools.module#SchoolsModule'}
+
 ];
 
 
