@@ -1,40 +1,62 @@
+$height: 200px;
 header {
-  height: 150px;
-  background-color: #10a097;
+  height: $height;
+  background-image: url('/images/logo/fon.jpg');
+  background-size: cover;
   display: flex;
   margin-bottom: 30px;
   color: #fff;
   text-transform: uppercase;
-  padding-right: 10%;
 
   .img_block {
     margin-left: 10%;
-    height: 150px;
-    width: 150px;
+    height: $height;
+    width: $height;
     display: inline;
   }
   .inner_text {
-    justify-content: space-around;
+    height: $height;
+    width: 60%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-left: 10px;
-
-    .top {
-      display: flex;
-    }
+    text-align: center;
 
     .bottom {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-  }
+      margin-bottom: 50px;
 
-  .login {
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    //margin-bottom: 20px;
+      align-items:center;
+      flex-flow: row nowrap;
+      justify-content: stretch;
+
+      .nav {
+        &:visited {
+          color: $orange;
+        }
+        &:hover {
+          color: $accent;
+        }
+        max-width: 14%;
+        margin: 20px auto 0;
+        font-size: 13px;
+      }
+    }
+
+    .cap {
+      &:first-child {
+        margin-top: 25px;
+      }
+      font-size: 10px;
+      margin: 2px;
+    }
+
+    .title {
+      font-size: 30px;
+      color: yellow;
+      font-family: "Century", Cursive, serif;
+    }
+
   }
 }
