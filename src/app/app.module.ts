@@ -6,6 +6,7 @@ import {ODCommonModule} from './core/od-common.module';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import {ODRoutingModule} from './od-routing.module';
 import { SchoolsComponent } from './schools/schools.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   imports: [

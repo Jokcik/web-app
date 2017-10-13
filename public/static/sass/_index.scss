@@ -1,6 +1,16 @@
 .outer_wrap_main {
-  margin: auto 10%;
-  background-image: url('/images/logo/main_fon.png');
+  margin: auto 20%;
+  background-color: white;
+  padding: 5px;
+  border: 2px solid lightgray;
+  border-radius: 10%;
+
+  .title {
+    text-align: center;
+    color: $red;
+    font-size: 20px;
+    font-weight: 900;
+  }
 }
 
 
