@@ -1,7 +1,6 @@
-$height: 200px;
 header {
-  height: $height;
-  background-image: url('/images/logo/fon.jpg');
+  height: $header_height;
+  background-image: url('/images/logo/fon_2.jpg');
   background-size: cover;
   display: flex;
   margin-bottom: 30px;
@@ -9,13 +8,15 @@ header {
   text-transform: uppercase;
 
   .img_block {
-    margin-left: 10%;
-    height: $height;
-    width: $height;
-    display: inline;
+    margin-left: 5.3%;
+    margin-top: 0.5%;
+    left: 100px;
+    height: $header_height;
+    width: $header_height + 20px;
+    position: relative;
   }
   .inner_text {
-    height: $height;
+    height: $header_height;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -33,7 +34,7 @@ header {
 
       .nav {
         &:visited {
-          color: $orange;
+          color: $textNav;
         }
         &:hover {
           color: $accent;
@@ -50,11 +51,12 @@ header {
       }
       font-size: 10px;
       margin: 2px;
+      color: black;
     }
 
     .title {
       font-size: 30px;
-      color: yellow;
+      color: #8700ff;
       font-family: "Century", Cursive, serif;
     }
 
