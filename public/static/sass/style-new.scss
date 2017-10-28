@@ -1,5 +1,6 @@
 @import "variables";
 @import "header";
+@import "footer";
 @import "index";
 @import "mainpage";
 @import "schools";
@@ -11,5 +12,5 @@ img {
 body {
   margin: 0;
   background: url(/images/logo/main_fon_2.jpg) repeat-y 0 0;
-  //background-size: cover;
+  background-size: cover;
 }

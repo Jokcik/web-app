@@ -6,12 +6,16 @@ import {MainpageRoutingModule} from './mainpage-routing.module';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {MainpageService} from './mainpage.service';
+import {CKEditorModule} from 'ng2-ckeditor';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
+    FormsModule,
     ODCommonModule,
     CommonModule,
     MainpageRoutingModule,
+    CKEditorModule,
   ],
   declarations: [
     MainpageComponent,
