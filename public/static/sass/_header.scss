@@ -10,11 +10,20 @@ header {
   .img_block {
     margin-left: 5.3%;
     margin-top: 0.5%;
-    left: 50px;
+    left: -12px;
     height: $header_height;
-    width: $header_height + 20px;
+    width: $header_height + 70px;
     position: relative;
   }
+
+  .img_block_bgiik {
+    margin-top: 1.5%;
+    left: -20px;
+    height: $header_height;
+    width: $header_height * 0.3;
+    position: relative;
+  }
+
   .inner_text {
     height: $header_height;
     width: 60%;
@@ -32,9 +41,13 @@ header {
       flex-flow: row nowrap;
       justify-content: stretch;
 
+      a {
+        text-decoration: none;
+      }
+
       .nav {
         &:visited {
-          color: $textNav;
+          color: #1e61ac;
         }
         &:hover {
           color: $accent;
@@ -43,6 +56,8 @@ header {
         max-width: 14%;
         margin: 20px auto 0;
         font-size: 13px;
+        font-weight: 900;
+        text-shadow: #0595d8 1px 1px 0;
       }
     }
 
@@ -53,13 +68,18 @@ header {
       font-size: 10px;
       margin: 2px;
       color: black;
+      font-weight: bold;
     }
 
     .title {
+      $titleColor: rgba(249, 163, 1, 0.98);;
       font-size: 30px;
-      color: #f90101;
-      font-weight: 900;
+      color: rgba(249, 1, 68, 0.98);
+      font-weight: 700;
       font-family: "Century", Cursive, serif;
+      text-shadow: rgba(249, 1, 68, 0.98) 1px 1px 0, $titleColor 2px 2px 0,
+      $titleColor 3px 3px 0, $titleColor 4px 4px 0,
+      $titleColor 5px 5px 0;
     }
 
   }
