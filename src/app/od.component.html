@@ -1,34 +1,41 @@
-<header>
-  <div class="img_block">
-    <img src="/images/logo/logo.png"/>
+<div class="page">
+  <header>
+    <div class="img-block">
+      <img src="/images/logo/logo.png"/>
+    </div>
+    <div class="inner-text">
+      <p class="cap">Управление культуры Белгородской области</p>
+      <p class="cap">Белгородский государственный институт искусств и культуры</p>
+      <p class="cap">Региональный учебно-методический центр по художественному образованию</p>
+      <p class="title">Одаренные дети Белгородской области</p>
+      <nav class="bottom">
+        <a href="/" routerLink="/" class="nav">Главная</a>
+        <a href="/schools" routerLink="/schools" class="nav">ДШИ Белгородской области</a>
+        <a href="/news" routerLink="/news" class="nav">Новости</a>
+        <a href="/competition" routerLink="/competition" class="nav">Конкурсы</a>
+        <a href="/bank-data-od" routerLink="/bank-data-od" class="nav">Банк данных одаренных детей</a>
+        <a href="/gallery" routerLink="/gallery" class="nav">Фотогаллерея</a>
+        <a href="/contacts" routerLink="/contacts" class="nav">Контакты</a>
+      </nav>
+    </div>
+    <div class="img-block-bgiik">
+      <img src="/images/logo/logo-bgiik.png"/>
+    </div>
+    <div class="login">
+      <div class="icon-center"><mat-icon>input</mat-icon></div>
+      <a href="/auth/login" routerLink="/auth/login">Вход</a> /
+      <a href="/auth/register" routerLink="/auth/register"><mat-icon>create</mat-icon>Регистрация</a>
+    </div>
+  </header>
+  <div class="img-body-block"></div>
+  <div class="outer_wrap_main">
+    <router-outlet></router-outlet>
   </div>
-  <div class="inner_text">
-    <p class="cap">Управление культуры Белгородской области</p>
-    <p class="cap">Белгородский государственный институт искусств и культуры</p>
-    <p class="cap">Региональный учебно-методический центр по художественному образованию</p>
-    <p class="title">Одаренные дети Белгородской области</p>
-    <nav class="bottom">
-      <a href="/" routerLink="/" class="nav">Главная</a>
-      <a href="/schools" routerLink="/schools" class="nav">ДШИ Белгородской области</a>
-      <a href="/news" routerLink="/news" class="nav">Новости</a>
-      <a href="/competition" routerLink="/competition" class="nav">Конкурсы</a>
-      <a href="/bank-data-od" routerLink="/bank-data-od" class="nav">Банк данных одаренных детей</a>
-      <a href="/gallery" routerLink="/gallery" class="nav">Фотогаллерея</a>
-      <a href="/contacts" routerLink="/contacts" class="nav">Контакты</a>
-    </nav>
-  </div>
-  <div class="img_block_bgiik">
-    <img src="/images/logo/logo-bgiik.png"/>
-  </div>
-</header>
-<div class="img-body-block"></div>
-<div class="outer_wrap_main">
-  <router-outlet></router-outlet>
+  <footer>
+    <div class="footer-wrap">
+      <div><p class="contact"><a href="/contacts" routerLink="/contacts">Контакты</a></p></div>
+      <div><p class="login"><a href="/auth/login" routerLink="/auth/login">Вход</a></p></div>
+      <p>© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</p>
+    </div>
+  </footer>
 </div>
-<footer>
-  <div class="footer-wrap">
-    <div><p class="contact">Контакты</p></div>
-    <div><p class="login"><a href="/login" routerLink="/login">Вход</a></p></div>
-    <p>© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</p>
-  </div>
-</footer>

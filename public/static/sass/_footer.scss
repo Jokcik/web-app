@@ -2,6 +2,8 @@ footer {
   height: 200px;
   background-color: gray;
   margin-top: 30px;
+  flex: 0 0 auto;
+
   .footer-wrap {
     padding-top: 10px;
     margin-left: 15%;
@@ -9,7 +11,7 @@ footer {
     .contact, .login {
       text-transform: uppercase;
       font-weight: 900;
-      font-size: 22px;
+      font-size: 18px;
       display: inline-block;
       background-color: #949E39;
       font-family: 'PT Sans Narrow','Cuprum',sans-serif;

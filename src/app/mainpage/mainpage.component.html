@@ -1,7 +1,10 @@
+<div style="height: 400px">
+  <carousel [sources]="imageSources" [config]="config"></carousel>
+</div>
 <div class="outer-wrap-mainpage">
   <div *ngFor="let description of descriptions">
     <p class="title" [innerHTML]="description.title"></p>
     <div [innerHTML]="description.short_description"></div>
   </div>
-  <div [innerHTML]="title"></div>
 </div>
+

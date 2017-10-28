@@ -1,20 +1,12 @@
 .outer_wrap_main {
   margin: auto 20%;
-  background-color: white;
   padding: 5px;
-  border: 2px solid lightgray;
-  border-radius: 50px 50px;
-
-  .title {
-    text-align: center;
-    color: $red;
-    font-size: 20px;
-    font-weight: 900;
-    p {
-      margin: 0;
-
-    }
-  }
+  flex: 1 0 auto;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 

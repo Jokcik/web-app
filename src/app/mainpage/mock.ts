@@ -24,10 +24,4 @@ export const MockDescription: Description[] = [{
   <a href="/" routerLink="/" style="height: 20px;">Читать далее...</a>
   <p><br/></p>`,
   description: ''
-}, {
-  title: `<p>Сведения о ДШИ области</p>
-          <p>(адреса, телефоны)</p>`,
-  short_description: `АЛЕКСЕЕВСКИЙ район (47-234)`,
-  description: ''
-}
-];
+}];

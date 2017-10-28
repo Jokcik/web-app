@@ -3,11 +3,36 @@ header {
   background-image: url('/images/logo/fon_2.jpg');
   background-size: cover;
   display: flex;
-  margin-bottom: 30px;
   color: #fff;
   text-transform: uppercase;
+  flex: 0 0 auto;
 
-  .img_block {
+  .login {
+    margin-top: 4%;
+    text-transform: capitalize;
+    margin-left: 2%;
+    position: relative;
+    color: #1e61ac;
+    text-shadow: #1e61ac 1px 1px 0;
+
+    .icon-center {
+      display: inline-block;
+      position: absolute;
+      left: -30px;
+      top: 5px;
+    }
+
+    a:visited, a:link {
+      color: #1e61ac;
+      text-shadow: #1e61ac 1px 1px 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .img-block {
     margin-left: 5.3%;
     margin-top: 0.5%;
     left: -12px;
@@ -16,15 +41,15 @@ header {
     position: relative;
   }
 
-  .img_block_bgiik {
+  .img-block-bgiik {
     margin-top: 1.5%;
-    left: -20px;
+    left: -35px;
     height: $header_height;
     width: $header_height * 0.3;
     position: relative;
   }
 
-  .inner_text {
+  .inner-text {
     height: $header_height;
     width: 60%;
     display: flex;
