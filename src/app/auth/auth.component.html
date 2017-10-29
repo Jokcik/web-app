@@ -1,3 +1,28 @@
-<p>
-  auth works!
-</p>
+<div class="outer-wrap-auth">
+  <p class="text title-input" *ngIf="!register">Вход</p>
+  <p class="text title-input" *ngIf="register">Регистрация</p>
+  <mat-form-field class="input-text">
+    <input matInput placeholder="Логин" required>
+  </mat-form-field>
+  <mat-form-field class="input-text">
+    <input matInput placeholder="Пароль" required>
+  </mat-form-field>
+  <div class="sign-in" *ngIf="!register">
+    <button mat-raised-button  color="primary">Войти</button>
+    <button mat-raised-button  color="warn">Забыли пароль</button>
+  </div>
+  <div class="register" *ngIf="register">
+    <div>
+    <p class="text select-text">Уровень доступа:</p>
+      <mat-form-field class="example-full-width">
+        <mat-select [value]="0">
+          <mat-option [value]="0">РУМЦ</mat-option>
+          <mat-option [value]="1">УК районов и городов</mat-option>
+          <mat-option [value]="2">Школа</mat-option>
+          <mat-option [value]="3">Преподаватель</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Зарегистрироваться</button>
+  </div>
+</div>

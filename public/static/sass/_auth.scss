@@ -1,0 +1,21 @@
+.outer-wrap-auth {
+  background-color: #ffffff;
+  border-radius: 50px 50px;
+  padding: 10px 10px 10px 40px;
+  margin-top: 50px;
+  flex-flow: column nowrap;
+
+  .input-text {
+    display: block;
+  }
+
+  .title-input {
+    text-transform: uppercase;
+    text-shadow: $text 1px 1px 0;
+  }
+
+  .select-text {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}

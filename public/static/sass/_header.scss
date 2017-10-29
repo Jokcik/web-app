@@ -33,7 +33,7 @@ header {
   }
 
   .img-block {
-    margin-left: 5.3%;
+    margin-left: 3%;
     margin-top: 0.5%;
     left: -12px;
     height: $header_height;
@@ -94,6 +94,7 @@ header {
       margin: 2px;
       color: black;
       font-weight: bold;
+      line-height: inherit;
     }
 
     .title {

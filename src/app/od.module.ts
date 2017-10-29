@@ -4,21 +4,19 @@ import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
 import {CommonModule} from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material';
-import { AuthComponent } from './auth/auth.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
+    NoopAnimationsModule,
     ODCommonModule.forRoot(),
     ODRoutingModule,
     MatIconModule
   ],
   declarations: [
     ODComponent,
-    AuthComponent,
   ],
   providers: [],
   bootstrap: [ODComponent]

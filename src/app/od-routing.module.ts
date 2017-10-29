@@ -10,7 +10,8 @@ export const routes: Routes = [
   {path: 'bank-data-od', loadChildren: 'app/bank-data-od/bank-data-od.module#BankDataOdModule'},
   {path: 'gallery', loadChildren: 'app/gallery/gallery.module#GalleryModule'},
   {path: 'contacts', loadChildren: 'app/contacts/contacts.module#ContactsModule'},
-]; 
+  {path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule'},
+];
 
 
 @NgModule({                                 // TODO: Custom preloadingStrategy!
