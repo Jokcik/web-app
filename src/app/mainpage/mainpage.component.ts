@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
 import {Description} from '../news/shared/description';
 import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'od-mainpage',
@@ -10,11 +11,17 @@ import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
 export class MainpageComponent implements OnInit {
   descriptions: Description[] = [];
 
-  constructor(private mainpageService: MainpageService) {
+  constructor(private mainpageService: MainpageService,
+              private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
     this.descriptions = this.mainpageService.get();
+    this.descriptions.forEach((value, index) => {
+      let f = this.sanitizer.bypassSecurityTrustHtml(<string>value.short_description);
+      f.toString = () => (<any>f).changingThisBreaksApplicationSecurity;
+      this.descriptions[index].short_description = f;
+    });
   }
 
   public imageSources: string[] = [

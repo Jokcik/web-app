@@ -11,6 +11,7 @@ export const routes: Routes = [
   {path: 'gallery', loadChildren: 'app/gallery/gallery.module#GalleryModule'},
   {path: 'contacts', loadChildren: 'app/contacts/contacts.module#ContactsModule'},
   {path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule'},
+  {path: 'admin/edit', loadChildren: 'app/admin/edit/edit.module#EditModule'},
 ];
 
 

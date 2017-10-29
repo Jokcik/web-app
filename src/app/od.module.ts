@@ -6,6 +6,7 @@ import {ODRoutingModule} from './od-routing.module';
 import {CommonModule} from '@angular/common';
 import {MatIconModule} from '@angular/material';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { EditComponent } from './admin/edit/edit.component';
 
 @NgModule({
   imports: [

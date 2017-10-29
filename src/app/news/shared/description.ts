@@ -1,5 +1,7 @@
+import {SafeHtml} from '@angular/platform-browser';
+
 export class Description {
-  title: string;
-  description: string;
-  short_description: string;
+  title: SafeHtml;
+  description: SafeHtml;
+  short_description: SafeHtml;
 }
