@@ -5,17 +5,16 @@
 @import "mainpage";
 @import "schools";
 @import "auth";
-
+@import "contacts";
 @import "/indigo-pink.css";
 
 img {
   width: inherit;
 }
 
-
 html, body {
   height: 100%;
   margin: 0;
-  background: url(/images/logo/main_fon_2.jpg) repeat-y 0 0;
+  background: url(/images/fon/main.jpg) repeat-y 0 0;
   background-size: cover;
 }

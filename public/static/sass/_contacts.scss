@@ -1,26 +1,33 @@
-.outer-wrap-auth {
+.outer-wrap-contacts {
   background-color: #ffffff;
   border-radius: 50px 50px;
-  padding: 10px 10px 30px 40px;
+  padding: 30px 10px 10px 40px;
   margin-top: 50px;
   flex-flow: column nowrap;
 
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+
+    :nth-child(2) {
+      padding-top: 20px;
+    }
+  }
+
   .input-text {
+    width: 80%;
     display: block;
+
+
   }
 
   .title-input {
+    margin-bottom: 20px;
     color: royalblue;
     text-transform: uppercase;
     text-shadow: $text 1px 1px 0;
     font-weight: bold;
   }
 
-  .select-text {
-    display: inline-block;
-    margin-right: 20px;
-    color: #554bd4;
-    font-weight: bold;
-    font-size: 20px;
-  }
 }
