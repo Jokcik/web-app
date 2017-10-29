@@ -2,6 +2,12 @@
   background-color: white;
   border: 2px solid lightgray;
   border-radius: 50px 50px;
+  padding: 5px 5px 20px;
+  text-align: justify;
+
+  p {
+    text-indent: 20px;
+  }
 
   .title {
     text-align: center;
@@ -10,7 +16,6 @@
     font-weight: 900;
     p {
       margin: 0;
-
     }
   }
 }
