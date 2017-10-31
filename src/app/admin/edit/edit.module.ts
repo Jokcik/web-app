@@ -5,6 +5,8 @@ import {CommonModule} from '@angular/common';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
 import {MatTabsModule} from '@angular/material';
+import {MainpageService} from '../../mainpage/mainpage.service';
+import {CKEditorModule} from 'ng2-ckeditor';
 
 @NgModule({
   imports: [
@@ -12,13 +14,14 @@ import {MatTabsModule} from '@angular/material';
     CommonModule,
     FormsModule,
     EditRoutingModule,
+    CKEditorModule,
 
     MatTabsModule
   ],
   declarations: [
     EditComponent,
   ],
-  providers: []
+  providers: [MainpageService]
 })
 export class EditModule {
 }

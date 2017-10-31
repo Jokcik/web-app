@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
 import {Description} from '../news/shared/description';
 import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   selector: 'od-mainpage',
@@ -16,11 +16,12 @@ export class MainpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.descriptions = this.mainpageService.get();
+    this.descriptions = this.mainpageService.get().slice();
     this.descriptions.forEach((value, index) => {
-      let f = this.sanitizer.bypassSecurityTrustHtml(<string>value.short_description);
-      f.toString = () => (<any>f).changingThisBreaksApplicationSecurity;
-      this.descriptions[index].short_description = f;
+      if (typeof value.description == 'object') return;
+      this.descriptions[index].description = this.sanitizer.bypassSecurityTrustHtml(<string>value.description);
+      this.descriptions[index].short_description = this.sanitizer.bypassSecurityTrustHtml(<string>value.short_description);
+      this.descriptions[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>value.title);
     });
   }
 
@@ -34,7 +35,7 @@ export class MainpageComponent implements OnInit {
     verifyBeforeLoad: true,
     log: false,
     animation: true,
-    animationType: AnimationConfig.SLIDE,
+    animationType: AnimationConfig.APPEAR,
     autoplay: true,
     autoplayDelay: 2000,
     stopAutoplayMinWidth: 768

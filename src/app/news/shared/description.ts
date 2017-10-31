@@ -4,4 +4,5 @@ export class Description {
   title: SafeHtml;
   description: SafeHtml;
   short_description: SafeHtml;
+  url: string;
 }

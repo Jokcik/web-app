@@ -1,6 +1,17 @@
 <div class="admin-edit">
   <mat-tab-group>
-    <mat-tab label="Главная страница">Content 1</mat-tab>
+    <mat-tab label="Главная страница">
+      <div *ngFor="let description of descriptions" class="outer-wrap-mainpage">
+        <div class="text">Заголовок</div>
+        <ckeditor [(ngModel)]="description.title" [config]="config"></ckeditor>
+        <hr/>
+        <div class="text">Вводный текст на главной</div>
+        <ckeditor [(ngModel)]="description.short_description" [config]="config"></ckeditor>
+        <hr/>
+        <div class="text">Текст</div>
+        <ckeditor [(ngModel)]="description.description" [config]="config"></ckeditor>
+      </div>
+    </mat-tab>
     <mat-tab label="Новости">Content 2</mat-tab>
   </mat-tab-group>
 </div>
