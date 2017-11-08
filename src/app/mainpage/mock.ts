@@ -1,4 +1,4 @@
-import {Description} from '../news/shared/description';
+import {Description} from '../news/shared/materials';
 
 export const MockDescription: Description[] = [{
   title: `<div class="title">

@@ -6,7 +6,7 @@ export const databaseProviders = [
     provide: DbConnectionToken,
     useFactory: async (): Promise<mongoose.Connection> => {
       (mongoose as any).Promise = global.Promise;
-      return await mongoose.connect('mongodb://127.0.0.1:27017/test', {
+      return await mongoose.connect('mongodb://127.0.0.1:27017/exceptional_child', {
         useMongoClient: true,
       });
     },

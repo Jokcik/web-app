@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { CatsModule } from './cats/cats.module';
+import { MainpageNewsModule } from './mainpage-news/mainpage-news.module';
 
 @Module({
-  modules: [CatsModule],
+  modules: [MainpageNewsModule],
 })
 export class ApplicationModule {}

@@ -1,8 +1,12 @@
 import {SafeHtml} from '@angular/platform-browser';
 
-export class Description {
+export class Materials {
   title: SafeHtml;
+  url: string;
+  description: Description;
+}
+
+export class Description {
   description: SafeHtml;
   short_description: SafeHtml;
-  url: string;
 }

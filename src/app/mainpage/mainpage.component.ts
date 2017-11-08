@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
-import {Description} from '../news/shared/description';
+import {Description} from '../news/shared/materials';
 import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
