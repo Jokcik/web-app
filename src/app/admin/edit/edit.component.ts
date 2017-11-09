@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from '../../mainpage/mainpage.service';
 import {Description} from '../../news/shared/materials';
-import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
 
 @Component({
   selector: 'od-edit',
@@ -16,7 +15,7 @@ export class EditComponent implements OnInit {
     this.descriptions = this.mainpageService.get();
   }
 
-  public config: ICarouselConfig = <any>{
+  public config = {
     toolbar: 'full',
   format_tags: 'p',
     language: 'ru',

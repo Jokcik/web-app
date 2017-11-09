@@ -57,5 +57,8 @@
       "inlineStyle": false,
       "inlineTemplate": false
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

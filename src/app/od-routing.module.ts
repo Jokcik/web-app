@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {MainpageComponent} from './mainpage/mainpage.component';
 
 export const routes: Routes = [
   {path: '', loadChildren: 'app/mainpage/mainpage.module#MainpageModule', pathMatch: 'full'},

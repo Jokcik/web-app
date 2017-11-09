@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
 import {Description} from '../news/shared/materials';
-import {ICarouselConfig, AnimationConfig} from 'angular4-carousel';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
@@ -21,7 +20,7 @@ export class MainpageComponent implements OnInit {
       if (typeof value.description == 'object') return;
       this.descriptions[index].description = this.sanitizer.bypassSecurityTrustHtml(<string>value.description);
       this.descriptions[index].short_description = this.sanitizer.bypassSecurityTrustHtml(<string>value.short_description);
-      this.descriptions[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>value.title);
+      // this.descriptions[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>value.title);
     });
   }
 
@@ -31,13 +30,13 @@ export class MainpageComponent implements OnInit {
     'https://www.abamet.ru/images/press/haas/press-releases/2013/gaboi-rigoutat.jpg'
   ];
 
-  public config: ICarouselConfig = {
-    verifyBeforeLoad: true,
-    log: false,
-    animation: true,
-    animationType: AnimationConfig.APPEAR,
-    autoplay: true,
-    autoplayDelay: 2000,
-    stopAutoplayMinWidth: 768
-  };
+  // public config: ICarouselConfig = {
+  //   verifyBeforeLoad: true,
+  //   log: false,
+  //   animation: true,
+  //   animationType: AnimationConfig.APPEAR,
+  //   autoplay: true,
+  //   autoplayDelay: 2000,
+  //   stopAutoplayMinWidth: 768
+  // };
 }

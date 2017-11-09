@@ -1,13 +1,13 @@
 import {Description} from '../news/shared/materials';
 
 export const MockDescription: Description[] = [{
-  title: `<div class="title">
-<p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span style="font-size:11pt"><span style="background:white"><span style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:#c0392b">ИЗ ИСТОРИИ РАЗВИТИЯ ДЕТСКИХ&nbsp;ШКОЛ ИСКУССТВ БЕЛГОРОДСКОЙ ОБЛАСТИ</span></span></span></b></span></span></span></span></p>
-
-<p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span style="font-size:11pt"><span style="background:white"><span style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:#c0392b">РЕГИОНАЛЬНОМУ УЧЕБНО-МЕТОДИЧЕСКОМУ ЦЕНТРУ ПО ХУДОЖЕСТВЕННОМУ ОБРАЗОВАНИЮ БГИИК - 40 ЛЕТ</span></span></span></b></span></span></span></span></p>
-</div>
-
-`,
+//   title: `<div class="title">
+// <p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span style="font-size:11pt"><span style="background:white"><span style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:#c0392b">ИЗ ИСТОРИИ РАЗВИТИЯ ДЕТСКИХ&nbsp;ШКОЛ ИСКУССТВ БЕЛГОРОДСКОЙ ОБЛАСТИ</span></span></span></b></span></span></span></span></p>
+//
+// <p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span style="font-size:11pt"><span style="background:white"><span style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:#c0392b">РЕГИОНАЛЬНОМУ УЧЕБНО-МЕТОДИЧЕСКОМУ ЦЕНТРУ ПО ХУДОЖЕСТВЕННОМУ ОБРАЗОВАНИЮ БГИИК - 40 ЛЕТ</span></span></span></b></span></span></span></span></p>
+// </div>
+//
+// `,
   short_description: `
 <div style="text-align: center; width: 95%; margin: 0"><img src="/images/history/image_1.jpg" /></div>
 
@@ -35,5 +35,5 @@ export const MockDescription: Description[] = [{
 
 `,
   description: '',
-  url: '/mainpage/history'
+  // url: '/mainpage/history'
 }];

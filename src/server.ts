@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { ApplicationModule } from './modules/app.module';
 import * as path from 'path';
 import * as express from 'express';
-import serveStatic = require('serve-static');
+import * as serveStatic from 'serve-static';
 
 async function bootstrap() {
 
