@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+import { Model, Schema } from 'mongoose';
 import { Component, Inject } from '@nestjs/common';
 import {MainpageNews} from './interfaces/mainpage-news.interface';
 import {MainpageNewsModelToken} from '../constants';
@@ -12,6 +12,10 @@ export class MainpageNewsService {
   async create(createCatDto: CreateMainpageNewsDto): Promise<MainpageNews> {
     const createdCat = new this.mainpageNewsModel(createCatDto);
     return await createdCat.save();
+  }
+
+  async update(id: Schema.Types.ObjectId, createMainpageNewsDto: CreateMainpageNewsDto): Promise<MainpageNews> {
+    return await this.mainpageNewsModel.findByIdAndUpdate(id, createMainpageNewsDto, {new: true});
   }
 
   async findAll(): Promise<MainpageNews[]> {

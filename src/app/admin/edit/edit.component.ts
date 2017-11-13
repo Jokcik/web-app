@@ -1,23 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from '../../mainpage/mainpage.service';
-import {Description} from '../../news/shared/materials';
+import {Materials} from '../../news/shared/materials';
 
 @Component({
   selector: 'od-edit',
   templateUrl: './edit.component.html'
 })
 export class EditComponent implements OnInit {
-  descriptions: Description[] = [];
+  materials: Materials[] = [];
 
   constructor(private mainpageService: MainpageService) { }
 
   ngOnInit() {
-    this.descriptions = this.mainpageService.get();
+    this.materials = this.mainpageService.query();
+  }
+
+  public saveHistory(material: Materials) {
+    let a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
+    this.mainpageService.update(a);
   }
 
   public config = {
     toolbar: 'full',
-  format_tags: 'p',
+    format_tags: 'p',
     language: 'ru',
     allowedContent: true,
     disableNativeSpellChecker: false,

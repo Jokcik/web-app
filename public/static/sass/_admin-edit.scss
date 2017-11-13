@@ -6,7 +6,7 @@
   .mat-tab-body-content {
     background-color: #fff;
     padding: 10px;
-    border-radius: 50px 50px;
+    //border-radius: 50px 50px;
     height: inherit;
   }
 
@@ -20,5 +20,14 @@
     color: rgba(0,0,0,.87);;
     font-size: 18px;
     margin-bottom: 10px;
+  }
+
+  .outer-wrap-mainpage {
+    margin-top: 15px!important;
+    background-color: rgba(202, 202, 202, 0.38);
+  }
+
+  .button-row {
+    margin-top: 20px;
   }
 }

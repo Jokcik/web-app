@@ -1,8 +1,15 @@
 import {ODResource} from './od-resource';
 import {ResourceAction, ResourceMethod, ResourceMethodStrict} from 'ngx-resource';
-import {RequestMethod} from '@angular/http';
+import {Http, RequestMethod} from '@angular/http';
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class ODResourceCrud<TQuery, TShort, TFull> extends ODResource {
+
+  constructor(http: Http) {
+    super(http);
+  }
+
   @ResourceAction({
     isArray: true
   })
@@ -25,7 +32,7 @@ export class ODResourceCrud<TQuery, TShort, TFull> extends ODResource {
 
   @ResourceAction({
     method: RequestMethod.Put,
-    path: '/{!id}'
+    path: '/{!_id}'
   })
   update: ResourceMethod<TFull, TFull>;
 

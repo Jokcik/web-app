@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
-import {Description} from '../news/shared/materials';
+import {Description, Materials} from '../news/shared/materials';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
@@ -8,20 +8,13 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
   templateUrl: './mainpage.component.html'
 })
 export class MainpageComponent implements OnInit {
-  descriptions: Description[] = [];
+  descriptions: Materials[] = [];
 
-  constructor(private mainpageService: MainpageService,
-              private sanitizer: DomSanitizer) {
+  constructor(private mainpageService: MainpageService) {
   }
 
   ngOnInit() {
-    this.descriptions = this.mainpageService.get().slice();
-    this.descriptions.forEach((value, index) => {
-      if (typeof value.description == 'object') return;
-      this.descriptions[index].description = this.sanitizer.bypassSecurityTrustHtml(<string>value.description);
-      this.descriptions[index].short_description = this.sanitizer.bypassSecurityTrustHtml(<string>value.short_description);
-      // this.descriptions[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>value.title);
-    });
+    this.mainpageService.querySafeHtml().subscribe(descriptions => this.descriptions = descriptions);
   }
 
   public imageSources: string[] = [

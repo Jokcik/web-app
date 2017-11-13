@@ -1,17 +1,22 @@
-<div class="admin-edit">
+<!--<div class="admin-edit">-->
+<mat-card class="admin-edit">
   <mat-tab-group>
     <mat-tab label="Главная страница">
-      <div *ngFor="let description of descriptions" class="outer-wrap-mainpage">
+      <div *ngFor="let material of materials" class="outer-wrap-mainpage">
         <div class="text">Заголовок</div>
-        <ckeditor [(ngModel)]="description.title" [config]="config"></ckeditor>
+        <ckeditor [(ngModel)]="material.title" [config]="config"></ckeditor>
         <hr/>
         <div class="text">Вводный текст на главной</div>
-        <ckeditor [(ngModel)]="description.short_description" [config]="config"></ckeditor>
+        <ckeditor [(ngModel)]="material.description.short_description" [config]="config"></ckeditor>
         <hr/>
         <div class="text">Текст</div>
-        <ckeditor [(ngModel)]="description.description" [config]="config"></ckeditor>
+        <ckeditor [(ngModel)]="material.description.description" [config]="config"></ckeditor>
+        <div class="button-row">
+          <button mat-raised-button color="primary" (click)="saveHistory(material)">Сохранить</button>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="Новости">Content 2</mat-tab>
   </mat-tab-group>
-</div>
+</mat-card>
+<!--</div>-->

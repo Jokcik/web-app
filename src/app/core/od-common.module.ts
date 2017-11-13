@@ -11,6 +11,7 @@ import {RouterModule} from '@angular/router';
   declarations: [
   ],
   exports: [
+    RouterModule
   ],
 })
 export class ODCommonModule {
