@@ -2,8 +2,8 @@ import {ReflectMetadata} from '@nestjs/common';
 
 export const DbConnectionToken = 'DbConnectionToken';
 
-export const MainpageNewsModelToken = 'MainpageNewsModelToken';
-export const MainpageNewsModelName = 'MainpageNews';
+export const NewsModelToken = 'NewsModelToken';
+export const NewsModelName = 'News';
 
 export const Roles = (...roles: number[]) => ReflectMetadata('roles', roles);
 
