@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const NewsSchema = new mongoose.Schema({
+export const RegionSchema = new mongoose.Schema({
   title: String,
   telephone: String,
 });
