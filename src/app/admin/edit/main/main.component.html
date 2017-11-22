@@ -1,0 +1,13 @@
+<div *ngFor="let material of materials" class="outer-wrap-mainpage">
+  <div class="text">Заголовок</div>
+  <ckeditor [(ngModel)]="material.title" [config]="config"></ckeditor>
+  <hr/>
+  <div class="text">Вводный текст на главной</div>
+  <ckeditor [(ngModel)]="material.description.short_description" [config]="config"></ckeditor>
+  <hr/>
+  <div class="text">Текст</div>
+  <ckeditor [(ngModel)]="material.description.description" [config]="config"></ckeditor>
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="saveHistory(material)">Сохранить</button>
+  </div>
+</div>
