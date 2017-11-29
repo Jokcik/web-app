@@ -38,9 +38,9 @@ export class ODResourceCrud<TQuery, TShort, TFull> extends ODResource {
 
   @ResourceAction({
     method: RequestMethod.Delete,
-    path: '/{!id}'
+    path: '/{!_id}'
   })
-  remove: ResourceMethod<{id: any}, any>;
+  remove: ResourceMethod<{_id: any}, any>;
 
   // Alias to save
   create(data: TFull, callback?: (res: TFull) => any): TFull {

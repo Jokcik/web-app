@@ -11,7 +11,7 @@ import {Materials} from '../../news/shared/materials';
   encapsulation: ViewEncapsulation.None
 })
 export class PageComponent implements OnInit {
-  private material: Materials;
+  public material: Materials;
 
   constructor(private route: ActivatedRoute,
               private mainpageService: MainpageService) {

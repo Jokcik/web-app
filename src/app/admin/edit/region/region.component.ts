@@ -1,70 +1,69 @@
-import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Region} from '../shared/region';
+import {RegionService} from './region.service';
+import {RegionDialogAdd} from './region-dialog-add';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'od-region',
   templateUrl: './region.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class RegionComponent {
-  // private regions: Region[] = [];
-
-  // constructor(private regionService: RegionService) { }
-  displayedColumns = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+export class RegionComponent implements OnInit, AfterViewInit {
+  public displayedColumns = ['title', 'telephone', 'edit', 'delete'];
+  public dataSource: MatTableDataSource<Region>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  private regions: Region[] = [];
 
-  constructor() {
-    // Create 100 users
-    const users: UserData[] = [];
-    for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private regionService: RegionService,
+              public dialog: MatDialog) {
   }
 
-  /**
-   * Set the paginator and sort after the view init since this component will
-   * be able to query its view for the initialized paginator and sort.
-   */
-  ngAfterViewInit() {
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource(this.regions);
+    this.updateRegion()
+  }
+
+  public updateRegion() {
+    this.regionService.query().$observable.subscribe(regions => {
+      this.regions.length = 0;
+      this.regions.push(...regions);
+      this.dataSource._updateChangeSubscription();
+    });
+  }
+
+  public openDialog(region?: Region): void {
+    this.dialog.open(RegionDialogAdd, {width: '250px', data: region}).afterClosed().subscribe(result => {
+      if (result && result._id) {
+        this.regionService.update(result);
+      } else {
+        this.regionService.save(result);
+      }
+      this.updateRegion()
+    });
+  }
+
+  public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+  public applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
-}
 
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+  public editRegion(region: any) {
+    this.openDialog(region);
+  }
 
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
-}
-
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-  'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-  'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-  'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
+  public deleteRegion(row) {
+    if (window.confirm('Действительно хотите удалить этот регион?')) {
+      this.regionService.remove({_id: row._id}).$observable.subscribe(() => this.updateRegion());
+    }
+  }
 }

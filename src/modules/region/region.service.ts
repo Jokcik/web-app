@@ -22,4 +22,8 @@ export class RegionService {
   async findAll(): Promise<Region[]> {
     return await this.regionModel.find();
   }
+
+  public remove(id: Schema.Types.ObjectId) {
+    return this.regionModel.remove({_id: id});
+  }
 }

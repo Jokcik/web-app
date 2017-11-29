@@ -7,33 +7,33 @@
   </div>
 
   <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- ID Column -->
-    <ng-container cdkColumnDef="id">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> ID </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.id}} </cdk-cell>
+    <ng-container cdkColumnDef="title">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Название </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.title}} </cdk-cell>
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container cdkColumnDef="progress">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Progress </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.progress}}% </cdk-cell>
+    <ng-container cdkColumnDef="telephone">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефон </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.telephone}} </cdk-cell>
+      <!--<mat-icon>input</mat-icon>-->
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container cdkColumnDef="name">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Name </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.name}} </cdk-cell>
+    <ng-container cdkColumnDef="edit">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 10px'">
+        <button mat-icon-button (click)="editRegion(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </cdk-cell>
     </ng-container>
 
-    <!-- Color Column -->
-    <ng-container cdkColumnDef="color">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell">Color</cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"
-                [style.color]="row.color">
-        {{row.color}}
+    <ng-container cdkColumnDef="delete">
+      <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 10px'">
+        <button mat-icon-button (click)="deleteRegion(row)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </cdk-cell>
     </ng-container>
 
@@ -43,3 +43,4 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+<button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить регион</button>
