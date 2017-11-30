@@ -21,7 +21,7 @@
 
     <!-- Progress Column -->
     <ng-container cdkColumnDef="telephone">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефон </cdk-header-cell>
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефонный код района, города </cdk-header-cell>
       <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
         <div class="show">{{row.telephone}}</div>
         <div class="edit" >

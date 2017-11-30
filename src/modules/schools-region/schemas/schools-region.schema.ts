@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
-import {Types} from 'mongoose';
-import ObjectId = Types.ObjectId;
 import {RegionModelName} from '../../constants';
+import {Schema} from 'mongoose';
+import ObjectId = Schema.Types.ObjectId;
 
 export const PersonSchema = new mongoose.Schema({
   name: String,

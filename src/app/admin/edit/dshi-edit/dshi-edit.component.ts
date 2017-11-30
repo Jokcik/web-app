@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Schools} from '../shared/School';
+import {Schools} from '../shared/school';
+import {DshiEditService} from './dshi-edit.service';
 
 @Component({
   selector: 'od-dshi-edit',
@@ -9,9 +10,10 @@ export class DshiEditComponent implements OnInit {
   public schools: Schools[] = [];
   public currentIndex: number = -1;
 
-  constructor() { }
+  constructor(private schoolService: DshiEditService) { }
 
   ngOnInit() {
+    this.schools = this.schoolService.query();
   }
 
 }

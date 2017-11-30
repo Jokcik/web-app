@@ -1,6 +1,6 @@
 import {Region} from './region';
 
-export class Person {
+class Person {
   name: String;
   post: String;
   telephone: String;

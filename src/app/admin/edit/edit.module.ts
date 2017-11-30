@@ -24,7 +24,8 @@ import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
 import {HttpModule} from '@angular/http';
 import {RegionDialogAdd} from './region/region-dialog-add';
-import { DshiEditComponent } from './dshi-edit/dshi-edit.component';
+import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
+import {DshiEditService} from './dshi-edit/dshi-edit.service';
 
 @NgModule({
   imports: [
@@ -62,7 +63,7 @@ import { DshiEditComponent } from './dshi-edit/dshi-edit.component';
   entryComponents: [
     RegionDialogAdd
   ],
-  providers: [MainpageService, RegionService,
+  providers: [MainpageService, RegionService, DshiEditService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]
