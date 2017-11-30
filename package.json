@@ -25,6 +25,9 @@
     "@angular/material": "^5.0.0-rc.1",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
+    "@angular/cli": "^1.5.4",
+    "@angular/compiler-cli": "^5.0.0",
+    "@angular/language-service": "^5.0.0",
     "@angular/router": "^5.0.0",
     "@nestjs/common": "^4.2.1",
     "@nestjs/core": "^4.2.1",
@@ -51,9 +54,6 @@
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
-    "@angular/cli": "^1.5.0",
-    "@angular/compiler-cli": "^5.0.0",
-    "@angular/language-service": "^5.0.0",
     "@types/jasmine": "^2.6.3",
     "@types/jasminewd2": "^2.0.3",
     "@types/mongoose": "^4.7.25",
