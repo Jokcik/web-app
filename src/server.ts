@@ -5,13 +5,11 @@ import * as path from 'path';
 import * as express from 'express';
 import * as serveStatic from 'serve-static';
 import * as cors from 'express-cors';
+
 let s = express();
-s.set('port', process.env.PORT || 3001);
-console.log('aaaaa', process.env.PORT);
-console.log('bbbbb', process.env.port);
+s.set('port', process.env.port || 3001);
 
 async function bootstrap() {
-
 
   s.use(serveStatic(path.join(__dirname, '../dist_main')));
   s.use(serveStatic(path.join(__dirname, '../public')));
