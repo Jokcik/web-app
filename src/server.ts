@@ -5,10 +5,11 @@ import * as path from 'path';
 import * as express from 'express';
 import * as serveStatic from 'serve-static';
 import * as cors from 'express-cors';
+let s = express();
+s.set('port', process.env.PORT || 3001);
 
 async function bootstrap() {
 
-  let s = express();
 
   s.use(serveStatic(path.join(__dirname, '../dist_main')));
   s.use(serveStatic(path.join(__dirname, '../public')));
@@ -28,6 +29,6 @@ async function bootstrap() {
   });
 
 
-  await app.listen(<any>process.env.PORT || 3001);
+  await app.listen(s.get('port'));
 }
 bootstrap();
