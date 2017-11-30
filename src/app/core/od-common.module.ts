@@ -2,6 +2,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {ODClickOutside} from './gg-click-outside';
 
 @NgModule({
   imports: [
@@ -9,9 +10,11 @@ import {RouterModule} from '@angular/router';
     RouterModule
   ],
   declarations: [
+    ODClickOutside
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    ODClickOutside
   ],
 })
 export class ODCommonModule {

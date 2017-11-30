@@ -1,5 +1,5 @@
 
-<div class="example-container mat-elevation-z8">
+<div class="example-container mat-elevation-z8 outer-region-edit" (odClickOutside)="close()">
   <div class="example-header">
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">
@@ -9,21 +9,37 @@
   <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
     <ng-container cdkColumnDef="title">
       <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Название </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.title}} </cdk-cell>
+      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+        <div class="show">{{row.title}}</div>
+        <div class="edit">
+          <mat-form-field>
+            <input matInput [(ngModel)]="row.title">
+          </mat-form-field>
+        </div>
+      </cdk-cell>
     </ng-container>
 
     <!-- Progress Column -->
     <ng-container cdkColumnDef="telephone">
       <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефон </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell"> {{row.telephone}} </cdk-cell>
+      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+        <div class="show">{{row.telephone}}</div>
+        <div class="edit" >
+          <mat-form-field>
+            <input matInput [(ngModel)]="row.telephone">
+          </mat-form-field>
+        </div>
+      </cdk-cell>
       <!--<mat-icon>input</mat-icon>-->
     </ng-container>
 
     <ng-container cdkColumnDef="edit">
       <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 10px'">
-        <button mat-icon-button (click)="editRegion(row)">
-          <mat-icon>edit</mat-icon>
+      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [style.flex]="'0 0 10px'"
+                [class.edit]="idx == currentIndex && editable">
+        <button mat-icon-button (click)="editRegion(row, idx)">
+          <mat-icon class="show">edit</mat-icon>
+          <mat-icon class="edit">done</mat-icon>
         </button>
       </cdk-cell>
     </ng-container>

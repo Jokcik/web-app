@@ -3,7 +3,6 @@ import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/mat
 import {Region} from '../shared/region';
 import {RegionService} from './region.service';
 import {RegionDialogAdd} from './region-dialog-add';
-import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'od-region',
@@ -17,6 +16,9 @@ export class RegionComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   private regions: Region[] = [];
+
+  public editable: boolean = false;
+  public currentIndex: number = -1;
 
   constructor(private regionService: RegionService,
               public dialog: MatDialog) {
@@ -35,13 +37,10 @@ export class RegionComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public openDialog(region?: Region): void {
-    this.dialog.open(RegionDialogAdd, {width: '250px', data: region}).afterClosed().subscribe(result => {
-      if (result && result._id) {
-        this.regionService.update(result);
-      } else {
-        this.regionService.save(result);
-      }
+  public openDialog(): void {
+    this.dialog.open(RegionDialogAdd, {width: '250px'}).afterClosed().subscribe(result => {
+      if (!result) return;
+      this.regionService.save(result);
       this.updateRegion()
     });
   }
@@ -57,13 +56,24 @@ export class RegionComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  public editRegion(region: any) {
-    this.openDialog(region);
+  public editRegion(region: any, index: number) {
+    if (index != this.currentIndex) {
+      this.editable = true;
+      this.currentIndex = index;
+    } else {
+      this.regionService.update(region);
+      this.close();
+    }
   }
 
   public deleteRegion(row) {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
       this.regionService.remove({_id: row._id}).$observable.subscribe(() => this.updateRegion());
     }
+  }
+
+  public close() {
+    this.editable = false;
+    this.currentIndex = -1;
   }
 }

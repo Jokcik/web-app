@@ -1,50 +1,67 @@
-.example-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 300px;
-}
+.outer-region-edit {
 
-/*
- * Styles to make the demo's cdk-table match the material design spec
- * https://material.io/guidelines/components/data-tables.html
- */
-.example-table {
-  flex: 1 1 auto;
-  overflow: auto;
-  max-height: 500px;
-  padding: 0 24px;
-}
+  &.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
 
-.example-header-row, .example-row {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  align-items: center;
-  height: 32px;
-  padding: 0 8px;
-}
+  .example-table {
+    flex: 1 1 auto;
+    overflow: auto;
+    max-height: 500px;
+    padding: 0 24px;
+  }
 
-.example-cell, .example-header-cell {
-  flex: 1;
-}
+  .example-header-row, .example-row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+    height: 32px;
+    padding: 0 8px;
+  }
 
-.example-header-cell {
-  font-size: 12px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.54);
-}
+  .example-cell, .example-header-cell {
+    flex: 1;
+  }
 
-.example-cell {
-  font-size: 13px;
-  color: rgba(0, 0, 0, 0.87);
-}
+  .example-header-cell {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+  }
 
+  .example-cell {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.87);
+  }
 
-.example-header {
-  min-height: 64px;
-  padding: 8px 24px 0;
-}
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
+  .example-header .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  cdk-cell {
+    .show {
+      display: inline-block;
+    }
+    .edit {
+      display: none;
+    }
+
+    &.edit {
+      .edit {
+        display: inline-block;
+      }
+      .show {
+        display: none;
+      }
+    }
+  }
+
 }
