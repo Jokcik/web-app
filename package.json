@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "nodemon -L -e ts,json --exec ts-node src/server.ts",
     "build": "ts-node src/server.ts",
+    "prod": "ng build -op dist2 && rm -rf dist && mv dist2 dist_main && npm run css && ts-node src/server.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
