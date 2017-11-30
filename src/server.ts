@@ -4,6 +4,7 @@ import { ApplicationModule } from './modules/app.module';
 import * as path from 'path';
 import * as express from 'express';
 import * as serveStatic from 'serve-static';
+import * as cors from 'express-cors';
 
 async function bootstrap() {
 
@@ -15,6 +16,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(ApplicationModule, s);
   app.use(bodyParser.json());
+  app.use(cors({allowedOrigins: ['localhost:3000']}));
   app.setGlobalPrefix('api');
 
   app.use((req, res, next) => {
