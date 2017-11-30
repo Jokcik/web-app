@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon -L -e ts,json --exec node .",
-    "build": "ng build --prod --aot -op dist2 && rm -rf dist && mv dist2 dist && npm run css",
+    "build": "ts-node src/server.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
