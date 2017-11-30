@@ -10,7 +10,7 @@ import {
   MatCardModule, MatDialogModule, MatDialogRef,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
-  MatNativeDateModule,
+  MatNativeDateModule, MatSelectModule,
   MatSortModule,
   MatTableModule,
   MatTabsModule,
@@ -49,7 +49,8 @@ import { DshiEditComponent } from './dshi-edit/dshi-edit.component';
     CdkTableModule,
 
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   declarations: [
     EditComponent,

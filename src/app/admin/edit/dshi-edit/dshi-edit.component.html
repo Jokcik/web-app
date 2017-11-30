@@ -1,3 +1,12 @@
-<p>
-  od-dshi-edit works!
-</p>
+<mat-card>
+  <mat-form-field *ngIf="currentIndex != -1">
+    <mat-select>
+      <mat-option *ngFor="let school of schools" [value]="school.title">
+        {{ school.title }}
+      </mat-option>
+    </mat-select>
+    <div>
+      <input matInput [(ngModel)]="schools[currentIndex].title">
+    </div>
+  </mat-form-field>
+</mat-card>
