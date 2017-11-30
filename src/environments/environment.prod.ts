@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  host: 'http://localhost:3001/'
+  host: 'https://frozen-headland-84421.herokuapp.com/api/'
 };
