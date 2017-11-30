@@ -7,6 +7,8 @@ import * as serveStatic from 'serve-static';
 import * as cors from 'express-cors';
 let s = express();
 s.set('port', process.env.PORT || 3001);
+console.log('aaaaa', process.env.PORT);
+console.log('bbbbb', process.env.port);
 
 async function bootstrap() {
 
