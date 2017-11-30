@@ -8,7 +8,7 @@
 
   <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
     <ng-container cdkColumnDef="title">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Название </cdk-header-cell>
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Территория </cdk-header-cell>
       <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
         <div class="show">{{row.title}}</div>
         <div class="edit">
@@ -59,4 +59,4 @@
 
   <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
 </div>
-<button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить регион</button>
+<button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить район, город</button>

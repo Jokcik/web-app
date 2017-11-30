@@ -1,12 +1,12 @@
-<mat-card>
-  <mat-card-header>Добавить регион</mat-card-header>
+<mat-card class="outer-school-edit">
+  <mat-card-header>Добавить район, город</mat-card-header>
   <mat-form-field style="margin-top: 10px;">
-    <input matInput [(ngModel)]="title" placeholder="Название">
+    <textarea matInput [(ngModel)]="title" placeholder="Территория"></textarea>
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [(ngModel)]="telephone" placeholder="Телефон">
+  <mat-form-field >
+    <input matInput [(ngModel)]="telephone" placeholder="Код">
   </mat-form-field>
-
+  <br/>
   <button mat-raised-button style="margin-top: 5px;" (click)="add()">Добавить</button>
 </mat-card>

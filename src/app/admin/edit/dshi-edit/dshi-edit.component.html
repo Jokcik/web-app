@@ -1,12 +1,12 @@
 <mat-card>
-  <mat-form-field *ngIf="currentIndex != -1">
+  <mat-form-field>
     <mat-select>
       <mat-option *ngFor="let school of schools" [value]="school.title">
         {{ school.title }}
       </mat-option>
     </mat-select>
-    <div>
-      <input matInput [(ngModel)]="schools[currentIndex].title">
-    </div>
+  </mat-form-field>
+  <mat-form-field *ngIf="schools.length">
+    <input matInput [(ngModel)]="schools[0].title">
   </mat-form-field>
 </mat-card>

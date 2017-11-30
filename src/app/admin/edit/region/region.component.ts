@@ -38,7 +38,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
   }
 
   public openDialog(): void {
-    this.dialog.open(RegionDialogAdd, {width: '250px'}).afterClosed().subscribe(result => {
+    this.dialog.open(RegionDialogAdd, {width: '400px'}).afterClosed().subscribe(result => {
       if (!result) return;
       this.regionService.save(result);
       this.updateRegion()
