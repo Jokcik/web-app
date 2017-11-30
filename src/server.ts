@@ -9,7 +9,7 @@ async function bootstrap() {
 
   let s = express();
 
-  s.use(serveStatic(path.join(__dirname, '../dist')));
+  s.use(serveStatic(path.join(__dirname, '../dist_main')));
   s.use(serveStatic(path.join(__dirname, '../public')));
   s.use(serveStatic(path.join(__dirname, '../node_modules/@angular/material/prebuilt-themes')));
 
@@ -21,7 +21,7 @@ async function bootstrap() {
     if(req.originalUrl.startsWith('/api')) {
       next();
     } else {
-      res.sendFile('index.html', {root: 'dist'});
+      res.sendFile('index.html', {root: 'dist_main'});
     }
   });
 
