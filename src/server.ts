@@ -16,7 +16,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(ApplicationModule, s);
   app.use(bodyParser.json());
-  app.use(cors({allowedOrigins: ['localhost:3000']}));
+  app.use(cors({allowedOrigins: ['localhost:3001']}));
   app.setGlobalPrefix('api');
 
   app.use((req, res, next) => {
