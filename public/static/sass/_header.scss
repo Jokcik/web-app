@@ -71,7 +71,8 @@ header {
       }
 
       .nav {
-        &:visited {
+        color: #1e61ac;
+        &:visited, &:link, &:active {
           color: #1e61ac;
         }
         &:hover {
