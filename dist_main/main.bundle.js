@@ -316,8 +316,8 @@ ODModule = __decorate([
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 const environment = {
     production: false,
-    host: 'http://localhost:3001/api/'
-    // host: 'https://frozen-headland-84421.herokuapp.com/api/'
+    // host: 'http://localhost:3001/api/'
+    host: 'https://frozen-headland-84421.herokuapp.com/api/'
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = environment;
 
