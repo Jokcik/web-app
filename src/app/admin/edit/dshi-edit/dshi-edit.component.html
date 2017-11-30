@@ -1,12 +1,12 @@
-<mat-card>
+<mat-card class="outer-dshi-edit">
   <mat-form-field>
-    <mat-select>
+    <mat-select placeholder="Район, город">
       <mat-option *ngFor="let school of schools" [value]="school.title">
         {{ school.title }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field *ngIf="schools.length">
-    <input matInput [(ngModel)]="schools[0].title">
-  </mat-form-field>
+  <!--<mat-form-field *ngIf="schools.length">-->
+    <!--<input matInput [(ngModel)]="schools[0].title">-->
+  <!--</mat-form-field>-->
 </mat-card>
