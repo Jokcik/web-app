@@ -38,7 +38,7 @@
       <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [style.flex]="'0 0 10px'"
                 [class.edit]="idx == currentIndex && editable">
         <button mat-icon-button (click)="editRegion(row, idx)">
-          <mat-icon class="show">edit</mat-icon>
+            <mat-icon class="show">edit</mat-icon>
           <mat-icon class="edit">done</mat-icon>
         </button>
       </cdk-cell>
@@ -57,6 +57,6 @@
     <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="example-row"></cdk-row>
   </cdk-table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
 </div>
 <button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить регион</button>

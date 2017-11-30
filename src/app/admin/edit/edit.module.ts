@@ -24,6 +24,7 @@ import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
 import {HttpModule} from '@angular/http';
 import {RegionDialogAdd} from './region/region-dialog-add';
+import { DshiEditComponent } from './dshi-edit/dshi-edit.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import {RegionDialogAdd} from './region/region-dialog-add';
     EditComponent,
     MainComponent,
     RegionComponent,
-    RegionDialogAdd
+    RegionDialogAdd,
+    DshiEditComponent
   ],
   entryComponents: [
     RegionDialogAdd
