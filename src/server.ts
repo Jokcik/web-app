@@ -9,7 +9,7 @@ import * as nconf from 'nconf'
 import {environment} from './environments/environment.prod';
 
 let s = express();
-s.set('port', environment.port || process.env.PORT || nconf.get('port') || nconf.get('PORT') || 3001);
+s.set('port', 443);
 
 async function bootstrap() {
 
