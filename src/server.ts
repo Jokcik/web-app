@@ -25,7 +25,7 @@ async function bootstrap() {
     if(req.originalUrl.startsWith('/api')) {
       next();
     } else {
-      res.sendFile('index' + s.get('port') + '.html', {root: 'dist_main'});
+      res.sendFile('index.html', {root: 'dist_main'});
     }
   });
 
