@@ -5,5 +5,5 @@ import {Component} from '@angular/core';
   templateUrl: './od.component.html',
 })
 export class ODComponent {
-  title = process.env.PORT;
+  title = 'app';
 }
