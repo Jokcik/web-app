@@ -6,9 +6,10 @@ import * as express from 'express';
 import * as serveStatic from 'serve-static';
 import * as cors from 'express-cors';
 import * as nconf from 'nconf'
+import {environment} from './environments/environment.prod';
 
 let s = express();
-s.set('port', process.env.PORT || nconf.get('port') || nconf.get('PORT') || 3001);
+s.set('port', environment.port || process.env.PORT || nconf.get('port') || nconf.get('PORT') || 3001);
 
 async function bootstrap() {
 
