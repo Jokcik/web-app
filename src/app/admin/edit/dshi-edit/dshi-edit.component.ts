@@ -34,7 +34,6 @@ export class DshiEditComponent implements OnInit {
   public openDialog(): void {
     this.dialog.open(DshiDialogAdd, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
       if (!result) return;
-      console.log(result.school);
       this.schoolService.save(result.school).$observable.subscribe(() => {
         this.updateSchools();
         window.alert('Данные успешно сохранены');
@@ -46,6 +45,7 @@ export class DshiEditComponent implements OnInit {
     this.currentSchool.region = <any>this.currentSchool.region._id;
     this.schoolService.update(this.currentSchool).$observable.subscribe(res => {
       this.updateSchools();
+      this.currentSchool = null;
       window.alert('Данные успешно сохранены')
     });
   }
@@ -53,9 +53,9 @@ export class DshiEditComponent implements OnInit {
   public remove() {
     if (window.confirm('Вы действительно хотите удалить школу, управление?')) {
       this.schoolService.remove({_id: this.currentSchool._id}).$observable.subscribe(() => {
+        this.currentSchool = null;
         this.updateSchools();
         window.alert('Данные успешно удалены');
-        this.currentSchool = null;
       });
     }
   }
