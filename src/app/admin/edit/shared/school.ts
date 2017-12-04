@@ -8,14 +8,15 @@ class Person {
 }
 
 export class Schools {
+  _id: string;
   title: String;
-  region: Region;
-  type: Number;
+  region: Region = new Region();
+  type: Number = 0;
   address: String;
   site: String;
   email: String;
 
-  mainPerson: Person;
+  mainPerson: Person = new Person();
   oldPerson: [Person]
 }
 

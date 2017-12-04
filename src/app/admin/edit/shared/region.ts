@@ -1,5 +1,5 @@
 export class Region {
-  id: string;
+  _id: string;
   title: string;
   telephone: string;
 }

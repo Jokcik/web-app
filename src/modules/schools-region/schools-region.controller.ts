@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Param, Put} from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Put, Delete} from '@nestjs/common';
 import { Schema } from 'mongoose';
 import {SchoolsRegionService} from './schools-region.service';
 import {CreateSchoolsRegionDto} from './dto/create-schools-region.dto';
@@ -18,6 +18,11 @@ export class SchoolsRegionController {
   @Put(':id')
   async update(@Param('id') id: ObjectId, @Body() createSchoolsRegionDto: CreateSchoolsRegionDto): Promise<SchoolsRegion> {
     return this.schoolsRegionService.update(id, createSchoolsRegionDto);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: ObjectId): Promise<any> {
+    return this.schoolsRegionService.remove(id);
   }
 
   @Get()

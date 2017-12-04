@@ -19,7 +19,12 @@ export class SchoolsRegionService {
     return await this.schoolsRegionModel.findByIdAndUpdate(id, createSchoolsRegionDto, {new: true});
   }
 
+  async remove(id: ObjectId): Promise<any> {
+    return await this.schoolsRegionModel.findByIdAndRemove(id);
+  }
+
   async findAll(): Promise<SchoolsRegion[]> {
-    return await this.schoolsRegionModel.find();
+    console.log('123');
+    return await this.schoolsRegionModel.find().populate('region');
   }
 }

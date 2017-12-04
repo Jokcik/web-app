@@ -8,4 +8,21 @@
   mat-form-field {
     width: 100%;
   }
+
+  .school-person {
+    margin-bottom: 20px;
+  }
+  p {
+    text-align: center;
+  }
+
+  mat-radio-button {
+    margin-bottom: 20px;
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: #4f98ff;
+  }
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #4f98ff;
+  }
 }
