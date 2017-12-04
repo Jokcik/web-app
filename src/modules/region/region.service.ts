@@ -20,7 +20,7 @@ export class RegionService {
   }
 
   async findAll(): Promise<Region[]> {
-    return await this.regionModel.find();
+    return await this.regionModel.find().sort('title');
   }
 
   public remove(id: Schema.Types.ObjectId) {

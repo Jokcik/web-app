@@ -35,6 +35,7 @@ export class DshiEditComponent implements OnInit {
     this.dialog.open(DshiDialogAdd, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
       if (!result) return;
       this.schoolService.save(result.school).$observable.subscribe(() => {
+        this.currentSchool = null;
         this.updateSchools();
         window.alert('Данные успешно сохранены');
       });

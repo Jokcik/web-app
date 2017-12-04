@@ -24,7 +24,6 @@ export class SchoolsRegionService {
   }
 
   async findAll(): Promise<SchoolsRegion[]> {
-    console.log('123');
-    return await this.schoolsRegionModel.find().populate('region');
+    return await this.schoolsRegionModel.find().populate('region').sort('title');
   }
 }
