@@ -21,7 +21,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-radio-group (change)="currentSchool.type = $event" [value]="currentSchool.type.toString()">
+    <mat-radio-group (change)="currentSchool.type = $event.value" [value]="currentSchool.type.toString()">
       <mat-radio-button value="0">Школа</mat-radio-button>
       <mat-radio-button value="1">Управление</mat-radio-button>
     </mat-radio-group>

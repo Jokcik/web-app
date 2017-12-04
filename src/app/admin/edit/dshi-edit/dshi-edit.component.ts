@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Schools} from '../shared/school';
 import {DshiEditService} from './dshi-edit.service';
 import {RegionDialogAdd} from '../region/region-dialog-add';
@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material';
 import {DshiDialogAdd} from './dshi-dialog-add';
 import {RegionService} from '../region/region.service';
 import {Region} from '../shared/region';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'od-dshi-edit',
@@ -22,29 +23,40 @@ export class DshiEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.schools = this.schoolService.query();
     this.regions = this.regionService.query();
+    this.updateSchools();
+  }
+
+  updateSchools() {
+    this.schools = this.schoolService.query();
   }
 
   public openDialog(): void {
     this.dialog.open(DshiDialogAdd, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
       if (!result) return;
-      this.schoolService.save(result.school);
-      window.alert('Данные успешно сохранены');
+      console.log(result.school);
+      this.schoolService.save(result.school).$observable.subscribe(() => {
+        this.updateSchools();
+        window.alert('Данные успешно сохранены');
+      });
     });
   }
 
   public update() {
     this.currentSchool.region = <any>this.currentSchool.region._id;
-    this.schoolService.update(this.currentSchool).$observable.subscribe(res => window.alert('Данные успешно сохранены'));
+    this.schoolService.update(this.currentSchool).$observable.subscribe(res => {
+      this.updateSchools();
+      window.alert('Данные успешно сохранены')
+    });
   }
 
   public remove() {
     if (window.confirm('Вы действительно хотите удалить школу, управление?')) {
       this.schoolService.remove({_id: this.currentSchool._id}).$observable.subscribe(() => {
+        this.updateSchools();
         window.alert('Данные успешно удалены');
         this.currentSchool = null;
-      })
+      });
     }
   }
 
