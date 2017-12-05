@@ -2,7 +2,7 @@
   <mat-form-field>
     <mat-select placeholder="Школа, управление" (valueChange)="currentSchool = schools[$event]">
       <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">
-        {{ school.title }}
+        <div [style.color]="school.type ? 'rgb(128, 0, 0)': ''">{{ school.title }}</div>
       </mat-option>
     </mat-select>
   </mat-form-field>
