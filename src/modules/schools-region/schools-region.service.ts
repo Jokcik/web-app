@@ -1,5 +1,5 @@
-import { Model, Schema } from 'mongoose';
-import { Component, Inject } from '@nestjs/common';
+import {Model, Schema} from 'mongoose';
+import {Component, Inject} from '@nestjs/common';
 import {SchoolsRegion} from './interfaces/schools-region.interface';
 import {CreateSchoolsRegionDto} from './dto/create-schools-region.dto';
 import ObjectId = Schema.Types.ObjectId;
@@ -11,8 +11,8 @@ export class SchoolsRegionService {
   }
 
   async create(createSchoolsRegionDto: CreateSchoolsRegionDto): Promise<SchoolsRegion> {
-    const news = new this.schoolsRegionModel(createSchoolsRegionDto);
-    return await news.save();
+    const schoolsRegion = new this.schoolsRegionModel(createSchoolsRegionDto);
+    return await schoolsRegion.save();
   }
 
   async update(id: ObjectId, createSchoolsRegionDto: CreateSchoolsRegionDto): Promise<SchoolsRegion> {
@@ -24,6 +24,9 @@ export class SchoolsRegionService {
   }
 
   async findAll(): Promise<SchoolsRegion[]> {
-    return await this.schoolsRegionModel.find().sort({region: 1, title: -1}).populate('region');
+    let school = await this.schoolsRegionModel.find().populate('region');
+    return school.sort((a, b) => a.region.title.localeCompare(b.region.title) ||
+      b.type - a.type || a.title.localeCompare(b.title));
+
   }
 }

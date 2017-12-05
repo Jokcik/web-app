@@ -8,7 +8,7 @@ export const PersonSchema = new mongoose.Schema({
   post: String,
   telephone: String,
   stationary: String
-});
+}, {_id: false});
 
 export const SchoolsRegionSchema = new mongoose.Schema({
   title: String,
