@@ -1,0 +1,50 @@
+$height: 250px;
+
+.outer-news-edit {
+  [mat-card-title] {
+    text-align: center;
+  }
+
+  [mat-card-content] > button {
+    margin-top: 20px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .img-text {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .news-main-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .img-block {
+    display: flex;
+    .img-wrap {
+      width: $height;
+      height: $height;
+      background-color: lightgray;
+      margin-bottom: 20px;
+
+      img {
+        width: $height;
+        height: $height;
+        outline: 2px dotted #666
+      }
+    }
+
+    .btn-block {
+      margin-left: 40px;
+      button {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

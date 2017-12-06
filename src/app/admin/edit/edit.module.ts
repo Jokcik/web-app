@@ -8,7 +8,7 @@ import {
   MAT_DIALOG_DATA,
   MatButtonModule,
   MatCardModule, MatDialogModule, MatDialogRef,
-  MatFormFieldModule, MatIconModule,
+  MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule, MatListModule,
   MatNativeDateModule, MatRadioModule, MatSelectModule,
   MatSortModule,
@@ -27,6 +27,7 @@ import {RegionDialogAdd} from './region/region-dialog-add';
 import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
 import {DshiEditService} from './dshi-edit/dshi-edit.service';
 import {DshiDialogAdd} from './dshi-edit/dshi-dialog-add';
+import { NewsEditComponent } from './news-edit/news-edit.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import {DshiDialogAdd} from './dshi-edit/dshi-dialog-add';
     MatIconModule,
     MatSelectModule,
     MatRadioModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule
   ],
   declarations: [
     EditComponent,
@@ -62,7 +64,8 @@ import {DshiDialogAdd} from './dshi-edit/dshi-dialog-add';
     RegionComponent,
     RegionDialogAdd,
     DshiEditComponent,
-    DshiDialogAdd
+    DshiDialogAdd,
+    NewsEditComponent
   ],
   entryComponents: [
     RegionDialogAdd,
