@@ -1,23 +1,23 @@
 .outer-wrap-schools {
-
-  .left {
-    display: inline-block;
-    padding-right: 20px;
+  mat-card {
+    margin-bottom: 15px;
+    text-align: center;
   }
 
-  .line {
-    width: 1px;
-    background-color: darkgray;
+  .mat-card-title {
+    margin-bottom: 0;
   }
 
-  .inner-wrap-schools {
-    display: flex;
-    justify-content: space-between;
+  [mat-card-content] {
+    font-style: italic;
   }
 
-  ul {
-    li {
-      cursor: pointer;
-    }
+  .mat-form-field-infix {
+    width: 100%;
+  }
+
+  .school-mainperson {
+    text-align: left;
+    margin-top: 20px;
   }
 }
