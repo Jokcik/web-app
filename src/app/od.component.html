@@ -1,41 +1,88 @@
 <div class="page">
   <header>
-    <div class="img-block">
-      <img src="/images/logo/logo.png"/>
-    </div>
-    <div class="inner-text">
-      <p class="cap">Управление культуры Белгородской области</p>
-      <p class="cap">Белгородский государственный институт искусств и культуры</p>
-      <p class="cap">Региональный учебно-методический центр по художественному образованию</p>
-      <p class="title">Одаренные дети Белгородской области</p>
-      <nav class="bottom">
-        <a href="/" routerLink="/" class="nav">Главная</a>
-        <a href="/schools" routerLink="/schools" class="nav">ДШИ Белгородской области</a>
-        <a href="/news" routerLink="/news" class="nav">Новости</a>
-        <a href="/competition" routerLink="/competition" class="nav">Конкурсы</a>
-        <a href="/bank-data-od" routerLink="/bank-data-od" class="nav">Банк данных одаренных детей</a>
-        <a href="/gallery" routerLink="/gallery" class="nav">Фотогалерея</a>
-        <a href="/contacts" routerLink="/contacts" class="nav">Контакты</a>
-      </nav>
-    </div>
-    <div class="img-block-bgiik">
-      <img src="/images/logo/logo-bgik.png"/>
-    </div>
-    <div class="login">
-      <div class="icon-center"><mat-icon>input</mat-icon></div>
-      <a href="/auth/login" routerLink="/auth/login">Вход</a> /
-      <a href="/auth/register" routerLink="/auth/register"><mat-icon>create</mat-icon>Регистрация</a>
-    </div>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarCollapse" style="text-transform: none;">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/" routerLink="/" routerLinkActive="active"
+                                  [routerLinkActiveOptions]="{exact:true}">Главная<span class="sr-only"></span></a></li>
+          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools" routerLinkActive="active">ДШИ
+            Белгородской области</a></li>
+          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news" routerLinkActive="active">Новости</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"
+                                  routerLinkActive="active">Конкурсы</a></li>
+          <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
+                                  routerLinkActive="active">Банк данных одаренных детей</a></li>
+          <li class="nav-item"><a class="nav-link" href="/gallery" routerLink="/gallery" routerLinkActive="active">Фотогалерея</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts" routerLinkActive="active">Контакты</a>
+          </li>
+        </ul>
+
+        <form class="form-inline mt-2 mt-md-0">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login" routerLink="/auth/login" routerLinkActive="active">Вход</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">/</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/register" routerLink="/auth/register" routerLinkActive="active">Регистрация</a>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </nav>
   </header>
-  <div class="img-body-block"></div>
-  <div class="outer_wrap_main">
-    <router-outlet></router-outlet>
+  <div class="jumbotron">
+    <div class="container">
+      <!--<h1 class="display-3">Hello, world!</h1>-->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="img-block">
+            <div class="img-wrap">
+              <img src="/images/logo/logo.png"/>
+            </div>
+            <div class="btn-block">
+              <div class="block-logo">Одаренные дети Белгородской области</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
+          <p>Управление культуры Белгородской области</p>
+          <p>Белгородский государственный институт искусств и культуры</p>
+          <p>Региональный учебно-методический центр по художественному образованию</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <footer>
-    <div class="footer-wrap">
-      <div><p class="contact"><a href="/contacts" routerLink="/contacts">Контакты</a></p></div>
-      <div><p class="login"><a href="/auth/login" routerLink="/auth/login">Вход</a></p></div>
-      <p>© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</p>
+  <mat-card class="outer_wrap_main">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+          <router-outlet></router-outlet>
+        </div>
+        <aside class="col-sm-3 ml-sm-auto blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Новости</h4>
+            <p>Управление культуры Белгородской области</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </mat-card>
+  <footer class="footer">
+    <!--<ul class="navbar-nav mr-auto">-->
+      <!--<li class="nav-item"><p><a class="nav-link" href="/contacts" routerLink="/contacts">-->
+        <!--Главная<span class="sr-only"></span></a></p></li>-->
+      <!--<li class="nav-item"><p><a class="nav-link" href="/auth/login" routerLink="/auth/login">Вход</a></p></li>-->
+    <!--</ul>-->
+    <div class="container" style="margin-top: 10px;">
+      <span class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
     </div>
   </footer>
 </div>

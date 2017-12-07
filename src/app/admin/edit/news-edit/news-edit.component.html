@@ -4,7 +4,7 @@
     <mat-form-field>
       <input matInput placeholder="Заголовок новости"/>
     </mat-form-field>
-    <div class="img-text">Изображение на странице новостей</div>
+    <div class="img-text"><b>Изображение на странице новостей</b></div>
     <div class="img-block">
       <div class="img-wrap">
         <img src="http://localhost:3001/images/logo/logo.png"/>
@@ -14,7 +14,7 @@
         <button mat-raised-button color="warn">Удалить</button>
       </div>
     </div>
-    <div class="news-main-title">Текст новости</div>
+    <div class="news-main-title"><b>Текст новости</b></div>
     <div class="news-main-text">
       <ckeditor [(ngModel)]="title" [config]="config"></ckeditor>
     </div>

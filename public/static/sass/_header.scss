@@ -1,11 +1,15 @@
 header {
-  height: $header_height;
-  background-image: url('/images/fon/header.jpg');
-  background-size: cover;
+  height: 60px;
+  //background-image: url('/images/fon/header.jpg');
+  //background-size: cover;
   display: flex;
   color: #fff;
   text-transform: uppercase;
   flex: 0 0 auto;
+
+  .bg-dark {
+    background-color: #6D4C41!important;
+  }
 
   .login {
     margin-top: 4%;
@@ -110,4 +114,10 @@ header {
     }
 
   }
+
+  #navbarCollapse > ul {
+    margin-left: 7%;
+    text-transform: uppercase;
+  }
+
 }

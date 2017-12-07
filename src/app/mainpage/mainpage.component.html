@@ -1,10 +1,8 @@
 <!--<div style="height: 400px">-->
-  <!--<carousel [sources]="imageSources"></carousel>-->
+<!--<carousel [sources]="imageSources"></carousel>-->
 <!--</div>-->
-<mat-card class="outer-wrap-mainpage">
-  <div *ngFor="let material of descriptions">
-    <p [innerHTML]="material.title"></p>
-    <div [innerHTML]="material.description.short_description"></div>
-    <p><a [href]="material.url" [routerLink]="material.url" style="height: 20px;">Читать далее...</a></p>
-  </div>
-</mat-card>
+<div *ngFor="let material of descriptions">
+  <p [innerHTML]="material.title"></p>
+  <div [innerHTML]="material.description.short_description"></div>
+  <p><a [href]="material.url" [routerLink]="material.url" style="height: 20px;">Читать далее...</a></p>
+</div>
