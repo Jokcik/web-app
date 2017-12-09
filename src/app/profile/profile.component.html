@@ -1,0 +1,17 @@
+<form class="form-inline mt-2 mt-md-0">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" *ngIf="!userService.user" >
+      <a class="nav-link" href="/auth/login" routerLink="/auth/login" routerLinkActive="active">Вход</a>
+    </li>
+    <li class="nav-item" *ngIf="userService.user">
+      <a class="nav-link"> {{userService.user.surname + ' ' +
+        userService.user.name[0].toLocaleUpperCase() + '.' + userService.user.middleName[0].toLocaleUpperCase() + '.'}}</a>
+    </li>
+    <li class="nav-item" *ngIf="userService.user">
+      <a class="nav-link">/</a>
+    </li>
+    <li class="nav-item" *ngIf="userService.user">
+      <a class="nav-link" style="cursor: pointer;" (click)="logout()">Выход</a>
+    </li>
+  </ul>
+</form>

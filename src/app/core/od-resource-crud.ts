@@ -16,12 +16,12 @@ export class ODResourceCrud<TQuery, TShort, TFull> extends ODResource {
   query: ResourceMethod<TQuery, TShort[]>;
 
   @ResourceAction({
-    path: '/{!id}'
+    path: '/{!_id}'
   })
   get: ResourceMethod<{id: any}, TFull>;
 
   @ResourceAction({
-    path: '/{!id}'
+    path: '/{!_id}'
   })
   get2: ResourceMethodStrict<TFull, {id: any}, TFull>;
 

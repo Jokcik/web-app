@@ -6,6 +6,7 @@ import {ODRoutingModule} from './od-routing.module';
 import {MatCardModule, MatIconModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {HttpModule} from '@angular/http';
   ],
   declarations: [
     ODComponent,
+    ProfileComponent,
   ],
   providers: [],
   bootstrap: [ODComponent]

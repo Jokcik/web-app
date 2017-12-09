@@ -11,11 +11,13 @@ export const SchoolsRegionModelName = 'SchoolsRegion';
 export const RegionModelToken = 'RegionModelToken';
 export const RegionModelName = 'Region';
 
+export const ProfileModelToken = 'ProfileModelToken';
+export const ProfileModelName = 'Profile';
+
 
 export const Roles = (...roles: number[]) => ReflectMetadata('roles', roles);
 
 export const RolesTypes = {
   ALL: 0,
-  CREATOR: 1,
-  ADMIN: 2
+  ADMIN: 1
 };

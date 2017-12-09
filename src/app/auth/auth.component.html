@@ -1,28 +1,46 @@
 <div class="outer-wrap-auth">
   <p class="text title-input" *ngIf="!register">Вход</p>
   <p class="text title-input" *ngIf="register">Регистрация</p>
-  <mat-form-field class="input-text">
-    <input matInput placeholder="Логин" required>
-  </mat-form-field>
-  <mat-form-field class="input-text">
-    <input matInput placeholder="Пароль" required>
-  </mat-form-field>
+  <div *ngIf="register">
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Фамилия" required [(ngModel)]="user.surname">
+    </mat-form-field>
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Имя" required [(ngModel)]="user.name">
+    </mat-form-field>
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Отчество" required [(ngModel)]="user.middleName">
+    </mat-form-field>
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Логин на сайте" required [(ngModel)]="user.nickname">
+    </mat-form-field>
+    <mat-form-field class="input-text">
+      <input matInput type="password" placeholder="Пароль" required [(ngModel)]="password">
+    </mat-form-field>
+    <div class="register" *ngIf="register">
+      <div>
+        <p class="text select-text">Уровень доступа:</p>
+        <mat-form-field class="example-full-width">
+          <mat-select [value]="roles.ADMIN" (valueChange)="user.role = $event">
+            <mat-option [value]="roles.ADMIN">РУМЦ</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!register">
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Логин" required [(ngModel)]="user.nickname">
+    </mat-form-field>
+    <mat-form-field class="input-text">
+      <input matInput placeholder="Пароль" required [(ngModel)]="password">
+    </mat-form-field>
+  </div>
+
   <div class="sign-in" *ngIf="!register">
-    <button mat-raised-button  color="primary">Войти</button>
-    <button mat-raised-button  color="warn">Забыли пароль</button>
+    <button mat-raised-button color="primary" (click)="loginUser()">Войти</button>
   </div>
   <div class="register" *ngIf="register">
-    <div>
-    <p class="text select-text">Уровень доступа:</p>
-      <mat-form-field class="example-full-width">
-        <mat-select [value]="0">
-          <mat-option [value]="0">РУМЦ</mat-option>
-          <mat-option [value]="1">УК районов и городов</mat-option>
-          <mat-option [value]="2">Школа</mat-option>
-          <mat-option [value]="3">Преподаватель</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <button mat-raised-button color="primary">Зарегистрировать</button>
+    <button mat-raised-button color="primary" (click)="registerUser()">Зарегистрировать</button>
   </div>
 </div>

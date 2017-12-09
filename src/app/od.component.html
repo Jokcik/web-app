@@ -1,43 +1,30 @@
 <div class="page">
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="collapse navbar-collapse" id="navbarCollapse" style="text-transform: none;">
+      <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a class="nav-link" href="/" routerLink="/" routerLinkActive="active"
                                   [routerLinkActiveOptions]="{exact:true}">Главная<span class="sr-only"></span></a></li>
-          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools" routerLinkActive="active">ДШИ
-            Белгородской области</a></li>
-          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news" routerLinkActive="active">Новости</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools"
+                                  routerLinkActive="active">ДШИ Белгородской области</a></li>
+          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news"
+                                  routerLinkActive="active">Новости</a></li>
           <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"
                                   routerLinkActive="active">Конкурсы</a></li>
           <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
                                   routerLinkActive="active">Банк данных одаренных детей</a></li>
-          <li class="nav-item"><a class="nav-link" href="/gallery" routerLink="/gallery" routerLinkActive="active">Фотогалерея</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts" routerLinkActive="active">Контакты</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="/gallery" routerLink="/gallery"
+                                  routerLinkActive="active">Фотогалерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
+                                  routerLinkActive="active">Контакты</a></li>
         </ul>
 
-        <form class="form-inline mt-2 mt-md-0">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/login" routerLink="/auth/login" routerLinkActive="active">Вход</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/register" routerLink="/auth/register" routerLinkActive="active">Регистрация</a>
-            </li>
-          </ul>
-        </form>
+        <od-profile></od-profile>
       </div>
     </nav>
   </header>
   <div class="jumbotron">
     <div class="container">
-      <!--<h1 class="display-3">Hello, world!</h1>-->
       <div class="row">
         <div class="col-md-4">
           <div class="img-block">
@@ -61,7 +48,6 @@
   </div>
   <mat-card class="outer_wrap_main">
     <div class="container">
-
       <div class="row">
         <div class="col-sm-8 blog-main">
           <router-outlet></router-outlet>
@@ -76,11 +62,6 @@
     </div>
   </mat-card>
   <footer class="footer">
-    <!--<ul class="navbar-nav mr-auto">-->
-      <!--<li class="nav-item"><p><a class="nav-link" href="/contacts" routerLink="/contacts">-->
-        <!--Главная<span class="sr-only"></span></a></p></li>-->
-      <!--<li class="nav-item"><p><a class="nav-link" href="/auth/login" routerLink="/auth/login">Вход</a></p></li>-->
-    <!--</ul>-->
     <div class="container" style="margin-top: 10px;">
       <span class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
     </div>

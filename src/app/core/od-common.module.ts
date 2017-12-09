@@ -3,6 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ODClickOutside} from './gg-click-outside';
+import {ProfileService} from '../profile/profile.service';
+import {UserService} from './user-service/user.service';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ export class ODCommonModule {
     return {
       ngModule: ODCommonModule,
       providers: [
+        ProfileService,
+        UserService
       ]
     };
   }
