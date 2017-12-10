@@ -1,4 +1,4 @@
-<mat-card class="outer-wrap-schools">
+<div class="outer-wrap-schools">
   <mat-form-field>
     <mat-select placeholder="Район" (valueChange)="updateSchools($event)" [value]="currentRegionId">
       <mat-option *ngFor="let region of regions" [value]="region._id">
@@ -15,5 +15,5 @@
       <div *ngIf="school.mainPerson.stationary"><b>тел.</b> {{school.mainPerson.stationary}}</div>
     </div>
   </mat-card>
-</mat-card>
+</div>
 
