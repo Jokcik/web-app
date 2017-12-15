@@ -1,4 +1,4 @@
-<div class="outer-wrap-schools">
+<div class="outer-wrap-schools" [class.dummy]="currentRegionId == '1'">
   <mat-form-field>
     <mat-select placeholder="Район" (valueChange)="updateSchools($event)" [value]="currentRegionId">
       <mat-option *ngFor="let region of regions" [value]="region._id">
@@ -7,7 +7,7 @@
     </mat-select>
   </mat-form-field>
   <mat-card *ngFor="let school of currentSchools" [style.background-color]="school.type ? 'antiquewhite' : ''">
-    <div mat-card-title>{{school.title}}</div>
+    <div mat-card-title>{{school.title || '1'}}</div>
     <div mat-card-content>({{school.address}})</div>
     <div style="margin-top: 10px;"><b>cайт: </b>{{school.site}}, <b>e-mail: </b>{{school.email}}</div>
     <div class="school-mainperson">

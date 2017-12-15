@@ -1,4 +1,19 @@
 .outer-wrap-schools {
+  &.dummy {
+    mat-select {
+      .mat-select-value {
+        background-color: #F0F0F0;
+      }
+    }
+
+    mat-card {
+      div {
+        background-color: #F0F0F0;
+        color: #F0F0F0;
+      }
+    }
+  }
+
   mat-card {
     margin-bottom: 15px;
     text-align: center;
