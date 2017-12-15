@@ -19,8 +19,6 @@ export class ProfileController {
 
   @Get()
   async getUser(@Request() req): Promise<Profile[]> {
-    console.log('getUser')
-    return [];
-    // return this.profilesService.getUser(req.user);
+    return this.profilesService.getUser(req.user);
   }
 }
