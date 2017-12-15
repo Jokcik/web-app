@@ -16,15 +16,18 @@
   }
 
   .text {
+    margin-top: 20px;
+    font-weight: bold;
     display: block;
     color: rgba(0,0,0,.87);;
     font-size: 18px;
+    text-align: center;
     margin-bottom: 10px;
   }
 
   .outer-wrap-mainpage {
     margin-top: 15px!important;
-    background-color: rgba(202, 202, 202, 0.38);
+    //background-color: rgba(202, 202, 202, 0.38);
   }
 
   .button-row {
