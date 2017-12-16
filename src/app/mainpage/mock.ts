@@ -10,6 +10,7 @@ export const MockDescription: Materials[] = [{
 
 `,
   url: `/mainpage/history`,
+  main: true,
   description: {
     short_description: `
 <div style="text-align: center; width: 95%; margin: 0"><img src="/images/history/image_1.jpg" /></div>

@@ -4,7 +4,9 @@ export class Materials {
   id: string;
   title: SafeHtml;
   url: string;
-  description: Description;
+  img?: string;
+  main: boolean = false;
+  description: Description = new Description();
 }
 
 export class Description {

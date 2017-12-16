@@ -2,7 +2,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {ODClickOutside} from './gg-click-outside';
+import {ODClickOutside} from './od-click-outside';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
 
@@ -12,11 +12,11 @@ import {UserService} from './user-service/user.service';
     RouterModule
   ],
   declarations: [
-    ODClickOutside
+    ODClickOutside,
   ],
   exports: [
     RouterModule,
-    ODClickOutside
+    ODClickOutside,
   ],
 })
 export class ODCommonModule {

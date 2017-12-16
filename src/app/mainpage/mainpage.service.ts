@@ -1,5 +1,5 @@
 import {Materials} from '../news/shared/materials';
-import {ResourceParams} from 'ngx-resource';
+import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {ODResourceCrud} from '../core/od-resource-crud';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
@@ -13,8 +13,11 @@ export class MainpageService extends ODResourceCrud<void, Materials, Materials> 
     super(http);
   }
 
-  public querySafeHtml(): Observable<Materials[]> {
-    return this.query().$observable.map(array => {
+  @ResourceAction({isArray: true})
+  queryMainpage: ResourceMethod<{main: boolean}, Materials[]>;
+
+  public querySafeHtml(value: {main: boolean}): Observable<Materials[]> {
+    return this.queryMainpage(value).$observable.map(array => {
       array.forEach((value, index) => {
         if (typeof value.description.description == 'object') return;
         array[index].description.description = this.sanitizer.bypassSecurityTrustHtml(value.description.description);

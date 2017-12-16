@@ -14,7 +14,8 @@ export class MainpageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mainpageService.querySafeHtml().subscribe(descriptions => this.descriptions = descriptions);
+    console.log('ngOnInit')
+    this.mainpageService.querySafeHtml({main: true}).subscribe(descriptions => this.descriptions = descriptions);
   }
 
   public imageSources: string[] = [

@@ -4,6 +4,7 @@ import {RegionModule} from './region/region.module';
 import {SchoolsRegionModule} from './schools-region/schools-region.module';
 import {ProfileModule} from './profile/profile.module';
 import {AuthModule} from './authenticate/auth.module';
+import {UploadsModule} from './uploads/uploads.module';
 
 @Module({
   modules: [
@@ -11,7 +12,8 @@ import {AuthModule} from './authenticate/auth.module';
     RegionModule,
     SchoolsRegionModule,
     AuthModule,
-    ProfileModule
+    ProfileModule,
+    UploadsModule
   ],
 })
 export class ApplicationModule {

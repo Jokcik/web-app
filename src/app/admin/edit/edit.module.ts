@@ -28,6 +28,9 @@ import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
 import {DshiEditService} from './dshi-edit/dshi-edit.service';
 import {DshiDialogAdd} from './dshi-edit/dshi-dialog-add';
 import { NewsEditComponent } from './news-edit/news-edit.component';
+import {ODMultipartSendService} from '../../core/od-multipart-send.service';
+import {ODUtils} from '../../core/od-utils';
+import {ODImageDirective} from '../../core/od-image-load.directive';
 
 @NgModule({
   imports: [
@@ -65,13 +68,14 @@ import { NewsEditComponent } from './news-edit/news-edit.component';
     RegionDialogAdd,
     DshiEditComponent,
     DshiDialogAdd,
-    NewsEditComponent
+    NewsEditComponent,
+    ODImageDirective
   ],
   entryComponents: [
     RegionDialogAdd,
     DshiDialogAdd
   ],
-  providers: [MainpageService, RegionService, DshiEditService,
+  providers: [MainpageService, RegionService, DshiEditService, ODMultipartSendService, ODUtils,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

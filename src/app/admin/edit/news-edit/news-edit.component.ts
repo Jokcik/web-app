@@ -1,16 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import {MainpageService} from '../../../mainpage/mainpage.service';
+import {Materials} from '../../../news/shared/materials';
+import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 
 @Component({
   selector: 'od-news-edit',
   templateUrl: './news-edit.component.html',
 })
 export class NewsEditComponent implements OnInit {
-  public title: string = '1234';
+  public news: Materials = new Materials();
+  public imgFile: File;
 
-  constructor(private service: MainpageService) { }
+  constructor(private service: MainpageService,
+              private multipart: ODMultipartSendService) {
+  }
 
   ngOnInit() {
+  }
+
+
+  public loadFile() {
+    if (!this.imgFile) return;
+
+    let multipartItems: MultipartItem[] = [
+      {name: 'logo', value: this.imgFile},
+      {name: 'type', value: 'news'}
+    ];
+
+    this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).subscribe(data => this.news.img = data.url);
+  }
+
+  public saveNews() {
+    this.service.save(this.news).$observable.subscribe(res => {
+      window.alert(res);
+    })
   }
 
   public config = {

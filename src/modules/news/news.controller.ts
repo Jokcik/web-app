@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Param, Put} from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Put, Query} from '@nestjs/common';
 import { Schema } from 'mongoose';
 import {NewsService} from './news.service';
 import {CreateNewsDto} from './dto/create-news.dto';
@@ -21,7 +21,7 @@ export class NewsController {
   }
 
   @Get()
-  async findAll(): Promise<News[]> {
-    return this.newsService.findAll();
+  async findAll(@Query('main') main: boolean): Promise<News[]> {
+    return this.newsService.findAll(main);
   }
 }

@@ -2,23 +2,34 @@
   <div mat-card-title>Добавить новость на сайт</div>
   <div mat-card-content>
     <mat-form-field>
-      <input matInput placeholder="Заголовок новости"/>
+      <input matInput placeholder="Заголовок новости" [(ngModel)]="news.title"/>
     </mat-form-field>
     <div class="img-text"><b>Изображение на странице новостей</b></div>
     <div class="img-block">
       <div class="img-wrap">
-        <img src="http://localhost:3001/images/logo/logo.png"/>
+        <img *ngIf="news.img" [src]="news.img">
       </div>
       <div class="btn-block">
-        <button mat-raised-button color="primary">Выбрать файл</button>
+
+        <button mat-raised-button color="primary">
+          <label for="fileToUpload" style="margin-bottom: 0; cursor: pointer;">Выбрать файл</label>
+          <input id="fileToUpload" odImageLoad [src]="news.img" style="display: none"
+                 [(file)]="imgFile" type="file" (change)="loadFile()">
+        </button>
         <button mat-raised-button color="warn">Удалить</button>
       </div>
     </div>
-    <div class="news-main-title"><b>Текст новости</b></div>
+
+    <div class="news-main-title"><b>Краткое описание</b></div>
     <div class="news-main-text">
-      <ckeditor [(ngModel)]="title" [config]="config"></ckeditor>
+      <ckeditor [(ngModel)]="news.description.short_description" [config]="config"></ckeditor>
     </div>
 
-    <button mat-raised-button color="primary">Добавить</button>
+    <div class="news-main-title"><b>Текст новости</b></div>
+    <div class="news-main-text">
+      <ckeditor [(ngModel)]="news.description.description" [config]="config"></ckeditor>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="saveNews()">Добавить</button>
   </div>
 </mat-card>

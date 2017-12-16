@@ -1,8 +1,9 @@
 import {User} from './user';
 import {Subject} from 'rxjs/Subject';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {catchError} from 'rxjs/operators';
+import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class UserService {
@@ -23,9 +24,9 @@ export class UserService {
 
   public getUser(): Observable<User> {
     if (this.errorAuth) {
-      return Observable.of(this.user);
+      return of(this.user);
     }
-    return this.user ? Observable.of(this.user) : this.onLogin.pipe(catchError(error => Observable.of(null)))
+    return this.user ? of(this.user) : this.onLogin.pipe(catchError(error => of(null)))
   }
 
   public logout() {

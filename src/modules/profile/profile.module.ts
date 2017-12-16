@@ -22,6 +22,6 @@ const routes: any[] = [
 export class ProfileModule implements NestModule {
   configure(consumer: MiddlewaresConsumer): void {
     consumer.apply(passport.initialize()).with().forRoutes(...routes);
-    consumer.apply(passport.authenticate('jwt', { session: false })).forRoutes(...routes);
+    consumer.apply(passport.authenticate('jwt', { session: false, failWithError: true})).forRoutes(...routes);
   }
 }

@@ -21,7 +21,7 @@ export class PageComponent implements OnInit {
     this.route.params.pipe(
       switchMap(params => {
         if (params['action'] == 'history') {
-          return this.mainpageService.querySafeHtml();
+          return this.mainpageService.querySafeHtml({main: true});
         }
 
         return empty();
