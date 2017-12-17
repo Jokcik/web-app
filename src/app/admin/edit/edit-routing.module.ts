@@ -14,11 +14,19 @@ import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
       component: EditComponent,
       children: [
         {
-          path: '',
+          path: 'history',
           component: MainComponent,
         },
         {
+          path: '',
+          component: NewsEditComponent,
+        },
+        {
           path: 'news',
+          component: NewsEditComponent,
+        },
+        {
+          path: 'news/:url',
           component: NewsEditComponent,
         },
         {

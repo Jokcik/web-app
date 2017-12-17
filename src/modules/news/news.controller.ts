@@ -1,5 +1,5 @@
-import {Controller, Get, Post, Body, Param, Put, Query} from '@nestjs/common';
-import { Schema } from 'mongoose';
+import {Body, Controller, Delete, Get, Param, Post, Put, Query} from '@nestjs/common';
+import {Schema} from 'mongoose';
 import {NewsService} from './news.service';
 import {CreateNewsDto} from './dto/create-news.dto';
 import {News} from './interfaces/news.interface';
@@ -13,6 +13,11 @@ export class NewsController {
   @Post()
   async create(@Body() createNewsDto: CreateNewsDto) {
     return this.newsService.create(createNewsDto);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: ObjectId) {
+    return this.newsService.remove(id);
   }
 
   @Put(':id')

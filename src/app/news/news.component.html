@@ -1,10 +1,12 @@
 <div class="outer-wrap-news" [class.dummy]="loaded">
   <mat-card *ngFor="let material of descriptions" style="margin-top: 10px;">
+    <div style="position: absolute; right: 10px; top: 20px; cursor: pointer;" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
+    <div style="position: absolute; right: 10px; top: 50px; cursor: pointer;" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
     <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
       <div style="padding-left: 30px"><b [innerHTML]="material.title"></b></div>
       <div class="container" style="display: flex;">
         <div class="col-sm-3">
-          <img [src]="material.img"/>
+          <img *ngIf="material.img" [src]="material.img"/>
         </div>
         <div class="col-sm-9">
           <div class="sidebar-module sidebar-module-inset">

@@ -6,5 +6,6 @@ export interface News extends Document {
   readonly title: string;
   readonly url: string;
   readonly img: string;
+  readonly date: Date;
   readonly description: Description;
 }

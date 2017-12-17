@@ -5,7 +5,7 @@ import {NewsRoutingModule} from './news-routing.module';
 import {MainpageService} from '../mainpage/mainpage.service';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {MatCardModule} from '@angular/material';
+import {MatCardModule, MatIconModule} from '@angular/material';
 import {PageComponent} from './page/page.component';
 
 @NgModule({
@@ -15,7 +15,8 @@ import {PageComponent} from './page/page.component';
     CommonModule,
     FormsModule,
 
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   declarations: [
     NewsComponent,

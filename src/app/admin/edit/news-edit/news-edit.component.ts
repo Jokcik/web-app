@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainpageService} from '../../../mainpage/mainpage.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ODUtils} from '../../../core/od-utils';
+import {switchMap} from 'rxjs/operators';
+import {of} from 'rxjs/observable/of';
 
 @Component({
   selector: 'od-news-edit',
@@ -16,10 +18,17 @@ export class NewsEditComponent implements OnInit {
   constructor(private service: MainpageService,
               private multipart: ODMultipartSendService,
               private router: Router,
+              private route: ActivatedRoute,
               private utils: ODUtils) {
   }
 
   ngOnInit() {
+    this.route.params.pipe(switchMap(params => {
+      if (params['url']) {
+        return this.service.queryMainpage({main: false, url: params['url']}).$observable;
+      }
+      return of([this.news]);
+    })).subscribe(news => this.news = news[0]);
   }
 
 
@@ -35,10 +44,18 @@ export class NewsEditComponent implements OnInit {
   }
 
   public saveNews() {
+    if (this.news._id) {
+      return this.service.update(this.news).$observable.subscribe(res => {
+        this.router.navigate(['news', res.url]);
+      });
+    }
+
     this.news.url = this.utils.translit(<any>this.news.title);
-    this.service.save(this.news).$observable.subscribe(res => {
+    this.news.date = new Date();
+
+    return this.service.save(this.news).$observable.subscribe(res => {
       this.router.navigate(['news', res.url]);
-    })
+    });
   }
 
   public config = {
@@ -58,6 +75,6 @@ export class NewsEditComponent implements OnInit {
     },
     resize_enabled: false,
     extraPlugins: 'autogrow,sharedspace,divarea,removeformat',
-    removePlugins:'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
+    removePlugins: 'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
   };
 }
