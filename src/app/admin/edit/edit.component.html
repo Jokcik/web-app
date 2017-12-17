@@ -1,16 +1,12 @@
-<!--<mat-card class="admin-edit">-->
-  <mat-tab-group>
-    <mat-tab label="Главная страница">
-      <od-main></od-main>
-    </mat-tab>
-    <mat-tab label="Добавить новость">
-      <od-news-edit></od-news-edit>
-    </mat-tab>
-    <mat-tab label="Район, город">
-      <od-region></od-region>
-    </mat-tab>
-    <mat-tab label="ДШИ">
-      <od-dshi-edit></od-dshi-edit>
-    </mat-tab>
-  </mat-tab-group>
-<!--</mat-card>-->
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let link of navLinks"
+     [routerLink]="link.path"
+     [routerLinkActiveOptions]="{exact: true}"
+     routerLinkActive #rla="routerLinkActive"
+     [active]="rla.isActive">
+    {{link.label}}
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import {MainpageService} from './mainpage.service';
 import {Description, Materials} from '../news/shared/materials';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {Dummy} from '../core/dummy';
 
 @Component({
   selector: 'od-mainpage',
   templateUrl: './mainpage.component.html'
 })
 export class MainpageComponent implements OnInit {
-  descriptions: Materials[] = [];
+  public descriptions: Materials[] = Dummy.factory(Materials, 1);
+  public isFull: boolean = false;
 
   constructor(private mainpageService: MainpageService) {
   }
 
   ngOnInit() {
-    console.log('ngOnInit')
     this.mainpageService.querySafeHtml({main: true}).subscribe(descriptions => this.descriptions = descriptions);
   }
 
@@ -23,14 +24,4 @@ export class MainpageComponent implements OnInit {
     'https://d1llvcsapfiksz.cloudfront.net/vendors/samplephonics/deep-sax/images/DeepSax_mobile.jpg',
     'https://www.abamet.ru/images/press/haas/press-releases/2013/gaboi-rigoutat.jpg'
   ];
-
-  // public config: ICarouselConfig = {
-  //   verifyBeforeLoad: true,
-  //   log: false,
-  //   animation: true,
-  //   animationType: AnimationConfig.APPEAR,
-  //   autoplay: true,
-  //   autoplayDelay: 2000,
-  //   stopAutoplayMinWidth: 768
-  // };
 }

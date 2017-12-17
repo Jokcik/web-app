@@ -3,12 +3,12 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="/" routerLink="/" routerLinkActive="active"
-                                  [routerLinkActiveOptions]="{exact:true}">Главная<span class="sr-only"></span></a></li>
-          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools"
-                                  routerLinkActive="active">ДШИ Белгородской области</a></li>
           <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news"
                                   routerLinkActive="active">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools"
+                                  routerLinkActive="active">ДШИ Белгородской области</a></li>
+          <li class="nav-item"><a class="nav-link" href="/history" routerLink="/history" routerLinkActive="active"
+                                  [routerLinkActiveOptions]="{exact:true}">История<span class="sr-only"></span></a></li>
           <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"
                                   routerLinkActive="active">Конкурсы</a></li>
           <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
@@ -18,7 +18,6 @@
           <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
                                   routerLinkActive="active">Контакты</a></li>
         </ul>
-
         <od-profile></od-profile>
       </div>
     </nav>
@@ -57,7 +56,7 @@
         </div>
         <aside class="col-sm-3 ml-sm-auto blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>Новости</h4>
+            <h4>Анонсы</h4>
             <p>Управление культуры Белгородской области</p>
           </div>
         </aside>

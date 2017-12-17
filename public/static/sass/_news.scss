@@ -1,3 +1,21 @@
 .outer-wrap-news {
+  &.dummy {
+    div {
+      background-color: #F0F0F0;
+      color: #F0F0F0;
+      height: 50px;
+    }
+  }
 
+  a:hover {
+    text-decoration: none;
+  }
+
+  mat-card > div {
+    margin-bottom: 5px;
+  }
+
+  div > b {
+    text-transform: uppercase;
+  }
 }

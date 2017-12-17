@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MainpageService} from '../../../mainpage/mainpage.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
+import {Router} from '@angular/router';
+import {ODUtils} from '../../../core/od-utils';
 
 @Component({
   selector: 'od-news-edit',
@@ -12,7 +14,9 @@ export class NewsEditComponent implements OnInit {
   public imgFile: File;
 
   constructor(private service: MainpageService,
-              private multipart: ODMultipartSendService) {
+              private multipart: ODMultipartSendService,
+              private router: Router,
+              private utils: ODUtils) {
   }
 
   ngOnInit() {
@@ -31,8 +35,9 @@ export class NewsEditComponent implements OnInit {
   }
 
   public saveNews() {
+    this.news.url = this.utils.translit(<any>this.news.title);
     this.service.save(this.news).$observable.subscribe(res => {
-      window.alert(res);
+      this.router.navigate(['news', res.url]);
     })
   }
 

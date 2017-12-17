@@ -1,10 +1,11 @@
 import {SafeHtml} from '@angular/platform-browser';
 
 export class Materials {
-  id: string;
+  _id: string;
   title: SafeHtml;
   url: string;
-  img?: string;
+  img: string;
+  date: Date;
   main: boolean = false;
   description: Description = new Description();
 }

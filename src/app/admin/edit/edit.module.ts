@@ -12,7 +12,7 @@ import {
   MatInputModule, MatListModule,
   MatNativeDateModule, MatRadioModule, MatSelectModule,
   MatSortModule,
-  MatTableModule,
+  MatTableModule, MatTabNav,
   MatTabsModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -75,7 +75,7 @@ import {ODImageDirective} from '../../core/od-image-load.directive';
     RegionDialogAdd,
     DshiDialogAdd
   ],
-  providers: [MainpageService, RegionService, DshiEditService, ODMultipartSendService, ODUtils,
+  providers: [MainpageService, RegionService, DshiEditService, ODMultipartSendService, ODUtils, MatTabNav,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

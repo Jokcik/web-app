@@ -1,8 +1,6 @@
-<!--<div style="height: 400px">-->
-<!--<carousel [sources]="imageSources"></carousel>-->
-<!--</div>-->
-<div *ngFor="let material of descriptions">
+<div class="outer-wrap-mainpage" *ngFor="let material of descriptions">
   <p [innerHTML]="material.title"></p>
-  <div [innerHTML]="material.description.short_description"></div>
-  <p><a [href]="material.url" [routerLink]="material.url" style="height: 20px;">Читать далее...</a></p>
+  <div [innerHTML]="isFull ? material.description.description : material.description.short_description"></div>
+  <p><a *ngIf="material.title && !isFull" (click)="isFull = !isFull"
+        style="height: 20px; cursor: pointer; color: dodgerblue;">Читать далее...</a></p>
 </div>

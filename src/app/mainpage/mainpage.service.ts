@@ -14,9 +14,9 @@ export class MainpageService extends ODResourceCrud<void, Materials, Materials> 
   }
 
   @ResourceAction({isArray: true})
-  queryMainpage: ResourceMethod<{main: boolean}, Materials[]>;
+  queryMainpage: ResourceMethod<{main: boolean, url?: string}, Materials[]>;
 
-  public querySafeHtml(value: {main: boolean}): Observable<Materials[]> {
+  public querySafeHtml(value: {main: boolean, url?: string}): Observable<Materials[]> {
     return this.queryMainpage(value).$observable.map(array => {
       array.forEach((value, index) => {
         if (typeof value.description.description == 'object') return;

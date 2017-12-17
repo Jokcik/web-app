@@ -8,7 +8,7 @@ import {CKEditorModule} from 'ng2-ckeditor';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
-import {PageComponent} from './page/page.component';
+import {PageComponent} from '../news/page/page.component';
 
 @NgModule({
   imports: [
@@ -23,7 +23,6 @@ import {PageComponent} from './page/page.component';
   ],
   declarations: [
     MainpageComponent,
-    PageComponent,
   ],
   providers: [MainpageService]
 })

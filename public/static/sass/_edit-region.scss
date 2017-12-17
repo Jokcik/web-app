@@ -1,5 +1,17 @@
 .outer-region-edit {
 
+  &.dummy {
+    cdk-header-row > cdk-header-cell:nth-child(1), cdk-header-cell:nth-child(2) {
+      background-color: #F0F0F0;
+      color: #F0F0F0;
+    }
+
+    cdk-row > cdk-cell:nth-child(1), cdk-cell:nth-child(2) {
+      background-color: #F0F0F0;
+      color: #F0F0F0;
+    }
+  }
+
   &.example-container {
     display: flex;
     flex-direction: column;

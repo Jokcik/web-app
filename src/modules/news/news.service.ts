@@ -19,7 +19,8 @@ export class NewsService {
     return await this.newsModel.findByIdAndUpdate(id, createNewsDto, {new: true});
   }
 
-  async findAll(main: boolean): Promise<News[]> {
-    return await this.newsModel.find({main});
+  async findAll(main: boolean, url: string): Promise<News[]> {
+    let obj = url ? {main, url: url} : {main};
+    return await this.newsModel.find(obj);
   }
 }

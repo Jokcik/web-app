@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {MainpageService} from '../mainpage.service';
+import {MainpageService} from '../../mainpage/mainpage.service';
 import {empty} from 'rxjs/observable/empty';
-import {Materials} from '../../news/shared/materials';
+import {Materials} from '../shared/materials';
 
 @Component({
   selector: 'od-page',
@@ -20,11 +20,10 @@ export class PageComponent implements OnInit {
   ngOnInit() {
     this.route.params.pipe(
       switchMap(params => {
-        if (params['action'] == 'history') {
+        if (params['url'] == 'history') {
           return this.mainpageService.querySafeHtml({main: true});
         }
-
-        return empty();
+        return this.mainpageService.querySafeHtml({main: false, url: params['url']});
       })
     ).subscribe(materials => this.material = materials[0]);
   }

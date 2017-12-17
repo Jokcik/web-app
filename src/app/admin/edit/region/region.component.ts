@@ -3,6 +3,7 @@ import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/mat
 import {Region} from '../shared/region';
 import {RegionService} from './region.service';
 import {RegionDialogAdd} from './region-dialog-add';
+import {Dummy} from '../../../core/dummy';
 
 @Component({
   selector: 'od-region',
@@ -15,10 +16,10 @@ export class RegionComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  private regions: Region[] = [];
+  private regions: Region[] = Dummy.factory(Region, 10);
 
   public editable: boolean = false;
-  public currentIndex: number = -1;
+  public currentIndex: number = -2;
 
   constructor(private regionService: RegionService,
               public dialog: MatDialog) {
@@ -26,11 +27,12 @@ export class RegionComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.regions);
-    this.updateRegion()
+    this.updateRegion();
   }
 
   public updateRegion() {
     this.regionService.query().$observable.subscribe(regions => {
+      this.currentIndex = this.currentIndex == -2 ? -1 : this.currentIndex;
       this.regions.length = 0;
       this.regions.push(...regions);
       this.dataSource._updateChangeSubscription();

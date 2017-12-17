@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
 import {MainpageService} from '../../../mainpage/mainpage.service';
+import {Dummy} from '../../../core/dummy';
 
 @Component({
   selector: 'od-main',
@@ -8,7 +9,7 @@ import {MainpageService} from '../../../mainpage/mainpage.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit {
-  @Input() materials: Materials[] = [];
+  @Input() materials: Materials[] = Dummy.factory(Materials, 1);
 
   constructor(private mainpageService: MainpageService) {
   }

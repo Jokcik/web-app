@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {NewsComponent} from './news.component';
+import {PageComponent} from './page/page.component';
 
 
 @NgModule({
@@ -8,7 +9,11 @@ import {NewsComponent} from './news.component';
     {
       path: '',
       component: NewsComponent,
-    }
+    },
+    {
+      path: ':url',
+      component: PageComponent
+    },
   ])],
   exports: [RouterModule]
 })

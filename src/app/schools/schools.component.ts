@@ -15,7 +15,7 @@ export class SchoolsComponent implements OnInit {
   public schools: Schools[] = [];
 
   public currentRegionId: string = this.regions[0]._id;
-  public currentSchools: Schools[] = Dummy.factory(Schools, 3);
+  public currentSchools: Schools[] = Dummy.factory(Schools, 2);
 
   constructor(private schoolsService: DshiEditService,
               private regionService: RegionService) {

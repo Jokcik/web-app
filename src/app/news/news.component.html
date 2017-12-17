@@ -1,3 +1,17 @@
-<p>
-  news works!
-</p>
+<div class="outer-wrap-news" [class.dummy]="loaded">
+  <mat-card *ngFor="let material of descriptions" style="margin-top: 10px;">
+    <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
+      <div style="padding-left: 30px"><b [innerHTML]="material.title"></b></div>
+      <div class="container" style="display: flex;">
+        <div class="col-sm-3">
+          <img [src]="material.img"/>
+        </div>
+        <div class="col-sm-9">
+          <div class="sidebar-module sidebar-module-inset">
+            <p [innerHTML]="material.description.short_description"></p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </mat-card>
+</div>

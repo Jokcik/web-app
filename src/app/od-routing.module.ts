@@ -2,7 +2,8 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 export const routes: Routes = [
-  {path: '', loadChildren: 'app/mainpage/mainpage.module#MainpageModule'},
+  {path: '', loadChildren: 'app/news/news.module#NewsModule', pathMatch: 'full'},
+  {path: 'history', loadChildren: 'app/mainpage/mainpage.module#MainpageModule'},
   {path: 'schools', loadChildren: 'app/schools/schools.module#SchoolsModule'},
   {path: 'news', loadChildren: 'app/news/news.module#NewsModule'},
   {path: 'competition', loadChildren: 'app/competition/competition.module#CompetitionModule'},
