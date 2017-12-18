@@ -7,6 +7,7 @@ import {MatCardModule, MatIconModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import { ProfileComponent } from './profile/profile.component';
+import { AnnounceComponent } from './announce/announce.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     ODComponent,
     ProfileComponent,
+    AnnounceComponent,
   ],
   providers: [],
   bootstrap: [ODComponent]
