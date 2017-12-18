@@ -18,7 +18,7 @@ export class PageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.pipe(switchMap(params => this.mainpageService.querySafeHtml({type: 1, url: params['url']})))
+    this.route.params.pipe(switchMap(params => this.mainpageService.querySafeHtml({url: params['url']})))
       .subscribe(materials => this.material = materials[0]);
   }
 

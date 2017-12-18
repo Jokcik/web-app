@@ -6,7 +6,7 @@ export class Materials {
   url: string;
   img: string;
   date: Date;
-  main: boolean = false;
+  type: number = 1;
   description: Description = new Description();
 }
 

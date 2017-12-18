@@ -1,8 +1,16 @@
 <div class="outer-news-edit" style="margin-top: 20px;">
   <div mat-card-title>Добавить новость на сайт</div>
   <div mat-card-content>
+
     <mat-form-field>
-      <input matInput placeholder="Заголовок новости" [(ngModel)]="news.title"/>
+      <mat-select placeholder="Тип публикации" [(value)]="news.type">
+        <mat-option [value]="1">Новость</mat-option>
+        <mat-option [value]="2">Анонс</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Заголовок" [(ngModel)]="news.title"/>
     </mat-form-field>
     <div class="img-text"><b>Изображение на странице новостей</b></div>
     <div class="img-block">

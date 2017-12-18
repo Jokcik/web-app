@@ -25,7 +25,9 @@ export class NewsService {
   }
 
   async findAll(type: number, url: string): Promise<News[]> {
-    let obj = url ? {main: type, url: url} : {main: type};
+    let obj = {};
+    obj = Object.assign(obj, type ? {type} : {});
+    obj = Object.assign(obj, url ? {url} : {});
     return await this.newsModel.find(obj).sort({date: -1}).limit(10);
   }
 }
