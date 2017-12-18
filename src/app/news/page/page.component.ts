@@ -18,14 +18,8 @@ export class PageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.pipe(
-      switchMap(params => {
-        if (params['url'] == 'history') {
-          return this.mainpageService.querySafeHtml({main: true});
-        }
-        return this.mainpageService.querySafeHtml({main: false, url: params['url']});
-      })
-    ).subscribe(materials => this.material = materials[0]);
+    this.route.params.pipe(switchMap(params => this.mainpageService.querySafeHtml({type: 1, url: params['url']})))
+      .subscribe(materials => this.material = materials[0]);
   }
 
 }

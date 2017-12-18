@@ -17,7 +17,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mainpageService.querySafeHtml({main: false}).subscribe(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });

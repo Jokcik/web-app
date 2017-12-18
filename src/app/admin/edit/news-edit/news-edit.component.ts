@@ -25,7 +25,7 @@ export class NewsEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.pipe(switchMap(params => {
       if (params['url']) {
-        return this.service.queryMainpage({main: false, url: params['url']}).$observable;
+        return this.service.queryMainpage({type: 1, url: params['url']}).$observable;
       }
       return of([this.news]);
     })).subscribe(news => this.news = news[0]);

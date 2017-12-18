@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.materials = this.mainpageService.queryMainpage({main: true});
+    this.materials = this.mainpageService.queryMainpage({type: 0});
   }
 
   public saveHistory(material: Materials) {

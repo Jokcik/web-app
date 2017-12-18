@@ -10,5 +10,5 @@ export const NewsSchema = new mongoose.Schema({
   description: {
     type: DescriptionSchema
   },
-  main: Boolean
+  type: Number
 });

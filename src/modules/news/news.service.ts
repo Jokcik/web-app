@@ -24,8 +24,8 @@ export class NewsService {
     return await this.newsModel.findByIdAndUpdate(id, createNewsDto, {new: true});
   }
 
-  async findAll(main: boolean, url: string): Promise<News[]> {
-    let obj = url ? {main, url: url} : {main};
+  async findAll(type: number, url: string): Promise<News[]> {
+    let obj = url ? {main: type, url: url} : {main: type};
     return await this.newsModel.find(obj).sort({date: -1}).limit(10);
   }
 }
