@@ -14,6 +14,9 @@ export const RegionModelName = 'Region';
 export const ProfileModelToken = 'ProfileModelToken';
 export const ProfileModelName = 'Profile';
 
+export const GalleryModelToken = 'GalleryModelToken';
+export const GalleryModelName = 'Gallery';
+
 
 export const Roles = (...roles: number[]) => ReflectMetadata('roles', roles);
 
