@@ -6,6 +6,7 @@ import {ODClickOutside} from './od-click-outside';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
 import {ODUtils} from './od-utils';
+import {ODImageDirective} from './od-image-load.directive';
 
 @NgModule({
   imports: [
@@ -14,10 +15,12 @@ import {ODUtils} from './od-utils';
   ],
   declarations: [
     ODClickOutside,
+    ODImageDirective
   ],
   exports: [
     RouterModule,
     ODClickOutside,
+    ODImageDirective
   ],
 })
 export class ODCommonModule {

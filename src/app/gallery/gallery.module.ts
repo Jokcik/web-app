@@ -28,7 +28,6 @@ import {ODMultipartSendService} from '../core/od-multipart-send.service';
   declarations: [
     GalleryComponent,
     GalleryDialogAdd,
-    ODImageDirective
   ],
   entryComponents:[
     GalleryDialogAdd

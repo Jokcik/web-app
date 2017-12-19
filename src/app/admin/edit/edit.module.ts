@@ -69,7 +69,6 @@ import {ODImageDirective} from '../../core/od-image-load.directive';
     DshiEditComponent,
     DshiDialogAdd,
     NewsEditComponent,
-    ODImageDirective
   ],
   entryComponents: [
     RegionDialogAdd,
