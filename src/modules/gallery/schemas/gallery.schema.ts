@@ -1,8 +1,14 @@
 import * as mongoose from 'mongoose';
 
 export const GallerySchema = new mongoose.Schema({
-  title: String,
-  img: String
+  title: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
 });
 
 GallerySchema.set('toJSON', {

@@ -1,36 +1,26 @@
-<mat-card class="outer-gallery-edit">
-  <div mat-card-title>Добавить новость на сайт</div>
+<div class="outer-news-edit">
+  <div mat-card-title>Добавить фотографию</div>
   <div mat-card-content>
-
     <mat-form-field>
-      <input matInput placeholder="Текст изображения" [(ngModel)]="news.title"/>
+      <textarea matInput placeholder="Текст изображения" [(ngModel)]="gallery.title"></textarea>
     </mat-form-field>
-    <div class="img-text"><b>Изображение на странице новостей</b></div>
+    <div class="img-text"><b>Изображение</b></div>
     <div class="img-block">
-      <div class="img-wrap">
-        <img *ngIf="news.img" [src]="news.img">
+      <div class="img-wrap" style="width: 100%; height: auto;">
+        <img *ngIf="gallery.img" [src]="gallery.img">
       </div>
       <div class="btn-block">
 
         <button mat-raised-button color="primary">
           <label for="fileToUpload" style="margin-bottom: 0; cursor: pointer;">Выбрать файл</label>
-          <input id="fileToUpload" odImageLoad [src]="news.img" style="display: none"
+          <input id="fileToUpload" odImageLoad [src]="gallery.img" style="display: none"
                  [(file)]="imgFile" type="file" (change)="loadFile()">
         </button>
-        <button mat-raised-button color="warn">Удалить</button>
+        <button mat-raised-button color="warn" (click)="gallery.img = ''">Удалить</button>
       </div>
     </div>
 
-    <div class="news-main-title"><b>Краткое описание</b></div>
-    <div class="news-main-text">
-      <ckeditor [(ngModel)]="news.description.short_description" [config]="config"></ckeditor>
-    </div>
-
-    <div class="news-main-title"><b>Текст новости</b></div>
-    <div class="news-main-text">
-      <ckeditor [(ngModel)]="news.description.description" [config]="config"></ckeditor>
-    </div>
-
-    <button mat-raised-button color="primary" (click)="saveNews()">Добавить</button>
+    <button mat-raised-button color="primary" (click)="add()">{{gallery._id ?  'Изменить' : 'Добавить'}}</button>
+    <button mat-raised-button color="warn" (click)="remove()" *ngIf="gallery._id">Удалить</button>
   </div>
-</mat-card>
+</div>

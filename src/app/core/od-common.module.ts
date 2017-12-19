@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {ODClickOutside} from './od-click-outside';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
+import {ODUtils} from './od-utils';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ export class ODCommonModule {
       ngModule: ODCommonModule,
       providers: [
         ProfileService,
-        UserService
+        UserService,
+        ODUtils
       ]
     };
   }

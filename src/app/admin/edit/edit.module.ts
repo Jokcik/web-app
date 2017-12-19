@@ -75,7 +75,7 @@ import {ODImageDirective} from '../../core/od-image-load.directive';
     RegionDialogAdd,
     DshiDialogAdd
   ],
-  providers: [MainpageService, RegionService, DshiEditService, ODMultipartSendService, ODUtils, MatTabNav,
+  providers: [MainpageService, RegionService, DshiEditService, ODMultipartSendService, MatTabNav,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

@@ -1,6 +1,5 @@
-import {Body, Controller, Delete, Get, Param, Post, Put, Request} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {GalleryService} from './gallery.service';
-import {Gallery} from './interfaces/gallery.interface';
 import {CreateGalleryDto} from './dto/create-gallery.dto';
 import {Schema} from 'mongoose';
 import ObjectId = Schema.Types.ObjectId;

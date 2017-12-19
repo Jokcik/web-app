@@ -1,10 +1,16 @@
 .outer-wrap-gallery {
+
   .card {
     float: left;
     width: 33.333%;
     padding: .75rem;
     margin-bottom: 2rem;
     border: 0;
+  }
+
+  .card:hover {
+    background-color: gainsboro;
+    cursor: pointer;
   }
 
   .card > img {

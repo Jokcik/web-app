@@ -2,45 +2,16 @@
   <div class="container">
 
     <div class="row">
-      <div class="card">
+      <div class="card" (click)="openDialog()">
         <img style="width: 100%; display: block; cursor: pointer;" src="http://www.clipartbest.com/cliparts/xig/aoK/xigaoKM4T.png">
-        <p class="card-text" style="text-align: center;">Добавить фотографию</p>
+        <p class="card-text" style="text-align: center;" (click)="openDialog()">Добавить фотографию</p>
       </div>
 
-      <div class="card">
-        <img style="width: 100%; display: block;"
-             src="http://frozen-headland-84421.herokuapp.com/images/news/99dc55hojbcmxp3o.jpg">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
+      <div class="card" *ngFor="let gallery of galleries" (click)="openDialog(gallery)">
+        <img style="width: 100%; display: block;" [src]="gallery.img">
+        <p class="card-text" [innerHTML]="gallery.title"></p>
       </div>
 
-      <div class="card">
-        <img style="width: 100%; display: block;"
-             src="http://frozen-headland-84421.herokuapp.com/images/news/99dc58tgjbb136iq.jpg">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-      </div>
-
-      <div class="card">
-        <img style="width: 100%; display: block;"
-             src="http://frozen-headland-84421.herokuapp.com/images/news/99dc58ygjb9rq2zc.jpg">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-      </div>
-
-      <div class="card">
-        <img style="width: 100%; display: block;"
-             src="http://frozen-headland-84421.herokuapp.com/images/news/99dc559ojbaqy1lj.jpg">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-      </div>
-
-      <div class="card">
-        <img style="width: 100%; display: block;"
-             src="http://frozen-headland-84421.herokuapp.com/images/news/fb32e7b2dee6aca7fe7ffde2610be0b1.jpg">
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
-      </div>
     </div>
 
   </div>

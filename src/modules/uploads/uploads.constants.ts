@@ -1,1 +1,1 @@
-export const TYPES = ['news'];
+export const TYPES = ['news', 'gallery'];
