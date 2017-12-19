@@ -1,16 +1,16 @@
 <div class="sidebar-module sidebar-module-inset" [class.dummy]="loaded">
   <h4 style="margin-bottom: 20px; text-align: center;">Анонсы</h4>
   <div *ngFor="let material of descriptions; let last = last" style="position: relative; text-align: justify;">
-      <div style="position: absolute; right: -28px; top: 50px; cursor: pointer;" (click)="edit(material)">
+      <div style="position: absolute; right: -28px; top: 0; cursor: pointer;" (click)="edit(material)">
         <mat-icon>edit</mat-icon>
       </div>
-      <div style="position: absolute; right: -28px; top: 80px; cursor: pointer;" (click)="remove(material)">
+      <div style="position: absolute; right: -28px; top: 30px; cursor: pointer;" (click)="remove(material)">
         <mat-icon>delete forever</mat-icon>
       </div>
     <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
       <p><b [innerHTML]="material.title"></b></p>
       <img *ngIf="material.img" [src]="material.img" style="width: 50%; float: left; margin-right: 10px;"/>
-      <div [innerHTML]="material.description.short_description" style="min-height: 200px;"></div>
+      <div [innerHTML]="material.description.short_description" [ngStyle]="{'min-height': loaded ? '200px' : ''}"></div>
     </a>
     <hr *ngIf="!last"/>
   </div>

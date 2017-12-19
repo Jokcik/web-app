@@ -1,5 +1,5 @@
 <div class="outer-news-edit" style="margin-top: 20px;">
-  <div mat-card-title>Добавить новость на сайт</div>
+  <div mat-card-title>Добавить событие на сайт</div>
   <div mat-card-content>
 
     <mat-form-field>
@@ -12,7 +12,7 @@
     <mat-form-field>
       <input matInput placeholder="Заголовок" [(ngModel)]="news.title"/>
     </mat-form-field>
-    <div class="img-text"><b>Изображение на странице новостей</b></div>
+    <div class="img-text"><b>Изображение события</b></div>
     <div class="img-block">
       <div class="img-wrap">
         <img *ngIf="news.img" [src]="news.img">
