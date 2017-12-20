@@ -31,6 +31,7 @@ import { NewsEditComponent } from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
 import {ODUtils} from '../../core/od-utils';
 import {ODImageDirective} from '../../core/od-image-load.directive';
+import { ChildrenComponent } from './children/children.component';
 
 @NgModule({
   imports: [
@@ -69,6 +70,7 @@ import {ODImageDirective} from '../../core/od-image-load.directive';
     DshiEditComponent,
     DshiDialogAdd,
     NewsEditComponent,
+    ChildrenComponent,
   ],
   entryComponents: [
     RegionDialogAdd,

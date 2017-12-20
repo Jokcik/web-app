@@ -15,7 +15,6 @@ export class ChildrenService {
   }
 
   async findAllSpecialization() {
-    await this.specializationModel.create({title: 'proba'});
     return await this.specializationModel.find();
   }
 
@@ -33,7 +32,7 @@ export class ChildrenService {
   }
 
   async findAll(): Promise<Children[]> {
-    return await this.childrenModel.find().sort('title');
+    return await this.childrenModel.find();
   }
 
   public remove(id: Schema.Types.ObjectId) {

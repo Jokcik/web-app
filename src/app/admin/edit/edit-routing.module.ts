@@ -5,6 +5,7 @@ import {MainComponent} from './main/main.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {RegionComponent} from './region/region.component';
 import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
+import {ChildrenComponent} from './children/children.component';
 
 
 @NgModule({
@@ -14,12 +15,16 @@ import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
       component: EditComponent,
       children: [
         {
-          path: 'history',
-          component: MainComponent,
-        },
-        {
           path: '',
           component: NewsEditComponent,
+        },
+        {
+          path: 'children',
+          component: ChildrenComponent,
+        },
+        {
+          path: 'history',
+          component: MainComponent,
         },
         {
           path: 'news',

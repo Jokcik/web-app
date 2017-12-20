@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 export class EditComponent implements OnInit {
   navLinks = [
     {path: '/admin/edit/news', label: 'Добавить событие'},
+    {path: '/admin/edit/children', label: 'Добавить ребенка в базу'},
     {path: '/admin/edit/regions', label: 'Район, город'},
     {path: '/admin/edit/schools', label: 'ДШИ'},
     {path: '/admin/edit/history', label: 'История'},
