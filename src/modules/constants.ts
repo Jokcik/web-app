@@ -17,6 +17,14 @@ export const ProfileModelName = 'Profile';
 export const GalleryModelToken = 'GalleryModelToken';
 export const GalleryModelName = 'Gallery';
 
+export const ChildrenModelToken = 'ChildrenModelToken';
+export const ChildrenModelName = 'Children';
+
+export const SpecializationModelToken = 'SpecializationModelToken';
+export const SpecializationModelName = 'Specialization';
+
+export const InstrumentsModelToken = 'InstrumentsModelToken';
+export const InstrumentsModelName = 'Instruments';
 
 export const Roles = (...roles: number[]) => ReflectMetadata('roles', roles);
 

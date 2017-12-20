@@ -6,6 +6,7 @@ import {ProfileModule} from './profile/profile.module';
 import {AuthModule} from './authenticate/auth.module';
 import {UploadsModule} from './uploads/uploads.module';
 import {GalleryModule} from './gallery/gallery.module';
+import {ChildrenModule} from './children/children.module';
 
 @Module({
   modules: [
@@ -15,6 +16,7 @@ import {GalleryModule} from './gallery/gallery.module';
     AuthModule,
     ProfileModule,
     GalleryModule,
+    ChildrenModule,
     UploadsModule,
   ],
 })
