@@ -55,11 +55,7 @@ export class ChildrenComponent implements OnInit {
   public selectedSchools(schoolIdx: number) {
     this.currentSchool = schoolIdx;
     this.currentChildren = -1;
-    this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
-      this.childrens.length = 0;
-      this.childrens.push(...childrens);
-      this.dataSource._updateChangeSubscription();
-    })
+    this.updateChildrens(schoolIdx);
   }
 
   public selectedChildren(childrenIdx: number) {
@@ -95,14 +91,25 @@ export class ChildrenComponent implements OnInit {
       this.editable = true;
       this.currentIndex = index;
     } else {
-      // this.regionService.update(region);
+      this.childrenService.update(region).$observable.subscribe(() => window.alert('Успешно изменено'));
       this.close();
     }
   }
 
   public deleteChildren(row) {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
-      // this.regionService.remove({_id: row._id}).$observable.subscribe(() => this.updateRegion());
+      this.childrenService.remove({_id: row._id}).$observable.subscribe(() => {
+        window.alert('Успешно удалено');
+        this.updateChildrens(this.currentSchool);
+      });
     }
+  }
+
+  public updateChildrens(schoolIdx) {
+    this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
+      this.childrens.length = 0;
+      this.childrens.push(...childrens);
+      this.dataSource._updateChangeSubscription();
+    })
   }
 }
