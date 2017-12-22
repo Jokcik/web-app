@@ -68,9 +68,15 @@ export class ChildrenComponent implements OnInit {
       if (!result) return;
 
       if (result._id) {
-        this.childrenService.update(result).$observable.subscribe(res => window.alert('успешно сохранено'));
+        this.childrenService.update(result).$observable.subscribe(res => {
+          this.updateChildrens(this.currentSchool);
+          window.alert('успешно сохранено');
+        });
       } else {
-        this.childrenService.save(result).$observable.subscribe(res => window.alert('Ученик добавлен в базу'));
+        this.childrenService.save(result).$observable.subscribe(res => {
+          this.updateChildrens(this.currentSchool);
+          window.alert('Ученик добавлен в базу');
+        });
       }
     });
   }
