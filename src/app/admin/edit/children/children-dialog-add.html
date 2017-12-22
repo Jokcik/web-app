@@ -1,0 +1,80 @@
+<div class="outer-dshi-edit">
+  <mat-card>
+    <mat-card-header mat-dialog-title>Добавить одаренного ребенка</mat-card-header>
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input matInput placeholder="Фамилия" [(ngModel)]="currentChildren.surname">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Имя" [(ngModel)]="currentChildren.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Отчество" [(ngModel)]="currentChildren.middleName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Регион, город" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+          <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">
+            {{ region.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="currentRegion >= 0">
+        <mat-select placeholder="Школа" (valueChange)="currentChildren.schools = schools[$event]._id" [value]="currentSchool">
+          <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">
+            {{ school.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Специализация" (valueChange)="selectedSpecializations($event)">
+          <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+            {{ specialization.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="currentSpecialization >= 0">
+        <mat-select placeholder="Инструмент" (valueChange)="currentChildren.instruments = instruments[$event]._id">
+          <mat-option *ngFor="let instrument of instruments; let idx = index" [value]="idx">
+            {{ instrument.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Класс ДШИ" (valueChange)="currentChildren.classDSHI = +$event">
+          <mat-option value="1">1 класс</mat-option>
+          <mat-option value="2">2 класс</mat-option>
+          <mat-option value="3">3 класс</mat-option>
+          <mat-option value="4">4 класс</mat-option>
+          <mat-option value="5">5 класс</mat-option>
+          <mat-option value="6">6 класс</mat-option>
+          <mat-option value="7">7 класс</mat-option>
+          <mat-option value="8">8 класс</mat-option>
+          <mat-option value="9">9 класс</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Класс СОШ" (valueChange)="currentChildren.class = +$event">
+          <mat-option value="1">1 класс</mat-option>
+          <mat-option value="2">2 класс</mat-option>
+          <mat-option value="3">3 класс</mat-option>
+          <mat-option value="4">4 класс</mat-option>
+          <mat-option value="5">5 класс</mat-option>
+          <mat-option value="6">6 класс</mat-option>
+          <mat-option value="7">7 класс</mat-option>
+          <mat-option value="8">8 класс</mat-option>
+          <mat-option value="9">9 класс</mat-option>
+          <mat-option value="10">10 класс</mat-option>
+          <mat-option value="11">11 класс</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </mat-card>
+  <button mat-raised-button style="margin-top: 15px; float: right"
+          color="primary" (click)="add()">Добавить
+  </button>
+</div>

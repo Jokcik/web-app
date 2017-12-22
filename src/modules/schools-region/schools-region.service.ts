@@ -23,8 +23,9 @@ export class SchoolsRegionService {
     return await this.schoolsRegionModel.findByIdAndRemove(id);
   }
 
-  async findAll(): Promise<SchoolsRegion[]> {
-    let school = await this.schoolsRegionModel.find().populate('region');
+  async findAll(regionId: ObjectId, type: number): Promise<SchoolsRegion[]> {
+    let obj = regionId ? {region: regionId, type: type ? type : 0} : {};
+    let school = await this.schoolsRegionModel.find(obj).populate('region');
     return school.sort((a, b) => a.region.title.localeCompare(b.region.title) ||
       b.type - a.type || a.title.localeCompare(b.title));
 

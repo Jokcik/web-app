@@ -18,21 +18,26 @@ export class ChildrenService {
     return await this.specializationModel.find();
   }
 
-  async findAllInstruments() {
-    return this.instrumentsModel.find();
+  async findAllInstruments(specializationId: ObjectId) {
+    return this.instrumentsModel.find({specialization: specializationId});
   }
 
   async create(createChildrenDto: CreateChildrenDto): Promise<Children> {
-    const news = new this.childrenModel(createChildrenDto);
-    return await news.save();
+    const children = new this.childrenModel(createChildrenDto);
+    return await children.save();
   }
 
   async update(id: ObjectId, createChildrenDto: CreateChildrenDto): Promise<Children> {
     return await this.childrenModel.findByIdAndUpdate(id, createChildrenDto, {new: true});
   }
 
-  async findAll(): Promise<Children[]> {
-    return await this.childrenModel.find();
+  async findAll(schoolId: ObjectId, long: boolean): Promise<Children[]> {
+    let obj = schoolId ? {schools: schoolId} : {};
+    if (long) {
+      return await this.childrenModel.find(obj).populate('schools').populate('instruments');
+    }
+
+    return await this.childrenModel.find(obj);
   }
 
   public remove(id: Schema.Types.ObjectId) {

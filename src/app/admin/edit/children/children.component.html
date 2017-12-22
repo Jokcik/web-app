@@ -1,3 +1,27 @@
-<p>
-  children works!
-</p>
+<div class="outer-children-edit">
+  <mat-form-field>
+    <mat-select placeholder="Район" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+      <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">
+        <div>{{ region.title }}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="currentRegion >= 0">
+    <mat-select placeholder="Школа, управление" (valueChange)="selectedSchools($event)" [value]="currentSchool">
+      <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">
+        <div>{{ school.title }}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="currentRegion && currentSchool >= 0 && childrens.length">
+    <mat-select placeholder="Одаренный ребенок" (valueChange)="selectedChildren($event)" [value]="currentChildren">
+      <mat-option *ngFor="let children of childrens; let idx = index" [value]="idx">
+        <div>{{ children.title }}</div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div style="margin-top: 20px;">
+    <button mat-raised-button color="primary" style="float: right"
+            (click)="openDialog()">Добавить одаренного ребенка</button>
+  </div>
+</div>

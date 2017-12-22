@@ -5,7 +5,7 @@ import {Region} from '../shared/region';
 
 @Component({
   selector: 'dshi-dialog-add',
-  templateUrl: 'dshi-dialog-add.html',
+  templateUrl: 'schools-dialog-add.html',
 })
 export class DshiDialogAdd {
   public currentSchool: Schools = new Schools();

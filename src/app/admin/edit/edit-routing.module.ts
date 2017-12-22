@@ -4,7 +4,7 @@ import {EditComponent} from './edit.component';
 import {MainComponent} from './main/main.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {RegionComponent} from './region/region.component';
-import {DshiEditComponent} from './dshi-edit/dshi-edit.component';
+import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {ChildrenComponent} from './children/children.component';
 
 
@@ -40,7 +40,7 @@ import {ChildrenComponent} from './children/children.component';
         },
         {
           path: 'schools',
-          component: DshiEditComponent,
+          component: SchoolEditComponent,
         }
       ]
     }

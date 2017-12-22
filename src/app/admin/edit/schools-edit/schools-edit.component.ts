@@ -1,23 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {Schools} from '../shared/school';
-import {DshiEditService} from './dshi-edit.service';
+import {SchoolsService} from '../../../schools/schools.service';
 import {RegionDialogAdd} from '../region/region-dialog-add';
 import {MatDialog} from '@angular/material';
-import {DshiDialogAdd} from './dshi-dialog-add';
+import {DshiDialogAdd} from './schools-dialog-add';
 import {RegionService} from '../region/region.service';
 import {Region} from '../shared/region';
 import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'od-dshi-edit',
-  templateUrl: './dshi-edit.component.html'
+  templateUrl: './schools-edit.component.html'
 })
-export class DshiEditComponent implements OnInit {
+export class SchoolEditComponent implements OnInit {
   public schools: Schools[] = [];
   public currentSchool: Schools;
   public regions: Region[] = [];
 
-  constructor(private schoolService: DshiEditService,
+  constructor(private schoolService: SchoolsService,
               private regionService: RegionService,
               public dialog: MatDialog) {
   }

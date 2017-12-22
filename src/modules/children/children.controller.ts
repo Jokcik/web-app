@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Param, Put, Delete} from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Put, Delete, Query} from '@nestjs/common';
 import { Schema } from 'mongoose';
 import {ChildrenService} from './children.service';
 import {CreateChildrenDto} from './dto/create-children.dto';
@@ -18,8 +18,8 @@ export class ChildrenController {
   }
 
   @Get()
-  async findAll(): Promise<Children[]> {
-    return this.childrenService.findAll();
+  async findAll(@Query('school_id') schoolId: ObjectId, @Query('long') long: boolean): Promise<Children[]> {
+    return this.childrenService.findAll(schoolId, long);
   }
 
   @Get('specializations')
@@ -28,8 +28,8 @@ export class ChildrenController {
   }
 
   @Get('instruments')
-  async findAllInstruments(): Promise<Instruments[]> {
-    return this.childrenService.findAllInstruments();
+  async findAllInstruments(@Query('specialization_id') specializationId: ObjectId): Promise<Instruments[]> {
+    return this.childrenService.findAllInstruments(specializationId);
   }
 
   @Put(':id')

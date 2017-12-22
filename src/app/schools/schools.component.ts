@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DshiEditService} from '../admin/edit/dshi-edit/dshi-edit.service';
+import {SchoolsService} from './schools.service';
 import {Schools} from '../admin/edit/shared/school';
 import {Region} from '../admin/edit/shared/region';
 import {RegionService} from '../admin/edit/region/region.service';
@@ -17,7 +17,7 @@ export class SchoolsComponent implements OnInit {
   public currentRegionId: string = this.regions[0]._id;
   public currentSchools: Schools[] = Dummy.factory(Schools, 2);
 
-  constructor(private schoolsService: DshiEditService,
+  constructor(private schoolsService: SchoolsService,
               private regionService: RegionService) {
   }
 

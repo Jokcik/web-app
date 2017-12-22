@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Body, Param, Put, Delete} from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Put, Delete, Query} from '@nestjs/common';
 import { Schema } from 'mongoose';
 import {SchoolsRegionService} from './schools-region.service';
 import {CreateSchoolsRegionDto} from './dto/create-schools-region.dto';
@@ -26,7 +26,7 @@ export class SchoolsRegionController {
   }
 
   @Get()
-  async findAll(): Promise<SchoolsRegion[]> {
-    return this.schoolsRegionService.findAll();
+  async findAll(@Query('region_id') regionId: ObjectId, @Query('type') type: number): Promise<SchoolsRegion[]> {
+    return this.schoolsRegionService.findAll(regionId, type);
   }
 }
