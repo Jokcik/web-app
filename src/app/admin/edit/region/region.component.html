@@ -1,5 +1,5 @@
 
-<div class="example-container mat-elevation-z8 outer-region-edit" [class.dummy]="currentIndex == -2" (odClickOutside)="close()">
+<div class="example-container mat-elevation-z8 outer-region-edit table" [class.dummy]="currentIndex == -2" (odClickOutside)="close()">
   <div class="example-header">
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">

@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Schools} from '../shared/school';
 import {Region} from '../shared/region';
 import {Children} from '../shared/children';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
 import {ChildrenService} from '../../../bank-data-od/children.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ChildrenDialogAdd} from './children-dialog-add';
 
 @Component({
@@ -21,6 +21,18 @@ export class ChildrenComponent implements OnInit {
   public currentSchool: number;
   public currentChildren: number;
 
+  /*  Таблица  */
+  public displayedColumns = ['surname', 'name', 'middleName', 'edit', 'delete'];
+  public dataSource: MatTableDataSource<Children>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  public editable: boolean = false;
+  public currentIndex: number = -2;
+  /*  конец таблицы  */
+
+
   constructor(private regionService: RegionService,
               private schoolsService: SchoolsService,
               private childrenService: ChildrenService,
@@ -28,6 +40,7 @@ export class ChildrenComponent implements OnInit {
   }
 
   public ngOnInit() {
+    this.dataSource = new MatTableDataSource(this.childrens);
     this.regions = this.regionService.query();
   }
 
@@ -36,25 +49,21 @@ export class ChildrenComponent implements OnInit {
     this.currentSchool = -1;
     this.currentChildren = -1;
     this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
-    this.childrens = null;
+    this.childrens.length = 0;
   }
 
   public selectedSchools(schoolIdx: number) {
     this.currentSchool = schoolIdx;
     this.currentChildren = -1;
-    this.childrens = this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true})
+    this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
+      this.childrens.length = 0;
+      this.childrens.push(...childrens);
+      this.dataSource._updateChangeSubscription();
+    })
   }
 
   public selectedChildren(childrenIdx: number) {
     this.currentChildren = childrenIdx;
-  }
-
-  public update() {
-
-  }
-
-  public remove() {
-
   }
 
   public openDialog() {
@@ -68,5 +77,32 @@ export class ChildrenComponent implements OnInit {
         this.childrenService.save(result).$observable.subscribe(res => window.alert('Ученик добавлен в базу'));
       }
     });
+  }
+
+  /* Функции для таблицы */
+  public ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  public close() {
+    this.editable = false;
+    this.currentIndex = -1;
+  }
+
+  public editChildren(region: any, index: number) {
+    if (index != this.currentIndex) {
+      this.editable = true;
+      this.currentIndex = index;
+    } else {
+      // this.regionService.update(region);
+      this.close();
+    }
+  }
+
+  public deleteChildren(row) {
+    if (window.confirm('Действительно хотите удалить этот регион?')) {
+      // this.regionService.remove({_id: row._id}).$observable.subscribe(() => this.updateRegion());
+    }
   }
 }

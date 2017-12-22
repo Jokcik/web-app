@@ -20,6 +20,80 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+<!--[class.dummy]="currentIndex == -2" -->
+  <div class="example-container mat-elevation-z8 outer-region-edit table" *ngIf="childrens.length"
+       (odClickOutside)="close()">
+    <!--<div class="example-header">-->
+      <!--<mat-form-field>-->
+        <!--<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">-->
+      <!--</mat-form-field>-->
+    <!--</div>-->
+
+    <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+      <ng-container cdkColumnDef="surname">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Фамилия </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+          <div class="show">{{row.surname}}</div>
+          <div class="edit">
+            <mat-form-field>
+              <input matInput [(ngModel)]="row.surname">
+            </mat-form-field>
+          </div>
+        </cdk-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container cdkColumnDef="name">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Имя </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+          <div class="show">{{row.name}}</div>
+          <div class="edit" >
+            <mat-form-field>
+              <input matInput [(ngModel)]="row.name">
+            </mat-form-field>
+          </div>
+        </cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="middleName">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Отчество </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+          <div class="show">{{row.middleName}}</div>
+          <div class="edit" >
+            <mat-form-field>
+              <input matInput [(ngModel)]="row.middleName">
+            </mat-form-field>
+          </div>
+        </cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="edit">
+        <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [style.flex]="'0 0 10px'"
+                  [class.edit]="idx == currentIndex && editable">
+          <button mat-icon-button (click)="editChildren(row, idx)">
+            <mat-icon class="show">edit</mat-icon>
+            <mat-icon class="edit">done</mat-icon>
+          </button>
+        </cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="delete">
+        <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 10px'">
+          <button mat-icon-button (click)="deleteChildren(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </cdk-cell>
+      </ng-container>
+
+      <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+      <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="example-row"></cdk-row>
+    </cdk-table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  </div>
+
   <div style="margin-top: 20px;">
     <button mat-raised-button color="primary" style="float: right"
             (click)="openDialog()">Добавить одаренного ребенка</button>

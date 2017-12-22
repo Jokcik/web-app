@@ -26,6 +26,7 @@ import {ODMultipartSendService} from '../../core/od-multipart-send.service';
 import {ChildrenComponent} from './children/children.component';
 import {ChildrenService} from '../../bank-data-od/children.service';
 import {ChildrenDialogAdd} from './children/children-dialog-add';
+import {ChildrenModule} from './children/children.module';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import {ChildrenDialogAdd} from './children/children-dialog-add';
     FormsModule,
     EditRoutingModule,
     CKEditorModule,
+    ChildrenModule,
 
     MatButtonModule,
     MatCardModule,
@@ -64,13 +66,10 @@ import {ChildrenDialogAdd} from './children/children-dialog-add';
     SchoolEditComponent,
     DshiDialogAdd,
     NewsEditComponent,
-    ChildrenComponent,
-    ChildrenDialogAdd
   ],
   entryComponents: [
     RegionDialogAdd,
     DshiDialogAdd,
-    ChildrenDialogAdd
   ],
   providers: [MainpageService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
