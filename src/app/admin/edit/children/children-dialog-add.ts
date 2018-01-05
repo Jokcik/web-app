@@ -31,7 +31,9 @@ export class ChildrenDialogAdd {
     this.currentSchool = data.currentSchool;
 
     this.currentChildren = data.children ? data.children : this.currentChildren;
-    this.currentChildren.schools = this.schools[this.currentSchool]._id;
+    if (this.currentSchool) {
+      this.currentChildren.schools = this.schools[this.currentSchool]._id;
+    }
 
     this.specializations = this.childrenService.querySpecializations();
   }

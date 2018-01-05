@@ -94,7 +94,7 @@
     <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
   </div>
 
-  <div style="margin-top: 20px;">
+  <div style="margin-top: 20px;" *ngIf="userService.user">
     <button mat-raised-button color="primary" style="float: right"
             (click)="openDialog()">Добавить одаренного ребенка</button>
   </div>

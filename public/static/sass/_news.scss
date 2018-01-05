@@ -1,3 +1,5 @@
+
+
 .outer-wrap-news {
   &.dummy {
     div {
@@ -19,7 +21,22 @@
     text-transform: uppercase;
   }
 
+  .news-icon {
+    position: absolute;
+    right: 3px;
+    cursor: pointer;
+
+    &.edit {
+      top: 20px;
+    }
+
+    &.remove {
+      top: 50px;
+    }
+  }
+
   .news-container {
+    position: relative;
     margin-top: 10px;
     padding: 10px 0;
 
@@ -29,7 +46,7 @@
     }
 
     &:hover {
-      box-shadow: 0 20px 59px -16px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 59px -16px rgba(0, 0, 0, 0.2);
     }
   }
 

@@ -1,7 +1,7 @@
 <div class="outer-wrap-news" [class.dummy]="loaded">
   <div *ngFor="let material of descriptions" class="news-container">
-    <div *ngIf="userService.user" style="position: absolute; right: 3px; top: 20px; cursor: pointer;" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
-    <div *ngIf="userService.user" style="position: absolute; right: 3px; top: 50px; cursor: pointer;" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
+    <div *ngIf="userService.user" class="news-icon edit" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
+    <div *ngIf="userService.user" class="news-icon remove" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
     <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
       <div class="news-title"><b [innerHTML]="material.title"></b></div>
       <div class="container" style="display: flex;">

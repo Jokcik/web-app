@@ -4,6 +4,7 @@ import {Region} from '../shared/region';
 import {RegionService} from './region.service';
 import {RegionDialogAdd} from './region-dialog-add';
 import {Dummy} from '../../../core/dummy';
+import {UserService} from '../../../core/user-service/user.service';
 
 @Component({
   selector: 'od-region',
@@ -22,6 +23,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
   public currentIndex: number = -2;
 
   constructor(private regionService: RegionService,
+              public userService: UserService,
               public dialog: MatDialog) {
   }
 

@@ -8,6 +8,46 @@ mat-card {
     //padding-right: 150px;
   }
 
+  .announce-icon {
+    position: absolute;
+    right: -28px;
+    cursor: pointer;
+
+    &.edit {
+      top: 0;
+    }
+
+    &.remove {
+      top: 30px
+    }
+  }
+
+  .announce-container {
+    position: relative;
+    text-align: justify;
+
+    &:hover {
+      box-shadow: 0 42px 36px -20px rgba(0,0,0,0.2)
+    }
+  }
+
+  .announce-date {
+    position: absolute;
+    display: block;
+    opacity: .8;
+    background-color: #d92127;
+    border-radius: 0;
+
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+
   .sidebar-module {
     &.dummy {
       a > div {
@@ -42,7 +82,7 @@ mat-card {
 @media (min-width: 576px) {
   .jumbotron {
     padding: 2rem 0 0.5rem !important;
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
     p {
       font-weight: bold;
       text-align: justify;
@@ -52,13 +92,13 @@ mat-card {
 
 @media (min-width: 768px) {
   .col-md-6 {
-    max-width: 47%!important;
+    max-width: 47% !important;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1300px!important;
+    max-width: 1300px !important;
   }
 }
 
