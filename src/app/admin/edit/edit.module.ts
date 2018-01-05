@@ -5,7 +5,8 @@ import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
   MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDialogModule, MatDialogRef, MatFormFieldModule, MatGridListModule,
-  MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSortModule, MatTableModule,
+  MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatSortModule,
+  MatTableModule,
   MatTabNav, MatTabsModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -56,7 +57,8 @@ import {ChildrenModule} from './children/children.module';
     MatSelectModule,
     MatRadioModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   declarations: [
     EditComponent,

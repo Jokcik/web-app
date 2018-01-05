@@ -1,5 +1,5 @@
 header {
-  height: 60px;
+  height: 43px;
   //background-image: url('/images/fon/header.jpg');
   //background-size: cover;
   display: flex;
@@ -8,7 +8,38 @@ header {
   flex: 0 0 auto;
 
   .bg-dark {
-    background-color: #6D4C41!important;
+    background-color: #EBEAE6!important;
+  }
+
+  ul {
+    li {
+      &:hover {
+        background-color: darkgray;
+
+        > a {
+          color: white!important;
+        }
+      }
+
+      .dropdown-menu {
+        margin: 0!important;
+        background-color: #f1f1f1!important;
+        border: 0;
+        padding: 0;
+        > a {
+          &:hover {
+            color: white!important;
+            background-color: darkgray;;
+          }
+        }
+      }
+
+      a {
+        color: #484B50!important;
+        font-weight: bold!important;
+        font-family: 'roboto_lt', Arial, Helvetica, sans-serif!important;
+      }
+    }
   }
 
   .login {

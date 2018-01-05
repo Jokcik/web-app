@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
-import {MatCardModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {ProfileComponent} from './profile/profile.component';
@@ -21,6 +21,9 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
     ODRoutingModule,
     MatIconModule,
     MatCardModule,
+
+    MatMenuModule,
+    MatButtonModule
   ],
   declarations: [
     ODComponent,

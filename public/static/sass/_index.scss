@@ -8,6 +8,15 @@ mat-card {
     //padding-right: 150px;
   }
 
+  h4 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'noto_sans', sans-serif;
+    color: #484B50;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
   .announce-icon {
     position: absolute;
     right: -28px;
@@ -82,11 +91,21 @@ mat-card {
 @media (min-width: 576px) {
   .jumbotron {
     padding: 2rem 0 0.5rem !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 0!important;
     p {
       font-weight: bold;
-      text-align: justify;
+      text-align: right;
     }
+
+    .col-md-5 {
+      margin-top: 20px;
+      p {
+        line-height: 25px;
+        margin-bottom: 10px!important;
+      }
+    }
+
+    background-color: #f1f1f1!important;
   }
 }
 
@@ -121,13 +140,15 @@ mat-card {
       }
 
       .block-logo {
-        max-width: 100px;
+        width: 305px;
+        margin-top: 15px;
+        text-align: center;
         line-height: 45px;
         text-shadow: darkgray 1px 1px;
         font-family: 'pt_sans_narrowbold', serif;
         color: #787878;
         text-decoration: none;
-        font-size: 24px;
+        font-size: 33px;
         text-transform: uppercase;
       }
     }
@@ -138,6 +159,10 @@ mat-card {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.navbar {
+  padding: 0!important;
 }
 
 .text {

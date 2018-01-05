@@ -10,13 +10,21 @@
           <li class="nav-item"><a class="nav-link" href="/history" routerLink="/history" routerLinkActive="active"
                                   [routerLinkActiveOptions]="{exact:true}">История<span class="sr-only"></span></a></li>
           <!--<li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"-->
-                                  <!--routerLinkActive="active">Конкурсы</a></li>-->
+          <!--routerLinkActive="active">Конкурсы</a></li>-->
           <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
                                   routerLinkActive="active">Банк данных одаренных детей</a></li>
           <li class="nav-item"><a class="nav-link" href="/galleries" routerLink="/galleries"
                                   routerLinkActive="active">Фотогалерея</a></li>
           <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
                                   routerLinkActive="active">Контакты</a></li>
+          <li class="nav-item dropdown" (mouseover)="dropShow = true" (mouseleave)="dropShow = false">
+            <a class="nav-link">Drop</a>
+            <div class="dropdown-menu" [class.show]="dropShow">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
         </ul>
         <od-profile></od-profile>
       </div>
@@ -62,7 +70,8 @@
   </mat-card>
   <footer class="footer">
     <div class="container" style="margin-top: 10px;">
-      <span class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+      <span
+        class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
     </div>
   </footer>
 </div>
