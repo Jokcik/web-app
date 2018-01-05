@@ -3,6 +3,7 @@ import {MainpageService} from '../mainpage/mainpage.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-news',
@@ -13,6 +14,7 @@ export class NewsComponent implements OnInit {
   public loaded: boolean = true;
 
   constructor(private mainpageService: MainpageService,
+              public userService: UserService,
               private router: Router) {
   }
 

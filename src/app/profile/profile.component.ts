@@ -14,13 +14,13 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.profileService.getUser().$observable.subscribe(
-      user => this.userService.setUser(user),
+      user => user ? this.userService.setUser(user) : this.userService.noAuthUser(401),
       error => this.userService.noAuthUser(error)
     );
   }
 
   public logout() {
-    localStorage.setItem('access_token', '');
+    localStorage.removeItem('access_token');
     this.userService.logout();
   }
 }

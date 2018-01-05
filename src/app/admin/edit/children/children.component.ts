@@ -7,6 +7,7 @@ import {SchoolsService} from '../../../schools/schools.service';
 import {ChildrenService} from '../../../bank-data-od/children.service';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ChildrenDialogAdd} from './children-dialog-add';
+import {UserService} from '../../../core/user-service/user.service';
 
 @Component({
   selector: 'od-children',
@@ -36,6 +37,7 @@ export class ChildrenComponent implements OnInit {
   constructor(private regionService: RegionService,
               private schoolsService: SchoolsService,
               private childrenService: ChildrenService,
+              public userService: UserService,
               public dialog: MatDialog) {
   }
 
@@ -93,6 +95,8 @@ export class ChildrenComponent implements OnInit {
   }
 
   public editChildren(region: any, index: number) {
+    if (!this.userService.user) return;
+
     if (index != this.currentIndex) {
       this.editable = true;
       this.currentIndex = index;

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../core/user-service/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'od-edit',
@@ -13,9 +15,15 @@ export class EditComponent implements OnInit {
     {path: '/admin/edit/history', label: 'История'},
   ];
 
-  constructor() { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(user => {
+      if (!user) {
+        this.router.navigate(['/403-forbidden'], {skipLocationChange: true});
+      }
+    });
   }
 
 }

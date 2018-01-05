@@ -3,6 +3,7 @@ import {Dummy} from '../core/dummy';
 import {Materials} from '../news/shared/materials';
 import {MainpageService} from '../mainpage/mainpage.service';
 import {Router} from '@angular/router';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-announce',
@@ -14,6 +15,7 @@ export class AnnounceComponent implements OnInit {
   public loaded: boolean = true;
 
   constructor(private service: MainpageService,
+              public userService: UserService,
               private router: Router) { }
 
 

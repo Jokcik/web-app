@@ -6,6 +6,7 @@ import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
 import {ODUtils} from './od-utils';
 import {ODImageDirective} from './od-image-load.directive';
+import {ODDatePipe} from './od-date/od-date.pipe';
 
 @NgModule({
   imports: [
@@ -14,12 +15,13 @@ import {ODImageDirective} from './od-image-load.directive';
   ],
   declarations: [
     ODClickOutside,
-    ODImageDirective
+    ODImageDirective,
+    ODDatePipe
   ],
   exports: [
-    RouterModule,
     ODClickOutside,
-    ODImageDirective
+    ODImageDirective,
+    ODDatePipe
   ],
 })
 export class ODCommonModule {
