@@ -5,7 +5,7 @@ import {Children} from '../shared/children';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
 import {ChildrenService} from '../../../bank-data-od/children.service';
-import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {ChildrenDialogAdd} from './children-dialog-add';
 import {UserService} from '../../../core/user-service/user.service';
 
@@ -38,6 +38,7 @@ export class ChildrenComponent implements OnInit {
               private schoolsService: SchoolsService,
               private childrenService: ChildrenService,
               public userService: UserService,
+              public snackBar: MatSnackBar,
               public dialog: MatDialog) {
   }
 
@@ -72,12 +73,12 @@ export class ChildrenComponent implements OnInit {
       if (result._id) {
         this.childrenService.update(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
-          window.alert('успешно сохранено');
+          this.snackBar.open('Успешно сохранено', 'ОК', {duration: 2000})
         });
       } else {
         this.childrenService.save(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
-          window.alert('Ученик добавлен в базу');
+          this.snackBar.open('Ученик добавлен в базу', 'ОК', {duration: 2000})
         });
       }
     });
@@ -101,7 +102,7 @@ export class ChildrenComponent implements OnInit {
       this.editable = true;
       this.currentIndex = index;
     } else {
-      this.childrenService.update(region).$observable.subscribe(() => window.alert('Успешно изменено'));
+      this.childrenService.update(region).$observable.subscribe(() => this.snackBar.open('Успешно изменено', 'ОК', {duration: 2000}));
       this.close();
     }
   }
@@ -109,8 +110,8 @@ export class ChildrenComponent implements OnInit {
   public deleteChildren(row) {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
       this.childrenService.remove({_id: row._id}).$observable.subscribe(() => {
-        window.alert('Успешно удалено');
         this.updateChildrens(this.currentSchool);
+        this.snackBar.open('Успешно удалено', 'ОК', {duration: 2000})
       });
     }
   }

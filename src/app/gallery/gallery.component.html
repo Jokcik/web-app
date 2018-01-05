@@ -7,7 +7,7 @@
         <p class="card-text" style="text-align: center;" (click)="openDialog()">Добавить фотографию</p>
       </div>
 
-      <div class="card" *ngFor="let gallery of galleries" (click)="openDialog(gallery)">
+      <div class="card" *ngFor="let gallery of galleries; trackBy:trackFunc" (click)="openDialog(gallery)">
         <img style="width: 100%; display: block;" [src]="gallery.img">
         <p class="card-text" [innerHTML]="gallery.title"></p>
       </div>

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Schools} from '../shared/school';
 import {SchoolsService} from '../../../schools/schools.service';
 import {RegionDialogAdd} from '../region/region-dialog-add';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {DshiDialogAdd} from './schools-dialog-add';
 import {RegionService} from '../region/region.service';
 import {Region} from '../shared/region';
@@ -19,6 +19,7 @@ export class SchoolEditComponent implements OnInit {
 
   constructor(private schoolService: SchoolsService,
               private regionService: RegionService,
+              public snackBar: MatSnackBar,
               public dialog: MatDialog) {
   }
 
@@ -37,7 +38,7 @@ export class SchoolEditComponent implements OnInit {
       this.schoolService.save(result.school).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
-        window.alert('Данные успешно сохранены');
+        this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
       });
     });
   }
@@ -47,7 +48,7 @@ export class SchoolEditComponent implements OnInit {
     this.schoolService.update(this.currentSchool).$observable.subscribe(res => {
       this.updateSchools();
       this.currentSchool = null;
-      window.alert('Данные успешно сохранены')
+      this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
     });
   }
 
@@ -56,7 +57,7 @@ export class SchoolEditComponent implements OnInit {
       this.schoolService.remove({_id: this.currentSchool._id}).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
-        window.alert('Данные успешно удалены');
+        this.snackBar.open('Данные успешно удалены', 'ОК', {duration: 2000})
       });
     }
   }
