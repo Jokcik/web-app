@@ -9,6 +9,10 @@ export const GallerySchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 GallerySchema.set('toJSON', {
