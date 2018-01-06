@@ -48,13 +48,16 @@ header {
     li {
       .dropdown-menu {
         margin: 0 !important;
-        background-color: #EBEAE6 !important;
+        background-color: darkgray !important;
+        box-shadow: 56px 41px 54px -12px rgba(0,0,0,0.2);
         border: 0;
+        border-radius: 0;
         padding: 0;
         > a {
+          color: white !important;
           &:hover {
-            color: white !important;
-            background-color: darkgray;;
+            color: #484B50 !important;
+            background-color: #EBEAE6;
           }
         }
       }

@@ -9,6 +9,13 @@
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field *ngIf="news.type == 2">
+      <input matInput [matDatepicker]="picker" placeholder="Дата аннонса" [matDatepickerFilter]="filterDate"
+             [disabled]="true" (dateChange)="news.date = $event.value">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]="false" [startAt]="news.date"></mat-datepicker>
+    </mat-form-field>
+
     <mat-form-field>
       <input matInput placeholder="Заголовок" [(ngModel)]="news.title"/>
     </mat-form-field>

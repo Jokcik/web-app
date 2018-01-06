@@ -3,23 +3,36 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news"
-                                  routerLinkActive="active">Новости</a></li>
-          <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools"
-                                  routerLinkActive="active">ДШИ</a></li>
+          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news">Новости</a></li>
           <li class="nav-item dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
             <a class="nav-link">История</a>
             <div class="dropdown-menu" [class.show]="historyShow">
-              <a class="dropdown-item" href="/history" routerLink="/history">История 1</a>
-              <a class="dropdown-item" href="/history" routerLink="/history">История 2</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Роль РУМЦ в развитии ДШИ области</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "фортепиано"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "народные инструмента"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "духовые инструменты"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "струнные смычковые инструменты"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "фольклор"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "хоровое пение"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "изобразительное искусство"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "хореография"</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Развитие специализации "театральное искусство"</a>
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"
           routerLinkActive="active">Конкурсы</a></li>
           <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
-                                  routerLinkActive="active">Одареные дети</a></li>
+                                  routerLinkActive="active">Одаренные дети</a></li>
           <li class="nav-item"><a class="nav-link" href="/galleries" routerLink="/galleries"
                                   routerLinkActive="active">Фотогалерея</a></li>
+          <li class="nav-item dropdown" (mouseover)="historyAddress = true" (mouseleave)="historyAddress = false">
+            <a class="nav-link">Адреса</a>
+            <div class="dropdown-menu" [class.show]="historyAddress">
+              <a class="dropdown-item" href="/history" routerLink="/history">Управление культуры области</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Муниципальные управления культуры</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">Детские школы искусств</a>
+            </div>
+          </li>
           <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
                                   routerLinkActive="active">Контакты</a></li>
         </ul>

@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 export class EditComponent implements OnInit {
   navLinks = [
     {path: '/admin/edit/news', label: 'Добавить событие'},
+    {path: '/admin/edit/competition', label: 'Конкурсы'},
     {path: '/admin/edit/children', label: 'Банк данных ОД'},
     {path: '/admin/edit/regions', label: 'Район, город'},
     {path: '/admin/edit/schools', label: 'ДШИ'},
@@ -16,7 +17,8 @@ export class EditComponent implements OnInit {
   ];
 
   constructor(private userService: UserService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.userService.getUser().subscribe(user => {

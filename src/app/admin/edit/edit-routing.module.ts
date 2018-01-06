@@ -6,6 +6,7 @@ import {NewsEditComponent} from './news-edit/news-edit.component';
 import {RegionComponent} from './region/region.component';
 import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {ChildrenComponent} from './children/children.component';
+import {CompetitionEditComponent} from './competition/competition-edit.component';
 
 
 @NgModule({
@@ -21,6 +22,10 @@ import {ChildrenComponent} from './children/children.component';
         {
           path: 'children',
           component: ChildrenComponent,
+        },
+        {
+          path: 'competition',
+          component: CompetitionEditComponent,
         },
         {
           path: 'history',

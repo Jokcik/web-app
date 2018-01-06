@@ -25,6 +25,7 @@
     "@angular/http": "^5.1.0",
     "@angular/language-service": "^5.1.0",
     "@angular/material": "^5.0.0",
+    "@angular/material-moment-adapter": "^5.0.3",
     "@angular/platform-browser": "^5.1.0",
     "@angular/platform-browser-dynamic": "^5.1.0",
     "@angular/router": "^5.1.0",
@@ -58,11 +59,11 @@
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.5.5",
     "serve-static": "^1.13.1",
+    "ts-node": "^3.3.0",
     "typescript": "^2.6.2",
     "typings": "^2.1.1",
     "uniqid": "^4.1.1",
-    "zone.js": "^0.8.18",
-    "ts-node": "^3.3.0"
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
     "@types/jasmine": "^2.6.3",

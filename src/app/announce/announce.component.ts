@@ -24,7 +24,7 @@ export class AnnounceComponent implements OnInit {
   }
 
   public remove(news: Materials) {
-    if (window.confirm('Вы действительно хотите удалить эту новость?')) {
+    if (window.confirm('Вы действительно хотите удалить этот аннос?')) {
       this.service.remove({_id: news._id}).$observable.subscribe(() => {
         this.descriptions = this.descriptions.filter(material => material._id != news._id);
       })

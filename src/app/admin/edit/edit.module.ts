@@ -4,10 +4,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDialogModule, MatDialogRef, MatFormFieldModule, MatGridListModule,
-  MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatSortModule,
-  MatTableModule,
-  MatTabNav, MatTabsModule,
+  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatDialogRef, MatFormFieldModule,
+  MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule,
+  MatSortModule, MatTableModule, MatTabNav, MatTabsModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -24,10 +23,9 @@ import {SchoolsService} from '../../schools/schools.service';
 import {DshiDialogAdd} from './schools-edit/schools-dialog-add';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
-import {ChildrenComponent} from './children/children.component';
 import {ChildrenService} from '../../bank-data-od/children.service';
-import {ChildrenDialogAdd} from './children/children-dialog-add';
 import {ChildrenModule} from './children/children.module';
+import {CompetitionEditComponent} from './competition/competition-edit.component';
 
 @NgModule({
   imports: [
@@ -58,7 +56,8 @@ import {ChildrenModule} from './children/children.module';
     MatRadioModule,
     MatListModule,
     MatGridListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
   ],
   declarations: [
     EditComponent,
@@ -68,6 +67,7 @@ import {ChildrenModule} from './children/children.module';
     SchoolEditComponent,
     DshiDialogAdd,
     NewsEditComponent,
+    CompetitionEditComponent,
   ],
   entryComponents: [
     RegionDialogAdd,
