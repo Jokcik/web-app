@@ -1,0 +1,30 @@
+<div class="outer-dshi-edit">
+  <mat-card>
+    <mat-card-header mat-dialog-title>Добавить конкурс</mat-card-header>
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input matInput placeholder="Название конкурса" [(ngModel)]="currentCompetition.title">
+      </mat-form-field>
+      <mat-form-field>
+        <label>Дата проведения</label>
+        <mat-select placeholder="Год" (valueChange)="year = $event" [value]="year">
+          <mat-option [value]="2013">2013</mat-option>
+          <mat-option [value]="2014">2014</mat-option>
+          <mat-option [value]="2015">2015</mat-option>
+          <mat-option [value]="2016">2016</mat-option>
+          <mat-option [value]="2017">2017</mat-option>
+          <mat-option [value]="2018">2018</mat-option>
+          <mat-option [value]="2019">2019</mat-option>
+          <mat-option [value]="2020">2020</mat-option>
+          <mat-option [value]="2021">2021</mat-option>
+          <mat-option [value]="2022">2022</mat-option>
+          <mat-option [value]="2023">2023</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </mat-card>
+  <button mat-raised-button style="margin-top: 15px; float: right" [disabled]="!currentSchool.region._id"
+          color="primary" (click)="add()">Добавить
+  </button>
+</div>
