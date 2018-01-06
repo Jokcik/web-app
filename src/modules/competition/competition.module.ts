@@ -3,7 +3,7 @@ import {CompetitionController} from './competition.controller';
 import {CompetitionService} from './competition.service';
 import {CompetitionProviders} from './competition.providers';
 import {DatabaseModule} from '../database/database.module';
-import {AuthService} from '../authenticate/auth.service';
+import {OthersProviders} from '../others/others.providers';
 import * as passport from 'passport';
 
 const routes: any[] = [
@@ -18,6 +18,7 @@ const routes: any[] = [
   components: [
     CompetitionService,
     ...CompetitionProviders,
+    ...OthersProviders
   ],
 })
 export class CompetitionModule implements NestModule {

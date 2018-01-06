@@ -5,6 +5,7 @@ import {Region} from '../shared/region';
 import {Competition} from '../shared/competition';
 import {CompetitionLevel} from '../shared/competition-level';
 import {CompetitionPlace} from '../shared/competition-place';
+import {CompetitionService} from '../../../competition/competition.service';
 
 @Component({
   selector: 'competition-dialog-add',
@@ -19,8 +20,11 @@ export class CompetitionsDialogAdd {
   public month: number = new Date().getMonth();
 
   constructor(public dialogRef: MatDialogRef<CompetitionsDialogAdd>,
+              private competitionService: CompetitionService,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.currentCompetition = data;
+
+    // this.competitionService.
   }
 
   public add(): void {

@@ -3,4 +3,19 @@
   mat-form-field {
     width: 100%;
   }
+
+  .date-block {
+    label {
+      display: block;
+    }
+    mat-form-field {
+      width: auto;
+    }
+  }
+
+  mat-card {
+    [mat-dialog-title] {
+      text-align: center;
+    }
+  }
 }

@@ -3,9 +3,9 @@ import { Schema } from 'mongoose';
 import {ChildrenService} from './children.service';
 import {CreateChildrenDto} from './dto/create-children.dto';
 import {Children} from './interfaces/children.interface';
-import ObjectId = Schema.Types.ObjectId;
 import {Specialization} from '../others/interface/specialization.interface';
 import {Instruments} from '../others/interface/instruments.interface';
+import ObjectId = Schema.Types.ObjectId;
 
 @Controller('children')
 export class ChildrenController {
