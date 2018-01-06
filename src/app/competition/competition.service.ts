@@ -3,8 +3,9 @@ import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {ODResourceCrud} from '../core/od-resource-crud';
 import {IQueryParams} from '../bank-data-od/children.service';
 import {Competition} from '../admin/edit/shared/competition';
+import {CompetitionLevel} from '../admin/edit/shared/competition-level';
+import {CompetitionPlace} from '../admin/edit/shared/competition-place';
 import {Http} from '@angular/http';
-import {Instruments, Specialization} from '../admin/edit/shared/children';
 
 @Injectable()
 @ResourceParams({pathPrefix: 'competitions'})
@@ -13,9 +14,9 @@ export class CompetitionService extends ODResourceCrud<void, Competition, Compet
     super(http);
   }
 
-  @ResourceAction({path: '/specializations', isArray: true})
-  querySpecializations: ResourceMethod<void, Specialization[]>;
+  @ResourceAction({path: '/levels', isArray: true})
+  queryLevels: ResourceMethod<void, CompetitionLevel[]>;
 
-  @ResourceAction({path: '/instruments', isArray: true})
-  queryInstruments: ResourceMethod<IQueryParams, Instruments[]>;
+  @ResourceAction({path: '/places', isArray: true})
+  queryPlaces: ResourceMethod<IQueryParams, CompetitionPlace[]>;
 }

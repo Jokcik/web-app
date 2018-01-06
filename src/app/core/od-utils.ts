@@ -22,6 +22,10 @@ export class ODUtils {
     return safeUrl;
   }
 
+  public getIdInArray(value: any, array: any[], field: string) {
+    return array.map(value => value[field]).indexOf(field);
+  }
+
   public translit(text: string) {
     // Символ, на который будут заменяться все спецсимволы
     const space = '-';
