@@ -17,8 +17,6 @@ export class CompetitionsDialogAdd {
 
   public levels: CompetitionLevel[] = [];
   public levelIdx: number = -1;
-  public places: CompetitionPlace[] = [];
-  public placeIdx: number = -1;
   public year: number = new Date().getFullYear();
   public month: number = new Date().getMonth();
 
@@ -26,22 +24,25 @@ export class CompetitionsDialogAdd {
               private competitionService: CompetitionService,
               private odUtils: ODUtils,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.currentCompetition = data ? data : this.currentCompetition;
+    if (data) {
+      this.currentCompetition = data;
+
+      let date = new Date(this.currentCompetition.date);
+      this.year = date.getFullYear();
+      this.month = date.getMonth();
+    }
+
 
     this.competitionService.queryLevels().$observable.subscribe(levels => {
       this.levels = levels;
       this.levelIdx = this.odUtils.getIdInArray(this.currentCompetition.level.title, levels, 'title');
     });
-
-    this.competitionService.queryPlaces().$observable.subscribe(places => {
-      this.places = places;
-      this.placeIdx = this.odUtils.getIdInArray(this.currentCompetition.place.title, places, 'title');
-    });
   }
 
   public add(): void {
-    // this.currentSchool.region = <any>this.currentSchool.region._id;
-    // this.dialogRef.close({school: this.currentSchool});
+    this.currentCompetition.level = <any>this.currentCompetition.level._id;
+    this.currentCompetition.date = new Date(this.year, this.month);
+    this.dialogRef.close({competition: this.currentCompetition});
   }
 
 }

@@ -1,7 +1,7 @@
 import {Model, Schema} from 'mongoose';
 import {Component, Inject} from '@nestjs/common';
 import {Competition} from './interfaces/competition.interface';
-import {CompetitionLevelModelToken, CompetitionModelToken, CompetitionPlaceModelToken} from '../constants';
+import {CompetitionLevelModelName, CompetitionLevelModelToken, CompetitionModelToken, CompetitionPlaceModelToken} from '../constants';
 import {CreateCompetitionDto} from './dto/create-competition.dto';
 import {CompetitionLevel} from '../others/interface/competition-level.interface';
 import {CompetitionPlace} from '../others/interface/competition-place.interface';
@@ -15,7 +15,7 @@ export class CompetitionService {
   }
 
   async findAll() {
-    return await this.competitionsModel.find().populate('level').populate('place');
+    return await this.competitionsModel.find().populate({path: 'level', model: CompetitionLevelModelName});
   }
 
   async findAllLevels() {

@@ -3,5 +3,4 @@ export class CreateCompetitionDto {
   readonly title: string;
   readonly date: Date;
   readonly level: string;
-  readonly place: string;
 }

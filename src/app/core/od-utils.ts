@@ -23,7 +23,7 @@ export class ODUtils {
   }
 
   public getIdInArray(value: any, array: any[], field: string) {
-    return array.map(value => value[field]).indexOf(field);
+    return array.map(value => value[field]).indexOf(value);
   }
 
   public translit(text: string) {

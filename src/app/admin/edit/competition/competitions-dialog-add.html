@@ -45,14 +45,9 @@
           <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field>
-        <mat-select placeholder="Место в конкурсе" (valueChange)="currentCompetition.place = places[$event]" [value]="placeIdx">
-          <mat-option *ngFor="let place of places; let idx = index" [value]="idx">{{place.title}}</mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
   </mat-card>
   <button mat-raised-button style="margin-top: 15px; float: right"
-          color="primary" (click)="add()">Добавить
+          color="primary" (click)="add()">{{currentCompetition._id ? 'Изменить' : 'Добавить'}}
   </button>
 </div>

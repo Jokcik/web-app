@@ -26,14 +26,31 @@ export class CompetitionEditComponent implements OnInit {
     this.competitionService.query().$observable.subscribe(competitions => this.competitions = competitions);
   }
 
-  public openDialog() {
-    this.dialog.open(CompetitionsDialogAdd, {width: '900px', data: this.currentCompetition}).afterClosed().subscribe(result => {
-      if (!result) return;
-      this.competitionService.save(result.competition).$observable.subscribe(() => {
-        this.currentCompetition = null;
-        this.updateCompetitions();
-        this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
-      });
+  public openDialog(isNew: boolean) {
+    this.dialog.open(CompetitionsDialogAdd, {width: '900px', data: isNew ? '' : this.currentCompetition}).afterClosed().subscribe(result => {
+      if (!result || !result.competition) return;
+
+      if (!result.competition._id) {
+        this.competitionService.save(result.competition).$observable.subscribe(() => {
+          this.currentCompetition = null;
+          this.updateCompetitions();
+          this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000})
+        });
+      } else {
+        this.competitionService.update(result.competition).$observable.subscribe(() => {
+          this.currentCompetition = null;
+          this.updateCompetitions();
+          this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000})
+        });
+      }
+    });
+  }
+
+  public deleteCompetition() {
+    this.competitionService.remove({_id: this.currentCompetition._id}).$observable.subscribe(() => {
+      this.currentCompetition = null;
+      this.updateCompetitions();
+      this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000})
     });
   }
 }

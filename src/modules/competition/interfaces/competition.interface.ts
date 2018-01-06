@@ -5,5 +5,4 @@ export interface Competition extends Document {
   readonly title: string;
   readonly date: Date;
   readonly level: string;
-  readonly place: string;
 }

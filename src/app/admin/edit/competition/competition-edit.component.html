@@ -6,6 +6,10 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary" style="float: right"
-          (click)="openDialog()">Добавить конкурс</button>
+
+  <button mat-raised-button color="primary" style="float: left; margin-right: 20px;" *ngIf="currentCompetition?._id"
+          (click)="openDialog()">Изменить выбранный конкурс</button>
+  <button mat-raised-button color="warn" style="float: left" *ngIf="currentCompetition?._id"
+          (click)="deleteCompetition()">Удалить конкурс</button>
+  <button mat-raised-button color="primary" style="float: right" (click)="openDialog(true)">Добавить конкурс</button>
 </div>
