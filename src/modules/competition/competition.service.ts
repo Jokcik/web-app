@@ -11,7 +11,7 @@ export class CompetitionService {
   }
 
   async findAll() {
-    return await this.competitionsModel.find();
+    return await this.competitionsModel.find().populate('level').populate('place');
   }
 
   async createCompetition(competition: CreateCompetitionDto) {

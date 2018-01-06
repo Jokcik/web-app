@@ -1,3 +1,11 @@
-<p>
-  competition works!
-</p>
+<div class="outer-wrap-competitions">
+  <mat-form-field>
+    <mat-select placeholder="Конкурсы" (valueChange)="currentCompetition = competitions[$event]">
+      <mat-option *ngFor="let competition of competitions; let idx = index" [value]="idx">
+        {{competition.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" style="float: right"
+          (click)="openDialog()">Добавить конкурс</button>
+</div>

@@ -26,6 +26,7 @@ import {ODMultipartSendService} from '../../core/od-multipart-send.service';
 import {ChildrenService} from '../../bank-data-od/children.service';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
+import {CompetitionService} from '../../competition/competition.service';
 
 @NgModule({
   imports: [
@@ -73,7 +74,7 @@ import {CompetitionEditComponent} from './competition/competition-edit.component
     RegionDialogAdd,
     DshiDialogAdd,
   ],
-  providers: [MainpageService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenService,
+  providers: [MainpageService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenService, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

@@ -7,6 +7,7 @@ import {AuthModule} from './authenticate/auth.module';
 import {UploadsModule} from './uploads/uploads.module';
 import {GalleryModule} from './gallery/gallery.module';
 import {ChildrenModule} from './children/children.module';
+import {CompetitionModule} from './competition/competition.module';
 
 @Module({
   modules: [
@@ -17,6 +18,7 @@ import {ChildrenModule} from './children/children.module';
     ProfileModule,
     GalleryModule,
     ChildrenModule,
+    CompetitionModule,
     UploadsModule,
   ],
 })
