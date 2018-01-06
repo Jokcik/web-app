@@ -26,9 +26,18 @@ export const SpecializationModelName = 'Specialization';
 export const InstrumentsModelToken = 'InstrumentsModelToken';
 export const InstrumentsModelName = 'Instruments';
 
+export const CompetitionModelToken = 'CompetitionModelToken';
+export const CompetitionModelName = 'Competition';
+
+export const CompetitionLevelModelToken = 'CompetitionLevelModelToken';
+export const CompetitionLevelModelName = 'CompetitionLevel';
+
+export const CompetitionPlaceModelToken = 'CompetitionPlaceModelToken';
+export const CompetitionPlaceModelName = 'CompetitionPlace';
+
 export const Roles = (...roles: number[]) => ReflectMetadata('roles', roles);
 
 export const RolesTypes = {
-  ALL: 0,
-  ADMIN: 1
+  SCHOOL: 0,
+  RUMC: 1
 };
