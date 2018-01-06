@@ -1,4 +1,8 @@
 header {
+  a {
+    cursor: pointer;
+  }
+
   height: 43px;
   //background-image: url('/images/fon/header.jpg');
   //background-size: cover;
@@ -8,36 +12,57 @@ header {
   flex: 0 0 auto;
 
   .bg-dark {
-    background-color: #EBEAE6!important;
+    background-color: #EBEAE6 !important;
+  }
+
+  div > ul > li {
+    &:hover {
+      background-color: darkgray;
+
+      > a {
+        color: white !important;
+      }
+    }
+
+    > a {
+
+      padding-left: 1.6rem !important;
+      padding-right: 1.6rem !important;
+      text-align: center !important;
+    }
+  }
+
+  od-profile {
+    li > a {
+      padding-left: .2rem !important;
+      padding-right: .2rem !important;
+      &.separator {
+        padding-right: .3rem !important;
+        padding-left: .3rem !important;
+        cursor: default;
+      }
+    }
   }
 
   ul {
     li {
-      &:hover {
-        background-color: darkgray;
-
-        > a {
-          color: white!important;
-        }
-      }
-
       .dropdown-menu {
-        margin: 0!important;
-        background-color: #f1f1f1!important;
+        margin: 0 !important;
+        background-color: #EBEAE6 !important;
         border: 0;
         padding: 0;
         > a {
           &:hover {
-            color: white!important;
+            color: white !important;
             background-color: darkgray;;
           }
         }
       }
 
-      a {
-        color: #484B50!important;
-        font-weight: bold!important;
-        font-family: 'roboto_lt', Arial, Helvetica, sans-serif!important;
+      a, span {
+        color: #484B50 !important;
+        font-weight: bold !important;
+        font-family: 'roboto_lt', Arial, Helvetica, sans-serif !important;
       }
     }
   }
@@ -97,7 +122,7 @@ header {
       display: flex;
       margin-bottom: 50px;
 
-      align-items:center;
+      align-items: center;
       flex-flow: row nowrap;
       justify-content: stretch;
 

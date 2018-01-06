@@ -6,25 +6,22 @@
           <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news"
                                   routerLinkActive="active">Новости</a></li>
           <li class="nav-item"><a class="nav-link" href="/schools" routerLink="/schools"
-                                  routerLinkActive="active">ДШИ Белгородской области</a></li>
-          <li class="nav-item"><a class="nav-link" href="/history" routerLink="/history" routerLinkActive="active"
-                                  [routerLinkActiveOptions]="{exact:true}">История<span class="sr-only"></span></a></li>
-          <!--<li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"-->
-          <!--routerLinkActive="active">Конкурсы</a></li>-->
+                                  routerLinkActive="active">ДШИ</a></li>
+          <li class="nav-item dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
+            <a class="nav-link">История</a>
+            <div class="dropdown-menu" [class.show]="historyShow">
+              <a class="dropdown-item" href="/history" routerLink="/history">История 1</a>
+              <a class="dropdown-item" href="/history" routerLink="/history">История 2</a>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition"
+          routerLinkActive="active">Конкурсы</a></li>
           <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od"
-                                  routerLinkActive="active">Банк данных одаренных детей</a></li>
+                                  routerLinkActive="active">Одареные дети</a></li>
           <li class="nav-item"><a class="nav-link" href="/galleries" routerLink="/galleries"
                                   routerLinkActive="active">Фотогалерея</a></li>
           <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
                                   routerLinkActive="active">Контакты</a></li>
-          <li class="nav-item dropdown" (mouseover)="dropShow = true" (mouseleave)="dropShow = false">
-            <a class="nav-link">Drop</a>
-            <div class="dropdown-menu" [class.show]="dropShow">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
         </ul>
         <od-profile></od-profile>
       </div>

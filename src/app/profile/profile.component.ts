@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfileService} from './profile.service';
 import {UserService} from '../core/user-service/user.service';
-import {User} from '../core/user-service/user';
 
 @Component({
   selector: 'od-profile',

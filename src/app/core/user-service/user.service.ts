@@ -8,16 +8,19 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class UserService {
   public user: User;
+  public isCheckAuth: boolean = false;
   public onLogin = new Subject<User>();
   public errorAuth: boolean = false;
 
   public setUser(user: User) {
+    this.isCheckAuth = true;
     this.errorAuth = false;
     this.user = user;
     this.onLogin.next(user);
   }
 
   public noAuthUser(err: number) {
+    this.isCheckAuth = true;
     this.errorAuth = true;
     this.onLogin.error(err);
   }
