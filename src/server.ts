@@ -13,7 +13,7 @@ s.set('port', process.env.PORT || nconf.get('port') || nconf.get('PORT') || 3001
 
 async function bootstrap() {
 
-  s.use(serveStatic(path.join(__dirname, '../dist_main')));
+  s.use(serveStatic(path.join(__dirname, '../dist')));
   s.use(serveStatic(path.join(__dirname, '../public')));
   s.use(serveStatic(path.join(__dirname, '../node_modules/@angular/material/prebuilt-themes')));
 
@@ -27,7 +27,7 @@ async function bootstrap() {
     if(req.originalUrl.startsWith('/api')) {
       next();
     } else {
-      res.sendFile('index.html', {root: 'dist_main'});
+      res.sendFile('index.html', {root: 'dist'});
     }
   });
 
