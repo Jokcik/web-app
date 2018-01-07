@@ -33,6 +33,7 @@ async function bootstrap() {
 
 
   await app.listen(s.get('port'));
+  console.log('star server port ' + s.get('port'))
 }
 bootstrap();
 
