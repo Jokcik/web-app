@@ -1,5 +1,5 @@
-
-<div class="example-container mat-elevation-z8 outer-region-edit table" [class.dummy]="currentIndex == -2" (odClickOutside)="close()">
+<div class="example-container mat-elevation-z8 outer-region-edit table" [class.dummy]="currentIndex == -2"
+     (odClickOutside)="close()">
   <div class="example-header">
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">
@@ -8,8 +8,9 @@
 
   <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
     <ng-container cdkColumnDef="title">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Территория </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Территория</cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell"
+                [class.edit]="idx == currentIndex && editable">
         <div class="show">{{row.title}}</div>
         <div class="edit">
           <mat-form-field>
@@ -21,10 +22,12 @@
 
     <!-- Progress Column -->
     <ng-container cdkColumnDef="telephone">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефонный код района, города </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [class.edit]="idx == currentIndex && editable">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Телефонный код района, города
+      </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell"
+                [class.edit]="idx == currentIndex && editable">
         <div class="show">{{row.telephone}}</div>
-        <div class="edit" >
+        <div class="edit">
           <mat-form-field>
             <input matInput [(ngModel)]="row.telephone">
           </mat-form-field>
@@ -38,7 +41,7 @@
       <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [style.flex]="'0 0 10px'"
                 [class.edit]="idx == currentIndex && editable">
         <button mat-icon-button (click)="editRegion(row, idx)" *ngIf="userService.user">
-            <mat-icon class="show">edit</mat-icon>
+          <mat-icon class="show">edit</mat-icon>
           <mat-icon class="edit">done</mat-icon>
         </button>
       </cdk-cell>
@@ -59,4 +62,6 @@
 
   <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
 </div>
-<button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить район, город</button>
+<button mat-raised-button color="primary" style="float: right; margin-top: 20px;" (click)="openDialog()">Добавить район,
+  город
+</button>
