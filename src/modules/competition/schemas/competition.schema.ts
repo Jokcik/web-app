@@ -7,6 +7,30 @@ export const CompetitionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  year2017: {
+    type: Boolean,
+    default: false
+  },
+  year2018: {
+    type: Boolean,
+    default: false
+  },
+  year2019: {
+    type: Boolean,
+    default: false
+  },
+  year2020: {
+    type: Boolean,
+    default: false
+  },
+  year2021: {
+    type: Boolean,
+    default: false
+  },
+  year2022: {
+    type: Boolean,
+    default: false
+  },
   date: {
     type: Date,
     required: true

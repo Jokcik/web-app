@@ -17,20 +17,13 @@ export class CompetitionsDialogAdd {
 
   public levels: CompetitionLevel[] = [];
   public levelIdx: number = -1;
-  public year: number = new Date().getFullYear();
-  public month: number = new Date().getMonth();
+  public years: string[] = ['2017', '2018', '2019', '2020', '2021', '2022'];
 
   constructor(public dialogRef: MatDialogRef<CompetitionsDialogAdd>,
               private competitionService: CompetitionService,
               private odUtils: ODUtils,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    if (data) {
-      this.currentCompetition = data;
-
-      let date = new Date(this.currentCompetition.date);
-      this.year = date.getFullYear();
-      this.month = date.getMonth();
-    }
+    this.currentCompetition = data ? data : this.currentCompetition;
 
 
     this.competitionService.queryLevels().$observable.subscribe(levels => {
@@ -41,7 +34,6 @@ export class CompetitionsDialogAdd {
 
   public add(): void {
     this.currentCompetition.level = <any>this.currentCompetition.level._id;
-    this.currentCompetition.date = new Date(this.year, this.month);
     this.dialogRef.close({competition: this.currentCompetition});
   }
 

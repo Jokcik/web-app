@@ -1,6 +1,11 @@
 export class CreateCompetitionDto {
   readonly _id: string;
   readonly title: string;
-  readonly date: Date;
+  readonly year2017: boolean = false;
+  readonly year2018: boolean = false;
+  readonly year2019: boolean = false;
+  readonly year2020: boolean = false;
+  readonly year2021: boolean = false;
+  readonly year2022: boolean = false;
   readonly level: string;
 }

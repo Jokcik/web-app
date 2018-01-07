@@ -4,7 +4,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDatepickerModule, MatDialogModule, MatDialogRef, MatFormFieldModule,
+  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDialogRef,
+  MatFormFieldModule,
   MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule,
   MatSortModule, MatTableModule, MatTabNav, MatTabsModule,
 } from '@angular/material';
@@ -60,6 +61,7 @@ import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
     MatGridListModule,
     MatSnackBarModule,
     MatDatepickerModule,
+    MatCheckboxModule
   ],
   declarations: [
     EditComponent,
