@@ -19,7 +19,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(ApplicationModule, s);
   app.use(bodyParser.json());
-  app.use(cors({allowedOrigins: ['localhost:3001'], headers: ['Content-Type', 'enctype', 'Authorization']}));
+  app.use(cors({allowedOrigins: ['localhost:3001', '166529.simplecloud.ru', '85.143.175.134'], headers: ['Content-Type', 'enctype', 'Authorization']}));
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
 
