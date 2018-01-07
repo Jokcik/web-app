@@ -31,10 +31,6 @@ export const CompetitionSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  date: {
-    type: Date,
-    required: true
-  },
   level: {
     type: ObjectID,
     ref: CompetitionLevelSchema
