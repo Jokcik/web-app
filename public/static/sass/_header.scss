@@ -46,6 +46,11 @@ header {
 
   ul {
     li {
+      .dropdown-item:focus,
+      .dropdown-item:hover {
+        background-color: darkgray !important;
+      }
+
       .dropdown-menu {
         margin: 0 !important;
         background-color: darkgray !important;

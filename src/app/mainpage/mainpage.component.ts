@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainpageService} from './mainpage.service';
-import {Description, Materials} from '../news/shared/materials';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {Materials} from '../news/shared/materials';
 import {Dummy} from '../core/dummy';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'od-mainpage',
@@ -12,11 +12,14 @@ export class MainpageComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 1);
   public isFull: boolean = false;
 
-  constructor(private mainpageService: MainpageService) {
+  constructor(private mainpageService: MainpageService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.mainpageService.querySafeHtml({type: 0}).subscribe(descriptions => this.descriptions = descriptions);
+    this.route.params.subscribe(params => {
+      this.mainpageService.querySafeHtml({type: 0, url: params['id']}).subscribe(descriptions => this.descriptions = descriptions);
+    });
   }
 
   public imageSources: string[] = [

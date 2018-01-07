@@ -1,13 +1,21 @@
 <div class="admin-edit">
-  <div *ngFor="let material of materials" class="outer-wrap-mainpage">
+  <mat-form-field style="width: 100%">
+    <mat-select placeholder="История" (valueChange)="currentMaterial = materials[$event]" [value]="0">
+      <mat-option *ngFor="let material of materials; let idx = index" [value]="idx">
+        {{material.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="outer-wrap-mainpage" *ngIf="currentMaterial">
     <div class="text">Заголовок</div>
-    <ckeditor [(ngModel)]="material.title" [config]="config"></ckeditor>
+    <ckeditor [(ngModel)]="currentMaterial.title" [config]="config"></ckeditor>
     <div class="text">Вводный текст на главной</div>
-    <ckeditor [(ngModel)]="material.description.short_description" [config]="config"></ckeditor>
+    <ckeditor [(ngModel)]="currentMaterial.description.short_description" [config]="config"></ckeditor>
     <div class="text">Текст</div>
-    <ckeditor [(ngModel)]="material.description.description" [config]="config"></ckeditor>
+    <ckeditor [(ngModel)]="currentMaterial.description.description" [config]="config"></ckeditor>
     <div class="button-row">
-      <button mat-raised-button color="primary" (click)="saveHistory(material)">Сохранить</button>
+      <button mat-raised-button color="primary" (click)="saveHistory(currentMaterial)">Сохранить</button>
     </div>
   </div>
 </div>

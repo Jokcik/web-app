@@ -3,6 +3,7 @@ import {SafeHtml} from '@angular/platform-browser';
 export class Materials {
   _id: string;
   title: SafeHtml;
+  name: string;
   url: string;
   img: string;
   date: Date;

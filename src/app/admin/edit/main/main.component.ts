@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
 import {MainpageService} from '../../../mainpage/mainpage.service';
 import {Dummy} from '../../../core/dummy';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'od-main',
@@ -10,17 +11,22 @@ import {Dummy} from '../../../core/dummy';
 })
 export class MainComponent implements OnInit {
   @Input() materials: Materials[] = Dummy.factory(Materials, 1);
+  public currentMaterial: Materials;
 
-  constructor(private mainpageService: MainpageService) {
+  constructor(private mainpageService: MainpageService,
+              public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-    this.materials = this.mainpageService.queryMainpage({type: 0});
+    this.mainpageService.queryMainpage({type: 0}).$observable.subscribe(histories => {
+      this.materials = histories;
+      this.currentMaterial = histories[0];
+    });
   }
 
   public saveHistory(material: Materials) {
     let a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
-    this.mainpageService.update(a);
+    this.mainpageService.update(a).$observable.subscribe(() => this.snackBar.open('История успешно изменена', 'ОК', {duration: 2000}));
   }
 
   public config = {

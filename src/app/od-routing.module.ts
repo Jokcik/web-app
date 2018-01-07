@@ -5,8 +5,8 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
 
 export const routes: Routes = [
   {path: '', loadChildren: 'app/news/news.module#NewsModule', pathMatch: 'full'},
-  {path: 'history', loadChildren: 'app/mainpage/mainpage.module#MainpageModule'},
-  {path: 'schools', loadChildren: 'app/schools/schools.module#SchoolsModule'},
+  {path: 'history/:id', loadChildren: 'app/mainpage/mainpage.module#MainpageModule'},
+  {path: 'address/:id', loadChildren: 'app/schools/schools.module#SchoolsModule'},
   {path: 'news', loadChildren: 'app/news/news.module#NewsModule'},
   {path: 'competition', loadChildren: 'app/competition/competition.module#CompetitionModule'},
   {path: 'bank-data-od', loadChildren: 'app/bank-data-od/bank-data-od.module#BankDataOdModule'},
