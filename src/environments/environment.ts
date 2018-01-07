@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   // host: 'http://localhost:3001/api/'
-  host: 'https://frozen-headland-84421.herokuapp.com/api/'
+  // host: 'https://frozen-headland-84421.herokuapp.com/api/'
+  host: 'http://85.143.175.134/api/'
 };
