@@ -13,7 +13,6 @@ export class UploadsService {
     let url = '/images/' + fields.type + '/' + uniqid() + path.extname(files.logo.name);
     mv(files.logo.path, './public' + url, err => {console.log(err)});
     // fs.renameSync(files.logo.path, './public' + url);
-    return {url: url}
-    // return {url: host + url}
+    return {url: host + url}
   }
 }
