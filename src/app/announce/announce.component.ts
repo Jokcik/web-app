@@ -11,7 +11,7 @@ import {UserService} from '../core/user-service/user.service';
   providers: [MainpageService]
 })
 export class AnnounceComponent implements OnInit {
-  public descriptions: Materials[] = Dummy.factory(Materials, 5);
+  public descriptions: Materials[] = [];
   public loaded: boolean = true;
 
   constructor(private service: MainpageService,

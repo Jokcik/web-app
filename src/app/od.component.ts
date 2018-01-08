@@ -7,4 +7,8 @@ import {Component} from '@angular/core';
 export class ODComponent {
   historyShow: boolean;
   historyAddress: boolean;
+
+
+  constructor() {
+  }
 }

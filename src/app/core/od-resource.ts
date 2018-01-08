@@ -14,7 +14,7 @@ export class ODResource extends Resource {
   }
 
   protected $requestInterceptor(req: Request, methodOptions?: ResourceActionBase): Request {
-    if (localStorage.getItem('access_token')) {
+    if (localStorage && localStorage.getItem('access_token')) {
       req.headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
     }
     return super.$requestInterceptor(req, methodOptions);
