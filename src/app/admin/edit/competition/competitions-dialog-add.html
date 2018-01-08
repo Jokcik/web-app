@@ -16,7 +16,7 @@
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2022"> 2022 </mat-checkbox>
       </div>
 
-      <mat-form-field style="width: 50%;">
+      <mat-form-field>
         <mat-select placeholder="Специалиация конкурса" (valueChange)="specializationIdx = $event" [value]="specializationIdx">
           <mat-option [value]="-1"> — </mat-option>
           <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
@@ -25,7 +25,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field style="width: 50%;">
+      <mat-form-field>
         <mat-select placeholder="Уровень конкурса" (valueChange)="currentCompetition.level = levels[$event]" [value]="levelIdx">
           <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
         </mat-select>
