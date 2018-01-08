@@ -5,8 +5,8 @@
       <mat-form-field>
         <input matInput placeholder="Название конкурса" [(ngModel)]="currentCompetition.title">
       </mat-form-field>
-      <div class="date-block">
 
+      <div class="date-block">
         <label style="display: block">Дата проведения</label>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2017"> 2017 </mat-checkbox>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2018"> 2018 </mat-checkbox>
@@ -15,7 +15,17 @@
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2021"> 2021 </mat-checkbox>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2022"> 2022 </mat-checkbox>
       </div>
-      <mat-form-field>
+
+      <mat-form-field style="width: 50%;">
+        <mat-select placeholder="Специалиация конкурса" (valueChange)="specializationIdx = $event" [value]="specializationIdx">
+          <mat-option [value]="-1"> — </mat-option>
+          <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+            {{ specialization.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="width: 50%;">
         <mat-select placeholder="Уровень конкурса" (valueChange)="currentCompetition.level = levels[$event]" [value]="levelIdx">
           <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
         </mat-select>

@@ -7,7 +7,7 @@
       <p><b [innerHTML]="material.title"></b></p>
       <ng-container *ngIf="material.title">
         <img [src]="material.img ? material.img : '/images/news/50kds1qjbdyq831.jpg'" style="height: 130px; float: left; margin-right: 10px; min-width: 190px"/>
-        <div class="announce-date">{{material.date | odDate}}</div>
+        <div class="announce-date">{{material.date | odDate: 'onlyDate'}}</div>
       </ng-container>
       <div [innerHTML]="material.description.short_description" class="announce-text"></div>
     </a>

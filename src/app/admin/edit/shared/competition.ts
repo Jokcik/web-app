@@ -1,5 +1,6 @@
 import {CompetitionLevel} from './competition-level';
 import {CompetitionPlace} from './competition-place';
+import {Specialization} from './children';
 
 export class Competition {
   _id: string;
@@ -10,5 +11,6 @@ export class Competition {
   year2020: boolean = false;
   year2021: boolean = false;
   year2022: boolean = false;
+  specialization: Specialization;
   level: CompetitionLevel = new CompetitionLevel();
 }

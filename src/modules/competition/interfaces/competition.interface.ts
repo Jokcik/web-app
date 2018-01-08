@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import {Specialization} from '../../others/interface/specialization.interface';
 
 export interface Competition extends Document {
   readonly _id: string;
@@ -9,5 +10,6 @@ export interface Competition extends Document {
   readonly year2020: boolean;
   readonly year2021: boolean;
   readonly year2022: boolean;
+  readonly speicialization: Specialization;
   readonly level: string;
 }

@@ -7,5 +7,6 @@ export class CreateCompetitionDto {
   readonly year2020: boolean = false;
   readonly year2021: boolean = false;
   readonly year2022: boolean = false;
+  readonly specialization: string;
   readonly level: string;
 }
