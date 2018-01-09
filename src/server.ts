@@ -9,7 +9,8 @@ import * as nconf from 'nconf'
 import {HttpExceptionFilter} from './modules/exception/http-exception.filter';
 
 let s = express();
-s.set('port', process.env.PORT || 3001);
+s.set('port', 4200);
+// s.set('port', process.env.PORT || 3001);
 
 async function bootstrap() {
 
