@@ -26,6 +26,15 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  app.use((req, res, next) => {
+    if (req.originalUrl.startsWith('/static') || req.originalUrl.startsWith('/images')) {
+      res.writeHead(302, {'Location': 'https://rumc31.ru' + req.url});
+      res.end();
+    }
+
+    next();
+  });
+
   if (s.get('port') == 3001) {
     app.use((req, res, next) => {
       if (req.originalUrl.startsWith('/api')) {
