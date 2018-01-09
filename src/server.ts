@@ -9,7 +9,7 @@ import * as nconf from 'nconf'
 import {HttpExceptionFilter} from './modules/exception/http-exception.filter';
 
 let s = express();
-s.set('port', process.env.PORT || nconf.get('port') || nconf.get('PORT') || 3001);
+s.set('port', process.env.PORT || 3001);
 
 async function bootstrap() {
 
@@ -19,7 +19,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(ApplicationModule, s);
   app.use(bodyParser.json());
-  app.use(cors({allowedOrigins: ['localhost:3001', 'rumc31.ru', '85.143.175.134'], headers: ['Content-Type', 'enctype', 'Authorization']}));
+  app.use(cors({allowedOrigins: ['localhost:4200', 'localhost:3001', 'rumc31.ru', '85.143.175.134'], headers: ['Content-Type', 'enctype', 'Authorization']}));
   app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
 
