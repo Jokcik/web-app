@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatDialogModule, MatDialogRef, MatFormFieldModule, MatGridListModule,
+  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatDialogRef, MatFormFieldModule, MatGridListModule,
   MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSortModule, MatTableModule,
   MatTabNav, MatTabsModule,
 } from '@angular/material';
@@ -42,7 +42,8 @@ import {SchoolsService} from '../../../schools/schools.service';
     MatSelectModule,
     MatRadioModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ],
   declarations: [
     ChildrenComponent,

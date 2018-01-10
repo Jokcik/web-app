@@ -8,6 +8,10 @@ export const CompetitionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  shortTitle: {
+    type: String,
+    required: true
+  },
   year2017: {
     type: Boolean,
     default: false

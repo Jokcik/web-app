@@ -5,6 +5,9 @@
       <mat-form-field>
         <input matInput placeholder="Название конкурса" [(ngModel)]="currentCompetition.title">
       </mat-form-field>
+      <mat-form-field>
+        <input matInput [maxlength]="30" placeholder="Короткое название конкурса" [(ngModel)]="currentCompetition.shortTitle">
+      </mat-form-field>
 
       <div class="date-block">
         <label style="display: block">Дата проведения</label>

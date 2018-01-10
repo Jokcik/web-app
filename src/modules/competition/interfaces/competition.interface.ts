@@ -4,6 +4,7 @@ import {Specialization} from '../../others/interface/specialization.interface';
 export interface Competition extends Document {
   readonly _id: string;
   readonly title: string;
+  readonly shortTitle: string;
   readonly year2017: boolean;
   readonly year2018: boolean;
   readonly year2019: boolean;

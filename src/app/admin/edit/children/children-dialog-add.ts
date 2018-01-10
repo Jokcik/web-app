@@ -19,6 +19,7 @@ export class ChildrenDialogAdd {
   public currentRegion: number;
   public currentSchool: number;
   public currentSpecialization: number;
+  public ssuz: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<ChildrenDialogAdd>,
               private childrenService: ChildrenPageService,
