@@ -14,7 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
-import {MainpageService} from '../../mainpage/mainpage.service';
+import {HistoryService} from '../../history/history.service';
 import {MainComponent} from './main/main.component';
 import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
@@ -24,7 +24,7 @@ import {SchoolsService} from '../../schools/schools.service';
 import {DshiDialogAdd} from './schools-edit/schools-dialog-add';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
-import {ChildrenService} from '../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../children-page/children-page.service';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
@@ -79,7 +79,7 @@ import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
     DshiDialogAdd,
     CompetitionsDialogAdd
   ],
-  providers: [MainpageService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenService, CompetitionService,
+  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

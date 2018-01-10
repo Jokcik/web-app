@@ -12,7 +12,7 @@ export interface IQueryParams {
 
 @Injectable()
 @ResourceParams({pathPrefix: 'children'})
-export class ChildrenService extends ODResourceCrud<IQueryParams, Children, Children> {
+export class ChildrenPageService extends ODResourceCrud<IQueryParams, Children, Children> {
   constructor(http: Http) {
     super(http);
   }

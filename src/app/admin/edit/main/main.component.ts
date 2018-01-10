@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
-import {MainpageService} from '../../../mainpage/mainpage.service';
+import {HistoryService} from '../../../history/history.service';
 import {Dummy} from '../../../core/dummy';
 import {MatSnackBar} from '@angular/material';
 
@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   @Input() materials: Materials[] = Dummy.factory(Materials, 1);
   public currentMaterial: Materials;
 
-  constructor(private mainpageService: MainpageService,
+  constructor(private mainpageService: HistoryService,
               public snackBar: MatSnackBar) {
   }
 

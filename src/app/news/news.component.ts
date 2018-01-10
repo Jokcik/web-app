@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MainpageService} from '../mainpage/mainpage.service';
+import {HistoryService} from '../history/history.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
@@ -13,7 +13,7 @@ export class NewsComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded: boolean = true;
 
-  constructor(private mainpageService: MainpageService,
+  constructor(private mainpageService: HistoryService,
               public userService: UserService,
               private router: Router) {
   }

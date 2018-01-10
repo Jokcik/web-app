@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {MainpageService} from '../../mainpage/mainpage.service';
+import {HistoryService} from '../../history/history.service';
 import {empty} from 'rxjs/observable/empty';
 import {Materials} from '../shared/materials';
 
@@ -14,7 +14,7 @@ export class PageComponent implements OnInit {
   public material: Materials;
 
   constructor(private route: ActivatedRoute,
-              private mainpageService: MainpageService) {
+              private mainpageService: HistoryService) {
   }
 
   ngOnInit() {

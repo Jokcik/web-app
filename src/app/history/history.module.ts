@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {ODCommonModule} from '../core/od-common.module';
-import {MainpageComponent} from './mainpage.component';
-import {MainpageRoutingModule} from './mainpage-routing.module';
+import {HistoryComponent} from './history.component';
+import {HistoryRoutingModule} from './history-routing.module';
 import {CommonModule} from '@angular/common';
-import {MainpageService} from './mainpage.service';
+import {HistoryService} from './history.service';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
@@ -15,16 +15,16 @@ import {PageComponent} from '../news/page/page.component';
     FormsModule,
     ODCommonModule,
     CommonModule,
-    MainpageRoutingModule,
+    HistoryRoutingModule,
     RouterModule,
 
     CKEditorModule,
     MatCardModule
   ],
   declarations: [
-    MainpageComponent,
+    HistoryComponent,
   ],
-  providers: [MainpageService]
+  providers: [HistoryService]
 })
-export class MainpageModule {
+export class HistoryModule {
 }

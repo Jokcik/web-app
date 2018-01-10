@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {MainpageComponent} from './mainpage.component';
+import {HistoryComponent} from './history.component';
 import {PageComponent} from '../news/page/page.component';
 
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: '', component: MainpageComponent},
+    {path: '', component: HistoryComponent},
   ])],
   exports: [RouterModule]
 })
-export class MainpageRoutingModule {
+export class HistoryRoutingModule {
 }

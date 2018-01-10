@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MainpageService} from '../../../mainpage/mainpage.service';
+import {HistoryService} from '../../../history/history.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -34,7 +34,7 @@ export class NewsEditComponent implements OnInit {
   public news: Materials = new Materials();
   public imgFile: File;
 
-  constructor(private service: MainpageService,
+  constructor(private service: HistoryService,
               private multipart: ODMultipartSendService,
               private router: Router,
               private route: ActivatedRoute,

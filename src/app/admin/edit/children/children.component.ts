@@ -4,13 +4,13 @@ import {Region} from '../shared/region';
 import {Children} from '../shared/children';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
-import {ChildrenService} from '../../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {ChildrenDialogAdd} from './children-dialog-add';
 import {UserService} from '../../../core/user-service/user.service';
 
 @Component({
-  selector: 'od-children',
+  selector: 'od-edit-children',
   templateUrl: './children.component.html'
 })
 export class ChildrenComponent implements OnInit {
@@ -36,7 +36,7 @@ export class ChildrenComponent implements OnInit {
 
   constructor(private regionService: RegionService,
               private schoolsService: SchoolsService,
-              private childrenService: ChildrenService,
+              private childrenService: ChildrenPageService,
               public userService: UserService,
               public snackBar: MatSnackBar,
               public dialog: MatDialog) {

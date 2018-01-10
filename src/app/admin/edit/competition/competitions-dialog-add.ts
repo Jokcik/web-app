@@ -8,7 +8,7 @@ import {CompetitionPlace} from '../shared/competition-place';
 import {CompetitionService} from '../../../competition/competition.service';
 import {ODUtils} from '../../../core/od-utils';
 import {Specialization} from '../shared/children';
-import {ChildrenService} from '../../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../../children-page/children-page.service';
 
 @Component({
   selector: 'competition-dialog-add',
@@ -25,7 +25,7 @@ export class CompetitionsDialogAdd {
 
   constructor(public dialogRef: MatDialogRef<CompetitionsDialogAdd>,
               private competitionService: CompetitionService,
-              private childrenService: ChildrenService,
+              private childrenService: ChildrenPageService,
               private odUtils: ODUtils,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.currentCompetition = data ? data : this.currentCompetition;

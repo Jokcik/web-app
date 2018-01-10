@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {MainpageService} from './mainpage.service';
+import {HistoryService} from './history.service';
 import {Materials} from '../news/shared/materials';
 import {Dummy} from '../core/dummy';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'od-mainpage',
-  templateUrl: './mainpage.component.html'
+  selector: 'od-history',
+  templateUrl: './history.component.html'
 })
-export class MainpageComponent implements OnInit {
+export class HistoryComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 1);
   public isFull: boolean = false;
 
-  constructor(private mainpageService: MainpageService,
+  constructor(private mainpageService: HistoryService,
               private route: ActivatedRoute) {
   }
 

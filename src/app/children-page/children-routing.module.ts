@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {BankDataOdComponent} from './bank-data-od.component';
+import {ChildrenPageComponent} from './children-page.component';
 
 
 @NgModule({
   imports: [RouterModule.forChild([
     {
       path: '',
-      component: BankDataOdComponent,
+      component: ChildrenPageComponent,
     }
   ])],
   exports: [RouterModule]
 })
-export class BankDataOdRoutingModule {
+export class ChildrenRoutingModule {
 }

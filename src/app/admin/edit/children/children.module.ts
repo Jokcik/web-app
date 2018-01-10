@@ -13,7 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ODCommonModule} from '../../../core/od-common.module';
 import {ChildrenComponent} from './children.component';
 import {ChildrenDialogAdd} from './children-dialog-add';
-import {ChildrenService} from '../../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
 
@@ -54,7 +54,7 @@ import {SchoolsService} from '../../../schools/schools.service';
   exports: [
     ChildrenComponent,
   ],
-  providers: [ChildrenService, RegionService, SchoolsService,
+  providers: [ChildrenPageService, RegionService, SchoolsService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]
