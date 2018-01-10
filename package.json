@@ -54,6 +54,7 @@
     "ng2-ckeditor": "^1.1.13",
     "ngx-resource": "^3.6.3",
     "node-sass": "^4.7.2",
+    "nodemailer": "^4.4.1",
     "nodemon": "^1.12.5",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
