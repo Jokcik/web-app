@@ -1,12 +1,12 @@
 import {Schools} from './school';
 
 export class Specialization {
-  _id: string
+  _id: string;
   title: string;
 }
 
 export class Instruments {
-  _id: string
+  _id: string;
   title: string;
   specialization: Specialization;
 }
@@ -14,6 +14,8 @@ export class Instruments {
 export class Children {
   name: string;
   surname: string;
+  birthday: string;
+  graduateDSHI: string;
   middleName: string;
 
   schools: Schools | string;
