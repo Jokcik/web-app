@@ -5,7 +5,7 @@
     <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
       <div class="news-title"><b [innerHTML]="material.title"></b></div>
       <div class="container" style="display: flex;">
-        <div class="col-sm-3" style="position: relative; min-height: 115px">
+        <div class="col-sm-3" style="position: relative;">
           <img *ngIf="material.img" [src]="material.img"/>
           <div class="news-date">{{material.date | odDate}}</div>
         </div>

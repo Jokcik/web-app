@@ -45,6 +45,7 @@
       <ckeditor [(ngModel)]="news.description.description" [config]="config"></ckeditor>
     </div>
 
-    <button mat-raised-button color="primary" (click)="saveNews()">Добавить</button>
+    <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="!news._id">Добавить</button>
+    <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="news._id">Изменить</button>
   </div>
 </div>

@@ -7,6 +7,7 @@ import {UserService} from './user-service/user.service';
 import {ODUtils} from './od-utils';
 import {ODImageDirective} from './od-image-load.directive';
 import {ODDatePipe} from './od-date/od-date.pipe';
+import {UpdateService} from '../announce/update.service';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ export class ODCommonModule {
       providers: [
         ProfileService,
         UserService,
-        ODUtils
+        ODUtils,
+        UpdateService
       ]
     };
   }

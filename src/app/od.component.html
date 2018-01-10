@@ -3,10 +3,10 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="/news" routerLink="/news">Новости</a></li>
-          <li class="nav-item"><a class="nav-link" href="/competition" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
-          <li class="nav-item"><a class="nav-link" href="/bank-data-od" routerLink="/bank-data-od" routerLinkActive="active">Одаренные дети</a></li>
-          <li class="nav-item"><a class="nav-link" href="/galleries" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/news">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
           <li class="nav-item dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
             <a class="nav-link">История</a>
             <div class="dropdown-menu" [class.show]="historyShow" (click)="historyShow = false">
@@ -26,12 +26,11 @@
           <li class="nav-item dropdown" (mouseover)="historyAddress = true" (mouseleave)="historyAddress = false">
             <a class="nav-link">Адреса</a>
             <div class="dropdown-menu" [class.show]="historyAddress" (click)="historyAddress = false">
-              <a class="dropdown-item" href="/address/administration" routerLink="/address/administration">Муниципальные управления культуры</a>
-              <a class="dropdown-item" href="/address/schools" routerLink="/address/schools">Детские школы искусств</a>
+              <a class="dropdown-item" routerLink="/address/administration">Муниципальные управления культуры</a>
+              <a class="dropdown-item" routerLink="/address/schools">Детские школы искусств</a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/contacts" routerLink="/contacts"
-                                  routerLinkActive="active">Контакты</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
         </ul>
         <od-profile></od-profile>
       </div>

@@ -4,6 +4,8 @@ import {Materials} from '../news/shared/materials';
 import {HistoryService} from '../history/history.service';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
+import {UpdateService} from './update.service';
+import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'od-announce',
@@ -16,6 +18,7 @@ export class AnnounceComponent implements OnInit {
 
   constructor(private service: HistoryService,
               public userService: UserService,
+              private announceService: UpdateService,
               private router: Router) { }
 
 
@@ -32,10 +35,14 @@ export class AnnounceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formatAnnounce();
+    this.announceService.changeAnnounce.subscribe(() => this.formatAnnounce());
+  }
+
+  public formatAnnounce() {
     this.service.querySafeHtml({type: 2}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
   }
-
 }
