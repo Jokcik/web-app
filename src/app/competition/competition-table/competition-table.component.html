@@ -29,4 +29,4 @@
   <mat-paginator [pageSizeOptions]="[10, 20, 35, 100]"></mat-paginator>
 </div>
 
-<button mat-raised-button color="primary" style="float: right" (click)="newCompetitions()">Добавить конкурс</button>
+<button mat-raised-button color="primary" style="float: right" *ngIf="isOpenEdit" (click)="newCompetitions()">Добавить конкурс</button>
