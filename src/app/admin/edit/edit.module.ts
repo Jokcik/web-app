@@ -29,6 +29,7 @@ import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
 import {CompetitionsDialogAdd} from '../../competition/competition-table/competitions-dialog-add';
+import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import {CompetitionsDialogAdd} from '../../competition/competition-table/competi
     EditRoutingModule,
     CKEditorModule,
     ChildrenModule,
+    CompetitionTableModule,
 
     MatButtonModule,
     MatCardModule,
@@ -72,12 +74,10 @@ import {CompetitionsDialogAdd} from '../../competition/competition-table/competi
     DshiDialogAdd,
     NewsEditComponent,
     CompetitionEditComponent,
-    CompetitionsDialogAdd
   ],
   entryComponents: [
     RegionDialogAdd,
     DshiDialogAdd,
-    CompetitionsDialogAdd
   ],
   providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},

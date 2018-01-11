@@ -1,6 +1,6 @@
-<div class="outer-wrap-competitions">
+<div class="outer-wrap-competitions dialog">
   <div class="dialog">
-    <mat-card-header mat-dialog-title>{{isEditDialog ? 'Добавить конкурс' : 'Информация о конкурсе'}}</mat-card-header>
+    <mat-card-header mat-dialog-title>{{isEditDialog ? (currentCompetition._id ? 'Изменить конкурс' : 'Добавить конкурс') : 'Информация о конкурсе'}}</mat-card-header>
     <div mat-dialog-content>
       <mat-form-field *ngIf="isEditDialog">
         <input matInput placeholder="Название конкурса" [(ngModel)]="currentCompetition.title">
@@ -28,7 +28,7 @@
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2022"> 2022 </mat-checkbox>
       </div>
       <div *ngIf="!isEditDialog">
-        <label style="margin-top: 10px; margin-bottom: 0;" *ngIf="!isEditDialog"><b>Дата проведения</b>: </label>
+        <label style="margin-top: 10px; margin-bottom: 0;" *ngIf="!isEditDialog"><b>Год проведения</b>: </label>
         <label *ngIf="currentCompetition.year2017"> 2017 </label>
         <label *ngIf="currentCompetition.year2018"> 2018 </label>
         <label *ngIf="currentCompetition.year2019"> 2019 </label>
@@ -62,7 +62,9 @@
 
     </div>
   </div>
-  <button mat-raised-button style="margin-top: 15px; float: right" *ngIf="isEditDialog"
-          color="primary" (click)="add()">{{currentCompetition._id ? 'Изменить' : 'Добавить'}}
-  </button>
+
+  <ng-container *ngIf="isEditDialog">
+    <button mat-raised-button style="margin-top: 15px; margin-right: 15px; float: left" color="primary" (click)="add()">{{currentCompetition._id ? 'Изменить' : 'Добавить'}}</button>
+    <button mat-raised-button color="warn" style="margin-top: 15px; float: left" *ngIf="currentCompetition?._id" (click)="deleteCompetition()">Удалить конкурс</button>
+  </ng-container>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, ViewChild, SimpleChanges, AfterViewInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewChild, SimpleChanges, AfterViewInit, Output, EventEmitter} from '@angular/core';
 import {Dummy} from '../../core/dummy';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Competition} from '../../admin/edit/shared/competition';
@@ -12,8 +12,9 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
   public dataSourceCompetition: Competition[] = [];
   @Input() competitions: Competition[] = Dummy.factory(Competition, 10);
   @Input() isOpenEdit: boolean = false;
+  @Output() changeCompetition: EventEmitter<any> = new EventEmitter<any>();
 
-  public displayedColumns = ['title', 'level', 'specialization'];
+  public displayedColumns = ['title', 'level'];
   public dataSource: MatTableDataSource<Competition> = new MatTableDataSource(this.dataSourceCompetition);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -44,20 +45,12 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
   }
 
   public openCompetition(competition: Competition) {
-    this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}}).afterClosed().subscribe(result => {
-      // if (!result || !result.competition) return;
-      //
-      // if (!result.competition._id) {
-      //   this.competitionService.save(result.competition).$observable.subscribe(() => {
-      //     this.updateCompetitions();
-      //     this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000})
-      //   }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
-      // } else {
-      //   this.competitionService.update(result.competition).$observable.subscribe(() => {
-      //     this.updateCompetitions();
-      //     this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000})
-      //   }, error2 => window.alert(`Ошибка изменения. ${error2}`));
-      // }
-    });
+    this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
+      .afterClosed()
+      .subscribe(result => this.changeCompetition.emit(result));
+  }
+
+  public newCompetitions() {
+    this.openCompetition(null);
   }
 }

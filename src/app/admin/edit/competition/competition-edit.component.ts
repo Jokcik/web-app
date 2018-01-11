@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Competition} from '../shared/competition';
 import {CompetitionService} from '../../../competition/competition.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {DshiDialogAdd} from '../schools-edit/schools-dialog-add';
 import {CompetitionsDialogAdd} from '../../../competition/competition-table/competitions-dialog-add';
+import {Dummy} from '../../../core/dummy';
 
 @Component({
   selector: 'od-competition-edit',
   templateUrl: './competition-edit.component.html',
 })
 export class CompetitionEditComponent implements OnInit {
-  public competitions: Competition[] = [];
+  public competitions: Competition[] = Dummy.factory(Competition, 10);
   public currentCompetition: Competition;
 
   constructor(private competitionService: CompetitionService,
@@ -26,28 +27,34 @@ export class CompetitionEditComponent implements OnInit {
     this.competitionService.query().$observable.subscribe(competitions => this.competitions = competitions);
   }
 
-  public openDialog(isNew: boolean) {
-    this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: isNew ? '' : this.currentCompetition}).afterClosed().subscribe(result => {
-      if (!result || !result.competition) return;
+  public openDialog(result: {competition: Competition, type: string}) {
+    if (!result || !result.competition) return;
 
-      if (!result.competition._id) {
-        this.competitionService.save(result.competition).$observable.subscribe(() => {
-          this.updateCompetitions();
-          this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000})
-        }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
-      } else {
-        this.competitionService.update(result.competition).$observable.subscribe(() => {
-          this.updateCompetitions();
-          this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000})
-        }, error2 => window.alert(`Ошибка изменения. ${error2}`));
-      }
-    });
+    if (result.type == 'add') {
+      this.saveCompetition(result.competition)
+    } else if (result.type == 'remove') {
+      this.deleteCompetition(result.competition);
+    }
   }
 
-  public deleteCompetition() {
-    this.competitionService.remove({_id: this.currentCompetition._id}).$observable.subscribe(() => {
+  public saveCompetition(competition: Competition) {
+    if (!competition._id) {
+      this.competitionService.save(competition).$observable.subscribe(() => {
+        this.updateCompetitions();
+        this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000});
+      }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
+    } else {
+      this.competitionService.update(competition).$observable.subscribe(() => {
+        this.updateCompetitions();
+        this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000});
+      }, error2 => window.alert(`Ошибка изменения. ${error2}`));
+    }
+  }
+
+  public deleteCompetition(competition: Competition) {
+    this.competitionService.remove({_id: competition._id}).$observable.subscribe(() => {
       this.updateCompetitions();
-      this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000})
+      this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000});
     }, error2 => window.alert(`Ошибка удаления. ${error2}`));
   }
 }

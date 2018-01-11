@@ -52,7 +52,10 @@ export class CompetitionsDialogAdd {
     } else {
       this.currentCompetition.specialization = <any>'';
     }
-    this.dialogRef.close({competition: this.currentCompetition});
+    this.dialogRef.close({competition: this.currentCompetition, type: 'add'});
   }
 
+  public deleteCompetition() {
+    this.dialogRef.close({competition: this.currentCompetition, type: 'remove'});
+  }
 }
