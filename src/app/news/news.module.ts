@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {MatCardModule, MatIconModule} from '@angular/material';
 import {PageComponent} from './page/page.component';
+import {AnnounceComponent} from '../announce/announce.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {PageComponent} from './page/page.component';
   ],
   declarations: [
     NewsComponent,
-    PageComponent
+    PageComponent,
+    AnnounceComponent,
   ],
   providers: [HistoryService]
 })

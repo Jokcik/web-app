@@ -1,20 +1,34 @@
-<div class="outer-wrap-news" [class.dummy]="loaded">
-  <div *ngFor="let material of descriptions" class="news-container">
-    <div *ngIf="userService.user" class="news-icon edit" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
-    <div *ngIf="userService.user" class="news-icon remove" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
-    <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-      <div class="news-title"><b [innerHTML]="material.title"></b></div>
-      <div class="container" style="display: flex;">
-        <div class="col-sm-3" style="position: relative;">
-          <img *ngIf="material.img" [src]="material.img"/>
-          <div class="news-date">{{material.date | odDate}}</div>
-        </div>
-        <div class="col-sm-9">
-          <div class="sidebar-module sidebar-module-inset">
-            <p [innerHTML]="material.description.short_description"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 blog-main">
+      <div class="outer-wrap-news" [class.dummy]="loaded">
+        <h4 style="margin-bottom: 20px; text-align: center;">Новости</h4>
+        <div *ngFor="let material of descriptions" class="news-container">
+          <div *ngIf="userService.user" class="news-icon edit" (click)="edit(material)">
+            <mat-icon>edit</mat-icon>
           </div>
+          <div *ngIf="userService.user" class="news-icon remove" (click)="remove(material)">
+            <mat-icon>delete forever</mat-icon>
+          </div>
+          <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
+            <div class="news-title"><b [innerHTML]="material.title"></b></div>
+            <div class="container" style="display: flex;">
+              <div class="col-sm-3" style="position: relative;">
+                <img *ngIf="material.img" [src]="material.img"/>
+                <div class="news-date">{{material.date | odDate}}</div>
+              </div>
+              <div class="col-sm-9">
+                <div class="sidebar-module sidebar-module-inset">
+                  <p [innerHTML]="material.description.short_description"></p>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
-    </a>
+    </div>
+    <aside class="col-sm-4 ml-sm-auto blog-sidebar">
+      <od-announce></od-announce>
+    </aside>
   </div>
 </div>

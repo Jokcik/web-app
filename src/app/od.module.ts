@@ -28,7 +28,7 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
   declarations: [
     ODComponent,
     ProfileComponent,
-    AnnounceComponent,
+    // AnnounceComponent,
     Forbidden403Component,
     NotFound404Component,
   ],
