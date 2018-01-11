@@ -7,6 +7,10 @@
     margin-bottom: 10px;
   }
 
+  &.table {
+    margin-top: 0;
+  }
+
   .mat-checkbox-checked.mat-accent .mat-checkbox-background,
   .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
     background-color: #3f51b5;
@@ -26,9 +30,45 @@
     }
   }
 
-  mat-card {
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none!important;
+  }
+
+  .dialog {
+    mat-form-field {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
     [mat-dialog-title] {
       text-align: center;
+    }
+  }
+
+  &.table {
+    .example-header {
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+    .mat-form-field {
+      width: auto;
+    }
+    .example-row {
+      cursor: pointer;
+    }
+    .cdk-cell {
+      &.level {
+        text-align: center;
+      }
+
+      &.specialization {
+        text-align: center;
+      }
+    }
+    .example-header-cell {
+      button {
+        margin: 0 auto;
+      }
     }
   }
 }

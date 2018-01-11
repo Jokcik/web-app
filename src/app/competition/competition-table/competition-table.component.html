@@ -1,0 +1,30 @@
+<div class="example-container mat-elevation-z8 table outer-wrap-competitions">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск по конкурсам">
+    </mat-form-field>
+  </div>
+
+  <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+    <ng-container cdkColumnDef="{{displayedColumns[0]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell" [style.flex]="'0 0 480px'"> Название конкурса </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 480px'">{{row.title}}</cdk-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container cdkColumnDef="{{displayedColumns[1]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell" style="flex: 0 0 140px; margin-left: 20px">  Уровень </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell level" style="flex: 0 0 140px; margin-left: 20px">{{row.level.title}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="{{displayedColumns[2]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Специализация </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell specialization">{{row.specialization?.title || ''}}</cdk-cell>
+    </ng-container>
+
+    <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="example-row" (click)="openCompetition(row)"></cdk-row>
+  </cdk-table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 35, 100]"></mat-paginator>
+</div>

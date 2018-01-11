@@ -3,7 +3,7 @@ import {Competition} from '../shared/competition';
 import {CompetitionService} from '../../../competition/competition.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {DshiDialogAdd} from '../schools-edit/schools-dialog-add';
-import {CompetitionsDialogAdd} from './competitions-dialog-add';
+import {CompetitionsDialogAdd} from '../../../competition/competition-table/competitions-dialog-add';
 
 @Component({
   selector: 'od-competition-edit',

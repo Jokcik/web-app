@@ -28,7 +28,7 @@ import {ChildrenPageService} from '../../children-page/children-page.service';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
-import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
+import {CompetitionsDialogAdd} from '../../competition/competition-table/competitions-dialog-add';
 
 @NgModule({
   imports: [

@@ -1,0 +1,68 @@
+<div class="outer-wrap-competitions">
+  <div class="dialog">
+    <mat-card-header mat-dialog-title>{{isEditDialog ? 'Добавить конкурс' : 'Информация о конкурсе'}}</mat-card-header>
+    <div mat-dialog-content>
+      <mat-form-field *ngIf="isEditDialog">
+        <input matInput placeholder="Название конкурса" [(ngModel)]="currentCompetition.title">
+      </mat-form-field>
+      <div *ngIf="!isEditDialog">
+        <label style="margin-bottom: 0;"><b>Название конкурса: </b></label>
+        <mat-label>{{currentCompetition.title}}</mat-label>
+      </div>
+
+      <mat-form-field *ngIf="isEditDialog">
+        <input matInput [maxlength]="30" placeholder="Короткое название конкурса" [(ngModel)]="currentCompetition.shortTitle">
+      </mat-form-field>
+      <div *ngIf="!isEditDialog && currentCompetition.shortTitle" style="margin-top: 10px;">
+        <label><b>Короткое название конкурса</b></label><br/>
+        <mat-label>{{currentCompetition.shortTitle}}</mat-label>
+      </div>
+
+      <div class="date-block" *ngIf="isEditDialog">
+        <label style="display: block">Год проведения</label>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2017"> 2017 </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2018"> 2018 </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2019"> 2019 </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2020"> 2020 </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2021"> 2021 </mat-checkbox>
+        <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2022"> 2022 </mat-checkbox>
+      </div>
+      <div *ngIf="!isEditDialog">
+        <label style="margin-top: 10px; margin-bottom: 0;" *ngIf="!isEditDialog"><b>Дата проведения</b>: </label>
+        <label *ngIf="currentCompetition.year2017"> 2017 </label>
+        <label *ngIf="currentCompetition.year2018"> 2018 </label>
+        <label *ngIf="currentCompetition.year2019"> 2019 </label>
+        <label *ngIf="currentCompetition.year2020"> 2020 </label>
+        <label *ngIf="currentCompetition.year2021"> 2021 </label>
+        <label *ngIf="currentCompetition.year2022"> 2022 </label>
+      </div>
+
+      <mat-form-field *ngIf="isEditDialog">
+        <mat-select placeholder="Специалиация конкурса" (valueChange)="specializationIdx = $event" [value]="specializationIdx">
+          <mat-option [value]="-1"> — </mat-option>
+          <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+            {{ specialization.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="!isEditDialog" style="margin-top: 10px;">
+        <label><b>Специалиация конкурса: </b></label>
+        <mat-label>{{currentCompetition.specialization?.title || 'все'}}</mat-label>
+      </div>
+
+      <mat-form-field *ngIf="isEditDialog">
+        <mat-select placeholder="Уровень конкурса" (valueChange)="currentCompetition.level = levels[$event]" [value]="levelIdx">
+          <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="!isEditDialog" style="margin-top: 10px;">
+        <label><b>Уровень конкурса: </b></label>
+        <mat-label>{{currentCompetition.level?.title}}</mat-label>
+      </div>
+
+    </div>
+  </div>
+  <button mat-raised-button style="margin-top: 15px; float: right" *ngIf="isEditDialog"
+          color="primary" (click)="add()">{{currentCompetition._id ? 'Изменить' : 'Добавить'}}
+  </button>
+</div>

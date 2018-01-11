@@ -182,3 +182,8 @@ p, ul, ol {
   line-height: 28px;
   color: $text;
 }
+
+button:focus, a:focus {
+  outline: none!important;
+  border: none!important;;
+}

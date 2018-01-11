@@ -12,6 +12,6 @@ export class Competition {
   year2020: boolean = false;
   year2021: boolean = false;
   year2022: boolean = false;
-  specialization: Specialization;
+  specialization: Specialization = new Specialization();
   level: CompetitionLevel = new CompetitionLevel();
 }
