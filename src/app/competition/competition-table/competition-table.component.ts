@@ -47,7 +47,7 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
   public openCompetition(competition: Competition) {
     this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
       .afterClosed()
-      .subscribe(result => this.changeCompetition.emit(result));
+      .subscribe(result => result && this.changeCompetition.emit(result));
   }
 
   public newCompetitions() {

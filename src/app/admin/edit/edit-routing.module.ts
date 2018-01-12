@@ -7,6 +7,7 @@ import {RegionComponent} from './region/region.component';
 import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {ChildrenComponent} from './children/children.component';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
+import {SchoolsComponent} from '../../schools/schools.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {CompetitionEditComponent} from './competition/competition-edit.component
         },
         {
           path: 'schools',
-          component: SchoolEditComponent,
+          component: SchoolsComponent,
+          data: {edit: true}
         }
       ]
     }

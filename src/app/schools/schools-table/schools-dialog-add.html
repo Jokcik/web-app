@@ -1,0 +1,55 @@
+<div class="outer-wrap-schools dialog edit" *ngIf="isEditDialog">
+  <mat-card-header mat-dialog-title>{{school._id ? 'Изменить' : 'Добавить'}} {{ school.type ? 'управление' : 'школу' }} </mat-card-header>
+  <div mat-dialog-content>
+    <mat-radio-group (change)="school.type = $event.value" [value]="school.type">
+      <mat-radio-button [value]="0">Школа</mat-radio-button>
+      <mat-radio-button [value]="1">Управление</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+      <input matInput placeholder="Наименование {{ school.type ? 'управления' : 'школы' }}" [(ngModel)]="school.title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Адрес" [(ngModel)]="school.address">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Район" (valueChange)="regionIdx = $event" [value]="regionIdx">
+        <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">
+          {{ region.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Сайт" [(ngModel)]="school.site">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="school.email">
+    </mat-form-field>
+    <div class="school-person">
+      <p>{{ school.type ? 'начальник' : 'директор' }}</p>
+      <mat-form-field>
+        <input matInput placeholder="ФИО {{ school.type ? 'начальника' : 'директора' }}" [(ngModel)]="school.mainPerson.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Стационарный телефон" [(ngModel)]="school.mainPerson.stationary">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Мобильный телефон" [(ngModel)]="school.mainPerson.telephone">
+      </mat-form-field>
+    </div>
+
+    <ng-container>
+      <button mat-raised-button style="margin-top: 15px; margin-right: 15px; float: left" color="primary" (click)="add()">{{school._id ? 'Изменить' : 'Добавить'}}</button>
+      <button mat-raised-button color="warn" style="margin-top: 15px; float: left" *ngIf="school?._id" (click)="deleteCompetition()">Удалить {{ school.type ? 'управление' : 'школу' }}</button>
+    </ng-container>
+  </div>
+</div>
+
+<div class="outer-wrap-schools dialog" *ngIf="!isEditDialog">
+  <div mat-card-title>{{school.title || '1'}}</div>
+  <div mat-card-content>({{school.address}})</div>
+  <div style="margin-top: 10px;"><b>cайт: </b>{{school.site}}, <b>e-mail: </b>{{school.email}}</div>
+  <div class="school-mainperson">
+    <b>{{school.type == 1 ? 'Начальник' : 'Директор'}}: </b> {{school.mainPerson.name}}
+    <div *ngIf="school.mainPerson.stationary"><b>тел.</b> {{school.mainPerson.stationary}}</div>
+  </div>
+</div>

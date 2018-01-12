@@ -5,7 +5,8 @@ import {Http} from '@angular/http';
 import {Schools} from '../admin/edit/shared/school';
 
 export interface IQueryParams {
-  region_id: string;
+  region_id?: string;
+  type?: number;
 }
 
 @Injectable()

@@ -1,19 +1,17 @@
-<div class="outer-wrap-schools" [class.dummy]="currentRegionId == '1'">
-  <mat-form-field>
-    <mat-select placeholder="Район" (valueChange)="updateSchools($event)" [value]="currentRegionId">
-      <mat-option *ngFor="let region of regions" [value]="region._id">
-        {{region.title}}
-      </mat-option>
+<div class="outer-wrap-schools" [class.admin]="isEdit">
+
+  <mat-radio-group (change)="changeType($event.value)" [value]="type">
+    <mat-radio-button [value]="0">Школы</mat-radio-button>
+    <mat-radio-button [value]="1">Управления</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field class="select">
+    <mat-select placeholder="Район" (valueChange)="formatSchools($event)" [value]="0">
+      <mat-option [value]="0"> все </mat-option>
+      <mat-option *ngFor="let region of regions" [value]="region._id">{{region.title}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-card *ngFor="let school of currentSchools" [style.background-color]="school.type ? 'antiquewhite' : ''">
-    <div mat-card-title>{{school.title || '1'}}</div>
-    <div mat-card-content>({{school.address}})</div>
-    <div style="margin-top: 10px;"><b>cайт: </b>{{school.site}}, <b>e-mail: </b>{{school.email}}</div>
-    <div class="school-mainperson">
-      <b>{{school.type == 1 ? 'Начальник' : 'Директор'}}: </b> {{school.mainPerson.name}}
-      <div *ngIf="school.mainPerson.stationary"><b>тел.</b> {{school.mainPerson.stationary}}</div>
-    </div>
-  </mat-card>
-</div>
 
+  <od-schools-table [isOpenEdit]="isEdit" [schools]="filteredSchools" [type]="type"
+      (changeSchools)="openDialog($event)"></od-schools-table>
+</div>

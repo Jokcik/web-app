@@ -1,0 +1,26 @@
+<div class="example-container mat-elevation-z8 table">
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск по {{type ? 'управлениям' : 'школам'}}">
+    </mat-form-field>
+  </div>
+
+  <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+    <ng-container cdkColumnDef="{{displayedColumns[0]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell" [style.flex]="'0 0 70%'"> Название {{ type ? 'управление' : 'школа' }} </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 70%'">{{row.title}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="{{displayedColumns[1]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell" style="margin-left: 20px">  {{ type ? 'начальник' : 'директор' }} </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell level" style="margin-left: 20px">{{row.mainPerson?.name || '-'}}</cdk-cell>
+    </ng-container>
+
+    <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="example-row" (click)="openSchools(row)"></cdk-row>
+  </cdk-table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25]"></mat-paginator>
+</div>
+
+<button mat-raised-button color="primary" style="float: right" *ngIf="isOpenEdit" (click)="newSchools()">Добавить {{ type ? 'управление' : 'школу' }}</button>

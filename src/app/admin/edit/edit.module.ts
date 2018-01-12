@@ -30,6 +30,7 @@ import {CompetitionEditComponent} from './competition/competition-edit.component
 import {CompetitionService} from '../../competition/competition.service';
 import {CompetitionsDialogAdd} from '../../competition/competition-table/competitions-dialog-add';
 import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
+import {SchoolsModule} from '../../schools/schools.module';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import {CompetitionTableModule} from '../../competition/competition-table/compet
     CKEditorModule,
     ChildrenModule,
     CompetitionTableModule,
+    SchoolsModule,
 
     MatButtonModule,
     MatCardModule,

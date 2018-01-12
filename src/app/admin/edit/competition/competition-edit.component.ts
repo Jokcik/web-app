@@ -12,7 +12,6 @@ import {Dummy} from '../../../core/dummy';
 })
 export class CompetitionEditComponent implements OnInit {
   public competitions: Competition[] = Dummy.factory(Competition, 10);
-  public currentCompetition: Competition;
 
   constructor(private competitionService: CompetitionService,
               public snackBar: MatSnackBar,
