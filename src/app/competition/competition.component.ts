@@ -31,7 +31,7 @@ export class CompetitionComponent implements OnInit {
 
   constructor(private competitionService: CompetitionService,
               private childrenService: ChildrenPageService,
-              private userService: UserService) {
+              public userService: UserService) {
   }
 
   ngOnInit() {

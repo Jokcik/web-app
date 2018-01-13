@@ -23,7 +23,7 @@ export class GalleryComponent implements OnInit {
   constructor(public dialog: MatDialog,
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
-              private userService: UserService,
+              public userService: UserService,
               private galleryService: GalleryService) {
   }
 
