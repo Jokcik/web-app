@@ -17,7 +17,7 @@ export class SchoolsComponent implements OnInit {
   public isEdit: boolean = false;
 
   public regions: Region[] = [];
-  public currentId: string;
+  public currentId: any = 0;
 
   public schools: Schools[] = [];
   public filteredSchools: Schools[] = Dummy.factory(Schools, 10);
@@ -55,11 +55,12 @@ export class SchoolsComponent implements OnInit {
 
   }
 
-  public openDialog(result: {school: Schools, type: string}) {
-    if (!result || !result.school) return;
-
-    if (result.type == 'add') {
-      this.saveSchool(result.school)
+  public openDialog(result: { school: Schools, type: string, region: string }) {
+    console.log('redirectToSchool', result);
+    if (result.type == 'redirectToSchool') {
+      this.redirectToSchool(result.region);
+    } else if (result.type == 'add') {
+      this.saveSchool(result.school);
     } else if (result.type == 'remove') {
       this.deleteSchool(result.school);
     }
@@ -83,12 +84,17 @@ export class SchoolsComponent implements OnInit {
   public deleteSchool(school: Schools) {
     this.schoolsService.remove({_id: school._id}).$observable.subscribe(() => {
       this.updateSchools();
-      this.snackBar.open(school.type ? 'Управление успешно удалено' : 'Школа  успешно удалена', 'ОК', {duration: 2000});
+      this.snackBar.open(school.type ? 'Управление успешно удалено' : 'Школа успешно удалена', 'ОК', {duration: 2000});
     }, error2 => window.alert(`Ошибка удаления. ${error2}`));
   }
 
   public changeType(value: any) {
     this.type = value;
     this.formatSchools(this.currentId);
+  }
+
+  private redirectToSchool(regionId: string) {
+    this.type = 0;
+    this.formatSchools(regionId);
   }
 }

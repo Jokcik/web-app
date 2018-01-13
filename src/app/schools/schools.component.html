@@ -6,7 +6,7 @@
   </mat-radio-group>
 
   <mat-form-field class="select">
-    <mat-select placeholder="Район" (valueChange)="formatSchools($event)" [value]="0">
+    <mat-select placeholder="Район" (valueChange)="formatSchools($event)" [value]="currentId">
       <mat-option [value]="0"> все </mat-option>
       <mat-option *ngFor="let region of regions" [value]="region._id">{{region.title}}</mat-option>
     </mat-select>

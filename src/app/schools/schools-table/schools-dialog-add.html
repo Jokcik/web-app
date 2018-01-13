@@ -47,9 +47,10 @@
 <div class="outer-wrap-schools dialog" *ngIf="!isEditDialog">
   <div mat-card-title>{{school.title || '1'}}</div>
   <div mat-card-content>({{school.address}})</div>
-  <div style="margin-top: 10px;"><b>cайт: </b>{{school.site}}, <b>e-mail: </b>{{school.email}}</div>
+  <div style="margin-top: 10px;"><b>cайт: </b> <a [href]="'http://' + school.site" target="_blank">{{school.site}}</a>, <b>e-mail: </b>{{school.email}}</div>
   <div class="school-mainperson">
     <b>{{school.type == 1 ? 'Начальник' : 'Директор'}}: </b> {{school.mainPerson.name}}
     <div *ngIf="school.mainPerson.stationary"><b>тел.</b> {{school.mainPerson.stationary}}</div>
   </div>
+  <div *ngIf="school.type" style="float: right; cursor: pointer; text-decoration: underline" (click)="redirectToSchool()">Перейти к школам</div>
 </div>

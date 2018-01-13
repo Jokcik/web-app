@@ -39,4 +39,7 @@ export class SchoolsDialogAdd {
   }
 
 
+  redirectToSchool() {
+    this.dialogRef.close({type: 'redirectToSchool', region: this.school.region._id});
+  }
 }
