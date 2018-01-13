@@ -8,6 +8,7 @@ import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {ChildrenComponent} from './children/children.component';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {SchoolsComponent} from '../../schools/schools.component';
+import {GalleryComponent} from '../../gallery/gallery.component';
 
 
 @NgModule({
@@ -47,6 +48,11 @@ import {SchoolsComponent} from '../../schools/schools.component';
         {
           path: 'schools',
           component: SchoolsComponent,
+          data: {edit: true}
+        },
+        {
+          path: 'gallery',
+          component: GalleryComponent,
           data: {edit: true}
         }
       ]

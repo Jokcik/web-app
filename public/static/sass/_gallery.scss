@@ -13,11 +13,59 @@
     cursor: pointer;
   }
 
+  .img-text {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  [mat-card-title] {
+    text-align: center;
+  }
+
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .news-main-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .img-block {
+    display: flex;
+    .img-wrap {
+      min-width: 120px;
+      min-height: 120px;
+      background-color: lightgray;
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        outline: 2px dotted #666
+      }
+    }
+
+    .btn-block {
+      margin-left: 40px;
+      button {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
   .card > img {
     margin-bottom: .75rem;
   }
 
   .card-text {
     font-size: 85%;
+    text-align: justify;
+  }
+
+  &.admin {
+    margin-top: 20px;
   }
 }

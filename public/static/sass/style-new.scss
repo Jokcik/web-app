@@ -26,3 +26,8 @@ html, body {
   //background: url(/images/fon/main.jpg) repeat-y 0 0;
   background-size: cover;
 }
+
+
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+  transform: none !important;
+}

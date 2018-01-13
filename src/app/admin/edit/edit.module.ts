@@ -31,6 +31,7 @@ import {CompetitionService} from '../../competition/competition.service';
 import {CompetitionsDialogAdd} from '../../competition/competition-table/competitions-dialog-add';
 import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
 import {SchoolsModule} from '../../schools/schools.module';
+import {GalleryModule} from '../../gallery/gallery.module';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import {SchoolsModule} from '../../schools/schools.module';
     ChildrenModule,
     CompetitionTableModule,
     SchoolsModule,
+    GalleryModule,
 
     MatButtonModule,
     MatCardModule,

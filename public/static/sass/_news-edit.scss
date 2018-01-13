@@ -32,8 +32,11 @@ $height: 250px;
       margin-bottom: 20px;
 
       img {
-        width: $height;
-        height: $height;
+        min-width: 120px;
+        min-height: 120px;
+        width: 100%;
+        //width: $height;
+        //height: $height;
         outline: 2px dotted #666
       }
     }
