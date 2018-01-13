@@ -4,7 +4,6 @@ import {Competition} from '../admin/edit/shared/competition';
 import {Dummy} from '../core/dummy';
 import {UserService} from '../core/user-service/user.service';
 import {Specialization} from '../admin/edit/shared/children';
-import {logging} from 'selenium-webdriver';
 import {ChildrenPageService} from '../children-page/children-page.service';
 import {CompetitionLevel} from '../admin/edit/shared/competition-level';
 
@@ -13,6 +12,7 @@ import {CompetitionLevel} from '../admin/edit/shared/competition-level';
   templateUrl: './competition.component.html'
 })
 export class CompetitionComponent implements OnInit {
+  public isEditOpen: boolean = false;
   public competitions: Competition[];
   public filteredCompetitions: Competition[] = Dummy.factory(Competition, 10);
 
@@ -62,7 +62,7 @@ export class CompetitionComponent implements OnInit {
       value.year2020 && this.year2020 ||
       value.year2021 && this.year2021
     );
-    filter = filter.filter(value => !this.levelId || value.specialization && value.specialization._id == this.levelId);
+    filter = filter.filter(value => !this.levelId || value.level && value.level._id == this.levelId);
     filter = filter.filter(value => !this.specializationId || value.specialization && value.specialization._id == this.specializationId);
 
     this.filteredCompetitions = filter;
