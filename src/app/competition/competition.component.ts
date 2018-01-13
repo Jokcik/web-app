@@ -6,6 +6,8 @@ import {UserService} from '../core/user-service/user.service';
 import {Specialization} from '../admin/edit/shared/children';
 import {ChildrenPageService} from '../children-page/children-page.service';
 import {CompetitionLevel} from '../admin/edit/shared/competition-level';
+import {MatSnackBar} from '@angular/material';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'od-competition',
@@ -30,6 +32,8 @@ export class CompetitionComponent implements OnInit {
   public year2022: boolean = true;
 
   constructor(private competitionService: CompetitionService,
+              private route: ActivatedRoute,
+              private snackBar: MatSnackBar,
               private childrenService: ChildrenPageService,
               public userService: UserService) {
   }
@@ -37,11 +41,9 @@ export class CompetitionComponent implements OnInit {
   ngOnInit() {
     this.specializations = this.childrenService.querySpecializations();
     this.levels = this.competitionService.queryLevels();
+    this.route.data.subscribe(data => this.isEditOpen = data['edit'] || this.isEditOpen);
 
-    this.competitionService.query().$observable.subscribe(competitions => {
-      this.competitions = competitions;
-      this.formatCompetitions();
-    });
+    this.updateCompetitions();
   }
 
   public setSpecialization(specializationId: string) {
@@ -66,5 +68,43 @@ export class CompetitionComponent implements OnInit {
     filter = filter.filter(value => !this.specializationId || value.specialization && value.specialization._id == this.specializationId);
 
     this.filteredCompetitions = filter;
+  }
+
+  public updateCompetitions() {
+    this.competitionService.query().$observable.subscribe(competitions => {
+      this.competitions = competitions;
+      this.formatCompetitions();
+    });
+  }
+
+  public openDialog(result: {competition: Competition, type: string}) {
+    if (!result || !result.competition) return;
+
+    if (result.type == 'add') {
+      this.saveCompetition(result.competition)
+    } else if (result.type == 'remove') {
+      this.deleteCompetition(result.competition);
+    }
+  }
+
+  public saveCompetition(competition: Competition) {
+    if (!competition._id) {
+      this.competitionService.save(competition).$observable.subscribe(() => {
+        this.updateCompetitions();
+        this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000});
+      }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
+    } else {
+      this.competitionService.update(competition).$observable.subscribe(() => {
+        this.updateCompetitions();
+        this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000});
+      }, error2 => window.alert(`Ошибка изменения. ${error2}`));
+    }
+  }
+
+  public deleteCompetition(competition: Competition) {
+    this.competitionService.remove({_id: competition._id}).$observable.subscribe(() => {
+      this.updateCompetitions();
+      this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000});
+    }, error2 => window.alert(`Ошибка удаления. ${error2}`));
   }
 }

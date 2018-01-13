@@ -9,6 +9,7 @@ import {ChildrenComponent} from './children/children.component';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {SchoolsComponent} from '../../schools/schools.component';
 import {GalleryComponent} from '../../gallery/gallery.component';
+import {CompetitionComponent} from '../../competition/competition.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {GalleryComponent} from '../../gallery/gallery.component';
         },
         {
           path: 'competition',
-          component: CompetitionEditComponent,
+          component: CompetitionComponent,
+          data: {edit: true}
         },
         {
           path: 'history',

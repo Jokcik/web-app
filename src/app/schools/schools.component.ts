@@ -8,6 +8,7 @@ import {ActivatedRoute} from '@angular/router';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import {Competition} from '../admin/edit/shared/competition';
 import {MatSnackBar} from '@angular/material';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-schools',
@@ -26,6 +27,7 @@ export class SchoolsComponent implements OnInit {
   constructor(private schoolsService: SchoolsService,
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
+              public userService: UserService,
               private regionService: RegionService) {
   }
 

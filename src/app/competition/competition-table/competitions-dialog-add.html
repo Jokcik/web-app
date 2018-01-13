@@ -55,10 +55,10 @@
           <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <!--<div *ngIf="!isEditDialog" style="margin-top: 10px;">-->
-        <!--<label><b>Уровень конкурса: </b></label>-->
-        <!--<mat-label>{{currentCompetition.level?.title}}</mat-label>-->
-      <!--</div>-->
+      <div *ngIf="!isEditDialog" style="margin-top: 10px;">
+        <label><b>Уровень конкурса: </b></label>
+        <mat-label>{{currentCompetition.level?.title}}</mat-label>
+      </div>
 
     </div>
   </div>

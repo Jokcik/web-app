@@ -5,7 +5,7 @@ import {CompetitionRoutingModule} from './competition-routing.module';
 import {CompetitionTableModule} from './competition-table/competition-table.module';
 import {CompetitionService} from './competition.service';
 import {CommonModule} from '@angular/common';
-import {MatCheckboxModule, MatOptionModule, MatSelectModule} from '@angular/material';
+import {MatCheckboxModule, MatOptionModule, MatSelectModule, MatSnackBarModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -18,7 +18,8 @@ import {FormsModule} from '@angular/forms';
 
     MatOptionModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   declarations: [
     CompetitionComponent,

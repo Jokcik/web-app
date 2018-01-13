@@ -16,13 +16,14 @@
     </mat-select>
   </mat-form-field>
 
-    <label><b>Годы проведения</b>: </label>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2017" (ngModelChange)="formatCompetitions()"> 2017</mat-checkbox>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2018" (ngModelChange)="formatCompetitions()"> 2018</mat-checkbox>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2019" (ngModelChange)="formatCompetitions()"> 2019</mat-checkbox>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2020" (ngModelChange)="formatCompetitions()"> 2020</mat-checkbox>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2021" (ngModelChange)="formatCompetitions()"> 2021</mat-checkbox>
-    <mat-checkbox class="checkbox" [(ngModel)]="year2022" (ngModelChange)="formatCompetitions()"> 2022</mat-checkbox>
+  <label><b>Годы проведения</b>: </label>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2017" (ngModelChange)="formatCompetitions()"> 2017</mat-checkbox>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2018" (ngModelChange)="formatCompetitions()"> 2018</mat-checkbox>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2019" (ngModelChange)="formatCompetitions()"> 2019</mat-checkbox>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2020" (ngModelChange)="formatCompetitions()"> 2020</mat-checkbox>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2021" (ngModelChange)="formatCompetitions()"> 2021</mat-checkbox>
+  <mat-checkbox class="checkbox" [(ngModel)]="year2022" (ngModelChange)="formatCompetitions()"> 2022</mat-checkbox>
 
-  <od-competition-table [competitions]="filteredCompetitions"></od-competition-table>
+  <od-competition-table [competitions]="filteredCompetitions" [isOpenEdit]="isEditOpen"
+      (changeCompetition)="openDialog($event)"></od-competition-table>
 </div>

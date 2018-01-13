@@ -1,3 +1,4 @@
+<a *ngIf="userService.user && !isEdit" routerLink="/admin/edit/schools">Редактировать</a>
 <div class="outer-wrap-schools" [class.admin]="isEdit">
 
   <mat-radio-group (change)="changeType($event.value)" [value]="type">
