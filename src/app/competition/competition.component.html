@@ -1,1 +1,28 @@
-<od-competition-table [competitions]="competitions"></od-competition-table>
+<a *ngIf="userService.user && !isEditOpen" routerLink="/admin/edit/competition">Редактировать</a>
+
+<div class="outer-wrap-competitions edit">
+  <mat-form-field class="select">
+    <mat-select placeholder="Специализация" (valueChange)="setSpecialization($event)" [value]="specializationId">
+      <mat-option [value]="0"> все</mat-option>
+      <mat-option *ngFor="let specialization of specializations" [value]="specialization._id">{{specialization.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="select">
+    <mat-select placeholder="Уровень" (valueChange)="setLevel($event)" [value]="levelId">
+      <mat-option [value]="0"> все</mat-option>
+      <mat-option *ngFor="let level of levels" [value]="level._id">{{level.title}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+    <label><b>Годы проведения</b>: </label>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2017" (ngModelChange)="formatCompetitions()"> 2017</mat-checkbox>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2018" (ngModelChange)="formatCompetitions()"> 2018</mat-checkbox>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2019" (ngModelChange)="formatCompetitions()"> 2019</mat-checkbox>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2020" (ngModelChange)="formatCompetitions()"> 2020</mat-checkbox>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2021" (ngModelChange)="formatCompetitions()"> 2021</mat-checkbox>
+    <mat-checkbox class="checkbox" [(ngModel)]="year2022" (ngModelChange)="formatCompetitions()"> 2022</mat-checkbox>
+
+  <od-competition-table [competitions]="filteredCompetitions"></od-competition-table>
+</div>

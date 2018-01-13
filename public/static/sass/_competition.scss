@@ -1,6 +1,7 @@
 .outer-wrap-competitions {
   margin-top: 20px;
-  box-shadow: none;
+  text-align: center;
+  //box-shadow: none;
   mat-form-field {
     width: 100%;
     margin-top: 10px;
@@ -34,9 +35,14 @@
     }
   }
 
-  .mat-card:not([class*=mat-elevation-z]) {
-    box-shadow: none!important;
+  .select {
+    width: 20%;
+    margin-left: 20px;
   }
+
+  //.mat-card:not([class*=mat-elevation-z]) {
+  //  box-shadow: none!important;
+  //}
 
   .dialog {
     mat-form-field {

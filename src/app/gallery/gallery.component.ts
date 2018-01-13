@@ -5,6 +5,7 @@ import {GalleryService} from './gallery.service';
 import {NgxGalleryAnimation, NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {ActivatedRoute} from '@angular/router';
 import {GalleryDialogAdd} from './gallery-dialog-add';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-gallery',
@@ -22,6 +23,7 @@ export class GalleryComponent implements OnInit {
   constructor(public dialog: MatDialog,
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
+              private userService: UserService,
               private galleryService: GalleryService) {
   }
 

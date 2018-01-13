@@ -14,7 +14,7 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
   @Input() isOpenEdit: boolean = false;
   @Output() changeCompetition: EventEmitter<any> = new EventEmitter<any>();
 
-  public displayedColumns = ['title', 'level'];
+  public displayedColumns = ['id', 'title'];
   public dataSource: MatTableDataSource<Competition> = new MatTableDataSource(this.dataSourceCompetition);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -25,6 +25,7 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
 
   ngOnChanges(changes?: SimpleChanges): void {
     this.dataSourceCompetition.length = 0;
+    this.competitions.forEach((value, index) => value.num = index + 1);
     this.dataSourceCompetition.push(...this.competitions);
     this.dataSource._updateChangeSubscription();
   }
