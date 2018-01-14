@@ -1,4 +1,7 @@
 .outer-wrap-gallery {
+  p {
+    line-height: inherit!important;
+  }
 
   .card {
     float: left;
@@ -61,6 +64,9 @@
   }
 
   .card-text {
+    :last-child {
+      margin-bottom: 0!important;
+    }
     font-size: 85%;
     text-align: justify;
   }
