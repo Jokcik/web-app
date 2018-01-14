@@ -14,7 +14,6 @@
   <style>.cke {
     visibility: hidden;
   }</style>
-  <link href="styles.8da2364522e0749f90c2.bundle.css" rel="stylesheet">
   <style>.mat-card {
     transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
     display: block;
@@ -192,400 +191,6 @@
     height: 24px;
     width: 24px
   }</style>
-  <style>.mat-form-field {
-    display: inline-block;
-    position: relative;
-    text-align: left
-  }
-
-  [dir=rtl] .mat-form-field {
-    text-align: right
-  }
-
-  .mat-form-field-wrapper {
-    position: relative
-  }
-
-  .mat-form-field-flex {
-    display: inline-flex;
-    align-items: baseline;
-    width: 100%
-  }
-
-  .mat-form-field-prefix, .mat-form-field-suffix {
-    white-space: nowrap;
-    flex: none
-  }
-
-  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
-    width: 1em
-  }
-
-  .mat-form-field-prefix .mat-icon-button, .mat-form-field-suffix .mat-icon-button {
-    font: inherit;
-    vertical-align: baseline
-  }
-
-  .mat-form-field-prefix .mat-icon-button .mat-icon, .mat-form-field-suffix .mat-icon-button .mat-icon {
-    font-size: inherit
-  }
-
-  .mat-form-field-infix {
-    display: block;
-    position: relative;
-    flex: auto;
-    min-width: 0;
-    width: 180px
-  }
-
-  .mat-form-field-label-wrapper {
-    position: absolute;
-    left: 0;
-    box-sizing: content-box;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none
-  }
-
-  .mat-form-field-label {
-    position: absolute;
-    left: 0;
-    font: inherit;
-    pointer-events: none;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    transform: perspective(100px);
-    -ms-transform: none;
-    transform-origin: 0 0;
-    transition: transform .4s cubic-bezier(.25, .8, .25, 1), color .4s cubic-bezier(.25, .8, .25, 1), width .4s cubic-bezier(.25, .8, .25, 1);
-    display: none
-  }
-
-  [dir=rtl] .mat-form-field-label {
-    transform-origin: 100% 0;
-    left: auto;
-    right: 0
-  }
-
-  .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-empty.mat-form-field-label {
-    display: block
-  }
-
-  .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper .mat-form-field-label {
-    display: none
-  }
-
-  .mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper .mat-form-field-label {
-    display: block;
-    transition: none
-  }
-
-  .mat-input-server:focus + .mat-form-field-placeholder-wrapper .mat-form-field-placeholder, .mat-input-server[placeholder]:not(:placeholder-shown) + .mat-form-field-placeholder-wrapper .mat-form-field-placeholder {
-    display: none
-  }
-
-  .mat-form-field-can-float .mat-input-server:focus + .mat-form-field-placeholder-wrapper .mat-form-field-placeholder, .mat-form-field-can-float .mat-input-server[placeholder]:not(:placeholder-shown) + .mat-form-field-placeholder-wrapper .mat-form-field-placeholder {
-    display: block
-  }
-
-  .mat-form-field-label:not(.mat-form-field-empty) {
-    transition: none
-  }
-
-  .mat-form-field-underline {
-    position: absolute;
-    height: 1px;
-    width: 100%
-  }
-
-  .mat-form-field-disabled .mat-form-field-underline {
-    background-position: 0;
-    background-color: transparent
-  }
-
-  .mat-form-field-underline .mat-form-field-ripple {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    transform-origin: 50%;
-    transform: scaleX(.5);
-    visibility: hidden;
-    opacity: 0;
-    transition: background-color .3s cubic-bezier(.55, 0, .55, .2)
-  }
-
-  .mat-form-field-invalid:not(.mat-focused) .mat-form-field-underline .mat-form-field-ripple {
-    height: 1px
-  }
-
-  .mat-focused .mat-form-field-underline .mat-form-field-ripple, .mat-form-field-invalid .mat-form-field-underline .mat-form-field-ripple {
-    visibility: visible;
-    opacity: 1;
-    transform: scaleX(1);
-    transition: transform .3s cubic-bezier(.25, .8, .25, 1), opacity .1s cubic-bezier(.25, .8, .25, 1), background-color .3s cubic-bezier(.25, .8, .25, 1)
-  }
-
-  .mat-form-field-subscript-wrapper {
-    position: absolute;
-    width: 100%;
-    overflow: hidden
-  }
-
-  .mat-form-field-label-wrapper .mat-icon, .mat-form-field-subscript-wrapper .mat-icon {
-    width: 1em;
-    height: 1em;
-    font-size: inherit;
-    vertical-align: baseline
-  }
-
-  .mat-form-field-hint-wrapper {
-    display: flex
-  }
-
-  .mat-form-field-hint-spacer {
-    flex: 1 0 1em
-  }
-
-  .mat-error {
-    display: block
-  }</style>
-  <style>.mat-input-element {
-    font: inherit;
-    background: 0 0;
-    color: currentColor;
-    border: none;
-    outline: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    vertical-align: bottom
-  }
-
-  .mat-input-element:-moz-ui-invalid {
-    box-shadow: none
-  }
-
-  .mat-input-element::-ms-clear, .mat-input-element::-ms-reveal {
-    display: none
-  }
-
-  .mat-input-element[type=date]::after, .mat-input-element[type=datetime-local]::after, .mat-input-element[type=datetime]::after, .mat-input-element[type=month]::after, .mat-input-element[type=time]::after, .mat-input-element[type=week]::after {
-    content: ' ';
-    white-space: pre;
-    width: 1px
-  }
-
-  .mat-input-element::placeholder {
-    transition: color .4s .133s cubic-bezier(.25, .8, .25, 1)
-  }
-
-  .mat-input-element::-moz-placeholder {
-    transition: color .4s .133s cubic-bezier(.25, .8, .25, 1)
-  }
-
-  .mat-input-element::-webkit-input-placeholder {
-    transition: color .4s .133s cubic-bezier(.25, .8, .25, 1)
-  }
-
-  .mat-input-element:-ms-input-placeholder {
-    transition: color .4s .133s cubic-bezier(.25, .8, .25, 1)
-  }
-
-  .mat-form-field-hide-placeholder .mat-input-element::placeholder {
-    color: transparent !important;
-    transition: none
-  }
-
-  .mat-form-field-hide-placeholder .mat-input-element::-moz-placeholder {
-    color: transparent !important;
-    transition: none
-  }
-
-  .mat-form-field-hide-placeholder .mat-input-element::-webkit-input-placeholder {
-    color: transparent !important;
-    transition: none
-  }
-
-  .mat-form-field-hide-placeholder .mat-input-element:-ms-input-placeholder {
-    color: transparent !important;
-    transition: none
-  }
-
-  textarea.mat-input-element {
-    resize: vertical;
-    overflow: auto
-  }
-
-  textarea.mat-autosize {
-    resize: none
-  }</style>
-  <style>.mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
-    box-sizing: border-box;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: pointer;
-    outline: 0;
-    border: none;
-    -webkit-tap-highlight-color: transparent;
-    display: inline-block;
-    white-space: nowrap;
-    text-decoration: none;
-    vertical-align: baseline;
-    text-align: center;
-    margin: 0;
-    min-width: 88px;
-    line-height: 36px;
-    padding: 0 16px;
-    border-radius: 2px
-  }
-
-  [disabled].mat-button, [disabled].mat-fab, [disabled].mat-icon-button, [disabled].mat-mini-fab, [disabled].mat-raised-button {
-    cursor: default
-  }
-
-  .cdk-keyboard-focused.mat-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay, .cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay, .cdk-program-focused.mat-button .mat-button-focus-overlay, .cdk-program-focused.mat-fab .mat-button-focus-overlay, .cdk-program-focused.mat-icon-button .mat-button-focus-overlay, .cdk-program-focused.mat-mini-fab .mat-button-focus-overlay, .cdk-program-focused.mat-raised-button .mat-button-focus-overlay {
-    opacity: 1
-  }
-
-  .mat-button::-moz-focus-inner, .mat-fab::-moz-focus-inner, .mat-icon-button::-moz-focus-inner, .mat-mini-fab::-moz-focus-inner, .mat-raised-button::-moz-focus-inner {
-    border: 0
-  }
-
-  .mat-fab, .mat-mini-fab, .mat-raised-button {
-    transform: translate3d(0, 0, 0);
-    transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
-  }
-
-  .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]), .mat-raised-button:not([class*=mat-elevation-z]) {
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
-  }
-
-  .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]), .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
-  }
-
-  [disabled].mat-fab, [disabled].mat-mini-fab, [disabled].mat-raised-button {
-    box-shadow: none
-  }
-
-  .mat-button .mat-button-focus-overlay, .mat-icon-button .mat-button-focus-overlay {
-    transition: none;
-    opacity: 0
-  }
-
-  .mat-button:hover .mat-button-focus-overlay {
-    opacity: 1
-  }
-
-  .mat-fab {
-    min-width: 0;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    padding: 0;
-    flex-shrink: 0
-  }
-
-  .mat-fab:not([class*=mat-elevation-z]) {
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
-  }
-
-  .mat-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
-  }
-
-  .mat-fab .mat-button-wrapper {
-    padding: 16px 0;
-    display: inline-block;
-    line-height: 24px
-  }
-
-  .mat-mini-fab {
-    min-width: 0;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    flex-shrink: 0
-  }
-
-  .mat-mini-fab:not([class*=mat-elevation-z]) {
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
-  }
-
-  .mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
-  }
-
-  .mat-mini-fab .mat-button-wrapper {
-    padding: 8px 0;
-    display: inline-block;
-    line-height: 24px
-  }
-
-  .mat-icon-button {
-    padding: 0;
-    min-width: 0;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    line-height: 40px;
-    border-radius: 50%
-  }
-
-  .mat-icon-button .mat-icon, .mat-icon-button i {
-    line-height: 24px
-  }
-
-  .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
-    color: currentColor
-  }
-
-  .mat-button .mat-button-wrapper > *, .mat-fab .mat-button-wrapper > *, .mat-icon-button .mat-button-wrapper > *, .mat-mini-fab .mat-button-wrapper > *, .mat-raised-button .mat-button-wrapper > * {
-    vertical-align: middle
-  }
-
-  .mat-button-focus-overlay, .mat-button-ripple {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    pointer-events: none
-  }
-
-  .mat-button-focus-overlay {
-    background-color: rgba(0, 0, 0, .12);
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
-  }
-
-  @media screen and (-ms-high-contrast: active) {
-    .mat-button-focus-overlay {
-      background-color: rgba(255, 255, 255, .5)
-    }
-  }
-
-  .mat-button-ripple-round {
-    border-radius: 50%;
-    z-index: 1
-  }
-
-  @media screen and (-ms-high-contrast: active) {
-    .mat-button, .mat-fab, .mat-icon-button, .mat-mini-fab, .mat-raised-button {
-      outline: solid 1px
-    }
-  }</style>
 </head>
 <body cz-shortcut-listen="true">
 <od-root ng-version="5.1.1">
@@ -696,8 +301,8 @@
         <div class="row">
           <div class="col-sm-12 blog-main">
             <router-outlet></router-outlet>
-            <od-history class="ng-star-inserted"><!---->
-              <div class="outer-wrap-mainpage ng-star-inserted">
+            <od-history><!---->
+              <div class="outer-wrap-mainpage">
                 <p>
                   <div class="title">
                 <p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span
@@ -716,8 +321,8 @@
               <div>
                 <div style="text-align: center; width: 100%; margin: 0"><img src="/images/history/image_1.jpg"></div>
 
-                <p><span style="font-family:Times New Roman,Times,serif;"><span style="font-size:14.0pt"><span
-                  style="line-height:115%"><span style="color:black">История Регионального учебно-методического центра по художественному образованию БГИИК начинается с августа 1976 года, когда приказом по областному управлению культуры Белгородского облисполкома был организован Областной методический кабинет по среднему специальному, начальному музыкальному и художественному образованию при управлении культуры Белгородского облисполкома.</span></span></span></span>
+                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;"><span
+                  style="font-size:14.0pt"><span style="line-height:115%"><span style="color:black">История Регионального учебно-методического центра по художественному образованию БГИИК начинается с августа 1976 года, когда приказом по областному управлению культуры Белгородского облисполкома был организован Областной методический кабинет по среднему специальному, начальному музыкальному и художественному образованию при управлении культуры Белгородского облисполкома.</span></span></span></span>
                 </p>
 
                 <p
@@ -787,14 +392,87 @@
                   <span style="font-size:12pt"><span style="background:white"><span
                     style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:14.0pt"><span
                     style="color:black">Сегодня</span></span> <span style="font-size:14.0pt">Методцентр<span
-                    style="color:black"> осуществляет методическое руководство и сотрудничество с 59 муниципальными детскими школами искусств и 4 художественными школами. </span></span></span></span></span>
+                    style="color:black"> осуществляет методическое руководство и сотрудничество с 59 муниципальными детскими школами искусств и 4 художественными школами.</span></span></span></span></span>
                 </p>
 
                 <p style="margin-top:1.5pt; margin-right:0cm; margin-bottom:1.5pt; margin-left:0cm; text-align:justify">
-                  &nbsp;</p>
+                  <span style="font-size:12pt"><span style="background:white"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:14.0pt"><span
+                    style="color:black">Свою историю учреждения дополнительного образования Белгородской области начали в далёкий послевоенный 1946 год, когда была открыта первая музыкальная школа в городе Белгороде, отметившая в 2016&nbsp;году своё 70-летие. К 1960 году в области были открыты ещё 5 школ – в городах Старый Оскол (ДШИ им. М.Г. Эрденко №1), Валуйки (ДШИ №1), Алексеевка, Губкин (ДМШ №1), Шебекино, а через 15 лет их число возросло в 8,5 раз.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">За 30&nbsp; лет в области была создана разветвлённая сеть учреждений начального музыкального образования – 76 детских музыкальных, художественных школ и школ искусств, что обусловило создание в эти годы областного методического кабинета, осуществляющего координацию деятельности учебных заведений начального и среднего звена. Первым руководителем был назначен Бекетов М.П., ранее&nbsp; бывший директором Корочанской ДМШ, затем инспектором управления культуры области.&nbsp; </span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В разные годы методический кабинет возглавляли Малиновский А.Н., Максимчук Ю.Г. С 1991 года, более 25 лет региональным учебно-методическим центром по художественному образованию руководит Белокурова Т.Ф., заслуженный работник культуры РФ, опытный руководитель и организатор.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В своей работе Методцентр опирается на знания актуальных проблем и состояния образовательных учреждений, которые изучаются в процессе мониторинговой и статистической информации. Систематически осуществляется анализ деятельности образовательных учреждений по различным направлениям: состоянию нормативной базы, содержанию образования, кадровому составу, результатам&nbsp; творческих достижений, состоянию материально-технической базы.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Специалисты центра постоянно оказывают консультативную помощь руководителям и педагогическим работникам образовательных учреждений по вопросам организации учебной деятельности и аттестации педагогических работников, по проблемам, связанным с переходом детских школ искусств на дополнительные предпрофессиональные общеобразовательные программы по различным видам искусств.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Сегодня в отрасли культуры в сфере дополнительного образования в нашей области занято свыше 1700 педагогических работников. Неуклонно увеличивается удельный вес педагогических работников, имеющих высшее образование. В настоящее время преподавателей с высшим образованием 63%&nbsp;&nbsp; от их общего количества. За пять последних лет среди преподавателей этот показатель возрос на 10 процентов, за этот же период&nbsp; на 10 процентов увеличилась доля педагогов, имеющих высшую квалификационную категорию. Сегодня квалификационные категории имеют более 70% преподавателей, половина из них – высшую. 64 педагога детских школ искусств (что составляет&nbsp; 4%)&nbsp; имеют звание «Заслуженный работник культуры России». </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В детских школах искусств области работают ветераны педагогического труда, руководители с большим стажем работы. 35 лет, со дня основания школы работает в должности директора ДШИ №2 города Старый Оскол Цыцугина Н.В., Заслуженный работник культуры РФ; более 40 лет в Бессоновской ДШИ работает Шевченко А.Н., Заслуженный работник культуры РФ, из них 19 лет – в должности директора; 30 в должности директора Томаровской ДШИ работает Руднева Г.В. Более 25 лет возглавляют&nbsp; учебные заведения директора: Ляшенко Г.М., Заслуженный работник культуры РФ (Шебекинская ДШИ), Стрелецкий В.А. (Яковлевская ДШИ, Леунов А.С. (Майская ДШИ).&nbsp; Всю свою педагогическую деятельность посвятила Валуйской ДШИ Деревягина А.В., из них 19 лет она работает в должности директора. С 1995 года Валуйскую ДШИ №2 возглавляет Харламов В.Н., Заслуженный работник культуры РФ. Более 20 лет сельские детские музыкальные школы Губкинского района Боброводворскую и Истобнянскую возглавляют Шеховцова Н.В. и Ишкова Л.М. Единственным директором со дня основания Засосенской ДШИ является Андрющенко С.В., 22 года в должности руководителя Ездоченской ДШИ работает Доценко М.В. От молодого специалиста до заместителя директора, а затем директора прошла свой творческий путь в ДШИ &nbsp;г. Строитель Коваленко Т.Д.</span></span> </span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Высокой оценки заслуживает многолетний труд руководителей школ, ветеранов, оставивших руководящие должности в последние 5 лет. Это заслуженные работники культуры РФ: &nbsp;Обрезанов Г.А., директор Пятницкой ДШИ Волоконовского района и Романцов Б.Я., директор Веселовской ДШИ Красногвардейского района, проработавшие более 40 лет, со дня основания учебных заведений в должности руководителей школ. Неоценимый вклад внесли в развитие детского художественного образования области заслуженные работники культуры РФ Картамышев Н.А., директор Губкинской ДМШ №1 и Чечнева А.Е., директор ДМШ №3&nbsp; г. Ст. Оскол. Способствовали развитию конкурсно-фестивального движения и выставочной деятельности учебных заведений Буслаева Е.Д., директор ДШИ им. М.Г. Эрденко №1 г. Ст.Оскол, Соколова В.И., директор ДХШ г. Губкин, Козлова С.Н., директор Грайворонской ДШИ, Попова Л.В., директор Разуменской ДШИ Белгородского района.</span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Методический центр способствует совершенствованию качества преподавания в образовательных учреждениях культуры и искусства, пропагандируя лучший педагогический опыт на семинарах, мастер-классах, научно-практических конференциях, а также в форме издания учебно-методических пособий и нотных сборников. В процессе образовательной деятельности региональным учебно-методическим центром по художественному образованию осуществляется пополнение регионального банка данных по актуальному педагогическому опыту. С 2012 года в него внесено 34 опыта в форме целостного описания, издано более 50 авторских нотных сборников. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Установленные творческие и профессиональные контакты с ведущими вузами культуры и искусства обеспечивают эффективный обмен педагогическим мастерством и методическим опытом, позволяют совершенствовать профессиональные компетенции и расширять границы деятельности преподавателей детских школ искусств. В рамках международных конкурсов только за последние 5 лет серию мастер-классов провели профессора РАМ им. Гнесиных – народный артист РФ Липс Ф.Р.,&nbsp; Горбачёв А.А.,&nbsp; Комолятов Н.А., доктор искусствоведения, заслуженный деятель искусств РФ Имханицкий&nbsp; М.И. Ряд обучающих семинаров для преподавателей всех специализаций проведены Новиковым В.Е., доцентом кафедры народных инструментов БГИИК, заслуженным деятелем искусств Удмуртской Республики. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В системе проводятся учебные семинары для преподавателей ДШИ области мастерами скрипичного искусства МГК им. П.И. Чайковского –&nbsp; профессором, народной артисткой России Бочковой И.В. и доцентом Кесельман М.И., неоднократно опытом работы по вопросам методики преподавания в ДШИ делился преподаватель Тверского музыкального колледжа Мильтонян С.А. Стало традицией проведение мастер-классов в рамках фестиваля «Борислав Струлёв и друзья», Международного дня баяна, аккордеона и гармоники, Всероссийского дня «Балалайка – душа России», Региональной недели хореографического искусства. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Преподаватели Белгородской&nbsp; области совершенствовали свои знания&nbsp; на мастер-классах выдающихся педагогов-музыкантов: народного артиста России С. Лукина (Москва), профессора Московской государственной консерватории им. П.И. Чайковского Карасёвой М.И., профессора Зорана Ракича (Босния и Герцеговина), доцента А.А. Нижника (Белгород), Г. Гермоза (Испания), доцента Е. Гридюшко (Беларусь), профессора Доценко В.И. (Украина). </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Ряд семинаров и мастер-классов проводятся&nbsp;при </span></span><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;поддержке Благотворительного фонда «Искусство, наука и спорт» (г. Москва).</span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm">&nbsp;</p>
               </div>
-              <p><!----><a style="height: 20px; cursor: pointer; color: dodgerblue;" class="ng-star-inserted">Читать
-                далее...</a></p>
+              <p><!----></p>
           </div>
           </od-history>
         </div>
@@ -813,6 +491,5 @@
 
 
 </od-root>
-<div class="cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div>
 </body>
 </html>
