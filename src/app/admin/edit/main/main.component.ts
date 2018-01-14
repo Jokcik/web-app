@@ -1,8 +1,9 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
 import {HistoryService} from '../../../history/history.service';
 import {Dummy} from '../../../core/dummy';
 import {MatSnackBar} from '@angular/material';
+import {CKEditorComponent} from 'ng2-ckeditor';
 
 @Component({
   selector: 'od-main',
@@ -37,7 +38,7 @@ export class MainComponent implements OnInit {
     disableNativeSpellChecker: false,
     forcePasteAsPlainText: true,
     title: false,
-    filebrowserUploadUrl: 'https://rumc31.ru/api/upload',
+    filebrowserUploadUrl: 'http://localhost:3001/api/upload',
     autoGrow_onStartup: true,
     disableAutoInline: true,
     enableContextMenu: false,
