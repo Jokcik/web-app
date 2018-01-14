@@ -1,0 +1,460 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Одаренные дети Белгородской области</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/css/style-new.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>.cke {
+    visibility: hidden;
+  }</style>
+  <style>.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .mat-card {
+      outline: solid 1px
+    }
+  }
+
+  .mat-card-flat {
+    box-shadow: none
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 16px
+  }
+
+  .mat-card-actions {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 8px 0
+  }
+
+  .mat-card-actions-align-end {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px
+  }
+
+  .mat-card-xl-image {
+    width: 240px;
+    height: 240px;
+    margin: -8px
+  }
+
+  .mat-card-footer {
+    display: block;
+    margin: 0 -24px -24px -24px
+  }
+
+  .mat-card-actions .mat-button, .mat-card-actions .mat-raised-button {
+    margin: 0 4px
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row
+  }
+
+  .mat-card-header-text {
+    margin: 0 8px
+  }
+
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0
+  }
+
+  .mat-card-lg-image, .mat-card-md-image, .mat-card-sm-image {
+    margin: -8px 0
+  }
+
+  .mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -8px
+  }
+
+  .mat-card-sm-image {
+    width: 80px;
+    height: 80px
+  }
+
+  .mat-card-md-image {
+    width: 112px;
+    height: 112px
+  }
+
+  .mat-card-lg-image {
+    width: 152px;
+    height: 152px
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      padding: 24px 16px
+    }
+
+    .mat-card-actions {
+      margin-left: -8px;
+      margin-right: -8px
+    }
+
+    .mat-card-image {
+      width: calc(100% + 32px);
+      margin: 16px -16px
+    }
+
+    .mat-card-title-group {
+      margin: 0
+    }
+
+    .mat-card-xl-image {
+      margin-left: 0;
+      margin-right: 0
+    }
+
+    .mat-card-header {
+      margin: -8px 0 0 0
+    }
+
+    .mat-card-footer {
+      margin-left: -16px;
+      margin-right: -16px
+    }
+  }
+
+  .mat-card-content > :first-child, .mat-card > :first-child {
+    margin-top: 0
+  }
+
+  .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+    margin-bottom: 0
+  }
+
+  .mat-card-image:first-child {
+    margin-top: -24px
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0
+  }
+
+  .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+    margin-left: 0;
+    margin-right: 0
+  }
+
+  .mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: -4px
+  }
+
+  .mat-card-header .mat-card-subtitle:not(:first-child) {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:first-child {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:last-child {
+    margin-bottom: -8px
+  }</style>
+  <style>.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px
+  }</style>
+</head>
+<body cz-shortcut-listen="true">
+<od-root ng-version="5.1.1">
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerlink="/news" href="/news">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/competition" routerlinkactive="active"
+                                    href="/competition">Конкурсы</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/children" routerlinkactive="active" href="/children">Одаренные
+              дети</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/galleries" routerlinkactive="active"
+                                    href="/galleries">Фотогалерея</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">История</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/history/rumc" href="/history/rumc">Роль РУМЦ в развитии ДШИ
+                  области</a>
+                <a class="dropdown-item" routerlink="/history/fortepiano" href="/history/fortepiano">Развитие
+                  специализации "фортепиано"</a>
+                <a class="dropdown-item" routerlink="/history/narodnie-instrumenty"
+                   href="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/dyhovie-instrumenty" href="/history/dyhovie-instrumenty">Развитие
+                  специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/strynnie-smichkovie-instrumenty"
+                   href="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые
+                  инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/folklor" href="/history/folklor">Развитие специализации
+                  "фольклор"</a>
+                <a class="dropdown-item" routerlink="/history/horovoe-penie" href="/history/horovoe-penie">Развитие
+                  специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerlink="/history/izobrazitelnoe-iskusstvo"
+                   href="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/horeografia" href="/history/horeografia">Развитие
+                  специализации "хореография"</a>
+                <a class="dropdown-item" routerlink="/history/teatralnoe-iskusstvo"
+                   href="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/muzikalno-teoreticheskie-distiplini"
+                   href="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические
+                  дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">Адреса</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/address/administration" href="/address/administration">Муниципальные
+                  управления культуры</a>
+                <a class="dropdown-item" routerlink="/address/schools" href="/address/schools">Детские школы
+                  искусств</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" routerlink="/contacts" routerlinkactive="active" href="/contacts">Контакты</a>
+            </li>
+          </ul>
+          <od-profile>
+            <form class="form-inline mt-2 mt-md-0">
+              <!---->
+              <ul class="navbar-nav mr-auto">
+                <!---->
+                <!---->
+                <li class="nav-item">
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link separator">/</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;">Выход</a>
+                </li>
+              </ul>
+            </form>
+          </od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-block">
+              <div class="img-wrap">
+                <img src="/images/logo/logo.png">
+              </div>
+              <div class="btn-block">
+                <div class="block-logo">Одаренные дети Белгородской области</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <p>Управление культуры Белгородской области</p>
+            <p>Белгородский государственный институт искусств и культуры</p>
+            <p>Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <div class="col-md-1 img-wrap" routerlink="/" tabindex="0">
+            <img src="/images/logo/logo-bgik.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card class="outer_wrap_main mat-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 blog-main">
+            <router-outlet></router-outlet>
+            <od-history><!---->
+              <div class="outer-wrap-mainpage">
+                <p>
+                <p style="text-align: center;"><span style="font-size:11pt"><span
+                  style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Bookman Old Style&quot;,&quot;serif&quot;"><span
+                  style="text-transform:uppercase">Развитие специализации «Фортепиано»</span></span></span></b></span></span>
+                </p>
+                </p>
+                <div><p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt;"><span style="font-size:11pt"><span
+                  style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Почти семь десятилетий назад, с открытием первой музыкальной школы на Белгородчине начало развиваться&nbsp; отделение фортепиано – самое популярное и востребованное. За эти годы фортепианное отделение, состоящее изначально&nbsp; всего из 23 преподавателей, выросло и стало самым многочисленным. РУМЦ уделяет особое внимание этой специализации, так как она является основной во всех ДМШ, ДШИ области. Сегодня на отделении обучаются 4210 учащихся, и трудятся 450 преподавателей, влюблённых в своё дело.</span></span></span></span>
+                </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="background:white"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:#333333">Энтузиасты-преподаватели, стоящие у истоков создания первых музыкально-образовательных учреждений области были основными проводниками музыкальной культуры.</span></span></span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> Это такие замечательные педагоги - пианисты как К.М. Корж, Л.А. Терских, Л.С. Супряга, Ю.П. Михайлова, В.Б. Медведева, Г.П. Киценко, А.Е. Волкова, которые воспитали целую плеяду учеников, продолживших&nbsp; благородное дело&nbsp; педагога-музыканта.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В настоящее время в области функционируют 59 ДМШ, ДШИ (19 – в сельской местности), в каждой из которых существуют отделения фортепиано, представляющие собой творческие коллективы единомышленников, где сотрудничают преподаватели разных поколений, объединённые общими педагогическими идеями, продолжающими традиции русской фортепианной школы. Наиболее успешно развиваются&nbsp; фортепианные отделения в Белгородских, Старооскольских школах, ДМШ №1 г. Губкина, ДШИ г. Строитель, ДШИ г. Шебекино, ДШИ п. Чернянка, Разуменской ДШИ, Майской ДШИ Белгородского района. Юные пианисты вышеназванных школ показывают хорошие результаты в конкурсах различного уровня, технический уровень их исполнения достаточно высок. Знание стилевых особенностей произведений различных композиторов, умение воплотить художественный замысел – всё это подтверждается многочисленными наградами, полученными учащимися в различных творческих состязаниях. <span
+                    style="background:#f9f9f9"><span style="color:black">Лучшие преподаватели фортепианных отделений&nbsp; отличаются не только высоким профессионализмом и педагогическим мастерством, но и огромной самоотдачей в своей работе, родительской заботой и сопереживанием за своих учеников и их достижения (преп. Размоскина К.Г., Становкина Ю.В., Белянчикова Л.П., Каишаури И.В.,&nbsp; Бахмутова С.В., Буслаева Е.Д., Волобуева Г.Н., Петрова И.Н., Комиссарова Е.Н., Бронникова Л.В., Кузовкова И.С., Остапец Е.В., Лазебная Л.А.). Длительный самоотверженный труд, требующий обоюдного напряжения душевных и физических сил, не случайно приводит к впечатляющим результатам. </span></span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="background:#f9f9f9"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">Неуклонно растёт численность обучающихся на фортепианных отделениях области, что говорит о его востребованности в детских музыкальных школах и школах искусств области.</span></span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="background:#f9f9f9"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">2010 г. – 3890 уч-ся, в том числе в сельских школах – 957 уч-ся;</span></span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="background:#f9f9f9"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><span style="color:black">2016 г. – 4210 уч-ся,&nbsp; в том числе в сельских школах – 1047 уч-ся.</span></span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="border:none windowtext 1.0pt; font-size:14.0pt; padding:0cm"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">За последние пять лет наблюдается повышение уровня образования преподавательского состава. Более 7% преподавателей-пианистов продолжают обучение по своей специальности заочно.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">С 2013 года, в соответствии с Федеральным законом № 145-ФЗ, практически все фортепианные отделения области&nbsp; приступили&nbsp; к реализации дополнительной предпрофессиональной общеобразовательной программы в области музыкального искусства «Фортепиано», составленной в соответствии с федеральными государственными требованиями, утвержденными Министерством культуры РФ в 2012 году. Срок освоения программы для детей в возрасте 6,5-9 лет составляет 8 лет.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Первые результаты обучения по предпрофессиональным программам были продемонстрированы на региональном семинаре для преподавателей фортепиано в марте 2014 года. Семинар был проведён преподавателями ДМШ №1 г. Белгород. Тема: «Особенности обучения учащихся по предпрофессиональной программе. Анализ работы фортепианного отделения ДМШ в период перехода на обучение по предпрофессиональной программе». В своих выступлениях участники семинара отразили цели, задачи,&nbsp; технологию и наполнение содержания образовательного процесса по дисциплине «Фортепиано».</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Необходимо отметить неуклонный рост проводимых методических мероприятий на отделениях фортепиано.&nbsp; За период 2010-2016 г. состоялось более 250 мероприятий методической направленности различных уровней&nbsp; (от школьного до регионального), на которых вниманию слушателей помимо традиционных направлений работы, таких как методические доклады, открытые уроки, сольные концерты были представлены новые, современные формы: презентация программы, мастер-класс, интегрированный урок, творческий отчёт профессионального мастерства. В Региональном учебно-методическом центре по художественному образованию эту работу успешно ведёт Фролова Светлана Петровна, методист, педагог с 30-летним стажем работы. Главной целью методической деятельности является создание условий для повышения профессионального мастерства преподавателей, что напрямую связано с улучшением качества образовательного процесса, основанного на новом педагогическом мышлении, новых педагогических технологиях, способствующих повышению качества обучения и воспитания детей и создающих условия для самореализации личности ребенка и преподавателя.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Ежегодно для повышения профессиональной компетентности преподавателей фортепиано ДМШ, ДШИ области Региональным учебно-методическим центром по художественному образованию БГИИК организуются семинарские занятия и мастер-классы с приглашением профессоров&nbsp; ведущих учебных заведений г. Москва. Только за последние годы в области состоялось 16 мероприятий подобного рода.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В феврале 2012 года на базе музыкального колледжа им. С.А. Дегтярёва БГИИК состоялись мастер-классы заслуженной артистки России, профессора Московской государственной консерватории им. П.И. Чайковского Е.П. Савельевой. Более 30 юных пианистов из музыкальных школ области получили практическую помощь в обучении фортепианному искусству. В декабре 2012 года в целях сохранения культурных ценностей России, возрождения духовных традиций российского академического искусства, поддержки творческой молодёжи&nbsp; в Белгороде проходили занятия Всероссийского проекта «Передвижная академия искусств». Семинары&nbsp; и мастер-классы с учащимися детских музыкальных школ и студентами БГИИК провёл заслуженный артист России, профессор Российской академии музыки им. Гнесиных, солист Московской государственной академической филармонии Ю. А. Богданов. Несомненный живой интерес был проявлен учащимися и студентами к показу на инструменте Ю.А. Богданова. Подробный разбор произведений, их анализ дал возможность преподавателям детских музыкальных школ и школ искусств получить необходимую профессиональную консультацию и исправить обозначенные ошибки для дальнейшей работы.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">27 марта 2015 года в малом зале музыкального колледжа им. С.А. Дегтярёва БГИИК состоялся региональный семинар для преподавателей фортепиано детских музыкальных школ и школ искусств области. В программе семинара – музыкальное приношение великому пианисту Святославу Теофиловичу Рихтеру, 100-летие которого отмечалось в эти дни. Большое внимание слушателей привлёк рассказ о жизненном и творческом пути знаменитого музыканта, подготовленный доцентом кафедры «Фортепиано», кандидатом педагогических наук, заслуженным работником культуры РФ Курганской Ольгой Александровной. В качестве музыкальных иллюстраций на импровизированном концерте прозвучали произведения С.В. Рахманинова, П.И. Чайковского, Р. Шумана в исполнении студентов класса Курганской О.А., которые чередовались с записями фортепианных произведений в исполнении самого маэстро Рихтера. С большой любовью и уважением к личности гениального пианиста были подобраны отрывки из различных литературных источников, характеризующих музыканта как скромного и интеллигентного человека, которому не чуждо ничто человеческое. </span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">16 февраля 2016 г. был проведён региональный семинар<b> </b>педагога-методиста Губкинского филиала Белгородского&nbsp; Государственного института искусств и культуры Сотниковой Натальи Геннадьевны. Тема семинара «Формирование важнейших пианистических навыков в фортепианном классе ДМШ». В программе семинара: методический доклад, мастер-класс, сольный концерт Сотниковой Н.Г. «К 30-летию творческой деятельности».</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В результате многостороннего методического сопровождения&nbsp; образовательного процесса, практически все преподаватели-пианисты успешно проходят государственную аттестацию, имеют первую и высшую квалификационные категории. За последние пять лет доля преподавателей специализации «Фортепиано» имеющих высщую квалификационную категорию возросла (2010 г. – 53%, 2016 г. – 60%), педагогический состав отделений «Фортепиано» пополняется молодыми, талантливыми преподавателями, получившими высшее профессиональное образование (ДШИ г. Строитель, ДШИ с. Федосеевка, ДШИ с. Ездочное, ДШИ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;п. Волоконовка, ДМХШ г. Белгород, ДМШ №5 г. Белгород, ДШИ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;п. Прохоровка и др.) На сегодняшний день почти 69% преподавателей-пианистов имеют высшее специальное образование, что на 5,5% больше, чем в 2010 году.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Творческое кредо пианистов </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">– помочь начинающему музыканту войти в волшебный мир удивительного инструмента – фортепиано. Учиться на фортепиано необычайно интересно. На уроках специальности<b> </b>осуществляется максимально возможное развитие пианистических способностей и технических навыков исполнительства. Учащиеся постоянно играют на сцене, принимая участие во внеклассных мероприятиях: театрализованных представлениях, концертах, музыкальных сказках, викторинах, на которых они выступают и как пианисты и как актеры. Самые талантливые учащиеся представляют свои школы на городских,&nbsp; региональных, Всероссийских и Международных конкурсах, становясь призерами и лауреатами. Говоря о музыкальном воспитании на фортепианном отделении, нельзя обойти вниманием класс ансамбля и аккомпанемента, на уроках, которых развиваются навыки самостоятельного творчества, знакомство с камерно-вокальными произведениями. <span
+                    style="border:none windowtext 1.0pt; padding:0cm">Основной задачей каждого занятия на фортепианном отделении ДМШ является создание интереса к музыке и обучение пианистическим навыкам. Для этого необходимо изучение реальных музыкальных способностей детей, подбор репертуара и выбор методов и приемов обучения таким образом, чтобы развитие и совершенствование у детей музыкального слуха, голоса, исполнительских способностей и т.д. стало не целью, а средством воспитания интереса, а впоследствии – любви к музыке. Обучение фортепианной игре – сложный и многогранный процесс. Он включает в себя не только пианистическое, но и общемузыкальное развитие ученика. Необходимым элементом развития является также и расширенная воспитательная работа. Ее основные направления: воспитание мировоззрения и моральных качеств, воли и характера, эстетических вкусов и любви к музыке, интерес к труду и умение работать. Воспитательная работа не рассматривается как дополнение к учебному процессу, а составляет с ним органическое единство. Особое внимание уделяется воспитанию любви к народной музыке и пониманию роли народного начала в искусстве. Особая форма воспитательной работы – просветительская организация и проведение концертов силами учеников и их родителей.</span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">С 1989 года в Белгородской области систематически проводятся областные конкурсы пианистов, в которых принимают участие лучшие учащиеся фортепианных отделений школ. Региональный конкурс пианистов- учащихся ДМШ, ДШИ «Созвездие талантов» проводится один раз в три года. Цель конкурса – пропаганда и развитие классического исполнительского искусства. Неуклонно растёт число юных пианистов, принимающих участие в конкурсе. В 2011году общее количество детей по трём турам конкурса (школьный, зональный, региональный) составило 210 человек, в 2014 году – 285<b>, </b>что говорит о повышенном интересе учащихся<b> </b>к фортепианному исполнительству<b>.</b> Наряду с количеством возрос и качественный уровень&nbsp; исполняемых программ (полифония, крупная форма, пьеса кантиленного характера), что было отмечено членами жюри конкурса. Необходимо отметить и долю участия сельских ДМШ и ДШИ, которая составила 28% от&nbsp; общего количества участников (2011 год – 15%). Разуменская, Майская, Северная ДШИ, Белгородского района, Ездоченская ДШИ Чернянского района, Томаровская ДШИ Яковлевского района, Боброводворская ДМШ&nbsp; Губкинского района – учащиеся фортепианных отделений этих школ показывают достаточно высокие результаты, что является ярким показателем наличия в различных детских музыкальных школах и школах искусств области высокопрофессиональных педагогических кадров, воспитывающих талантливых детей. </span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Более 20 лет в Белгородской области проводится региональный конкурс фортепианных ансамблей среди учащихся ДМШ, ДШИ. Положением конкурса предусматривается исполнение программы, состоящей из двух произведений различных стилей, исполняемых в 4 руки на одном или двух фортепиано.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Конкурс пользуется большой популярностью у учащихся, демонстрирует несомненный интерес к ансамблевому музицированию, как одной из перспективных форм работы на фортепианных отделениях.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В 2009 году по инициативе РУМЦ по художественному образованию БГИИК впервые в области состоялся региональный конкурс «Юный концертмейстер», призванный развивать и сохранять традиции фортепианного аккомпанемента в начальном звене музыкального образования. Конкурс имел широкий резонанс и стал традиционным творческим соревнованием среди юных пианистов области. Конкурсные прослушивания позволяют выявить наиболее талантливых и одарённых детей, ориентируют учащихся на их дальнейшее обучение в средних и высших учебных заведениях искусства.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В 2015 году в России была торжественно отмечена юбилейная дата – 175 лет со дня рождения великого русского композитора Петра Ильича Чайковского. В ознаменование этого события с 15 июня по 3 июля в Москве и Санкт-Петербурге состоялся </span></span><span
+                    lang="EN-US" style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">XV</span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"> Международный конкурс имени П.И. Чайковского. В рамках этого мероприятия был проведён региональный конкурс среди учащихся детских музыкальных школ, победителем, которого стал учащийся ДШИ №1 г. Белгорода Григоркин Даниил (фортепиано).</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">За период 2010-16 гг. более 40 выпускников фортепианных отделений ДМШ, ДШИ области, (что на 3% больше, чем за предыдущие три года)&nbsp; продолжили своё музыкальное образование и стали студентами ССУЗов и ВУЗов (БГИИК, ГГМК, Воронежская государственная академия искусств, Московский государственный институт им. А. Шнитке, Московская Государственная консерватория им. П.И. Чайковского и др.)</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="border:none windowtext 1.0pt; font-size:14.0pt; padding:0cm"><span
+                    style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Анализируя работу фортепианных отделений области необходимо отметить рост контингента, что особенно заметно в Губкинском,&nbsp; Яковлевском, Белгородском районах, г. Белгород (на отделении обучается 23% от общего количества обучающихся в ДМШ, ДШИ). Сохраняется тенденция поступления учащихся в 1 класс. В образовательном процессе в последние годы происходят существенные изменения – внедряются новые методы и технологии, учебная работа на отделении строится по предпрофессиональным программам, которые являются базовыми для большей части учащихся фортепианных отделений школ.</span></span></span></span>
+                  </p>
+                </div>
+                <p><!----></p>
+              </div>
+            </od-history>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-card>
+    <footer class="footer">
+      <div class="container" style="margin-top: 10px;">
+        <span
+          class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+      </div>
+    </footer>
+  </div>
+
+
+</od-root>
+</body>
+</html>
