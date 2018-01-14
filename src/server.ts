@@ -10,7 +10,7 @@ import {HttpExceptionFilter} from './modules/exception/http-exception.filter';
 
 let s = express();
 // s.set('port', 8080);
-s.set('port', process.argv[1] || process.env.PORT || 3001);
+s.set('port', process.argv[2] || process.env.PORT || 3001);
 
 async function bootstrap() {
 
