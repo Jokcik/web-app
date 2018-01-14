@@ -20,7 +20,7 @@
     <cdk-row *cdkRowDef="let row; columns: displayedColumns;" class="example-row" (click)="openSchools(row)"></cdk-row>
   </cdk-table>
 
-  <mat-paginator *ngIf="isOpenEdit" [pageSizeOptions]="[10, 22]"></mat-paginator>
+  <mat-paginator *ngIf="isOpenEdit" [pageSizeOptions]="type ? [22] : [10, 40, 65]"></mat-paginator>
 </div>
 
 <button mat-raised-button color="primary" style="float: right" *ngIf="isOpenEdit" (click)="newSchools()">Добавить {{ type ? 'управление' : 'школу' }}</button>

@@ -37,6 +37,7 @@ export class MainComponent implements OnInit {
     disableNativeSpellChecker: false,
     forcePasteAsPlainText: true,
     title: false,
+    filebrowserUploadUrl: 'https://rumc31.ru/api/upload',
     autoGrow_onStartup: true,
     disableAutoInline: true,
     enableContextMenu: false,
@@ -45,7 +46,7 @@ export class MainComponent implements OnInit {
       bottom: 'bottom'
     },
     resize_enabled: false,
-    extraPlugins: 'autogrow,sharedspace,divarea,removeformat',
+    extraPlugins: 'uploadimage,image2,autogrow,sharedspace,divarea,removeformat',
     removePlugins:'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
   };
 }

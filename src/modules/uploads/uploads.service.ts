@@ -8,7 +8,9 @@ import * as _ from 'lodash';
 @Component()
 export class UploadsService {
   public async uploadFile(host, files, fields) {
-    if (!_.includes(TYPES, fields.type)) throw new BadRequestException('invalid type');
+    if (!_.includes(TYPES, fields.type)) {
+      fields.type = 'uploads';
+    }
 
     let url = '/images/' + fields.type + '/' + uniqid() + path.extname(files.logo.name);
     mv(files.logo.path, './public' + url, err => {console.log(err)});

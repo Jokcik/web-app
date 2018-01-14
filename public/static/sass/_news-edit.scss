@@ -27,7 +27,6 @@ $height: 250px;
     display: flex;
     .img-wrap {
       width: $height;
-      height: $height;
       background-color: lightgray;
       margin-bottom: 20px;
 
@@ -35,8 +34,6 @@ $height: 250px;
         min-width: 120px;
         min-height: 120px;
         width: 100%;
-        //width: $height;
-        //height: $height;
         outline: 2px dotted #666
       }
     }
