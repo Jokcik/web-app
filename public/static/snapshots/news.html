@@ -1,0 +1,645 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Одаренные дети Белгородской области</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/css/style-new.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>.cke {
+    visibility: hidden;
+  }</style>
+  <link href="styles.8da2364522e0749f90c2.bundle.css" rel="stylesheet">
+  <style>.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .mat-card {
+      outline: solid 1px
+    }
+  }
+
+  .mat-card-flat {
+    box-shadow: none
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 16px
+  }
+
+  .mat-card-actions {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 8px 0
+  }
+
+  .mat-card-actions-align-end {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px
+  }
+
+  .mat-card-xl-image {
+    width: 240px;
+    height: 240px;
+    margin: -8px
+  }
+
+  .mat-card-footer {
+    display: block;
+    margin: 0 -24px -24px -24px
+  }
+
+  .mat-card-actions .mat-button, .mat-card-actions .mat-raised-button {
+    margin: 0 4px
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row
+  }
+
+  .mat-card-header-text {
+    margin: 0 8px
+  }
+
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0
+  }
+
+  .mat-card-lg-image, .mat-card-md-image, .mat-card-sm-image {
+    margin: -8px 0
+  }
+
+  .mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -8px
+  }
+
+  .mat-card-sm-image {
+    width: 80px;
+    height: 80px
+  }
+
+  .mat-card-md-image {
+    width: 112px;
+    height: 112px
+  }
+
+  .mat-card-lg-image {
+    width: 152px;
+    height: 152px
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      padding: 24px 16px
+    }
+
+    .mat-card-actions {
+      margin-left: -8px;
+      margin-right: -8px
+    }
+
+    .mat-card-image {
+      width: calc(100% + 32px);
+      margin: 16px -16px
+    }
+
+    .mat-card-title-group {
+      margin: 0
+    }
+
+    .mat-card-xl-image {
+      margin-left: 0;
+      margin-right: 0
+    }
+
+    .mat-card-header {
+      margin: -8px 0 0 0
+    }
+
+    .mat-card-footer {
+      margin-left: -16px;
+      margin-right: -16px
+    }
+  }
+
+  .mat-card-content > :first-child, .mat-card > :first-child {
+    margin-top: 0
+  }
+
+  .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+    margin-bottom: 0
+  }
+
+  .mat-card-image:first-child {
+    margin-top: -24px
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0
+  }
+
+  .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+    margin-left: 0;
+    margin-right: 0
+  }
+
+  .mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: -4px
+  }
+
+  .mat-card-header .mat-card-subtitle:not(:first-child) {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:first-child {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:last-child {
+    margin-bottom: -8px
+  }</style>
+  <style>.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px
+  }</style>
+</head>
+<body>
+<od-root ng-version="5.1.1">
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerlink="/news" href="/news">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/competition" routerlinkactive="active"
+                                    href="/competition">Конкурсы</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/children" routerlinkactive="active" href="/children">Одаренные
+              дети</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/galleries" routerlinkactive="active"
+                                    href="/galleries">Фотогалерея</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">История</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/history/rumc" href="/history/rumc">Роль РУМЦ в развитии ДШИ
+                  области</a>
+                <a class="dropdown-item" routerlink="/history/fortepiano" href="/history/fortepiano">Развитие
+                  специализации "фортепиано"</a>
+                <a class="dropdown-item" routerlink="/history/narodnie-instrumenty"
+                   href="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/dyhovie-instrumenty" href="/history/dyhovie-instrumenty">Развитие
+                  специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/strynnie-smichkovie-instrumenty"
+                   href="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые
+                  инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/folklor" href="/history/folklor">Развитие специализации
+                  "фольклор"</a>
+                <a class="dropdown-item" routerlink="/history/horovoe-penie" href="/history/horovoe-penie">Развитие
+                  специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerlink="/history/izobrazitelnoe-iskusstvo"
+                   href="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/horeografia" href="/history/horeografia">Развитие
+                  специализации "хореография"</a>
+                <a class="dropdown-item" routerlink="/history/teatralnoe-iskusstvo"
+                   href="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/muzikalno-teoreticheskie-distiplini"
+                   href="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические
+                  дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">Адреса</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/address/administration" href="/address/administration">Муниципальные
+                  управления культуры</a>
+                <a class="dropdown-item" routerlink="/address/schools" href="/address/schools">Детские школы
+                  искусств</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" routerlink="/contacts" routerlinkactive="active" href="/contacts">Контакты</a>
+            </li>
+          </ul>
+          <od-profile>
+            <form class="form-inline mt-2 mt-md-0">
+              <!---->
+              <ul class="navbar-nav mr-auto">
+                <!---->
+                <!---->
+                <li class="nav-item">
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link separator">/</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;">Выход</a>
+                </li>
+              </ul>
+            </form>
+          </od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-block">
+              <div class="img-wrap">
+                <img src="/images/logo/logo.png">
+              </div>
+              <div class="btn-block">
+                <div class="block-logo">Одаренные дети Белгородской области</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <p>Управление культуры Белгородской области</p>
+            <p>Белгородский государственный институт искусств и культуры</p>
+            <p>Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <div class="col-md-1 img-wrap" routerlink="/" tabindex="0">
+            <img src="/images/logo/logo-bgik.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card class="outer_wrap_main mat-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 blog-main">
+            <router-outlet></router-outlet>
+            <od-news>
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8 blog-main">
+                    <div class="outer-wrap-news">
+                      <h4 style="margin-bottom: 20px; text-align: center;">Новости</h4>
+                      <!---->
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a href="/news/%D0%B7asedanie-%D0%B3lavnoj-attestacionnoj-komissii">
+                          <div class="news-title"><b>Заседание Главной аттестационной комиссии</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="https://rumc31.ru/images/news/o4wykg33uljcajh48n.jpg">
+                              <div class="news-date">11 января в 17:15</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">11 января прошло очередное заседание главной аттестационной комиссии департамента образования Белгородской области, на котором заслушали итоги проведённой экспертизы результатов профессиональной деятельности 59&nbsp;аттестуемых педагогических работников ДШИ.</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a
+                          href="/news/%D0%BCuzykal-naya-palitra-%D0%BAoncert-pervoklassnikov-%D0%BFosvyashenie-v-iskusstvo">
+                          <div class="news-title"><b>"Музыкальная палитра". Концерт первоклассников "Посвящение в
+                            искусство"</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="https://rumc31.ru/images/news/o4wykg33uljcajxu45.JPG">
+                              <div class="news-date">11 января в 17:06</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">По традиции в середине декабря в Прохоровской ДШИ состоялось показательное мероприятие - Концерт первоклассников "Посвящение в искусство", в котором впервые со сцены показали свои достижения маленькие музыканты.</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a
+                          href="/news/%D0%B7asedanie-ekspertnyh-grupp-po-attestacii-pedagogicheskih-rabotnikov-detskih-shkol-iskusstv">
+                          <div class="news-title"><b>Заседание экспертных групп по аттестации педагогических работников
+                            детских школ искусств</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="/images/news/uoei41qjbic34qp.JPG">
+                              <div class="news-date">22.12.2017 в 12:54</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span
+                                  style="font-family:Times New Roman,Times,serif;"><strong>21 декабря 2017 г.</strong> состоялось заседание экспертных групп по аттестации преподавателей и концертмейстеров детских школ искусств области.&nbsp;</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a href="/news/%D1%80egional-nyj-seminar-rukovoditelej-%D0%B4%D1%88%D0%B8">
+                          <div class="news-title"><b>Региональный семинар руководителей ДШИ</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="/images/news/uoei41qjbibzpl6.jpg">
+                              <div class="news-date">22.12.2017 в 12:19</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">20 декабря 2017 года состоялся региональный консультативно-методический семинар «Новое в трудовом законодательстве Российской Федерации».</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a href="/news/%D1%83chastie-v-koncerte-v-%D0%BAremlevskom-%D0%B4vorce">
+                          <div class="news-title"><b>Участие в концерте в Государственном Кремлёвском Дворце.</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="/images/news/50kds1qjbe0f7wh.jpg">
+                              <div class="news-date">19.12.2017 в 22:16</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p><span style="font-family:Times New Roman,Times,serif;">Участники Детского хора России из Белгородской области приняли участие в концерте.</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a
+                          href="/news/%D0%B8togi-%D0%BAonkursa-na-denezhnoe-pooshrenie-municipal-nyh-uchrezhdenij-kul-tury-nahodyashihsya-na-territorii-sel-skih-poselenij-i-ih-rabotnikov">
+                          <div class="news-title"><b>Итоги Конкурса на денежное поощрение муниципальных учреждений
+                            культуры, находящихся на территории сельских поселений, и их работников</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="/images/news/50kds1qjbdyzvov.jpg">
+                              <div class="news-date">19.12.2017 в 21:41</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">18 декабря 2017 г. подведены итоги Конкурса на денежное поощрение муниципальных учреждений культуры, находящихся на территории сельских поселений, и их работников.</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a
+                          href="/news/%D0%B2-%D0%B1%D0%B3%D0%B8%D0%B8%D0%BA-%D0%BF%D0%BE%D0%B4%D0%B2%D0%B5%D0%BB%D0%B8-%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D1%8E%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81%D0%B0-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9-%D0%BD%D0%B0-%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D1%85-%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%85-%C2%AB%D0%BA%D1%83%D0%B1%D0%BE%D0%BA-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B3%D0%BE%D1%80%D1%8C%D1%8F%C2%BB">
+                          <div class="news-title"><b>В БГИИК ПОДВЕЛИ ИТОГИ ЮБИЛЕЙНОГО МЕЖДУНАРОДНОГО КОНКУРСА
+                            ИСПОЛНИТЕЛЕЙ НА НАРОДНЫХ ИНСТРУМЕНТАХ «КУБОК БЕЛОГОРЬЯ»</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <!----><img src="/images/news/50kds1qjbdzn2mk.jpg">
+                              <div class="news-date">17.12.2017 в 20:18</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">В&nbsp;Белгородском государственном институте искусств и&nbsp;культуры завершил свою работу X&nbsp;Международный конкурс исполнителей на&nbsp;народных инструментах «Кубок Белогорья»</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="news-container">
+                        <!---->
+                        <div class="news-icon edit">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                        </div>
+                        <!---->
+                        <div class="news-icon remove">
+                          <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                          </mat-icon>
+                        </div>
+                        <a href="/news/bgiik-x">
+                          <div class="news-title"><b>В БГИИК состоялось открытие X Международного конкурса «Кубок
+                            Белогорья»</b></div>
+                          <div class="container" style="display: flex;">
+                            <div class="col-sm-3" style="position: relative;">
+                              <div class="news-date">17.12.2017 в 18:27</div>
+                            </div>
+                            <div class="col-sm-9">
+                              <div class="sidebar-module sidebar-module-inset">
+                                <p>
+                                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;">20&nbsp;ноября в&nbsp;Белгородском государственном институте искусств и&nbsp;культуры состоялось открытие X&nbsp;Международного конкурса исполнителей на&nbsp;народных инструментах «Кубок Белогорья».</span>
+                                </p>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <aside class="col-sm-4 ml-sm-auto blog-sidebar">
+                    <od-announce>
+                      <div class="sidebar-module sidebar-module-inset">
+                        <h4 style="margin-bottom: 20px; text-align: center;">Анонсы</h4>
+                        <!---->
+                        <div class="announce-container">
+                          <!---->
+                          <div class="announce-icon edit">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                          </div>
+                          <!---->
+                          <div class="announce-icon remove">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                            </mat-icon>
+                          </div>
+                          <a href="/news/%D0%B7asedanie-ekspertnoj-gruppy">
+                            <p><b>Заседание экспертной группы</b></p>
+                            <!----><!---->
+                            <img style="height: 130px; float: left; margin-right: 10px; min-width: 190px"
+                                 src="/images/news/50kds1qjbdyq831.jpg">
+                            <div class="announce-date">19.12.2017</div>
+
+                            <div class="announce-text"><p><span style="font-family:Times New Roman,Times,serif;">21 декабря состоится заседание экспертной группы по аттестации педагогических работников ДШИ.</span>
+                            </p>
+                            </div>
+                          </a>
+                          <!---->
+                          <hr>
+                        </div>
+                        <div class="announce-container">
+                          <!---->
+                          <div class="announce-icon edit">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                          </div>
+                          <!---->
+                          <div class="announce-icon remove">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                            </mat-icon>
+                          </div>
+                          <a href="/news/%D1%80egional-nyj-seminar-dlya-prepodavatelej-detskih-shkol-iskusstv">
+                            <p><b>Региональный семинар для преподавателей детских школ искусств </b></p>
+                            <!----><!---->
+                            <img style="height: 130px; float: left; margin-right: 10px; min-width: 190px"
+                                 src="/images/news/50kds1qjbdzl4kh.jpg">
+                            <div class="announce-date">19.12.2017</div>
+
+                            <div class="announce-text"><p><span style="font-family:Times New Roman,Times,serif;">20 декабря &nbsp;состоится семинар для преподавателей ДШИ.</span>
+                            </p>
+                            </div>
+                          </a>
+                          <!---->
+                          <hr>
+                        </div>
+                        <div class="announce-container">
+                          <!---->
+                          <div class="announce-icon edit">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">edit</mat-icon>
+                          </div>
+                          <!---->
+                          <div class="announce-icon remove">
+                            <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">delete forever
+                            </mat-icon>
+                          </div>
+                          <a href="/news/%D1%81eminar-rukovoditelej-%D0%B4%D1%88%D0%B8">
+                            <p><b>Семинар руководителей ДШИ</b></p>
+                            <!----><!---->
+                            <img style="height: 130px; float: left; margin-right: 10px; min-width: 190px"
+                                 src="/images/news/50kds1qjbdyq831.jpg">
+                            <div class="announce-date">19.12.2017</div>
+
+                            <div class="announce-text"><p><span style="font-family:Times New Roman,Times,serif;">20 декабря 2017 г. состоится региональный семинар для руководителей детских школ искусств области "Новое в трудовом законодательстве Российской Федерации"</span>
+                            </p>
+                            </div>
+                          </a>
+                          <!---->
+                        </div>
+                      </div>
+                    </od-announce>
+                  </aside>
+                </div>
+              </div>
+            </od-news>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-card>
+    <footer class="footer">
+      <div class="container" style="margin-top: 10px;">
+        <span
+          class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+      </div>
+    </footer>
+  </div>
+
+
+</od-root>
+</body>
+</html>
