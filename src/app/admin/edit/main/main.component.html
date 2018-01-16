@@ -9,11 +9,16 @@
 
   <div class="outer-wrap-mainpage" *ngIf="currentMaterial">
     <div class="text">Заголовок</div>
-    <ckeditor [(ngModel)]="currentMaterial.title" [config]="config"></ckeditor>
+    <!--<ckeditor [(ngModel)]="currentMaterial.title" [config]="config"></ckeditor>-->
+    <div id="editor">
+      <p>This is the editor content.</p>
+      <img src="https://rumc31.ru/images/news/o4wykg33uljcajh48n.jpg"/>
+    </div>
+
     <div class="text">Вводный текст на главной</div>
-    <ckeditor [(ngModel)]="currentMaterial.description.short_description" [config]="config"></ckeditor>
+    <!--<ckeditor [(ngModel)]="currentMaterial.description.short_description" [config]="config"></ckeditor>-->
     <div class="text">Текст</div>
-    <ckeditor [(ngModel)]="currentMaterial.description.description" [config]="config"></ckeditor>
+    <!--<ckeditor [(ngModel)]="currentMaterial.description.description" [config]="config"></ckeditor>-->
     <div class="button-row">
       <button mat-raised-button color="primary" (click)="saveHistory(currentMaterial)">Сохранить</button>
     </div>

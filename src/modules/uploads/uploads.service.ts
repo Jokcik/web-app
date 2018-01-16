@@ -1,4 +1,4 @@
-import {BadRequestException, Component} from '@nestjs/common';
+import {Component} from '@nestjs/common';
 import {TYPES} from './uploads.constants';
 import * as uniqid from 'uniqid';
 import * as path from 'path';
@@ -10,10 +10,15 @@ export class UploadsService {
   public async uploadFile(host, files, fields) {
     if (!_.includes(TYPES, fields.type)) {
       fields.type = 'uploads';
+      files.logo = files.upload;
     }
 
     let url = '/images/' + fields.type + '/' + uniqid() + path.extname(files.logo.name);
     mv(files.logo.path, './public' + url, err => {console.log(err)});
+
+    // if (fields.type == 'uploads') {
+    //   return fs.readFileSync('/public' + url);
+    // }
     // fs.renameSync(files.logo.path, './public' + url);
     return {url: host + url}
   }

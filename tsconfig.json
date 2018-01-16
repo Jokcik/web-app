@@ -19,6 +19,10 @@
       "../node_modules/@types"
     ]
   },
+  "externals":{
+    "fs":    "commonjs fs",
+    "path":  "commonjs path"
+  },
   "include": [
     "src/**/*",
     "node_modules/angular4-carousel/*.ts"
