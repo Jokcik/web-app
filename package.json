@@ -53,7 +53,7 @@
     "mongoose": "^4.13.6",
     "mv": "^2.1.1",
     "nconf": "^0.9.1",
-    "ng2-ckeditor": "^1.1.13",
+    "ngx-ckeditor": "^0.1.1",
     "ngx-gallery": "^4.1.2",
     "ngx-resource": "^3.6.3",
     "node-sass": "^4.7.2",

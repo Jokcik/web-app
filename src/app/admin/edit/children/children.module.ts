@@ -8,7 +8,6 @@ import {
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {CKEditorModule} from 'ng2-ckeditor';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ODCommonModule} from '../../../core/od-common.module';
 import {ChildrenComponent} from './children.component';

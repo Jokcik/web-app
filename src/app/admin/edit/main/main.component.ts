@@ -3,7 +3,6 @@ import {Materials} from '../../../news/shared/materials';
 import {HistoryService} from '../../../history/history.service';
 import {Dummy} from '../../../core/dummy';
 import {MatSnackBar} from '@angular/material';
-import {CKEditorComponent} from 'ng2-ckeditor';
 
 @Component({
   selector: 'od-main',

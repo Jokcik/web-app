@@ -4,11 +4,10 @@ import {HistoryComponent} from './history.component';
 import {HistoryRoutingModule} from './history-routing.module';
 import {CommonModule} from '@angular/common';
 import {HistoryService} from './history.service';
-import {CKEditorModule} from 'ng2-ckeditor';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
-import {PageComponent} from '../news/page/page.component';
+import {CKEditorModule} from 'ngx-ckeditor';
 
 @NgModule({
   imports: [

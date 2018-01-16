@@ -4,14 +4,29 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDialogRef,
   MatFormFieldModule,
-  MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule,
-  MatSortModule, MatTableModule, MatTabNav, MatTabsModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabNav,
+  MatTabsModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {CKEditorModule} from 'ng2-ckeditor';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
 import {HistoryService} from '../../history/history.service';
@@ -28,11 +43,11 @@ import {ChildrenPageService} from '../../children-page/children-page.service';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
-import {CompetitionsDialogAdd} from '../../competition/competition-table/competitions-dialog-add';
 import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
 import {SchoolsModule} from '../../schools/schools.module';
 import {GalleryModule} from '../../gallery/gallery.module';
 import {CompetitionModule} from '../../competition/competition.module';
+import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
 
 @NgModule({
   imports: [
@@ -44,7 +59,7 @@ import {CompetitionModule} from '../../competition/competition.module';
     CommonModule,
     FormsModule,
     EditRoutingModule,
-    CKEditorModule,
+    ODCkeditorModule,
     ChildrenModule,
     CompetitionTableModule,
     SchoolsModule,
