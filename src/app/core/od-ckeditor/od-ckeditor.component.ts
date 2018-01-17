@@ -7,7 +7,7 @@ import {environment} from '../../../environments/environment';
 @Component({
   selector: 'od-ckeditor',
   template: `
-    <ck-editor [ngModel]="value" (valueChange)="changeValue($event)" skin="office2013" [language]="'ru'" [config]="config"
+    <ck-editor [ngModel]="value" (ngModelChange)="changeValue($event)" skin="office2013" [language]="'ru'" [config]="config"
                #ckEditor></ck-editor>`
 })
 
