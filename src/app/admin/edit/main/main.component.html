@@ -9,11 +9,11 @@
 
   <div class="outer-wrap-mainpage" *ngIf="currentMaterial">
     <div class="text">Заголовок</div>
-      <od-ckeditor [(value)]="currentMaterial.title"></od-ckeditor>
+      <od-ckeditor [(value)]="currentMaterial.title" name="editor1"></od-ckeditor>
     <div class="text">Вводный текст на главной</div>
-      <od-ckeditor [(value)]="currentMaterial.description.short_description"></od-ckeditor>
+      <od-ckeditor [(value)]="currentMaterial.description.short_description" name="editor2"></od-ckeditor>
     <div class="text">Текст</div>
-      <od-ckeditor [(value)]="currentMaterial.description.description"></od-ckeditor>
+      <od-ckeditor [(value)]="currentMaterial.description.description" name="editor3"></od-ckeditor>
     <div class="button-row">
       <button mat-raised-button color="primary" (click)="saveHistory(currentMaterial)">Сохранить</button>
     </div>

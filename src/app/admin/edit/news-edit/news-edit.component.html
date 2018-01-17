@@ -37,12 +37,12 @@
 
     <div class="news-main-title"><b>Краткое описание</b></div>
     <div class="news-main-text">
-      <od-ckeditor [(value)]="news.description.short_description"></od-ckeditor>
+      <od-ckeditor [(value)]="news.description.short_description" name="editor1"></od-ckeditor>
     </div>
 
     <div class="news-main-title"><b>Текст новости</b></div>
     <div class="news-main-text">
-      <!--<od-ckeditor [(value)]="news.description.description"></od-ckeditor>-->
+      <od-ckeditor [(value)]="news.description.description" name="editor2"></od-ckeditor>
     </div>
 
     <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="!news._id">Добавить</button>

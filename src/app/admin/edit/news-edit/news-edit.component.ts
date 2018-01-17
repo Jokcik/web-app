@@ -94,46 +94,4 @@ export class NewsEditComponent implements OnInit {
       this.updateService.changeNews.next();
     }
   }
-
-  public config = {
-    toolbarGroups: [
-      { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-      { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-      { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-      { name: 'forms', groups: [ 'forms' ] },
-      { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-      { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-      { name: 'links', groups: [ 'links' ] },
-      '/',
-      { name: 'insert', groups: [ 'insert' ] },
-      { name: 'colors', groups: [ 'colors' ] },
-      { name: 'tools', groups: [ 'tools' ] },
-      { name: 'others', groups: [ 'others' ] },
-      { name: 'about', groups: [ 'about' ] },
-      { name: 'styles', groups: [ 'styles' ] },
-    ],
-
-    removeButtons: 'Source,Save,NewPage,Preview,Print,Templates,Copy,Paste,PasteText,PasteFromWord,Cut,Find,Replace,' +
-    'SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,' +
-    'RemoveFormat,NumberedList,BulletedList,CreateDiv,BidiLtr,BidiRtl,Language,Anchor,Flash,Table,Smiley,' +
-    'SpecialChar,PageBreak,Iframe,Maximize,About,ShowBlocks',
-    imageResize: { maxWidth : 800, maxHeight : 800 },
-    toolbar: 'full',
-    format_tags: 'p',
-    language: 'ru',
-    allowedContent: true,
-    disableNativeSpellChecker: false,
-    forcePasteAsPlainText: true,
-    title: false,
-    autoGrow_onStartup: true,
-    disableAutoInline: true,
-    enableContextMenu: false,
-    sharedSpaces: {
-      top: 'top',
-      bottom: 'bottom'
-    },
-    resize_enabled: false,
-    extraPlugins: 'imageresize,autogrow,sharedspace,divarea,removeformat',
-    removePlugins: 'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler,wysiwygarea'
-  };
 }
