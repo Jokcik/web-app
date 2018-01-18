@@ -66,6 +66,7 @@ import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
     GalleryModule,
     CompetitionModule,
 
+    // TODO: Найти модули которые надо выпилить
     MatButtonModule,
     MatCardModule,
     MatTableModule,

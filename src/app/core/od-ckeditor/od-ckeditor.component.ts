@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor} from '@angular/forms';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CKEditorComponent} from 'ngx-ckeditor/lib/ck-editor.component';
-import {MultipartItem, ODMultipartSendService} from '../od-multipart-send.service';
+import {ODMultipartSendService} from '../od-multipart-send.service';
 import {environment} from '../../../environments/environment';
 
 @Component({
