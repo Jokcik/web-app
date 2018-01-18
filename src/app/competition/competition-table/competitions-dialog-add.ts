@@ -40,13 +40,10 @@ export class CompetitionsDialogAdd {
       if (!this.currentCompetition.specialization) return;
       this.specializationIdx = this.odUtils.getIdInArray(this.currentCompetition.specialization.title, this.specializations, 'title');
     });
+
+    this.currentCompetition.files = this.currentCompetition.files || {};
   }
 
-  public changeFiles(data: CompetitionFiles, field: string) {
-    this.currentCompetition.files = this.currentCompetition.files || {};
-    this.currentCompetition.files[field] = this.currentCompetition.files[field] || [];
-    this.currentCompetition.files[field].push(data);
-  }
 
   public add(): void {
     this.currentCompetition.level = <any>this.currentCompetition.level._id;

@@ -38,7 +38,7 @@
       </div>
 
       <mat-form-field *ngIf="isEditDialog">
-        <mat-select placeholder="Специалиация конкурса" (valueChange)="specializationIdx = $event" [value]="specializationIdx">
+        <mat-select placeholder="Специализация конкурса" (valueChange)="specializationIdx = $event" [value]="specializationIdx">
           <mat-option [value]="-1"> — </mat-option>
           <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
             {{ specialization.title }}
@@ -46,7 +46,7 @@
         </mat-select>
       </mat-form-field>
       <div *ngIf="!isEditDialog" style="margin-top: 10px;">
-        <label><b>Специалиация конкурса: </b></label>
+        <label><b>Специализация конкурса: </b></label>
         <mat-label>{{currentCompetition.specialization?.title || 'все'}}</mat-label>
       </div>
 
@@ -70,7 +70,8 @@
     </div>
 
     <mat-accordion *ngIf="isEditDialog">
-      <od-expansion-year-files [title]="2018" [shortDescription]="'Файлы 2018 года'" [(competitionFile)]="currentCompetition.files.year2018"></od-expansion-year-files>
+      <od-expansion-year-files [title]="2018" [shortDescription]="'Файлы 2018 года'"
+                               [(competitionFile)]="currentCompetition.files.year2018"></od-expansion-year-files>
     </mat-accordion>
   </div>
 
