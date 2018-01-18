@@ -21,6 +21,8 @@ export class CompetitionsDialogAdd {
   public levels: CompetitionLevel[] = [];
   public levelIdx: number = -1;
 
+  public selectYear: number = 2018;
+
   constructor(public dialogRef: MatDialogRef<CompetitionsDialogAdd>,
               private competitionService: CompetitionService,
               private childrenService: ChildrenPageService,

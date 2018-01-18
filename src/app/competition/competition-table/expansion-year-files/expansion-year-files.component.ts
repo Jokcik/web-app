@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {CompetitionFiles} from '../../../admin/edit/shared/competition';
 
-@Component({
+@ Component({
   selector: 'od-expansion-year-files',
   templateUrl: './expansion-year-files.component.html'
 })
@@ -13,23 +13,15 @@ export class ExpansionYearFilesComponent implements OnInit {
   @Input() competitionFile: CompetitionFiles[] = [];
   @Output() competitionFileChange: EventEmitter<CompetitionFiles[]> = new EventEmitter<CompetitionFiles[]>();
 
-  public files: File[] = [];
-
   constructor(private multipart: ODMultipartSendService) {
   }
 
   ngOnInit() {
     this.competitionFile = this.competitionFile || [];
-
-    if (!this.competitionFile[0]) this.competitionFile[0] = new CompetitionFiles();
-    if (!this.competitionFile[1]) this.competitionFile[1] = new CompetitionFiles();
-    if (!this.competitionFile[2]) this.competitionFile[2] = new CompetitionFiles();
-
-    this.files.push(new File([], this.competitionFile[0].name));
-    this.files.push(new File([], this.competitionFile[1].name));
-    this.files.push(new File([], this.competitionFile[2].name));
-
     this.emitFiles();
+    if (!(this.competitionFile.length && !this.competitionFile[this.competitionFile.length - 1].title)) {
+      this.competitionFile.push(new CompetitionFiles());
+    }
   }
 
   public emitFiles() {
@@ -49,9 +41,18 @@ export class ExpansionYearFilesComponent implements OnInit {
     });
   }
 
+  public removeCompetitionFile(idx: number) {
+    if (idx == this.competitionFile.length - 1) return;
+    this.competitionFile = this.competitionFile.filter((value, index) => idx != index);
+    this.emitFiles();
+  }
+
   public changeTitle(idx, title) {
     this.competitionFile[idx].title = title;
-    console.log('changeTitle', this.competitionFile);
     this.emitFiles();
+
+    if (title && idx == this.competitionFile.length - 1) {
+      this.competitionFile.push(new CompetitionFiles());
+    }
   }
 }

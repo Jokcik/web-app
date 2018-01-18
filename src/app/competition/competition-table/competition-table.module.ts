@@ -4,7 +4,7 @@ import {CompetitionTableComponent} from './competition-table.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatSelectModule,
+  MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule,
   MatSortModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -31,7 +31,8 @@ import {ODMultipartSendService} from '../../core/od-multipart-send.service';
     MatCheckboxModule,
     MatSelectModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   declarations: [
     CompetitionTableComponent,
