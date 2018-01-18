@@ -60,7 +60,18 @@
         <mat-label>{{currentCompetition.level?.title}}</mat-label>
       </div>
 
+      <ng-container *ngFor="let file of currentCompetition.files?.year2018">
+        <ng-container *ngIf="!isEditDialog && file.url && file.name && file.title">
+          <a [href]="file.url" download>{{file.title}}</a>
+          <br/>
+        </ng-container>
+      </ng-container>
+
     </div>
+
+    <mat-accordion *ngIf="isEditDialog">
+      <od-expansion-year-files [title]="2018" [shortDescription]="'Файлы 2018 года'" [(competitionFile)]="currentCompetition.files.year2018"></od-expansion-year-files>
+    </mat-accordion>
   </div>
 
   <ng-container *ngIf="isEditDialog">

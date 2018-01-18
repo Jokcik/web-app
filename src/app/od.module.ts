@@ -4,7 +4,7 @@ import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
 import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule} from '@angular/material';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {ProfileComponent} from './profile/profile.component';
 import {AnnounceComponent} from './announce/announce.component';
@@ -15,7 +15,7 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
 @NgModule({
   imports: [
     HttpModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     ODCommonModule.forRoot(),
     CommonModule,
     ODRoutingModule,

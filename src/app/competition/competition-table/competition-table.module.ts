@@ -4,7 +4,7 @@ import {CompetitionTableComponent} from './competition-table.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSelectModule,
+  MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatSelectModule,
   MatSortModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
@@ -12,6 +12,8 @@ import {CompetitionsDialogAdd} from './competitions-dialog-add';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {ChildrenPageService} from '../../children-page/children-page.service';
+import { ExpansionYearFilesComponent } from './expansion-year-files/expansion-year-files.component';
+import {ODMultipartSendService} from '../../core/od-multipart-send.service';
 
 @NgModule({
   imports: [
@@ -28,11 +30,13 @@ import {ChildrenPageService} from '../../children-page/children-page.service';
     MatCardModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule
   ],
   declarations: [
     CompetitionTableComponent,
-    CompetitionsDialogAdd
+    CompetitionsDialogAdd,
+    ExpansionYearFilesComponent
   ],
   entryComponents: [
     CompetitionsDialogAdd
@@ -40,7 +44,7 @@ import {ChildrenPageService} from '../../children-page/children-page.service';
   exports: [
     CompetitionTableComponent
   ],
-  providers: [ChildrenPageService]
+  providers: [ChildrenPageService, ODMultipartSendService]
 })
 export class CompetitionTableModule {
 

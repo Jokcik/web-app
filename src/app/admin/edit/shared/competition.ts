@@ -14,6 +14,21 @@ export class Competition {
   year2022: boolean = false;
   specialization: Specialization = new Specialization();
   level: CompetitionLevel = new CompetitionLevel();
+  files: {
+    year2017?: CompetitionFiles[];
+    year2018?: CompetitionFiles[];
+    year2019?: CompetitionFiles[];
+    year2020?: CompetitionFiles[];
+    year2021?: CompetitionFiles[];
+    year2022?: CompetitionFiles[];
+  };
 
   num: number;
+}
+
+
+export class CompetitionFiles {
+  name: string;
+  url: string;
+  title: string;
 }

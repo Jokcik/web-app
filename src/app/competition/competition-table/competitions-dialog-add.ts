@@ -1,14 +1,11 @@
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Component, Inject} from '@angular/core';
-import {Schools} from '../../admin/edit/shared/school';
-import {Region} from '../../admin/edit/shared/region';
-import {Competition} from '../../admin/edit/shared/competition';
-import {CompetitionLevel} from '../../admin/edit/shared/competition-level';
-import {CompetitionPlace} from '../../admin/edit/shared/competition-place';
-import {CompetitionService} from '../competition.service';
-import {ODUtils} from '../../core/od-utils';
-import {Specialization} from '../../admin/edit/shared/children';
 import {ChildrenPageService} from '../../children-page/children-page.service';
+import {CompetitionService} from '../competition.service';
+import {Component, Inject} from '@angular/core';
+import {Specialization} from '../../admin/edit/shared/children';
+import {CompetitionLevel} from '../../admin/edit/shared/competition-level';
+import {Competition, CompetitionFiles} from '../../admin/edit/shared/competition';
+import {ODUtils} from '../../core/od-utils';
 
 @Component({
   selector: 'competition-dialog-add',
@@ -43,6 +40,12 @@ export class CompetitionsDialogAdd {
       if (!this.currentCompetition.specialization) return;
       this.specializationIdx = this.odUtils.getIdInArray(this.currentCompetition.specialization.title, this.specializations, 'title');
     });
+  }
+
+  public changeFiles(data: CompetitionFiles, field: string) {
+    this.currentCompetition.files = this.currentCompetition.files || {};
+    this.currentCompetition.files[field] = this.currentCompetition.files[field] || [];
+    this.currentCompetition.files[field].push(data);
   }
 
   public add(): void {

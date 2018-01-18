@@ -1,0 +1,16 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{title}}</mat-panel-title>
+    <mat-panel-description>{{shortDescription}}</mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <mat-form-field style="width: 50%;"><input matInput placeholder="Название файла" [ngModel]="competitionFile[0].title" (ngModelChange)="changeTitle(0, $event)"></mat-form-field>
+  <input id="fileToUpload1" (fileChange)="loadFile($event, 'file1', 0)" odImageLoad type="file" [file]="files[0]">
+
+  <mat-form-field style="width: 50%;"><input matInput placeholder="Название файла" [ngModel]="competitionFile[1].title" (ngModelChange)="changeTitle(1, $event)"></mat-form-field>
+  <input id="fileToUpload2" (fileChange)="loadFile($event, 'file2', 1)" odImageLoad type="file" [file]="files[1]">
+
+  <mat-form-field style="width: 50%;"><input matInput placeholder="Название файла" [ngModel]="competitionFile[2].title" (ngModelChange)="changeTitle(2, $event)"></mat-form-field>
+  <input id="fileToUpload3" (fileChange)="loadFile($event, 'file3', 2)" odImageLoad type="file" [file]="files[2]">
+
+</mat-expansion-panel>
