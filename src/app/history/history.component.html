@@ -1,6 +1,4 @@
 <div class="outer-wrap-mainpage" *ngFor="let material of descriptions">
   <p [innerHTML]="material.title"></p>
-  <div [innerHTML]="isFull ? material.description.description : material.description.short_description"></div>
-  <p><a *ngIf="material.title && !isFull" (click)="isFull = !isFull"
-        style="height: 20px; cursor: pointer; color: dodgerblue;">Читать далее...</a></p>
+  <div [innerHTML]="material.description.description"></div>
 </div>
