@@ -3,12 +3,13 @@ import {Dummy} from '../../core/dummy';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Competition} from '../../admin/edit/shared/competition';
 import {CompetitionsDialogAdd} from './competitions-dialog-add';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'od-competition-table',
   templateUrl: './competition-table.component.html'
 })
-export class CompetitionTableComponent implements OnChanges, AfterViewInit {
+export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewInit {
   public dataSourceCompetition: Competition[] = [];
   @Input() competitions: Competition[] = Dummy.factory(Competition, 10);
   @Input() isOpenEdit: boolean = false;
@@ -20,7 +21,11 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog,
+              private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
   }
 
   ngOnChanges(changes?: SimpleChanges): void {
@@ -28,6 +33,14 @@ export class CompetitionTableComponent implements OnChanges, AfterViewInit {
     this.competitions.forEach((value, index) => value.num = index + 1);
     this.dataSourceCompetition.push(...this.competitions);
     this.dataSource._updateChangeSubscription();
+
+    this.route.queryParams.subscribe(params => {
+      let number = params['number'];
+      let competition = this.competitions.filter(competition => competition.num == number);
+
+      if (!competition || !competition.length) return;
+      this.openCompetition(competition[0]);
+    });
   }
 
   ngAfterViewInit(): void {
