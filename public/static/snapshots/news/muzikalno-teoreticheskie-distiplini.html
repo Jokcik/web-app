@@ -1,10 +1,442 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <meta charset="utf-8">
+  <title>Одаренные дети Белгородской области</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description"
+        content="Банк данных одаренных детей. Региональный учебно-методический центр по художественному образованию БГИИК">
+  <meta name="keywords"
+        content="банк данных одаренные дети белгородской области Региональный учебно-методический центр по художественному образованию БГИИК">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/css/style-new.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/styles.8da2364522e0749f90c2.bundle.css" rel="stylesheet">
+  <style>.cke {
+    visibility: hidden;
+  }</style>
+  <style>.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px
+  }
 
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .mat-card {
+      outline: solid 1px
+    }
+  }
+
+  .mat-card-flat {
+    box-shadow: none
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 16px
+  }
+
+  .mat-card-actions {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 8px 0
+  }
+
+  .mat-card-actions-align-end {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px
+  }
+
+  .mat-card-xl-image {
+    width: 240px;
+    height: 240px;
+    margin: -8px
+  }
+
+  .mat-card-footer {
+    display: block;
+    margin: 0 -24px -24px -24px
+  }
+
+  .mat-card-actions .mat-button, .mat-card-actions .mat-raised-button {
+    margin: 0 4px
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row
+  }
+
+  .mat-card-header-text {
+    margin: 0 8px
+  }
+
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0
+  }
+
+  .mat-card-lg-image, .mat-card-md-image, .mat-card-sm-image {
+    margin: -8px 0
+  }
+
+  .mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -8px
+  }
+
+  .mat-card-sm-image {
+    width: 80px;
+    height: 80px
+  }
+
+  .mat-card-md-image {
+    width: 112px;
+    height: 112px
+  }
+
+  .mat-card-lg-image {
+    width: 152px;
+    height: 152px
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      padding: 24px 16px
+    }
+
+    .mat-card-actions {
+      margin-left: -8px;
+      margin-right: -8px
+    }
+
+    .mat-card-image {
+      width: calc(100% + 32px);
+      margin: 16px -16px
+    }
+
+    .mat-card-title-group {
+      margin: 0
+    }
+
+    .mat-card-xl-image {
+      margin-left: 0;
+      margin-right: 0
+    }
+
+    .mat-card-header {
+      margin: -8px 0 0 0
+    }
+
+    .mat-card-footer {
+      margin-left: -16px;
+      margin-right: -16px
+    }
+  }
+
+  .mat-card-content > :first-child, .mat-card > :first-child {
+    margin-top: 0
+  }
+
+  .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+    margin-bottom: 0
+  }
+
+  .mat-card-image:first-child {
+    margin-top: -24px
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0
+  }
+
+  .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+    margin-left: 0;
+    margin-right: 0
+  }
+
+  .mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: -4px
+  }
+
+  .mat-card-header .mat-card-subtitle:not(:first-child) {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:first-child {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:last-child {
+    margin-bottom: -8px
+  }</style>
+</head>
+<body cz-shortcut-listen="true">
+<od-root ng-version="5.1.1">
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerlink="/news" href="/news">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/competition" routerlinkactive="active"
+                                    href="/competition">Конкурсы</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/children" routerlinkactive="active" href="/children">Одаренные
+              дети</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/galleries" routerlinkactive="active"
+                                    href="/galleries">Фотогалерея</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">История</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/history/rumc" href="/history/rumc">Роль РУМЦ в развитии ДШИ
+                  области</a>
+                <a class="dropdown-item" routerlink="/history/fortepiano" href="/history/fortepiano">Развитие
+                  специализации "фортепиано"</a>
+                <a class="dropdown-item" routerlink="/history/narodnie-instrumenty"
+                   href="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/dyhovie-instrumenty" href="/history/dyhovie-instrumenty">Развитие
+                  специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/strynnie-smichkovie-instrumenty"
+                   href="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые
+                  инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/folklor" href="/history/folklor">Развитие специализации
+                  "фольклор"</a>
+                <a class="dropdown-item" routerlink="/history/horovoe-penie" href="/history/horovoe-penie">Развитие
+                  специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerlink="/history/izobrazitelnoe-iskusstvo"
+                   href="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/horeografia" href="/history/horeografia">Развитие
+                  специализации "хореография"</a>
+                <a class="dropdown-item" routerlink="/history/teatralnoe-iskusstvo"
+                   href="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/muzikalno-teoreticheskie-distiplini"
+                   href="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические
+                  дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">Адреса</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/address/administration" href="/address/administration">Муниципальные
+                  управления культуры</a>
+                <a class="dropdown-item" routerlink="/address/schools" href="/address/schools">Детские школы
+                  искусств</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" routerlink="/contacts" routerlinkactive="active" href="/contacts">Контакты</a>
+            </li>
+          </ul>
+          <od-profile>
+            <form class="form-inline mt-2 mt-md-0">
+              <!---->
+              <ul class="navbar-nav mr-auto">
+                <!---->
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link"> Черенкова И.В.</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link separator">/</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;">Выход</a>
+                </li>
+              </ul>
+            </form>
+          </od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-block">
+              <div class="img-wrap">
+                <img src="/images/logo/logo.png">
+              </div>
+              <div class="btn-block">
+                <div class="block-logo">Одаренные дети Белгородской области</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <p>Управление культуры Белгородской области</p>
+            <p>Белгородский государственный институт искусств и культуры</p>
+            <p>Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <div class="col-md-1 img-wrap" routerlink="/" tabindex="0">
+            <img src="/images/logo/logo-bgik.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card class="outer_wrap_main mat-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 blog-main">
+            <router-outlet></router-outlet>
+            <od-history><!---->
+              <div class="outer-wrap-mainpage">
+                <p>
+                <p>Музыкально-теоретические дисциплины в ДШИ</p>
+                </p>
+                <div><p class="MsoNoSpacing" style="margin:0cm 0cm 0.0001pt"><span style="font-size:11pt"><span
+                  style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Теоретические дисциплины, такие как сольфеджио, музыкальная литература, слушание музыки и т.д., имеют важное значение для комплексного обучения и воспитания детей, формируют особенно ценностное становление творческого потенциала способностей, прививая культуру слышания и восприятия музыки, воспитывая потребность в духовном самовыражении. </span></span></span></span>
+                </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="tab-stops:35.45pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; В последние годы<em> происходят заметные изменения в способах получения&nbsp; музыкального образования. Электронно-цифровые технологии – привносят свои изменения в традиционные процессы обучения музыкальному искусству.</em></span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="tab-stops:35.45pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Цикл теоретических дисциплин в музыкальной школе способствует эстетическому воспитанию, расширению музыкального кругозора, развитию музыкального слуха, музыкальной памяти, мышления, творческих навыков, формированию у учащихся любви и интереса к музыкальному искусству, пониманию основ музыкального творчества, развитию их музыкальных способностей. Преподаватели музыкальных школ и школ искусств области широко вводят в учебный процесс новые формы работы, используют современные инновационные методики преподавания, все активнее овладевают современными компьютерными и коммуникационными технологиями. </span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="tab-stops:35.45pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; В течение минувшего периода интересными наработками, новаторскими идеями в области преподавания сольфеджио, музыкальной литературы, предметов эстетического цикла поделились с коллегами в рамках проведения региональных семинаров преподаватели школ Белгорода, Губкина, Старого Оскола, Белгородского и других районов области. На состоявшихся по итогам проведённых мероприятий «Круглых столах» педагоги имели возможность обменяться мнением, обсудить волнующие их вопросы методики преподавания, внести заслуживающие внимания предложения.</span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="tab-stops:35.45pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ежегодно с целью повышения квалификации преподавателей теоретических дисциплин ДШИ области Региональным учебно-методическим центром по художественному образованию БГИИК организуются семинарские занятия и мастер-классы с приглашением профессоров ведущих учебных заведений г. Москва.</span></span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><img
+                    src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdcf0d.png"
+                    style="width:473px; height:383px"><span style="font-size:11pt"><span style="tab-stops:35.45pt"><span
+                    style="font-family:Calibri,sans-serif"> <span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Так, в мае 2015 года в Белгородской области проходили семинар «Психотехника развития музыкального слуха» и мастер-классы профессора Московской государственной консерватории им. П.И. Чайковского, доктора искусствоведения, члена Союза композиторов, заслуженного деятеля искусств РФ Карасёвой Марины Валериевны. Данные образовательные мероприятия для преподавателей теоретических дисциплин были организованы в городах Белгород, Губкин, Старый Оскол.</span></span></span></span></span>
+                  </p>
+
+                  <p align="center" class="MsoNoSpacing" style="text-align:center; margin:0cm 0cm 0.0001pt"><img
+                    src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdcf7i.png" style="width:865px; height:426px"></p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt">&nbsp;</p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Хорошей школой по обмену и обогащению опытом стала международная научно-практическая конференция «Музыкальное искусство и образование в современном социокультурном пространстве», организованная и проведённая региональным учебно-методическим центром БГИИК совместно с преподавателями факультета музыкального творчества БГИИК. В работе секционного заседания «Современная детская школа искусств: вопросы методики и практики преподавания дисциплин музыкального цикла» приняли участие преподаватели музыкально-теоретических дисциплин школ области. По итогам работы конференции издан сборник материалов, объединивший наиболее интересные работы преподавателей начального, среднего и высшего образовательного звена в сфере музыкального искусства и педагогики.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span
+                    style="letter-spacing:-.7pt">30 апреля 2014 г. в МБОУ ДОД «ДМШ № 5 г. Старый Оскол»» состоялся межзональный семинар преподавателей теоретического и хорового отделений на тему </span></span></span></span></span><img
+                    src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdcffm.png"
+                    style="width:539px; height:369px"><span style="font-size:11pt"><span
+                    style="font-family:Calibri,sans-serif"> <span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span
+                    style="letter-spacing:-.7pt">«</span></span></span><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif">Инновационные технологии в преподавании музыкально-теоретических и хоровых дисциплин».</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt">&nbsp;</p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Традиционно региональным учебно-методическим центром по художественному образованию БГИИК совместно с </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">музыкальным колледжем им. С.А. Дегтярёва и Губкинским филиалом БГИИК </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">проводятся творческие конкурсы-олимпиады по предметам музыкально-теоретического цикла, изучаемым в рамках учебных программ ДШИ и ДМШ. С 2011 по 2016 гг. в области прошли региональные олимпиады по сольфеджио, музыкальной литературе, а также творческий конкурс «Юный музыковед». По инициативе регионального учебно-методического центра с 2017 года будет проводиться </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">региональный конкурс-олимпиада по музыкальной грамоте среди учащихся ДМШ и ДШИ.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Основные задачи, стоящие перед преподаванием предметов музыкально-теоретического цикла на всех уровнях музыкального образования: воспитать грамотных музыкантов с развитым музыкальным слухом. </span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Одной из творческих форм обучения, активизирующих процесс преподавания, является олимпиада. </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Полученные в ее итоге результаты позволяют выявить как успешные моменты, так и трудности в процессе обучения. Ф</span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">орма олимпиады, как процесса, привлекает внимание важностью происходящего, духом соревновательности, атмосферой творчества.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">За текущий период в конкурсах приняли участие более 400 учащихся области. &nbsp;Стабильно высокие результаты на олимпиадах показывают учащиеся преподавателей Лазебной С.В. (ДМШ №4 г. Старый Оскол),&nbsp; Бойко Л.В. (ДМШ №5 г. Ст. Оскол), Шевченко Ю.Г. (Ездоченская ДШИ), Кравцовой И.В. (ДШИ № 2 г. Ст. Оскол), Сальковой М.Н. (ДШИ им. М. Г. Эрденко № 1» г. Ст.Оскол), Игнатовой М.Е. (ДМШ № 3 г. Ст.Оскол), Оверчук Л.В. (ДМШ № 1 г.Губкин), Цукановой Т.В. (ДШИ г. Строитель), Кудиновой Е.В.</span></span> (<span
+                    style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif">ДШИ №1</span></span> <span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">г. Белгород), Костиной Л.Г.</span></span> (<span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Северная ДШИ), Ивановой Г.В. (ДШИ г. Шебекино),&nbsp; Леус Л.М. (ДМШ №3 г. Белгород), Александрович Н.И. (ДМШ №3 г. Белгород), Боус Л.И. (ДМХШ г. Белгород), Гонткевич А.Д. (Разуменская ДШИ).</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Набирает силу и вызывает к себе всё больший интерес преподавателей и учащихся творческий конкурс «Юный музыковед», который стартовал в 2016 году в статусе регионального.. Конкурс призван </span></span><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">развить художественное и музыкальное мышление учащихся, способствовать воспитанию навыков музыковедческих выступлений, формированию профессионального интереса молодёжи к музыкальному искусству.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">В конкурсе приняли участие учащиеся из детских музыкальных школ и школ искусств Белгорода, Старого Оскола, Губкина, Белгородского, Красногвардейского, Яковлевского, Чернянского, Шебекинского районов.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">Высокой оценки работ удостоены учащиеся преподавателей Лазебной С.В. (г. Старый Оскол ДМШ №4), Гольевой Н.А. (г. Старый Оскол ДШИ №2), Степановой Е.А. (ДМШ №1 г. Белгород), Ивановой Г.В. (ДШИ г. Шебекино), Бондаренко Н.Г. (Прохоровская ДШИ), Федосеевой Л.Н. (ДМШ №5 г. Белгород), Степановой Т.М. (ДШИ п. Майский).</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; text-align: center;"><img height="197"
+                                                                                                     src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdips5.png"
+                                                                                                     width="297"><img
+                    height="204" src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdj3op.png" width="307"><img
+                    height="197" src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdj7nw.png" width="297"></p>
+
+                  <p class="MsoNoSpacing" style="margin: 0cm 0cm 0.0001pt; text-align: center;"><img height="204"
+                                                                                                     src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdjbdf.png"
+                                                                                                     style="width: 307px;"
+                                                                                                     width="307"><img
+                    height="196" src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdjgs5.png" width="294"><img
+                    height="197" src="https://rumc31.ru/images/uploads/o4wykg34f1jcmdjkjs.png" width="296"></p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt">&nbsp;</p>
+                </div>
+              </div>
+            </od-history>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-card>
+    <footer class="footer">
+      <div class="container" style="margin-top: 10px;">
+        <span
+          class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+      </div>
+    </footer>
+  </div>
+
+
+</od-root>
 </body>
 </html>
