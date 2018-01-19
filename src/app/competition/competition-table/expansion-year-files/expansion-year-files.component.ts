@@ -28,7 +28,7 @@ export class ExpansionYearFilesComponent implements OnInit {
     this.competitionFileChange.emit(this.competitionFile)
   }
 
-  public loadFile(file: File, name: string, idx: number) {
+  public loadFile(file: File, idx: number) {
     let multipartItems: MultipartItem[] = [
       {name: 'logo', value: file},
       {name: 'type', value: 'files'}
@@ -36,7 +36,7 @@ export class ExpansionYearFilesComponent implements OnInit {
 
     this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).subscribe(data => {
       this.competitionFile[idx].url = data.url;
-      this.competitionFile[idx].name = name;
+      this.competitionFile[idx].name = file.name;
       this.emitFiles();
     });
   }

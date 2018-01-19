@@ -34,13 +34,18 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
     this.dataSourceCompetition.push(...this.competitions);
     this.dataSource._updateChangeSubscription();
 
-    this.route.queryParams.subscribe(params => {
-      let number = params['number'];
-      let competition = this.competitions.filter(competition => competition.num == number);
+    if (!(this.competitions.length && this.competitions[0].title)) return;
 
-      if (!competition || !competition.length) return;
-      this.openCompetition(competition[0]);
-    });
+    //TODO: придумать ченить получше
+    setTimeout(() => {
+      this.route.queryParams.subscribe(params => {
+        let number = params['number'];
+        let competition = this.competitions.filter(competition => competition.num == number);
+
+        if (!competition || !competition.length) return;
+        this.openCompetition(competition[0]);
+      });
+    }, 0);
   }
 
   ngAfterViewInit(): void {

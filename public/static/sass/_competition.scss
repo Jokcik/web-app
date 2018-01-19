@@ -21,8 +21,14 @@
   }
 
   mat-expansion-panel {
-    input[type='file'] {
+    input[type='file'], label {
       margin-bottom: 0; cursor: pointer; margin-left: 10px;
+    }
+
+    .label-file {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 136px;
     }
   }
 

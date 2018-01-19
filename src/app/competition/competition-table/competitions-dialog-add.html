@@ -1,7 +1,7 @@
 <div class="outer-wrap-competitions dialog">
   <div class="dialog">
-    <mat-card-header mat-dialog-title>{{isEditDialog ? (currentCompetition._id ? 'Изменить конкурс' : 'Добавить
-      конкурс') : 'Информация о конкурсе'}}
+    <mat-card-header mat-dialog-title>
+      {{isEditDialog ? (currentCompetition._id ? 'Изменить конкурс' : 'Добавить конкурс') : 'Информация о конкурсе'}}
     </mat-card-header>
     <div mat-dialog-content>
       <mat-form-field *ngIf="isEditDialog">
@@ -74,10 +74,8 @@
       <div *ngIf="!isEditDialog">Файлы {{selectYear}} года:</div>
       <ng-container *ngFor="let file of currentCompetition.files['year' + selectYear]">
         <ng-container *ngIf="!isEditDialog && file.url && file.name && file.title">
-          <ng-container>
-            <a [href]="file.url" download>{{file.title}}</a>
-            <br/>
-          </ng-container>
+          <a [href]="file.url" download>{{file.title}}</a>
+          <br/>
         </ng-container>
       </ng-container>
       <mat-accordion *ngIf="isEditDialog">

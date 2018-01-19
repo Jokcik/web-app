@@ -58,6 +58,7 @@ export class CompetitionsDialogAdd {
   }
 
   public deleteCompetition() {
+    if (!window.confirm('Вы действительно хотите удалить этот конкурс?')) return;
     this.dialogRef.close({competition: this.currentCompetition, type: 'remove'});
   }
 }

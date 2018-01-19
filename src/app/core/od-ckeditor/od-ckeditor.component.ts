@@ -36,6 +36,10 @@ export class ODCkeditorComponent implements OnInit, AfterViewInit {
     this.initUploadFile();
   }
 
+  ngOnDestroy() {
+    console.log('ngOnDestroy', window['CKEDITOR'].instances)
+  }
+
   private initUploadFile() {
     const editor = window['CKEDITOR'].instances[this.name];
 
@@ -103,7 +107,8 @@ export class ODCkeditorComponent implements OnInit, AfterViewInit {
     'RemoveFormat,NumberedList,BulletedList,CreateDiv,BidiLtr,BidiRtl,Language,Anchor,Flash,Table,Smiley,' +
     'SpecialChar,PageBreak,Iframe,Maximize,About,ShowBlocks',
 
-    extraPlugins: 'uploadwidget,uploadfile,autogrow,sharedspace,divarea,removeformat',
+    // startupFocus : true,
+    // extraPlugins: 'uploadwidget,uploadfile,autogrow,sharedspace,divarea,removeformat',
     imageResize: {maxWidth: 800, maxHeight: 800},
     toolbar: 'full',
     format_tags: 'p',
@@ -122,6 +127,6 @@ export class ODCkeditorComponent implements OnInit, AfterViewInit {
     resize_enabled: false,
     autoGrow_minHeight: 550,
     autoGrow_onStartup: true,
-    removePlugins: 'contextmenu,tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
+    // removePlugins: 'contextmenu,tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
   };
 }
