@@ -30,6 +30,10 @@ export class NewsService {
     obj = Object.assign(obj, url ? {url} : {});
 
     let model = this.newsModel.find(obj);
+    if (type == 2) {
+      model = model.where({date: {$gte: Date.now()}})
+    }
+
     if (type != 0) {
       model = model.sort({date: -1}).limit(10);
     }
