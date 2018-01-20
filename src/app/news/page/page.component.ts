@@ -28,8 +28,16 @@ export class PageComponent implements OnInit {
 
   ngOnInit() {
     this.galleryOptions = [
-      { image: false, height: "100px" },
-      { breakpoint: 500, width: "100%" }
+      {
+        image: false,
+        height: "100px",
+        previewCloseOnEsc: true,
+        previewCloseOnClick: true
+      },
+      {
+        breakpoint: 500,
+        width: "100%"
+      }
     ];
 
     this.route.params.pipe(switchMap(params => this.mainpageService.querySafeHtml({url: params['url']})))

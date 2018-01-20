@@ -33,25 +33,4 @@ export class MainComponent implements OnInit {
     let a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
     this.mainpageService.update(a).$observable.subscribe(() => this.snackBar.open('История успешно изменена', 'ОК', {duration: 2000}));
   }
-
-  public config = {
-    toolbar: 'full',
-    format_tags: 'p',
-    language: 'ru',
-    allowedContent: true,
-    disableNativeSpellChecker: false,
-    forcePasteAsPlainText: true,
-    title: false,
-    filebrowserUploadUrl: 'http://localhost:3001/api/upload',
-    autoGrow_onStartup: true,
-    disableAutoInline: true,
-    enableContextMenu: false,
-    sharedSpaces: {
-      top: 'top',
-      bottom: 'bottom'
-    },
-    resize_enabled: false,
-    extraPlugins: 'uploadimage,image2,autogrow,sharedspace,divarea,removeformat',
-    removePlugins: 'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
-  };
 }

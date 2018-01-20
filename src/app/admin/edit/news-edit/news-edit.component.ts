@@ -54,8 +54,7 @@ export class NewsEditComponent implements OnInit {
       {
         image: false,
         height: '100px',
-        previewCloseOnEsc: true,
-        previewCloseOnClick: true
+        preview: false
       }
     ];
 
@@ -64,9 +63,7 @@ export class NewsEditComponent implements OnInit {
       .subscribe(news => {
         this.news = news[0];
         if (this.news.images && this.news.images.length) {
-          this.galleryImages = this.news.images.map(image => {
-            return {small: image, big: image};
-          });
+          this.galleryImages = this.news.images.map(image => {return {small: image, big: image};});
         }
       });
   }
@@ -124,5 +121,10 @@ export class NewsEditComponent implements OnInit {
     if (this.news.type == 1) {
       this.updateService.changeNews.next();
     }
+  }
+
+  removeImageGallery(event) {
+    if (!window.confirm('Вы действительно хотите удалить эту картинку?')) return;
+    this.galleryImages = this.galleryImages.filter((value, idx) => idx != event.index);
   }
 }

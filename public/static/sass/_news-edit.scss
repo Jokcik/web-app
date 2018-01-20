@@ -48,3 +48,46 @@ $height: 250px;
     }
   }
 }
+
+[mat-card-content] {
+  .all-galleries {
+    .mat-icon {
+      display: none;
+    }
+
+    &:hover {
+      .mat-icon {
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: 50px;
+        color: darkgray;
+        cursor: pointer;
+      }
+    }
+
+    ngx-gallery {
+      a {
+        &:hover {
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(13, 18, 33, 0.5);
+          }
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      margin-top: 30px;
+    }
+  }
+}
+
+#fileToUpload2 {
+}
