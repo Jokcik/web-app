@@ -8,6 +8,7 @@ import {CommonModule} from '@angular/common';
 import {MatCardModule, MatIconModule} from '@angular/material';
 import {PageComponent} from './page/page.component';
 import {AnnounceComponent} from '../announce/announce.component';
+import {NgxGalleryModule} from 'ngx-gallery';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {AnnounceComponent} from '../announce/announce.component';
     FormsModule,
 
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    NgxGalleryModule
   ],
   declarations: [
     NewsComponent,

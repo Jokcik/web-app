@@ -1,7 +1,7 @@
 <div class="admin-edit">
   <mat-form-field style="width: 100%">
-    <mat-select placeholder="История" (valueChange)="currentMaterial = materials[$event]" [value]="0">
-      <mat-option *ngFor="let material of materials; let idx = index" [value]="idx">
+    <mat-select placeholder="История" (valueChange)="currentMaterial = materials[$event]" [value]="currentMaterial?._id">
+      <mat-option *ngFor="let material of materials" [value]="material._id">
         {{material.name}}
       </mat-option>
     </mat-select>

@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {HistoryService} from '../../history/history.service';
-import {empty} from 'rxjs/observable/empty';
 import {Materials} from '../shared/materials';
 import {UserService} from '../../core/user-service/user.service';
+import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 
 @Component({
   selector: 'od-page',
@@ -14,6 +14,12 @@ import {UserService} from '../../core/user-service/user.service';
 export class PageComponent implements OnInit {
   public material: Materials;
 
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[] = [];
+
+  @ViewChild(NgxGalleryComponent) galleryComponent: NgxGalleryComponent;
+
+
   constructor(private route: ActivatedRoute,
               private router: Router,
               private mainpageService: HistoryService,
@@ -21,12 +27,25 @@ export class PageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.galleryOptions = [
+      { image: false, height: "100px" },
+      { breakpoint: 500, width: "100%" }
+    ];
+
     this.route.params.pipe(switchMap(params => this.mainpageService.querySafeHtml({url: params['url']})))
       .subscribe(materials => {
-        if(!materials || !materials.length) {
+        if (!materials || !materials.length) {
           this.router.navigate(['/404-notfound'], {skipLocationChange: true});
         }
-        this.material = materials[0]
+        this.material = materials[0];
+
+        this.galleryImages = this.material.images.map(image => {
+          return {small: image, medium: image, big: image};
+        });
+
+        setInterval(() => {
+
+        })
       });
   }
 

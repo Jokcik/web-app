@@ -36,6 +36,10 @@ import {CompetitionComponent} from '../../competition/competition.component';
           component: MainComponent,
         },
         {
+          path: 'history/:url',
+          component: MainComponent,
+        },
+        {
           path: 'news',
           component: NewsEditComponent,
         },

@@ -1,3 +1,4 @@
+<a *ngIf="userService.user" routerLink="/admin/edit/history/{{descriptions[0]?.url}}">Редактировать</a>
 <div class="outer-wrap-mainpage" *ngFor="let material of descriptions">
   <p [innerHTML]="material.title"></p>
   <div [innerHTML]="material.description.description"></div>

@@ -3,6 +3,7 @@ import {HistoryService} from './history.service';
 import {Materials} from '../news/shared/materials';
 import {Dummy} from '../core/dummy';
 import {ActivatedRoute} from '@angular/router';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-history',
@@ -10,10 +11,10 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class HistoryComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 1);
-  public isFull: boolean = false;
 
   constructor(private mainpageService: HistoryService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              public userService: UserService) {
   }
 
   ngOnInit() {

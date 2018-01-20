@@ -1,7 +1,8 @@
-<a *ngIf="userService.user" routerLink="/admin/edit/news/{{material.url}}">Редактировать</a>
+<a *ngIf="userService.user" routerLink="/admin/edit/news/{{material?.url}}">Редактировать</a>
 <div class="outer-wrap-mainpage">
   <div *ngIf="material">
     <p [innerHTML]="material.title" style="text-transform: uppercase; text-align: center; font-weight: bold;"></p>
     <div [innerHTML]="material.description.description"></div>
   </div>
 </div>
+<ngx-gallery class="news-image" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>

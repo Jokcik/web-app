@@ -1,6 +1,6 @@
 .outer-wrap-mainpage {
 
-  min-height: 700px;
+  min-height: 400px;
   background-color: white;
   text-align: justify;
 
@@ -21,3 +21,8 @@
 .carousel-wrapper {
   border-radius: 50px 50px;
 }
+  ngx-gallery {
+    &.news-image {
+      margin-left: 31%;
+    }
+  }
