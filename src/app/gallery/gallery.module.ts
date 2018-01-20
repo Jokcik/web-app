@@ -10,6 +10,7 @@ import {GalleryDialogAdd} from './gallery-dialog-add';
 import {FormsModule} from '@angular/forms';
 import {ODImageDirective} from '../core/od-image-load.directive';
 import {ODMultipartSendService} from '../core/od-multipart-send.service';
+import {NgxGalleryModule} from 'ngx-gallery';
 
 @NgModule({
   imports: [
@@ -18,6 +19,8 @@ import {ODMultipartSendService} from '../core/od-multipart-send.service';
     CommonModule,
     HttpModule,
     FormsModule,
+    NgxGalleryModule,
+
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,

@@ -8,6 +8,7 @@ import {UploadsModule} from './uploads/uploads.module';
 import {GalleryModule} from './gallery/gallery.module';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionModule} from './competition/competition.module';
+import {MailModule} from './sendmail/mail.module';
 
 @Module({
   modules: [
@@ -20,6 +21,7 @@ import {CompetitionModule} from './competition/competition.module';
     ChildrenModule,
     CompetitionModule,
     UploadsModule,
+    MailModule
   ],
 })
 export class ApplicationModule {

@@ -9,11 +9,9 @@
 
   <div class="outer-wrap-mainpage" *ngIf="currentMaterial">
     <div class="text">Заголовок</div>
-    <ckeditor [(ngModel)]="currentMaterial.title" [config]="config"></ckeditor>
-    <div class="text">Вводный текст на главной</div>
-    <ckeditor [(ngModel)]="currentMaterial.description.short_description" [config]="config"></ckeditor>
+    <od-ckeditor [(value)]="currentMaterial.title" name="editor1"></od-ckeditor>
     <div class="text">Текст</div>
-    <ckeditor [(ngModel)]="currentMaterial.description.description" [config]="config"></ckeditor>
+    <od-ckeditor [(value)]="currentMaterial.description.description" name="editor3"></od-ckeditor>
     <div class="button-row">
       <button mat-raised-button color="primary" (click)="saveHistory(currentMaterial)">Сохранить</button>
     </div>

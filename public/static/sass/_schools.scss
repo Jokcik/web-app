@@ -1,4 +1,13 @@
 .outer-wrap-schools {
+  text-align: center;
+
+  mat-radio-group {
+    margin-right: 20px;
+    mat-radio-button {
+      margin-right: 10px;
+    }
+  }
+
   &.dummy {
     mat-select {
       .mat-select-value {
@@ -14,25 +23,67 @@
     }
   }
 
-  mat-card {
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .mat-card-title {
-    margin-bottom: 0;
-  }
-
-  [mat-card-content] {
-    font-style: italic;
-  }
-
-  .mat-form-field-infix {
-    width: 100%;
-  }
-
-  .school-mainperson {
-    text-align: left;
+  &.admin {
     margin-top: 20px;
+  }
+
+  .select {
+    width: 35%;
+  }
+
+  &.edit {
+    &.dialog {
+      mat-form-field {
+        width: 100%;
+      }
+
+      .school-person {
+        margin-bottom: 20px;
+      }
+      p {
+        text-align: center;
+      }
+      [mat-dialog-title] {
+        text-align: center;
+      }
+      mat-radio-button {
+        margin-bottom: 20px;
+        margin-left: 20px;
+      }
+      .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: #4f98ff;
+      }
+      .mat-radio-button.mat-accent .mat-radio-inner-circle {
+        background-color: #4f98ff;
+      }
+    }
+  }
+
+  .table, .dialog {
+    .example-row {
+      cursor: pointer;
+    }
+
+    mat-card {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .mat-card-title {
+      margin-bottom: 0;
+    }
+
+    [mat-card-content] {
+      font-style: italic;
+    }
+
+    .mat-form-field-infix {
+      width: 100%;
+    }
+
+    .school-mainperson {
+      text-align: left;
+      margin-top: 20px;
+    }
   }
 }

@@ -28,6 +28,16 @@ export class NewsService {
     let obj = {};
     obj = Object.assign(obj, type ? {type} : {});
     obj = Object.assign(obj, url ? {url} : {});
-    return await this.newsModel.find(obj).sort({date: -1}).limit(10);
+
+    let model = this.newsModel.find(obj);
+    if (type == 2) {
+      model = model.where({date: {$gte: Date.now()}})
+    }
+
+    if (type != 0) {
+      model = model.sort({date: -1}).limit(10);
+    }
+
+    return await model;
   }
 }

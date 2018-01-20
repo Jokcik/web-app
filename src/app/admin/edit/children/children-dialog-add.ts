@@ -3,7 +3,7 @@ import {Component, Inject} from '@angular/core';
 import {Schools} from '../shared/school';
 import {Region} from '../shared/region';
 import {Children, Instruments, Specialization} from '../shared/children';
-import {ChildrenService} from '../../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {SchoolsService} from '../../../schools/schools.service';
 
 @Component({
@@ -19,9 +19,10 @@ export class ChildrenDialogAdd {
   public currentRegion: number;
   public currentSchool: number;
   public currentSpecialization: number;
+  public ssuz: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<ChildrenDialogAdd>,
-              private childrenService: ChildrenService,
+              private childrenService: ChildrenPageService,
               private schoolService: SchoolsService,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.regions = data.regions;

@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import {ODCommonModule} from '../core/od-common.module';
 import {NewsComponent} from './news.component';
 import {NewsRoutingModule} from './news-routing.module';
-import {MainpageService} from '../mainpage/mainpage.service';
+import {HistoryService} from '../history/history.service';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {MatCardModule, MatIconModule} from '@angular/material';
 import {PageComponent} from './page/page.component';
+import {AnnounceComponent} from '../announce/announce.component';
 
 @NgModule({
   imports: [
@@ -20,8 +21,9 @@ import {PageComponent} from './page/page.component';
   ],
   declarations: [
     NewsComponent,
-    PageComponent
+    PageComponent,
+    AnnounceComponent,
   ],
-  providers: [MainpageService]
+  providers: [HistoryService]
 })
 export class NewsModule { }

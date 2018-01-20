@@ -3,22 +3,13 @@
     <mat-card-header mat-dialog-title>Добавить одаренного ребенка</mat-card-header>
     <div mat-dialog-content>
       <mat-form-field>
-        <input matInput placeholder="Фамилия" [(ngModel)]="currentChildren.surname">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Имя" [(ngModel)]="currentChildren.name">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Отчество" [(ngModel)]="currentChildren.middleName">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Регион, город" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+        <mat-select placeholder="Район, город" (valueChange)="selectedRegion($event)" [value]="currentRegion">
           <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">
             {{ region.title }}
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field *ngIf="currentRegion >= 0">
         <mat-select placeholder="Школа" (valueChange)="currentChildren.schools = schools[$event]._id" [value]="currentSchool">
           <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">
@@ -34,6 +25,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field *ngIf="currentSpecialization >= 0">
         <mat-select placeholder="Инструмент" (valueChange)="currentChildren.instruments = instruments[$event]._id">
           <mat-option *ngFor="let instrument of instruments; let idx = index" [value]="idx">
@@ -42,11 +34,23 @@
         </mat-select>
       </mat-form-field>
 
+
+      <mat-form-field>
+        <input matInput placeholder="Фамилия" [(ngModel)]="currentChildren.surname">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Имя" [(ngModel)]="currentChildren.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Отчество" [(ngModel)]="currentChildren.middleName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Год рождения" [(ngModel)]="currentChildren.birthday">
+      </mat-form-field>
+
       <mat-form-field>
         <mat-select placeholder="Класс ДШИ" (valueChange)="currentChildren.classDSHI = +$event">
-          <mat-option value="1">1 класс</mat-option>
-          <mat-option value="2">2 класс</mat-option>
-          <mat-option value="3">3 класс</mat-option>
           <mat-option value="4">4 класс</mat-option>
           <mat-option value="5">5 класс</mat-option>
           <mat-option value="6">6 класс</mat-option>
@@ -57,10 +61,18 @@
       </mat-form-field>
 
       <mat-form-field>
+        <mat-select placeholder="Выпускник ДШИ" (valueChange)="currentChildren.graduateDSHI = +$event">
+          <mat-option [value]="2018">2018</mat-option>
+          <mat-option [value]="2019">2019</mat-option>
+          <mat-option [value]="2020">2020</mat-option>
+          <mat-option [value]="2021">2021</mat-option>
+          <mat-option [value]="2022">2022</mat-option>
+          <mat-option [value]="2023">2023</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-select placeholder="Класс СОШ" (valueChange)="currentChildren.class = +$event">
-          <mat-option value="1">1 класс</mat-option>
-          <mat-option value="2">2 класс</mat-option>
-          <mat-option value="3">3 класс</mat-option>
           <mat-option value="4">4 класс</mat-option>
           <mat-option value="5">5 класс</mat-option>
           <mat-option value="6">6 класс</mat-option>
@@ -71,6 +83,34 @@
           <mat-option value="11">11 класс</mat-option>
         </mat-select>
       </mat-form-field>
+
+      <label>Результаты конкурсных выступлений</label>
+      <!-- Название конкурса, го проведения, уровень, результативность,  -->
+
+      <div>Особые отметки</div>
+      <mat-checkbox class="checkbox" > Выбыл из школы (смена местожительства, перевод в другое учебное заведение) </mat-checkbox>
+      <mat-checkbox class="checkbox" [(ngModel)]="ssuz"> Поступление в профильные ССУЗ вуз </mat-checkbox>
+      <div *ngIf="ssuz">
+        <mat-form-field>
+          <input matInput placeholder="Год" [(ngModel)]="currentChildren.middleName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Учебное заведение" [(ngModel)]="currentChildren.middleName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="ССУЗ ВУЗ" [(ngModel)]="currentChildren.middleName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Специализация">
+            <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+              {{ specialization.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
     </div>
   </mat-card>

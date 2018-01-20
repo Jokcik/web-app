@@ -1,0 +1,19 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{title}}</mat-panel-title>
+    <mat-panel-description>{{shortDescription}}</mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <ng-container *ngFor="let file of competitionFile; let idx = index">
+    <mat-form-field style="width: 50%;"><input matInput placeholder="Название файла"
+                                               [ngModel]="competitionFile[idx].title"
+                                               (ngModelChange)="changeTitle(idx, $event)"></mat-form-field>
+    <input id="fileToUpload1" (fileChange)="loadFile($event, idx)" odImageLoad type="file" *ngIf="!competitionFile[idx].name">
+    <ng-container *ngIf="competitionFile[idx].name">
+      <label class="label-file">{{competitionFile[idx].name}}</label>
+      <button mat-raised-button color="warn" (click)="competitionFile[idx].name = null">Удалить файл</button>
+    </ng-container>
+    <mat-icon style="cursor: pointer;" (click)="removeCompetitionFile(idx)">delete</mat-icon>
+  </ng-container>
+
+</mat-expansion-panel>

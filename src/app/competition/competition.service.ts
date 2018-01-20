@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {ODResourceCrud} from '../core/od-resource-crud';
-import {IQueryParams} from '../bank-data-od/children.service';
+import {IQueryParams} from '../children-page/children-page.service';
 import {Competition} from '../admin/edit/shared/competition';
 import {CompetitionLevel} from '../admin/edit/shared/competition-level';
 import {CompetitionPlace} from '../admin/edit/shared/competition-place';

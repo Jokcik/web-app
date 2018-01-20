@@ -1,10 +1,35 @@
 .outer-wrap-competitions {
   margin-top: 20px;
-  box-shadow: none;
+  text-align: center;
+  //box-shadow: none;
   mat-form-field {
-    width: 100%;
+    width: 20%;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  &.dialog {
+    margin-top: 0!important;
+    text-align: left;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  &.table {
+    margin-top: 0;
+  }
+
+  mat-expansion-panel {
+    input[type='file'], label {
+      margin-bottom: 0; cursor: pointer; margin-left: 10px;
+    }
+
+    .label-file {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 136px;
+    }
   }
 
   .mat-checkbox-checked.mat-accent .mat-checkbox-background,
@@ -26,9 +51,50 @@
     }
   }
 
-  mat-card {
+  .select {
+    width: 20%;
+    margin-left: 20px;
+  }
+
+  //.mat-card:not([class*=mat-elevation-z]) {
+  //  box-shadow: none!important;
+  //}
+
+  .dialog {
+    mat-form-field {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
     [mat-dialog-title] {
       text-align: center;
+    }
+  }
+
+  &.table {
+    .example-header {
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+    .mat-form-field {
+      width: auto;
+    }
+    .example-row {
+      cursor: pointer;
+    }
+    .cdk-cell {
+      &.level {
+        text-align: center;
+      }
+
+      &.specialization {
+        text-align: center;
+      }
+    }
+    .example-header-cell {
+      button {
+        margin: 0 auto;
+      }
     }
   }
 }

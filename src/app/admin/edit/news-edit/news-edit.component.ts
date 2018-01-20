@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MainpageService} from '../../../mainpage/mainpage.service';
+import {HistoryService} from '../../../history/history.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -8,6 +8,7 @@ import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs/observable/of';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {UpdateService} from '../../../announce/update.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -34,9 +35,10 @@ export class NewsEditComponent implements OnInit {
   public news: Materials = new Materials();
   public imgFile: File;
 
-  constructor(private service: MainpageService,
+  constructor(private service: HistoryService,
               private multipart: ODMultipartSendService,
               private router: Router,
+              private updateService: UpdateService,
               private route: ActivatedRoute,
               private utils: ODUtils) {
   }
@@ -71,6 +73,7 @@ export class NewsEditComponent implements OnInit {
   public saveNews() {
     if (this.news._id) {
       return this.service.update(this.news).$observable.subscribe(res => {
+        this.updateMaterials();
         this.router.navigate(['news', res.url]);
       });
     }
@@ -79,27 +82,16 @@ export class NewsEditComponent implements OnInit {
     this.news.date = this.news.type == 2 ? this.news.date  : new Date();
 
     return this.service.save(this.news).$observable.subscribe(res => {
+      this.updateMaterials();
       this.router.navigate(['news', res.url]);
     });
   }
 
-  public config = {
-    toolbar: 'full',
-    format_tags: 'p',
-    language: 'ru',
-    allowedContent: true,
-    disableNativeSpellChecker: false,
-    forcePasteAsPlainText: true,
-    title: false,
-    autoGrow_onStartup: true,
-    disableAutoInline: true,
-    enableContextMenu: false,
-    sharedSpaces: {
-      top: 'top',
-      bottom: 'bottom'
-    },
-    resize_enabled: false,
-    extraPlugins: 'autogrow,sharedspace,divarea,removeformat',
-    removePlugins: 'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
-  };
+  public updateMaterials() {
+    if (this.news.type == 2) {
+      this.updateService.changeAnnounce.next();
+    } if (this.news.type == 1) {
+      this.updateService.changeNews.next();
+    }
+  }
 }

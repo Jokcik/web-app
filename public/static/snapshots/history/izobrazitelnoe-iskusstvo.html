@@ -1,0 +1,395 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Одаренные дети Белгородской области</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Банк данных одаренных детей. Региональный учебно-методический центр по художественному образованию БГИИК">
+  <meta name="keywords" content="банк данных одаренные дети белгородской области Региональный учебно-методический центр по художественному образованию БГИИК">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/css/style-new.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>.cke {
+    visibility: hidden;
+  }</style>
+  <style>.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .mat-card {
+      outline: solid 1px
+    }
+  }
+
+  .mat-card-flat {
+    box-shadow: none
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 16px
+  }
+
+  .mat-card-actions {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 8px 0
+  }
+
+  .mat-card-actions-align-end {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px
+  }
+
+  .mat-card-xl-image {
+    width: 240px;
+    height: 240px;
+    margin: -8px
+  }
+
+  .mat-card-footer {
+    display: block;
+    margin: 0 -24px -24px -24px
+  }
+
+  .mat-card-actions .mat-button, .mat-card-actions .mat-raised-button {
+    margin: 0 4px
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row
+  }
+
+  .mat-card-header-text {
+    margin: 0 8px
+  }
+
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0
+  }
+
+  .mat-card-lg-image, .mat-card-md-image, .mat-card-sm-image {
+    margin: -8px 0
+  }
+
+  .mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -8px
+  }
+
+  .mat-card-sm-image {
+    width: 80px;
+    height: 80px
+  }
+
+  .mat-card-md-image {
+    width: 112px;
+    height: 112px
+  }
+
+  .mat-card-lg-image {
+    width: 152px;
+    height: 152px
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      padding: 24px 16px
+    }
+
+    .mat-card-actions {
+      margin-left: -8px;
+      margin-right: -8px
+    }
+
+    .mat-card-image {
+      width: calc(100% + 32px);
+      margin: 16px -16px
+    }
+
+    .mat-card-title-group {
+      margin: 0
+    }
+
+    .mat-card-xl-image {
+      margin-left: 0;
+      margin-right: 0
+    }
+
+    .mat-card-header {
+      margin: -8px 0 0 0
+    }
+
+    .mat-card-footer {
+      margin-left: -16px;
+      margin-right: -16px
+    }
+  }
+
+  .mat-card-content > :first-child, .mat-card > :first-child {
+    margin-top: 0
+  }
+
+  .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+    margin-bottom: 0
+  }
+
+  .mat-card-image:first-child {
+    margin-top: -24px
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0
+  }
+
+  .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+    margin-left: 0;
+    margin-right: 0
+  }
+
+  .mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: -4px
+  }
+
+  .mat-card-header .mat-card-subtitle:not(:first-child) {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:first-child {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:last-child {
+    margin-bottom: -8px
+  }</style>
+</head>
+<body cz-shortcut-listen="true">
+<od-root ng-version="5.1.1">
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerlink="/news" href="/news">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/competition" routerlinkactive="active"
+                                    href="/competition">Конкурсы</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/children" routerlinkactive="active" href="/children">Одаренные
+              дети</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/galleries" routerlinkactive="active"
+                                    href="/galleries">Фотогалерея</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">История</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/history/rumc" href="/history/rumc">Роль РУМЦ в развитии ДШИ
+                  области</a>
+                <a class="dropdown-item" routerlink="/history/fortepiano" href="/history/fortepiano">Развитие
+                  специализации "фортепиано"</a>
+                <a class="dropdown-item" routerlink="/history/narodnie-instrumenty"
+                   href="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/dyhovie-instrumenty" href="/history/dyhovie-instrumenty">Развитие
+                  специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/strynnie-smichkovie-instrumenty"
+                   href="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые
+                  инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/folklor" href="/history/folklor">Развитие специализации
+                  "фольклор"</a>
+                <a class="dropdown-item" routerlink="/history/horovoe-penie" href="/history/horovoe-penie">Развитие
+                  специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerlink="/history/izobrazitelnoe-iskusstvo"
+                   href="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/horeografia" href="/history/horeografia">Развитие
+                  специализации "хореография"</a>
+                <a class="dropdown-item" routerlink="/history/teatralnoe-iskusstvo"
+                   href="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/muzikalno-teoreticheskie-distiplini"
+                   href="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические
+                  дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">Адреса</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/address/administration" href="/address/administration">Муниципальные
+                  управления культуры</a>
+                <a class="dropdown-item" routerlink="/address/schools" href="/address/schools">Детские школы
+                  искусств</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" routerlink="/contacts" routerlinkactive="active" href="/contacts">Контакты</a>
+            </li>
+          </ul>
+          <od-profile>
+            <form class="form-inline mt-2 mt-md-0">
+              <!---->
+              <ul class="navbar-nav mr-auto">
+                <!---->
+                <!---->
+                <li class="nav-item">
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link separator">/</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;">Выход</a>
+                </li>
+              </ul>
+            </form>
+          </od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-block">
+              <div class="img-wrap">
+                <img src="/images/logo/logo.png">
+              </div>
+              <div class="btn-block">
+                <div class="block-logo">Одаренные дети Белгородской области</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <p>Управление культуры Белгородской области</p>
+            <p>Белгородский государственный институт искусств и культуры</p>
+            <p>Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <div class="col-md-1 img-wrap" routerlink="/" tabindex="0">
+            <img src="/images/logo/logo-bgik.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card class="outer_wrap_main mat-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 blog-main">
+            <router-outlet></router-outlet>
+            <od-history><!---->
+              <div class="outer-wrap-mainpage">
+                <p>
+                <p align="center" class="MsoNoSpacing" style="text-align:center; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Bookman Old Style&quot;,&quot;serif&quot;"><span
+                  style="text-transform:uppercase">РАЗВИТИЕ СПЕЦИАЛИЗАЦИИ </span></span></span></b></span></span></p>
+
+                <p align="center" class="MsoNoSpacing" style="text-align:center; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Bookman Old Style&quot;,&quot;serif&quot;"><span
+                  style="text-transform:uppercase">«ИЗОБРАЗИТЕЛЬНОЕ ИСКУССТВО»</span></span></span></b></span></span>
+                </p>
+                </p>
+                <div><p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Отделения изобразительного искусства – наиболее динамично развивающиеся и перспективные в области. Помимо четырёх детских художественных школ (Белгород – контингент 446 уч-ся, Губкин – 266 уч-ся, Старый Оскол – 262 уч-ся, Валуйки – 344 уч-ся), в области функционируют 47 ДШИ с отделениями ИЗО. Ежегодно школы пополняются десятками юных художников, которые мечтают развить свой природный талант, направить его в профессиональное русло.</span></span></span></span>
+                </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В становлении первых художественных отделений в Белгородской области принимали участие такие замечательные педагоги-художники, как А.П. Мамонтов, А.И. Краснопольский, М.С. Дорофеев, В.Н. Слюсарев, М.Е. Парахненко, В.И. Казак, В.А. Палеха, В.В. Хуторной. Именно им обязаны своей будущей профессией многие выпускники детских художественных школ и школ искусств&nbsp; области.</span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Количество преподавателей в области – <b>152, </b>&nbsp;контингент уч-ся – <b>3632. </b>Наиболее крупными школами искусств в области с большим охватом детей на отделениях ИЗО являются ДШИ Алексеевского района, ДШИ г. Новый Оскол, Старооскольские ДШИ №1 и №2, ДШИ г. Строитель, г. Шебекино, а также районные школы п. Ивня, п. Борисовка. За несколько последних лет&nbsp; открылись отделения ИЗО в Засосенской ДШИ Красногвардейского района, Волоконовской ДШИ, Пятницкой ДМШ Волоконовского района, Майской ДШИ, Яснозоренской ДШИ Белгородского района. </span></span></span></span>
+                  </p>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Количество преподавателей с высшим профессиональным образованием в ДХШ и ДШИ (%<b>):</b></span></span></span></span>
+                  </p>
+
+                  <ul>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2010 г. – 58% от общего количества преподавателей;</span></span></span></span>
+                    </li>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2016 г. – 70% от общего количества преподавателей.</span></span></span></span>
+                    </li>
+                  </ul>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Количество преподавателей ИЗО в сельских&nbsp; школах:</span></span></span></span>
+                  </p>
+
+                  <ul>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2010 г. – 20 </span></span></span></span>
+                    </li>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2016 г. – 36</span></span></span></span>
+                    </li>
+                  </ul>
+
+                  <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                    style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Количество преподавателей ИЗО в городских и районных школах: </span></span></span></span>
+                  </p>
+
+                  <ul>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2010 г. – 96</span></span></span></span>
+                    </li>
+                    <li class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                      style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                      style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">2016 г. – 117</span></span></span></span>
+                    </li>
+                  </ul>
+                </div>
+                <p><!----><a style="height: 20px; cursor: pointer; color: dodgerblue;">Читать далее...</a></p>
+              </div>
+            </od-history>
+          </div>
+
+
+        </div>
+      </div>
+    </mat-card>
+    <footer class="footer">
+      <div class="container" style="margin-top: 10px;">
+        <span
+          class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+      </div>
+    </footer>
+  </div>
+
+
+</od-root>
+</body>
+</html>

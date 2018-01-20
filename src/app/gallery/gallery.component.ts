@@ -1,8 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Gallery} from './shared/gallery';
 import {GalleryService} from './gallery.service';
+import {NgxGalleryAnimation, NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
+import {ActivatedRoute} from '@angular/router';
 import {GalleryDialogAdd} from './gallery-dialog-add';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-gallery',
@@ -10,22 +13,52 @@ import {GalleryDialogAdd} from './gallery-dialog-add';
 })
 export class GalleryComponent implements OnInit {
   public galleries: Gallery[] = [];
+  public isEditOpen: boolean = false;
+
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[] = [];
+
+  @ViewChild(NgxGalleryComponent) galleryComponent: NgxGalleryComponent;
 
   constructor(public dialog: MatDialog,
               public snackBar: MatSnackBar,
+              private route: ActivatedRoute,
+              public userService: UserService,
               private galleryService: GalleryService) {
   }
 
   ngOnInit() {
+    this.route.data.subscribe(data => this.isEditOpen = data['edit'] || this.isEditOpen);
+    this.galleryOptions = [
+      {
+        thumbnails: false,
+        preview: false,
+        image: false,
+        width: '0px',
+        height: '0px',
+        previewCloseOnEsc: true,
+        previewCloseOnClick: true
+      }
+    ];
+
     this.update();
   }
 
   public update() {
-    this.galleryService.query().$observable.subscribe(galleries => this.galleries = galleries);
+    this.galleryService.query().$observable.subscribe(galleries => {
+      this.galleries = galleries;
+      this.galleryImages = galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
+    });
   }
 
-  public openDialog(currentGallery?: Gallery) {
-    this.dialog.open(GalleryDialogAdd, {width: '500px', data: currentGallery ? currentGallery : ''}).afterClosed().subscribe(result => {
+  public openDialog(idx?: number) {
+    if (!this.isEditOpen) {
+      this.galleryComponent.openPreview(idx);
+      return;
+    }
+
+    let gallery = this.galleries[idx];
+    this.dialog.open(GalleryDialogAdd, {width: '500px', data: gallery ? gallery : ''}).afterClosed().subscribe(result => {
       if (!result || !result.gallery) return;
 
       if (result.type == -1) {

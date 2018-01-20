@@ -2,8 +2,8 @@ import {Model, Schema} from 'mongoose';
 import {Component, Inject} from '@nestjs/common';
 import {Competition} from './interfaces/competition.interface';
 import {
-  CompetitionLevelModelName, CompetitionLevelModelToken, CompetitionModelName, CompetitionModelToken,
-  CompetitionPlaceModelToken, SpecializationModelName
+  CompetitionLevelModelName, CompetitionLevelModelToken, CompetitionModelToken, CompetitionPlaceModelToken,
+  SpecializationModelName
 } from '../constants';
 import {CreateCompetitionDto} from './dto/create-competition.dto';
 import {CompetitionLevel} from '../others/interface/competition-level.interface';
@@ -15,7 +15,6 @@ export class CompetitionService {
   constructor(@Inject(CompetitionModelToken) private readonly competitionsModel: Model<Competition>,
               @Inject(CompetitionLevelModelToken) private readonly competitionLevelModel: Model<CompetitionLevel>,
               @Inject(CompetitionPlaceModelToken) private readonly competitionPlaceModel: Model<CompetitionPlace>) {
-    console.log('constructor', new ObjectId("0"));
   }
 
   async findAll() {

@@ -17,6 +17,9 @@
       background-color: rgba(0, 0, 0, 0);
       color: rgba(0, 0, 0, 0);
     }
+    .col-sm-3 {
+      min-height: 115px!important;
+    }
   }
 
   a:hover {
@@ -28,7 +31,7 @@
   }
 
   div > b {
-    text-transform: uppercase;
+    //text-transform: uppercase;
   }
 
   .news-icon {
@@ -51,6 +54,7 @@
     padding: 10px 0;
 
     .news-title {
+      margin-bottom: 5px;
       color: black;
       padding-left: 30px
     }
@@ -60,8 +64,7 @@
     }
   }
   .news-date {
-      bottom: 0;
-      right: 20px;
+      top: 0;
       position: absolute;
       display: block;
       opacity: .8;

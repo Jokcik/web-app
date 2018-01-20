@@ -8,21 +8,21 @@
   <p class="text">Заместитель директора: <b>Черенкова Инна Васильевна</b>, т. 73-22-04</p>
   <p class="text">Методисты, т. 73-22-04 </p>
 
-  <mat-form-field class="input-text">
-    <input matInput placeholder="Ваше имя" required>
+  <mat-form-field class="input-text" style="margin-top: 20px;">
+    <input matInput placeholder="Ваше имя" required [(ngModel)]="mail.name">
   </mat-form-field>
 
   <mat-form-field class="input-text">
-    <input matInput placeholder="Ваш E-Mail адрес" required>
+    <input matInput placeholder="Ваш E-Mail адрес" required [(ngModel)]="mail.email"/>
   </mat-form-field>
 
   <mat-form-field class="input-text">
-    <input matInput placeholder="Тема" required>
+    <input matInput placeholder="Тема" required [(ngModel)]="mail.subject">
   </mat-form-field>
 
   <mat-input-container class="input-text">
-    <textarea matInput  matTextareaAutosize  placeholder="Сообщение" matAutosizeMinRows="7" required></textarea>
+    <textarea matInput  matTextareaAutosize  placeholder="Сообщение" matAutosizeMinRows="7" required [(ngModel)]="mail.text"></textarea>
   </mat-input-container>
 
-  <button mat-raised-button color="primary">Отправить</button>
+  <button mat-raised-button color="primary" (click)="sendMessage()">Отправить</button>
 </div>

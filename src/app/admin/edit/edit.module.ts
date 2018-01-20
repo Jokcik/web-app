@@ -4,17 +4,32 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDialogRef,
   MatFormFieldModule,
-  MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSnackBarModule,
-  MatSortModule, MatTableModule, MatTabNav, MatTabsModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabNav,
+  MatTabsModule,
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {CKEditorModule} from 'ng2-ckeditor';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
-import {MainpageService} from '../../mainpage/mainpage.service';
+import {HistoryService} from '../../history/history.service';
 import {MainComponent} from './main/main.component';
 import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
@@ -24,11 +39,15 @@ import {SchoolsService} from '../../schools/schools.service';
 import {DshiDialogAdd} from './schools-edit/schools-dialog-add';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
-import {ChildrenService} from '../../bank-data-od/children.service';
+import {ChildrenPageService} from '../../children-page/children-page.service';
 import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
-import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
+import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
+import {SchoolsModule} from '../../schools/schools.module';
+import {GalleryModule} from '../../gallery/gallery.module';
+import {CompetitionModule} from '../../competition/competition.module';
+import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
 
 @NgModule({
   imports: [
@@ -40,9 +59,14 @@ import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
     CommonModule,
     FormsModule,
     EditRoutingModule,
-    CKEditorModule,
+    ODCkeditorModule,
     ChildrenModule,
+    CompetitionTableModule,
+    SchoolsModule,
+    GalleryModule,
+    CompetitionModule,
 
+    // TODO: Найти модули которые надо выпилить
     MatButtonModule,
     MatCardModule,
     MatTableModule,
@@ -72,14 +96,12 @@ import {CompetitionsDialogAdd} from './competition/competitions-dialog-add';
     DshiDialogAdd,
     NewsEditComponent,
     CompetitionEditComponent,
-    CompetitionsDialogAdd
   ],
   entryComponents: [
     RegionDialogAdd,
     DshiDialogAdd,
-    CompetitionsDialogAdd
   ],
-  providers: [MainpageService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenService, CompetitionService,
+  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {Dummy} from '../core/dummy';
 import {Materials} from '../news/shared/materials';
-import {MainpageService} from '../mainpage/mainpage.service';
+import {HistoryService} from '../history/history.service';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
+import {UpdateService} from './update.service';
+import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'od-announce',
   templateUrl: './announce.component.html',
-  providers: [MainpageService]
+  providers: [HistoryService]
 })
 export class AnnounceComponent implements OnInit {
   public descriptions: Materials[] = [];
   public loaded: boolean = true;
 
-  constructor(private service: MainpageService,
+  constructor(private service: HistoryService,
               public userService: UserService,
+              private announceService: UpdateService,
               private router: Router) { }
 
 
@@ -32,10 +35,14 @@ export class AnnounceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.formatAnnounce();
+    this.announceService.changeAnnounce.subscribe(() => this.formatAnnounce());
+  }
+
+  public formatAnnounce() {
     this.service.querySafeHtml({type: 2}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
   }
-
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {MainpageService} from '../mainpage/mainpage.service';
+import {HistoryService} from '../history/history.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
+import {UpdateService} from '../announce/update.service';
+import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'od-news',
@@ -13,12 +15,18 @@ export class NewsComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded: boolean = true;
 
-  constructor(private mainpageService: MainpageService,
+  constructor(private mainpageService: HistoryService,
               public userService: UserService,
+              private updateService: UpdateService,
               private router: Router) {
   }
 
   ngOnInit() {
+    this.formatNews();
+    this.updateService.changeNews.subscribe(() => this.formatNews());
+  }
+
+  public formatNews() {
     this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;

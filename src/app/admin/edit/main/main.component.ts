@@ -1,6 +1,6 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
-import {MainpageService} from '../../../mainpage/mainpage.service';
+import {HistoryService} from '../../../history/history.service';
 import {Dummy} from '../../../core/dummy';
 import {MatSnackBar} from '@angular/material';
 
@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   @Input() materials: Materials[] = Dummy.factory(Materials, 1);
   public currentMaterial: Materials;
 
-  constructor(private mainpageService: MainpageService,
+  constructor(private mainpageService: HistoryService,
               public snackBar: MatSnackBar) {
   }
 
@@ -37,6 +37,7 @@ export class MainComponent implements OnInit {
     disableNativeSpellChecker: false,
     forcePasteAsPlainText: true,
     title: false,
+    filebrowserUploadUrl: 'http://localhost:3001/api/upload',
     autoGrow_onStartup: true,
     disableAutoInline: true,
     enableContextMenu: false,
@@ -45,7 +46,7 @@ export class MainComponent implements OnInit {
       bottom: 'bottom'
     },
     resize_enabled: false,
-    extraPlugins: 'autogrow,sharedspace,divarea,removeformat',
+    extraPlugins: 'uploadimage,image2,autogrow,sharedspace,divarea,removeformat',
     removePlugins:'contextmenu, tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
   };
 }

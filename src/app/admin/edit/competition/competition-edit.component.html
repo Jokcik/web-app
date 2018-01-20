@@ -1,15 +1,4 @@
 <div class="outer-wrap-competitions">
-  <mat-form-field>
-    <mat-select placeholder="Конкурсы" (valueChange)="currentCompetition = competitions[$event]">
-      <mat-option *ngFor="let competition of competitions; let idx = index" [value]="idx">
-        {{competition.title}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" style="float: left; margin-right: 20px;" *ngIf="currentCompetition?._id"
-          (click)="openDialog()">Изменить выбранный конкурс</button>
-  <button mat-raised-button color="warn" style="float: left" *ngIf="currentCompetition?._id"
-          (click)="deleteCompetition()">Удалить конкурс</button>
-  <button mat-raised-button color="primary" style="float: right" (click)="openDialog(true)">Добавить конкурс</button>
+  <od-competition-table [isOpenEdit]="true" [competitions]="competitions"
+    (changeCompetition)="openDialog($event)"></od-competition-table>
 </div>

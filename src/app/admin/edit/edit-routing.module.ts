@@ -7,6 +7,9 @@ import {RegionComponent} from './region/region.component';
 import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {ChildrenComponent} from './children/children.component';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
+import {SchoolsComponent} from '../../schools/schools.component';
+import {GalleryComponent} from '../../gallery/gallery.component';
+import {CompetitionComponent} from '../../competition/competition.component';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import {CompetitionEditComponent} from './competition/competition-edit.component
         },
         {
           path: 'competition',
-          component: CompetitionEditComponent,
+          component: CompetitionComponent,
+          data: {edit: true}
         },
         {
           path: 'history',
@@ -45,7 +49,13 @@ import {CompetitionEditComponent} from './competition/competition-edit.component
         },
         {
           path: 'schools',
-          component: SchoolEditComponent,
+          component: SchoolsComponent,
+          data: {edit: true}
+        },
+        {
+          path: 'gallery',
+          component: GalleryComponent,
+          data: {edit: true}
         }
       ]
     }

@@ -2,16 +2,29 @@ import { NgModule } from '@angular/core';
 import {ODCommonModule} from '../core/od-common.module';
 import {CompetitionComponent} from './competition.component';
 import {CompetitionRoutingModule} from './competition-routing.module';
+import {CompetitionTableModule} from './competition-table/competition-table.module';
+import {CompetitionService} from './competition.service';
+import {CommonModule} from '@angular/common';
+import {MatCheckboxModule, MatOptionModule, MatSelectModule, MatSnackBarModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
+    CommonModule,
     ODCommonModule,
-    CompetitionRoutingModule
+    FormsModule,
+    CompetitionRoutingModule,
+    CompetitionTableModule,
+
+    MatOptionModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   declarations: [
     CompetitionComponent,
   ],
-  providers: []
+  providers: [CompetitionService]
 })
 export class CompetitionModule {
 }

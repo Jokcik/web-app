@@ -4,7 +4,7 @@ import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
 import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule} from '@angular/material';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {ProfileComponent} from './profile/profile.component';
 import {AnnounceComponent} from './announce/announce.component';
@@ -16,6 +16,7 @@ import {BrowserModule} from '@angular/platform-browser';
 @NgModule({
   imports: [
     HttpModule,
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({appId: 'web-app'}),
     ODCommonModule.forRoot(),
     CommonModule,
@@ -29,7 +30,6 @@ import {BrowserModule} from '@angular/platform-browser';
   declarations: [
     ODComponent,
     ProfileComponent,
-    AnnounceComponent,
     Forbidden403Component,
     NotFound404Component,
   ],

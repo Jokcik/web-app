@@ -1,0 +1,496 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Одаренные дети Белгородской области</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Банк данных одаренных детей. Региональный учебно-методический центр по художественному образованию БГИИК">
+  <meta name="keywords" content="банк данных одаренные дети белгородской области Региональный учебно-методический центр по художественному образованию БГИИК">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/css/style-new.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>.cke {
+    visibility: hidden;
+  }</style>
+  <style>.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px
+  }
+
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .mat-card {
+      outline: solid 1px
+    }
+  }
+
+  .mat-card-flat {
+    box-shadow: none
+  }
+
+  .mat-card-actions, .mat-card-content, .mat-card-subtitle, .mat-card-title {
+    display: block;
+    margin-bottom: 16px
+  }
+
+  .mat-card-actions {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 8px 0
+  }
+
+  .mat-card-actions-align-end {
+    display: flex;
+    justify-content: flex-end
+  }
+
+  .mat-card-image {
+    width: calc(100% + 48px);
+    margin: 0 -24px 16px -24px
+  }
+
+  .mat-card-xl-image {
+    width: 240px;
+    height: 240px;
+    margin: -8px
+  }
+
+  .mat-card-footer {
+    display: block;
+    margin: 0 -24px -24px -24px
+  }
+
+  .mat-card-actions .mat-button, .mat-card-actions .mat-raised-button {
+    margin: 0 4px
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row
+  }
+
+  .mat-card-header-text {
+    margin: 0 8px
+  }
+
+  .mat-card-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0
+  }
+
+  .mat-card-lg-image, .mat-card-md-image, .mat-card-sm-image {
+    margin: -8px 0
+  }
+
+  .mat-card-title-group {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -8px
+  }
+
+  .mat-card-sm-image {
+    width: 80px;
+    height: 80px
+  }
+
+  .mat-card-md-image {
+    width: 112px;
+    height: 112px
+  }
+
+  .mat-card-lg-image {
+    width: 152px;
+    height: 152px
+  }
+
+  @media (max-width: 600px) {
+    .mat-card {
+      padding: 24px 16px
+    }
+
+    .mat-card-actions {
+      margin-left: -8px;
+      margin-right: -8px
+    }
+
+    .mat-card-image {
+      width: calc(100% + 32px);
+      margin: 16px -16px
+    }
+
+    .mat-card-title-group {
+      margin: 0
+    }
+
+    .mat-card-xl-image {
+      margin-left: 0;
+      margin-right: 0
+    }
+
+    .mat-card-header {
+      margin: -8px 0 0 0
+    }
+
+    .mat-card-footer {
+      margin-left: -16px;
+      margin-right: -16px
+    }
+  }
+
+  .mat-card-content > :first-child, .mat-card > :first-child {
+    margin-top: 0
+  }
+
+  .mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+    margin-bottom: 0
+  }
+
+  .mat-card-image:first-child {
+    margin-top: -24px
+  }
+
+  .mat-card > .mat-card-actions:last-child {
+    margin-bottom: -16px;
+    padding-bottom: 0
+  }
+
+  .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child {
+    margin-left: 0;
+    margin-right: 0
+  }
+
+  .mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: -4px
+  }
+
+  .mat-card-header .mat-card-subtitle:not(:first-child) {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:first-child {
+    margin-top: -8px
+  }
+
+  .mat-card > .mat-card-xl-image:last-child {
+    margin-bottom: -8px
+  }</style>
+  <style>.mat-icon {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px
+  }</style>
+</head>
+<body cz-shortcut-listen="true">
+<od-root ng-version="5.1.1">
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerlink="/news" href="/news">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/competition" routerlinkactive="active"
+                                    href="/competition">Конкурсы</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/children" routerlinkactive="active" href="/children">Одаренные
+              дети</a></li>
+            <li class="nav-item"><a class="nav-link" routerlink="/galleries" routerlinkactive="active"
+                                    href="/galleries">Фотогалерея</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">История</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/history/rumc" href="/history/rumc">Роль РУМЦ в развитии ДШИ
+                  области</a>
+                <a class="dropdown-item" routerlink="/history/fortepiano" href="/history/fortepiano">Развитие
+                  специализации "фортепиано"</a>
+                <a class="dropdown-item" routerlink="/history/narodnie-instrumenty"
+                   href="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/dyhovie-instrumenty" href="/history/dyhovie-instrumenty">Развитие
+                  специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/strynnie-smichkovie-instrumenty"
+                   href="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые
+                  инструменты"</a>
+                <a class="dropdown-item" routerlink="/history/folklor" href="/history/folklor">Развитие специализации
+                  "фольклор"</a>
+                <a class="dropdown-item" routerlink="/history/horovoe-penie" href="/history/horovoe-penie">Развитие
+                  специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerlink="/history/izobrazitelnoe-iskusstvo"
+                   href="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/horeografia" href="/history/horeografia">Развитие
+                  специализации "хореография"</a>
+                <a class="dropdown-item" routerlink="/history/teatralnoe-iskusstvo"
+                   href="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerlink="/history/muzikalno-teoreticheskie-distiplini"
+                   href="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические
+                  дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link">Адреса</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerlink="/address/administration" href="/address/administration">Муниципальные
+                  управления культуры</a>
+                <a class="dropdown-item" routerlink="/address/schools" href="/address/schools">Детские школы
+                  искусств</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" routerlink="/contacts" routerlinkactive="active" href="/contacts">Контакты</a>
+            </li>
+          </ul>
+          <od-profile>
+            <form class="form-inline mt-2 mt-md-0">
+              <!---->
+              <ul class="navbar-nav mr-auto">
+                <!---->
+                <!---->
+                <li class="nav-item">
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link separator">/</a>
+                </li>
+                <!---->
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor: pointer;">Выход</a>
+                </li>
+              </ul>
+            </form>
+          </od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="img-block">
+              <div class="img-wrap">
+                <img src="/images/logo/logo.png">
+              </div>
+              <div class="btn-block">
+                <div class="block-logo">Одаренные дети Белгородской области</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5">
+            <p>Управление культуры Белгородской области</p>
+            <p>Белгородский государственный институт искусств и культуры</p>
+            <p>Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <div class="col-md-1 img-wrap" routerlink="/" tabindex="0">
+            <img src="/images/logo/logo-bgik.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card class="outer_wrap_main mat-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 blog-main">
+            <router-outlet></router-outlet>
+            <od-history><!---->
+              <div class="outer-wrap-mainpage">
+                <p>
+                  <div class="title">
+                <p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span
+                  style="color:#343a40;"><span style="font-size:11pt"><span style="background:white"><span
+                  style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span
+                  style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">ИЗ ИСТОРИИ РАЗВИТИЯ ДЕТСКИХ&nbsp;ШКОЛ ИСКУССТВ БЕЛГОРОДСКОЙ ОБЛАСТИ</span></span></b></span></span></span></span></span>
+                </p>
+
+                <p align="center" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 10pt"><span
+                  style="color:#343a40;"><span style="font-size:11pt"><span style="background:white"><span
+                  style="line-height:21.0pt"><span style="font-family:Calibri,sans-serif"><b><span
+                  style="font-size:15.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">РОЛЬ РЕГИОНАЛЬНОГО&nbsp;УЧЕБНО-МЕТОДИЧЕСКОГО&nbsp;ЦЕНТРА&nbsp;ПО ХУДОЖЕСТВЕННОМУ ОБРАЗОВАНИЮ БГИИК&nbsp; В РАЗВИТИИ ДЕТСКОГО ХУДОЖЕСТВЕННОГО ОБРАЗОВАНИЯ</span></span></b></span></span></span></span></span>
+                </p>
+              </div>
+              </p>
+              <div>
+                <div style="text-align: center; width: 100%; margin: 0"><img src="/images/history/image_1.jpg"></div>
+
+                <p style="text-align: justify;"><span style="font-family:Times New Roman,Times,serif;"><span
+                  style="font-size:14.0pt"><span style="line-height:115%"><span style="color:black">История Регионального учебно-методического центра по художественному образованию БГИИК начинается с августа 1976 года, когда приказом по областному управлению культуры Белгородского облисполкома был организован Областной методический кабинет по среднему специальному, начальному музыкальному и художественному образованию при управлении культуры Белгородского облисполкома.</span></span></span></span>
+                </p>
+
+                <p
+                  style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 10pt; margin-right:0cm; margin-left:0cm">
+                  <span style="font-size:14.0pt"><span style="line-height:115%"><span
+                    style="font-family:&quot;Calibri&quot;,sans-serif"><span style="color:black"><img alt=""
+                                                                                                      src="/images/history/image_2.jpg"
+                                                                                                      style="width: 250px;height: 181px;float: left;margin-right: 20px;"></span></span></span></span><span
+                  style="font-size:11pt"><span style="line-height:normal"><span
+                  style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                  style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">С годами шли реорганизации.</span></span></span> <span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">В <span
+                  style="color:black">&nbsp;2009 году учебно-методический кабинет по образованию&nbsp; в качестве структурного подразделения был присоединен к Белгородскому государственному институту культуры и искусств.</span></span></span></span></span></span>
+                </p>
+
+                <p
+                  style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 10pt; margin-right:0cm; margin-left:0cm">
+                  <span style="font-size:11pt"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">В 2016 году Учебно-методическому центру по художественному образованию исполнилось&nbsp;40 лет.</span></span></span></span></span></span>
+                </p>
+
+                <p
+                  style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 10pt; margin-right:0cm; margin-left:0cm">
+                  <span style="font-size:11pt"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">Основными направлениями деятельности РУМЦ сегодня являются:</span></span></span></span></span></span>
+                </p>
+
+                <ul>
+                  <li style="text-align: justify; margin: 0cm 0cm 0.0001pt 36pt;"><span style="font-size:11pt"><span
+                    style="line-height:normal"><span style="font-family:Calibri,sans-serif"><span
+                    style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span
+                    style="color:black"><span style="letter-spacing:-.05pt">координация взаимодействия детских школ искусств области с&nbsp; вузом&nbsp; в целях сохранения образовательных традиций, методической преемственности и непрерывности художественного образования;</span></span></span></span> </span></span></span>
+                  </li>
+                  <li style="text-align:justify; margin:0cm 0cm 0.0001pt 36pt; margin-right:0cm"><span
+                    style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="background:white"><span style="font-family:&quot;Times New Roman&quot;,serif"><span
+                    style="color:black">создание условий для методического обеспечения непрерывного совершенствования качества образовательных услуг, оказываемых муниципальными образовательными учреждениями отрасли культуры области;</span></span></span></span></span></span></span></span>
+                  </li>
+                  <li style="text-align:justify; margin:0cm 0cm 0.0001pt 36pt; margin-right:0cm"><span
+                    style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">осуществление профессионального роста педагогических кадров детских школ искусств области через организацию и проведение методических обучающих мероприятий; </span></span></span></span></span></span></span>
+                  </li>
+                  <li style="text-align:justify; margin:0cm 0cm 0.0001pt 36pt; margin-right:0cm"><span
+                    style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">выявление и поддержка одаренных детей в области культуры и искусства;</span></span></span></span></span></span></span>
+                  </li>
+                  <li style="text-align:justify; margin:0cm 0cm 10pt 36pt; margin-right:0cm"><span
+                    style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span
+                    style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:black">анализ деятельности учебных заведений сферы культуры и искусства, их информационно-правовая и методическая поддержка.</span></span></span></span></span></span></span>
+                  </li>
+                </ul>
+
+                <p style="margin-top:1.5pt; margin-right:0cm; margin-bottom:1.5pt; margin-left:0cm; text-align:justify">
+                  <span style="font-size:12pt"><span style="background:white"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:14.0pt"><span
+                    style="color:black">Главной задачей</span></span> <span style="font-size:14.0pt">функционирования региональной методической службы</span> <span
+                    style="font-size:14.0pt">во все годы своей деятельности являлась<span style="color:black"> необходимость поднять на качественно новый уровень систему художественно-эстетического образования детей Белгородской области, развитие и укрепление сети школ искусств.</span></span></span></span></span>
+                </p>
+
+                <p style="margin-top:1.5pt; margin-right:0cm; margin-bottom:1.5pt; margin-left:0cm; text-align:justify">
+                  <span style="font-size:12pt"><span style="background:white"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:14.0pt"><span
+                    style="color:black">Сегодня</span></span> <span style="font-size:14.0pt">Методцентр<span
+                    style="color:black"> осуществляет методическое руководство и сотрудничество с 59 муниципальными детскими школами искусств и 4 художественными школами.</span></span></span></span></span>
+                </p>
+
+                <p style="margin-top:1.5pt; margin-right:0cm; margin-bottom:1.5pt; margin-left:0cm; text-align:justify">
+                  <span style="font-size:12pt"><span style="background:white"><span
+                    style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:14.0pt"><span
+                    style="color:black">Свою историю учреждения дополнительного образования Белгородской области начали в далёкий послевоенный 1946 год, когда была открыта первая музыкальная школа в городе Белгороде, отметившая в 2016&nbsp;году своё 70-летие. К 1960 году в области были открыты ещё 5 школ – в городах Старый Оскол (ДШИ им. М.Г. Эрденко №1), Валуйки (ДШИ №1), Алексеевка, Губкин (ДМШ №1), Шебекино, а через 15 лет их число возросло в 8,5 раз.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">За 30&nbsp; лет в области была создана разветвлённая сеть учреждений начального музыкального образования – 76 детских музыкальных, художественных школ и школ искусств, что обусловило создание в эти годы областного методического кабинета, осуществляющего координацию деятельности учебных заведений начального и среднего звена. Первым руководителем был назначен Бекетов М.П., ранее&nbsp; бывший директором Корочанской ДМШ, затем инспектором управления культуры области.&nbsp; </span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В разные годы методический кабинет возглавляли Малиновский А.Н., Максимчук Ю.Г. С 1991 года, более 25 лет региональным учебно-методическим центром по художественному образованию руководит Белокурова Т.Ф., заслуженный работник культуры РФ, опытный руководитель и организатор.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В своей работе Методцентр опирается на знания актуальных проблем и состояния образовательных учреждений, которые изучаются в процессе мониторинговой и статистической информации. Систематически осуществляется анализ деятельности образовательных учреждений по различным направлениям: состоянию нормативной базы, содержанию образования, кадровому составу, результатам&nbsp; творческих достижений, состоянию материально-технической базы.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="color:#000000;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Специалисты центра постоянно оказывают консультативную помощь руководителям и педагогическим работникам образовательных учреждений по вопросам организации учебной деятельности и аттестации педагогических работников, по проблемам, связанным с переходом детских школ искусств на дополнительные предпрофессиональные общеобразовательные программы по различным видам искусств.</span></span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Сегодня в отрасли культуры в сфере дополнительного образования в нашей области занято свыше 1700 педагогических работников. Неуклонно увеличивается удельный вес педагогических работников, имеющих высшее образование. В настоящее время преподавателей с высшим образованием 63%&nbsp;&nbsp; от их общего количества. За пять последних лет среди преподавателей этот показатель возрос на 10 процентов, за этот же период&nbsp; на 10 процентов увеличилась доля педагогов, имеющих высшую квалификационную категорию. Сегодня квалификационные категории имеют более 70% преподавателей, половина из них – высшую. 64 педагога детских школ искусств (что составляет&nbsp; 4%)&nbsp; имеют звание «Заслуженный работник культуры России». </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В детских школах искусств области работают ветераны педагогического труда, руководители с большим стажем работы. 35 лет, со дня основания школы работает в должности директора ДШИ №2 города Старый Оскол Цыцугина Н.В., Заслуженный работник культуры РФ; более 40 лет в Бессоновской ДШИ работает Шевченко А.Н., Заслуженный работник культуры РФ, из них 19 лет – в должности директора; 30 в должности директора Томаровской ДШИ работает Руднева Г.В. Более 25 лет возглавляют&nbsp; учебные заведения директора: Ляшенко Г.М., Заслуженный работник культуры РФ (Шебекинская ДШИ), Стрелецкий В.А. (Яковлевская ДШИ, Леунов А.С. (Майская ДШИ).&nbsp; Всю свою педагогическую деятельность посвятила Валуйской ДШИ Деревягина А.В., из них 19 лет она работает в должности директора. С 1995 года Валуйскую ДШИ №2 возглавляет Харламов В.Н., Заслуженный работник культуры РФ. Более 20 лет сельские детские музыкальные школы Губкинского района Боброводворскую и Истобнянскую возглавляют Шеховцова Н.В. и Ишкова Л.М. Единственным директором со дня основания Засосенской ДШИ является Андрющенко С.В., 22 года в должности руководителя Ездоченской ДШИ работает Доценко М.В. От молодого специалиста до заместителя директора, а затем директора прошла свой творческий путь в ДШИ &nbsp;г. Строитель Коваленко Т.Д.</span></span> </span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Высокой оценки заслуживает многолетний труд руководителей школ, ветеранов, оставивших руководящие должности в последние 5 лет. Это заслуженные работники культуры РФ: &nbsp;Обрезанов Г.А., директор Пятницкой ДШИ Волоконовского района и Романцов Б.Я., директор Веселовской ДШИ Красногвардейского района, проработавшие более 40 лет, со дня основания учебных заведений в должности руководителей школ. Неоценимый вклад внесли в развитие детского художественного образования области заслуженные работники культуры РФ Картамышев Н.А., директор Губкинской ДМШ №1 и Чечнева А.Е., директор ДМШ №3&nbsp; г. Ст. Оскол. Способствовали развитию конкурсно-фестивального движения и выставочной деятельности учебных заведений Буслаева Е.Д., директор ДШИ им. М.Г. Эрденко №1 г. Ст.Оскол, Соколова В.И., директор ДХШ г. Губкин, Козлова С.Н., директор Грайворонской ДШИ, Попова Л.В., директор Разуменской ДШИ Белгородского района.</span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Методический центр способствует совершенствованию качества преподавания в образовательных учреждениях культуры и искусства, пропагандируя лучший педагогический опыт на семинарах, мастер-классах, научно-практических конференциях, а также в форме издания учебно-методических пособий и нотных сборников. В процессе образовательной деятельности региональным учебно-методическим центром по художественному образованию осуществляется пополнение регионального банка данных по актуальному педагогическому опыту. С 2012 года в него внесено 34 опыта в форме целостного описания, издано более 50 авторских нотных сборников. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Установленные творческие и профессиональные контакты с ведущими вузами культуры и искусства обеспечивают эффективный обмен педагогическим мастерством и методическим опытом, позволяют совершенствовать профессиональные компетенции и расширять границы деятельности преподавателей детских школ искусств. В рамках международных конкурсов только за последние 5 лет серию мастер-классов провели профессора РАМ им. Гнесиных – народный артист РФ Липс Ф.Р.,&nbsp; Горбачёв А.А.,&nbsp; Комолятов Н.А., доктор искусствоведения, заслуженный деятель искусств РФ Имханицкий&nbsp; М.И. Ряд обучающих семинаров для преподавателей всех специализаций проведены Новиковым В.Е., доцентом кафедры народных инструментов БГИИК, заслуженным деятелем искусств Удмуртской Республики. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">В системе проводятся учебные семинары для преподавателей ДШИ области мастерами скрипичного искусства МГК им. П.И. Чайковского –&nbsp; профессором, народной артисткой России Бочковой И.В. и доцентом Кесельман М.И., неоднократно опытом работы по вопросам методики преподавания в ДШИ делился преподаватель Тверского музыкального колледжа Мильтонян С.А. Стало традицией проведение мастер-классов в рамках фестиваля «Борислав Струлёв и друзья», Международного дня баяна, аккордеона и гармоники, Всероссийского дня «Балалайка – душа России», Региональной недели хореографического искусства. </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Преподаватели Белгородской&nbsp; области совершенствовали свои знания&nbsp; на мастер-классах выдающихся педагогов-музыкантов: народного артиста России С. Лукина (Москва), профессора Московской государственной консерватории им. П.И. Чайковского Карасёвой М.И., профессора Зорана Ракича (Босния и Герцеговина), доцента А.А. Нижника (Белгород), Г. Гермоза (Испания), доцента Е. Гридюшко (Беларусь), профессора Доценко В.И. (Украина). </span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing" style="text-align:justify; margin:0cm 0cm 0.0001pt"><span
+                  style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Ряд семинаров и мастер-классов проводятся&nbsp;при </span></span><span
+                  style="font-size:14.0pt"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;поддержке Благотворительного фонда «Искусство, наука и спорт» (г. Москва).</span></span></span></span>
+                </p>
+
+                <p class="MsoNoSpacing"
+                   style="text-align:justify; margin:0cm 0cm 0.0001pt; margin-right:0cm; margin-left:0cm">&nbsp;</p>
+              </div>
+              <p><!----></p>
+          </div>
+          </od-history>
+        </div>
+
+
+      </div>
+  </div>
+  </mat-card>
+  <footer class="footer">
+    <div class="container" style="margin-top: 10px;">
+      <span
+        class="text-muted">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+    </div>
+  </footer>
+  </div>
+
+
+</od-root>
+</body>
+</html>
