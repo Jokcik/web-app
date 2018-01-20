@@ -10,5 +10,6 @@ export const NewsSchema = new mongoose.Schema({
   description: {
     type: DescriptionSchema
   },
-  type: Number
+  type: Number,
+  images: [String]
 });

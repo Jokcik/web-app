@@ -48,6 +48,7 @@ import {SchoolsModule} from '../../schools/schools.module';
 import {GalleryModule} from '../../gallery/gallery.module';
 import {CompetitionModule} from '../../competition/competition.module';
 import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
+import {NgxGalleryModule} from 'ngx-gallery';
 
 @NgModule({
   imports: [
@@ -76,6 +77,7 @@ import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
     MatSortModule,
     MatTabsModule,
     CdkTableModule,
+    NgxGalleryModule,
 
     MatDialogModule,
     MatIconModule,

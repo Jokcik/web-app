@@ -29,7 +29,7 @@
         <button mat-raised-button color="primary">
           <label for="fileToUpload" style="margin-bottom: 0; cursor: pointer;">Выбрать файл</label>
           <input id="fileToUpload" odImageLoad [src]="news.img" style="display: none"
-                 [(file)]="imgFile" type="file" (change)="loadFile()">
+                 [(file)]="imgFile" type="file" (change)="loadLogoFile()">
         </button>
         <button mat-raised-button color="warn">Удалить</button>
       </div>
@@ -44,6 +44,16 @@
     <div class="news-main-text">
       <od-ckeditor [(value)]="news.description.description" name="editor2"></od-ckeditor>
     </div>
+
+    <div class="news-main-title"><b>Фотографии галлереи</b></div>
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+
+    <button mat-raised-button color="primary">
+      <label for="fileToUpload2" style="margin-bottom: 0; cursor: pointer;">Добавить файл в галлерею</label>
+      <input id="fileToUpload2" odImageLoad style="display: none"
+             [(file)]="imgFile" type="file" (change)="loadGalleryFile()">
+    </button>
+    <br/>
 
     <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="!news._id">Добавить</button>
     <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="news._id">Изменить</button>
