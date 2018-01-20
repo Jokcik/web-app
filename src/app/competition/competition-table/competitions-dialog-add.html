@@ -71,10 +71,11 @@
         <mat-label>{{currentCompetition.level?.title}}</mat-label>
       </div>
 
-      <div *ngIf="!isEditDialog">Файлы {{selectYear}} года:</div>
+      <div *ngIf="!isEditDialog">Информация о конкусе ({{selectYear}}) год:</div>
       <ng-container *ngFor="let file of currentCompetition.files['year' + selectYear]">
-        <ng-container *ngIf="!isEditDialog && file.url && file.name && file.title">
-          <a [href]="file.url" download>{{file.title}}</a>
+        <ng-container *ngIf="!isEditDialog && file.name && file.title">
+          <a [href]="file.url" download *ngIf="!file.url">{{file.title}}</a>
+          <div *ngIf="file.url">{{file.title}}</div>
           <br/>
         </ng-container>
       </ng-container>
