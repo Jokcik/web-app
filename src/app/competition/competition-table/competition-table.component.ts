@@ -53,7 +53,7 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
     this.dataSource.paginator = this.paginator;
     this.dataSource.filterPredicate =
       (data, filter) => data.title.toLowerCase().includes(filter)
-        || (data.specialization && data.specialization.title.toLowerCase().includes(filter))
+        || (data.specialization && data.specialization.some(spec => spec.title.toLowerCase().includes(filter)))
         || data.level.title.toLowerCase().includes(filter);
   }
 

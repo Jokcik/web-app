@@ -58,7 +58,7 @@
       </div>
 
       <ng-container *ngIf="isEditDialog">
-        <label style="margin-top: 20px;"><b>Специализации конкурса</b></label><br/>
+        <label><b>Специализации конкурса</b></label><br/>
         <mat-checkbox class="checkbox" *ngFor="let specialization of specializations; let idx = index"
                       [(ngModel)]="currentSpecializations[idx]"> {{specialization.title}}
         </mat-checkbox>
@@ -78,6 +78,8 @@
           <br/>
         </ng-container>
       </ng-container>
+
+      <label style="display: block; margin-top: 10px;" *ngIf="isEditDialog"><b>Файлы</b></label>
       <mat-accordion *ngIf="isEditDialog">
         <od-expansion-year-files *ngIf="currentCompetition.year2017" [title]="2017"
                                  [shortDescription]="'Файлы 2017 года'"
