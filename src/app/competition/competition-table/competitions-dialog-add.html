@@ -16,10 +16,10 @@
         <input matInput placeholder="Короткое название конкурса"
                [(ngModel)]="currentCompetition.shortTitle">
       </mat-form-field>
-      <div *ngIf="!isEditDialog && !!currentCompetition.shortTitle" style="margin-top: 10px;">
-        <label><b>Короткое название конкурса</b></label><br/>
-        <mat-label>{{currentCompetition.shortTitle}}</mat-label>
-      </div>
+      <!--<div *ngIf="!isEditDialog && !!currentCompetition.shortTitle" style="margin-top: 10px;">-->
+        <!--<label><b>Короткое название конкурса</b></label><br/>-->
+        <!--<mat-label>{{currentCompetition.shortTitle}}</mat-label>-->
+      <!--</div>-->
 
       <div class="date-block" *ngIf="isEditDialog">
         <label style="display: block"><b>Год проведения</b></label>
