@@ -12,7 +12,7 @@ export class Competition {
   year2020: boolean = false;
   year2021: boolean = false;
   year2022: boolean = false;
-  specialization: Specialization = new Specialization();
+  specialization: Specialization[] = [];
   level: CompetitionLevel = new CompetitionLevel();
   files: {
     year2017?: CompetitionFiles[];
