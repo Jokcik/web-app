@@ -13,7 +13,7 @@
       </div>
 
       <mat-form-field *ngIf="isEditDialog">
-        <input matInput [maxlength]="30" placeholder="Короткое название конкурса"
+        <input matInput placeholder="Короткое название конкурса"
                [(ngModel)]="currentCompetition.shortTitle">
       </mat-form-field>
       <div *ngIf="!isEditDialog && !!currentCompetition.shortTitle" style="margin-top: 10px;">
