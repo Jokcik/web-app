@@ -1,7 +1,7 @@
 <div class="outer-wrap-competitions dialog">
   <div class="dialog">
     <mat-card-header mat-dialog-title>
-      {{isEditDialog ? (currentCompetition._id ? 'Изменить конкурс' : 'Добавить конкурс') : 'Информация о конкурсе'}}
+      {{isEditDialog ? (currentCompetition._id ? 'Изменить конкурс' : 'Добавить конкурс') : ''}}
     </mat-card-header>
     <div mat-dialog-content>
       <mat-form-field *ngIf="isEditDialog">
@@ -13,16 +13,16 @@
       </div>
 
       <mat-form-field *ngIf="isEditDialog">
-        <input matInput [maxlength]="30" placeholder="Короткое название конкурса"
+        <input matInput placeholder="Короткое название конкурса"
                [(ngModel)]="currentCompetition.shortTitle">
       </mat-form-field>
-      <div *ngIf="!isEditDialog && !!currentCompetition.shortTitle" style="margin-top: 10px;">
-        <label><b>Короткое название конкурса</b></label><br/>
-        <mat-label>{{currentCompetition.shortTitle}}</mat-label>
-      </div>
+      <!--<div *ngIf="!isEditDialog && !!currentCompetition.shortTitle" style="margin-top: 10px;">-->
+        <!--<label><b>Короткое название конкурса</b></label><br/>-->
+        <!--<mat-label>{{currentCompetition.shortTitle}}</mat-label>-->
+      <!--</div>-->
 
       <div class="date-block" *ngIf="isEditDialog">
-        <label style="display: block">Год проведения</label>
+        <label style="display: block"><b>Год проведения</b></label>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2017"> 2017</mat-checkbox>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2018"> 2018</mat-checkbox>
         <mat-checkbox class="checkbox" [(ngModel)]="currentCompetition.year2019"> 2019</mat-checkbox>
@@ -46,21 +46,7 @@
                style="text-decoration: underline; color: #1d75b3; cursor: pointer;"> 2022 </label>
       </div>
 
-      <mat-form-field *ngIf="isEditDialog">
-        <mat-select placeholder="Специализация конкурса" (valueChange)="specializationIdx = $event"
-                    [value]="specializationIdx">
-          <mat-option [value]="-1"> —</mat-option>
-          <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
-            {{ specialization.title }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div *ngIf="!isEditDialog" style="margin-top: 10px;">
-        <label><b>Специализация конкурса: </b></label>
-        <mat-label>{{currentCompetition.specialization?.title || 'все'}}</mat-label>
-      </div>
-
-      <mat-form-field *ngIf="isEditDialog">
+      <mat-form-field *ngIf="isEditDialog" style="margin-top: 10px; margin-bottom: 10px;">
         <mat-select placeholder="Уровень конкурса" (valueChange)="currentCompetition.level = levels[$event]"
                     [value]="levelIdx">
           <mat-option *ngFor="let level of levels; let idx = index" [value]="idx">{{level.title}}</mat-option>
@@ -71,13 +57,29 @@
         <mat-label>{{currentCompetition.level?.title}}</mat-label>
       </div>
 
-      <div *ngIf="!isEditDialog">Файлы {{selectYear}} года:</div>
+      <ng-container *ngIf="isEditDialog">
+        <label><b>Специализации конкурса</b></label><br/>
+        <mat-checkbox class="checkbox" *ngFor="let specialization of specializations; let idx = index"
+                      [(ngModel)]="currentSpecializations[idx]"> {{specialization.title}}
+        </mat-checkbox>
+      </ng-container>
+      <div *ngIf="!isEditDialog" style="margin-top: 10px;">
+        <label><b>Специализации: </b></label>
+        <ul>
+          <li *ngFor="let spec of currentCompetition.specialization; let last = last">{{spec.title}}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="!isEditDialog"><b>Информация о конкурсе ({{selectYear}} год):</b></div>
       <ng-container *ngFor="let file of currentCompetition.files['year' + selectYear]">
-        <ng-container *ngIf="!isEditDialog && file.url && file.name && file.title">
-          <a [href]="file.url" download>{{file.title}}</a>
+        <ng-container *ngIf="!isEditDialog && file.title">
+          <a [href]="file.url" download *ngIf="file.url && file.name">{{file.title}}</a>
+          <a *ngIf="!(file.url && file.name)">{{file.title}}</a>
           <br/>
         </ng-container>
       </ng-container>
+
+      <label style="display: block; margin-top: 10px;" *ngIf="isEditDialog"><b>Файлы</b></label>
       <mat-accordion *ngIf="isEditDialog">
         <od-expansion-year-files *ngIf="currentCompetition.year2017" [title]="2017"
                                  [shortDescription]="'Файлы 2017 года'"

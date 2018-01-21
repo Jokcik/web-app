@@ -32,7 +32,7 @@ import {ODMultipartSendService} from '../../core/od-multipart-send.service';
     MatSelectModule,
     MatButtonModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
   ],
   declarations: [
     CompetitionTableComponent,

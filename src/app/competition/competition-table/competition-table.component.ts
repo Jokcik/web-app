@@ -3,7 +3,7 @@ import {Dummy} from '../../core/dummy';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Competition} from '../../admin/edit/shared/competition';
 import {CompetitionsDialogAdd} from './competitions-dialog-add';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'od-competition-table',
@@ -22,7 +22,8 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private dialog: MatDialog,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -53,7 +54,7 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
     this.dataSource.paginator = this.paginator;
     this.dataSource.filterPredicate =
       (data, filter) => data.title.toLowerCase().includes(filter)
-        || (data.specialization && data.specialization.title.toLowerCase().includes(filter))
+        || (data.specialization && data.specialization.some(spec => spec.title.toLowerCase().includes(filter)))
         || data.level.title.toLowerCase().includes(filter);
   }
 
@@ -63,7 +64,8 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
     this.dataSource.filter = filterValue;
   }
 
-  public openCompetition(competition: Competition) {
+  public async openCompetition(competition: Competition) {
+    if(await this.router.navigate([], {queryParams: competition ? {number: competition.num} : {}})) return;
     this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
       .afterClosed()
       .subscribe(result => result && this.changeCompetition.emit(result));

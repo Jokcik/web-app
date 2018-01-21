@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HistoryService} from '../../../history/history.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
@@ -9,6 +9,7 @@ import {of} from 'rxjs/observable/of';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {UpdateService} from '../../../announce/update.service';
+import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 
 export const MY_FORMATS = {
   parse: {
@@ -35,6 +36,11 @@ export class NewsEditComponent implements OnInit {
   public news: Materials = new Materials();
   public imgFile: File;
 
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[] = [];
+
+  @ViewChild(NgxGalleryComponent) galleryComponent: NgxGalleryComponent;
+
   constructor(private service: HistoryService,
               private multipart: ODMultipartSendService,
               private router: Router,
@@ -44,12 +50,22 @@ export class NewsEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.pipe(switchMap(params => {
-      if (params['url']) {
-        return this.service.queryMainpage({url: params['url']}).$observable;
+    this.galleryOptions = [
+      {
+        image: false,
+        height: '100px',
+        preview: false
       }
-      return of([this.news]);
-    })).subscribe(news => this.news = news[0]);
+    ];
+
+    this.route.params
+      .pipe(switchMap(params => params['url'] ? this.service.queryMainpage({url: params['url']}).$observable : of([this.news])))
+      .subscribe(news => {
+        this.news = news[0];
+        if (this.news.images && this.news.images.length) {
+          this.galleryImages = this.news.images.map(image => {return {small: image, big: image};});
+        }
+      });
   }
 
   public filterDate(d): boolean {
@@ -59,7 +75,16 @@ export class NewsEditComponent implements OnInit {
     return +now < +date && date.getFullYear() < 2023;
   };
 
-  public loadFile() {
+  public async loadLogoFile() {
+    this.news.img = (await this.loadFile()).url;
+  }
+
+  public async loadGalleryFile() {
+    let url = (await this.loadFile()).url;
+    this.galleryImages.push({small: url, big: url});
+  }
+
+  private async loadFile(): Promise<{url: string}> {
     if (!this.imgFile) return;
 
     let multipartItems: MultipartItem[] = [
@@ -67,10 +92,12 @@ export class NewsEditComponent implements OnInit {
       {name: 'type', value: 'news'}
     ];
 
-    this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).subscribe(data => this.news.img = data.url);
+    return this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).toPromise();
   }
 
   public saveNews() {
+    this.news.images = this.galleryImages.map(value => <string>value.small);
+
     if (this.news._id) {
       return this.service.update(this.news).$observable.subscribe(res => {
         this.updateMaterials();
@@ -79,7 +106,7 @@ export class NewsEditComponent implements OnInit {
     }
 
     this.news.url = this.utils.translit(<any>this.news.title);
-    this.news.date = this.news.type == 2 ? this.news.date  : new Date();
+    this.news.date = this.news.type == 2 ? this.news.date : new Date();
 
     return this.service.save(this.news).$observable.subscribe(res => {
       this.updateMaterials();
@@ -90,8 +117,14 @@ export class NewsEditComponent implements OnInit {
   public updateMaterials() {
     if (this.news.type == 2) {
       this.updateService.changeAnnounce.next();
-    } if (this.news.type == 1) {
+    }
+    if (this.news.type == 1) {
       this.updateService.changeNews.next();
     }
+  }
+
+  removeImageGallery(event) {
+    if (!window.confirm('Вы действительно хотите удалить эту картинку?')) return;
+    this.galleryImages = this.galleryImages.filter((value, idx) => idx != event.index);
   }
 }

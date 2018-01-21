@@ -29,7 +29,7 @@
         <button mat-raised-button color="primary">
           <label for="fileToUpload" style="margin-bottom: 0; cursor: pointer;">Выбрать файл</label>
           <input id="fileToUpload" odImageLoad [src]="news.img" style="display: none"
-                 [(file)]="imgFile" type="file" (change)="loadFile()">
+                 [(file)]="imgFile" type="file" (change)="loadLogoFile()">
         </button>
         <button mat-raised-button color="warn">Удалить</button>
       </div>
@@ -44,6 +44,22 @@
     <div class="news-main-text">
       <od-ckeditor [(value)]="news.description.description" name="editor2"></od-ckeditor>
     </div>
+
+    <div class="news-main-title"><b>Фотографии галереи</b></div>
+    <div class="all-galleries" style="position: relative;">
+      <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (change)="removeImageGallery($event)"></ngx-gallery>
+
+      <button mat-raised-button color="primary" style="position: absolute;  margin-top: 30px;">
+        <label for="fileToUpload2" style="margin-bottom: 0; cursor: pointer;">Добавить файл в галерею</label>
+        <input id="fileToUpload2" odImageLoad style="display: none"
+               [(file)]="imgFile" type="file" (change)="loadGalleryFile()">
+      </button>
+      <!--<mat-icon *ngIf="galleryImages.length">delete</mat-icon>-->
+      <!--<mat-icon style="left: 175px;" *ngIf="galleryImages.length > 1">delete</mat-icon>-->
+      <!--<mat-icon style="left: 300px;" *ngIf="galleryImages.length > 2">delete</mat-icon>-->
+      <!--<mat-icon style="left: 425px;" *ngIf="galleryImages.length > 3">delete</mat-icon>-->
+    </div>
+    <br/>
 
     <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="!news._id">Добавить</button>
     <button mat-raised-button color="primary" (click)="saveNews()" *ngIf="news._id">Изменить</button>

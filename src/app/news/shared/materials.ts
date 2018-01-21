@@ -9,6 +9,8 @@ export class Materials {
   date: Date;
   type: number = 1;
   description: Description = new Description();
+
+  images: string[] = [];
 }
 
 export class Description {

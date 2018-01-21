@@ -18,7 +18,6 @@ export const CompetitionSchema = new mongoose.Schema({
   },
   shortTitle: {
     type: String,
-    required: true
   },
   year2017: {
     type: Boolean,
@@ -48,10 +47,10 @@ export const CompetitionSchema = new mongoose.Schema({
     type: ObjectID,
     ref: CompetitionLevelSchema
   },
-  specialization: {
+  specialization: [{
     type: ObjectID,
     ref: SpecializationSchema
-  },
+  }],
 
   files: {
     year2017: [CompetitionFilesSchema],

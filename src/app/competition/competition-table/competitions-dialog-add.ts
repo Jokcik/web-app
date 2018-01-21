@@ -6,6 +6,7 @@ import {Specialization} from '../../admin/edit/shared/children';
 import {CompetitionLevel} from '../../admin/edit/shared/competition-level';
 import {Competition, CompetitionFiles} from '../../admin/edit/shared/competition';
 import {ODUtils} from '../../core/od-utils';
+import {Dummy} from '../../core/dummy';
 
 @Component({
   selector: 'competition-dialog-add',
@@ -16,7 +17,7 @@ export class CompetitionsDialogAdd {
   public isEditDialog: boolean = false;
 
   public specializations: Specialization[] = [];
-  public specializationIdx: number = -1;
+  public currentSpecializations: boolean[] = [];
 
   public levels: CompetitionLevel[] = [];
   public levelIdx: number = -1;
@@ -40,7 +41,9 @@ export class CompetitionsDialogAdd {
       this.specializations = speicializations;
 
       if (!this.currentCompetition.specialization) return;
-      this.specializationIdx = this.odUtils.getIdInArray(this.currentCompetition.specialization.title, this.specializations, 'title');
+      this.currentSpecializations = this.specializations.map(specialization => {
+        return !!this.currentCompetition.specialization.find(spec => spec.title == specialization.title)
+      });
     });
 
     this.currentCompetition.files = this.currentCompetition.files || {};
@@ -49,11 +52,8 @@ export class CompetitionsDialogAdd {
 
   public add(): void {
     this.currentCompetition.level = <any>this.currentCompetition.level._id;
-    if (this.specializationIdx != -1) {
-      this.currentCompetition.specialization = <any>this.specializations[this.specializationIdx]._id;
-    } else {
-      this.currentCompetition.specialization = <any>'';
-    }
+    this.currentCompetition.specialization = <any>this.currentSpecializations.map((value, idx) => value ? this.specializations[idx] : '').filter(value => !!value);
+
     this.dialogRef.close({competition: this.currentCompetition, type: 'add'});
   }
 
