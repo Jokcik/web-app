@@ -1,6 +1,6 @@
 import {ODResourceCrud} from '../core/od-resource-crud';
 import {Injectable} from '@angular/core';
-`import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
+import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {Http, RequestMethod} from '@angular/http';
 import {User} from '../core/user-service/user';
 

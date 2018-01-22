@@ -14,7 +14,7 @@ enableProdMode();
 // Express server
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT_SSR || 3001;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 app.use(serveStatic(join(process.cwd(), 'public')));

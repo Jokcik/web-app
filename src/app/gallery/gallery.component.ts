@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import {GalleryDialogAdd} from './gallery-dialog-add';
 import {UserService} from '../core/user-service/user.service';
 import {Http} from '@angular/http';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'od-gallery',
@@ -30,7 +31,6 @@ export class GalleryComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.galleries = (await this.http.get('http://rumc31.ru:8080/api/children/specializations').toPromise()).json();
     this.route.data.subscribe(data => this.isEditOpen = data['edit'] || this.isEditOpen);
     this.galleryOptions = [
       {
@@ -48,7 +48,7 @@ export class GalleryComponent implements OnInit {
   }
 
   public async update() {
-    this.galleries = (await this.http.get('http://rumc31.ru:8080/api/galleries').toPromise()).json();
+    this.galleries = (await this.http.get(environment.host + 'galleries').toPromise()).json();
     // this.galleryService.query().$observable.subscribe(galleries => {
       this.galleryImages = this.galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
     // });
