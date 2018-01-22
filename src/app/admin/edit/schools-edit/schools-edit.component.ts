@@ -23,19 +23,19 @@ export class SchoolEditComponent implements OnInit {
               public dialog: MatDialog) {
   }
 
-  async ngOnInit() {
-    this.regions = await this.regionService.query();
+  ngOnInit() {
+    this.regions = this.regionService.query();
     this.updateSchools();
   }
 
-  async updateSchools() {
-    this.schools = await this.schoolService.query();
+  updateSchools() {
+    this.schools = this.schoolService.query();
   }
 
   public openDialog(): void {
     this.dialog.open(DshiDialogAdd, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
       if (!result) return;
-      this.schoolService.save(result.school).then(() => {
+      this.schoolService.save(result.school).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
         this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
@@ -45,7 +45,7 @@ export class SchoolEditComponent implements OnInit {
 
   public update() {
     this.currentSchool.region = <any>this.currentSchool.region._id;
-    this.schoolService.update(this.currentSchool).then(res => {
+    this.schoolService.update(this.currentSchool).$observable.subscribe(res => {
       this.updateSchools();
       this.currentSchool = null;
       this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
@@ -54,7 +54,7 @@ export class SchoolEditComponent implements OnInit {
 
   public remove() {
     if (window.confirm('Вы действительно хотите удалить школу, управление?')) {
-      this.schoolService.remove({_id: this.currentSchool._id}).then(() => {
+      this.schoolService.remove({_id: this.currentSchool._id}).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
         this.snackBar.open('Данные успешно удалены', 'ОК', {duration: 2000})

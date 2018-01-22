@@ -6,6 +6,7 @@ import {NgxGalleryAnimation, NgxGalleryComponent, NgxGalleryImage, NgxGalleryOpt
 import {ActivatedRoute} from '@angular/router';
 import {GalleryDialogAdd} from './gallery-dialog-add';
 import {UserService} from '../core/user-service/user.service';
+import {Http} from '@angular/http';
 
 @Component({
   selector: 'od-gallery',
@@ -24,10 +25,12 @@ export class GalleryComponent implements OnInit {
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
               public userService: UserService,
+              private http: Http,
               private galleryService: GalleryService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.galleries = (await this.http.get('http://rumc31.ru:8080/api/children/specializations').toPromise()).json();
     this.route.data.subscribe(data => this.isEditOpen = data['edit'] || this.isEditOpen);
     this.galleryOptions = [
       {
@@ -44,11 +47,11 @@ export class GalleryComponent implements OnInit {
     this.update();
   }
 
-  public update() {
-    this.galleryService.query().then(galleries => {
-      this.galleries = galleries;
-      this.galleryImages = galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
-    });
+  public async update() {
+    this.galleries = (await this.http.get('http://rumc31.ru:8080/api/galleries').toPromise()).json();
+    // this.galleryService.query().$observable.subscribe(galleries => {
+      this.galleryImages = this.galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
+    // });
   }
 
   public openDialog(idx?: number) {
@@ -62,19 +65,19 @@ export class GalleryComponent implements OnInit {
       if (!result || !result.gallery) return;
 
       if (result.type == -1) {
-        return this.galleryService.remove({_id: result.gallery._id}).then(() => {
+        return this.galleryService.remove({_id: result.gallery._id}).$observable.subscribe(() => {
           this.update();
           this.snackBar.open('Фотография успешно удалена', 'ОК', {duration: 2000})
         });
       }
 
       if (result.gallery._id) {
-        this.galleryService.update(result.gallery).then(() => {
+        this.galleryService.update(result.gallery).$observable.subscribe(() => {
           this.update();
           this.snackBar.open('Фотография успешно обновлена', 'ОК', {duration: 2000})
         });
       } else {
-        this.galleryService.save(result.gallery).then(() => {
+        this.galleryService.save(result.gallery).$observable.subscribe(() => {
           this.update();
           this.snackBar.open('Фотография успешно добавлена', 'ОК', {duration: 2000})
         });

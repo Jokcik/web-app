@@ -25,7 +25,7 @@ export class AuthComponent implements OnInit {
   }
 
   public loginUser() {
-    this.profileService.login({login: this.user.nickname, password: this.password}).then(user => {
+    this.profileService.login({login: this.user.nickname, password: this.password}).$observable.subscribe(user => {
       this.userService.setUser(user);
       localStorage.setItem('access_token', user.access_token);
       this.router.navigate(['/']);
@@ -34,7 +34,7 @@ export class AuthComponent implements OnInit {
 
   public registerUser() {
     let login = Object.assign(this.user, {password: this.password});
-    this.profileService.register(this.user).then(data => {
+    this.profileService.register(this.user).$observable.subscribe(data => {
       this.userService.setUser(this.user);
       localStorage.setItem('access_token', data.access_token);
       this.router.navigate(['/']);

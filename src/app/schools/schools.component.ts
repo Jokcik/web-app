@@ -31,17 +31,17 @@ export class SchoolsComponent implements OnInit {
               private regionService: RegionService) {
   }
 
-  async ngOnInit() {
-    this.regions = await this.regionService.query();
+  ngOnInit() {
+    this.regions = this.regionService.query();
     this.route.data.subscribe(data => this.isEdit = !!data['edit'] || false);
     this.updateSchools();
   }
 
   updateSchools() {
-    Promise.all([
-      this.schoolsService.query(),
-      this.route.params.toPromise()
-    ]).then(([schools, params]) => {
+    combineLatest(
+      this.schoolsService.query().$observable,
+      this.route.params
+    ).subscribe(([schools, params]) => {
       this.type = params['id'] == 'administration' ? 1 : 0;
       this.schools = schools;
       this.formatSchools(this.currentId);
@@ -71,12 +71,12 @@ export class SchoolsComponent implements OnInit {
 
   public saveSchool(school: Schools) {
     if (!school._id) {
-      this.schoolsService.save(school).then(() => {
+      this.schoolsService.save(school).$observable.subscribe(() => {
         this.updateSchools();
         this.snackBar.open(school.type ? 'Управление успешно добавлено' : 'Школа успешно добавлена', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
     } else {
-      this.schoolsService.update(school).then(() => {
+      this.schoolsService.update(school).$observable.subscribe(() => {
         this.updateSchools();
         this.snackBar.open(school.type ? 'Управление успешно изменено' : 'Школа успешно изменена', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка изменения. ${error2}`));
@@ -84,7 +84,7 @@ export class SchoolsComponent implements OnInit {
   }
 
   public deleteSchool(school: Schools) {
-    this.schoolsService.remove({_id: school._id}).then(() => {
+    this.schoolsService.remove({_id: school._id}).$observable.subscribe(() => {
       this.updateSchools();
       this.snackBar.open(school.type ? 'Управление успешно удалено' : 'Школа успешно удалена', 'ОК', {duration: 2000});
     }, error2 => window.alert(`Ошибка удаления. ${error2}`));

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {HistoryService} from '../history/history.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
@@ -26,7 +26,7 @@ export class NewsComponent implements OnInit {
   }
 
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1}).then(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
@@ -38,7 +38,7 @@ export class NewsComponent implements OnInit {
 
   public remove(news: Materials) {
     if (window.confirm('Вы действительно хотите удалить эту новость?')) {
-      this.mainpageService.remove({_id: news._id}).then(() => {
+      this.mainpageService.remove({_id: news._id}).$observable.subscribe(() => {
         this.descriptions = this.descriptions.filter(material => material._id != news._id);
       })
     }

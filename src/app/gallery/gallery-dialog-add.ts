@@ -25,7 +25,7 @@ export class GalleryDialogAdd {
       {name: 'type', value: 'gallery'}
     ];
 
-    this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).then(data => this.gallery.img = data.url);
+    this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).subscribe(data => this.gallery.img = data.url);
   }
 
   public add(): void {

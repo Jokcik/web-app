@@ -1,28 +1,47 @@
-import {Injectable} from '@angular/core';
-import {IResourceAction, Resource, ResourceParams} from '@ngx-resource/core';
+import {Resource, ResourceActionBase, ResourceParams} from 'ngx-resource';
 import {environment} from '../../environments/environment';
+import {Injectable, PLATFORM_ID} from '@angular/core';
+import {Http, Request} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+
+import {_throw} from 'rxjs/observable/throw';
+import {Inject} from '@nestjs/common';
+import {isPlatformBrowser, isPlatformServer} from '@angular/common';
+import {ServiceLocator} from './service-locator';
 
 @Injectable()
+@ResourceParams({url: environment.host})
 export class ODResource extends Resource {
+  private platformId: Object = ServiceLocator.injector.get(PLATFORM_ID);
 
-  $getUrl(actionOptions?: IResourceAction): string | Promise<string> {
-    return environment.host + super.$getUrl(actionOptions);
+  constructor(http: Http) {
+    super(http);
+    // console.log('constructor');
+    // console.log(this.platformId);
+    // console.log(isPlatformServer(this.platformId));
+    // console.log(isPlatformBrowser(this.platformId));
   }
 
-// protected $requestInterceptor(req: Request, methodOptions?: ResourceActionBase): Request {
-  //   if (localStorage.getItem('access_token')) {
-  //     req.headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
-  //   }
-  //   return super.$requestInterceptor(req, methodOptions);
-  // }
+  protected $requestInterceptor(req: Request, methodOptions?: ResourceActionBase): Request {
+    if (!isPlatformBrowser(this.platformId)) {
+      this.$responseInterceptor(this.http.get(req.url), req, methodOptions);
+      return req;
+    }
+
+    if (localStorage.getItem('access_token')) {
+      req.headers.append('Authorization', 'Bearer ' + localStorage.getItem('access_token'));
+    }
+
+    return super.$requestInterceptor(req, methodOptions)
+  }
 
 
-  // protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
-  //   let obser = observable.map(value => {
-  //     let val = value.json();
-  //     if (val.statusCode >= 400) throw new Error(value.json().message);
-  //     return value;
-  //   });
-  //   return super.$responseInterceptor(obser, req, methodOptions);
-  // }
+  protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
+    let obser = observable.map(value => {
+      let val = value.json();
+      if (val.statusCode >= 400) throw new Error(value.json().message);
+      return value;
+    });
+    return super.$responseInterceptor(obser, req, methodOptions);
+  }
 }

@@ -28,7 +28,7 @@ export class AnnounceComponent implements OnInit {
 
   public remove(news: Materials) {
     if (window.confirm('Вы действительно хотите удалить этот аннос?')) {
-      this.service.remove({_id: news._id}).then(() => {
+      this.service.remove({_id: news._id}).$observable.subscribe(() => {
         this.descriptions = this.descriptions.filter(material => material._id != news._id);
       })
     }
@@ -40,7 +40,7 @@ export class AnnounceComponent implements OnInit {
   }
 
   public formatAnnounce() {
-    this.service.querySafeHtml({type: 2}).then(descriptions => {
+    this.service.querySafeHtml({type: 2}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });

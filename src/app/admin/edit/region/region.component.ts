@@ -33,7 +33,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
   }
 
   public updateRegion() {
-    this.regionService.query().then(regions => {
+    this.regionService.query().$observable.subscribe(regions => {
       this.currentIndex = this.currentIndex == -2 ? -1 : this.currentIndex;
       this.regions.length = 0;
       this.regions.push(...regions);
@@ -72,7 +72,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
 
   public deleteRegion(row) {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
-      this.regionService.remove({_id: row._id}).then(() => this.updateRegion());
+      this.regionService.remove({_id: row._id}).$observable.subscribe(() => this.updateRegion());
     }
   }
 

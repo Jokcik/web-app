@@ -42,16 +42,16 @@ export class ChildrenComponent implements OnInit {
               public dialog: MatDialog) {
   }
 
-  public async ngOnInit() {
+  public ngOnInit() {
     this.dataSource = new MatTableDataSource(this.childrens);
-    this.regions = await this.regionService.query();
+    this.regions = this.regionService.query();
   }
 
-  public async selectedRegion(regionIdx: number) {
+  public selectedRegion(regionIdx: number) {
     this.currentRegion = regionIdx;
     this.currentSchool = -1;
     this.currentChildren = -1;
-    this.schools = await this.schoolsService.query({region_id: this.regions[regionIdx]._id});
+    this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
     this.childrens.length = 0;
   }
 
@@ -71,12 +71,12 @@ export class ChildrenComponent implements OnInit {
       if (!result) return;
 
       if (result._id) {
-        this.childrenService.update(result).then(res => {
+        this.childrenService.update(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
           this.snackBar.open('Успешно сохранено', 'ОК', {duration: 2000})
         });
       } else {
-        this.childrenService.save(result).then(res => {
+        this.childrenService.save(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
           this.snackBar.open('Ученик добавлен в базу', 'ОК', {duration: 2000})
         });
@@ -102,14 +102,14 @@ export class ChildrenComponent implements OnInit {
       this.editable = true;
       this.currentIndex = index;
     } else {
-      this.childrenService.update(region).then(() => this.snackBar.open('Успешно изменено', 'ОК', {duration: 2000}));
+      this.childrenService.update(region).$observable.subscribe(() => this.snackBar.open('Успешно изменено', 'ОК', {duration: 2000}));
       this.close();
     }
   }
 
   public deleteChildren(row) {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
-      this.childrenService.remove({_id: row._id}).then(() => {
+      this.childrenService.remove({_id: row._id}).$observable.subscribe(() => {
         this.updateChildrens(this.currentSchool);
         this.snackBar.open('Успешно удалено', 'ОК', {duration: 2000})
       });
@@ -117,7 +117,7 @@ export class ChildrenComponent implements OnInit {
   }
 
   public updateChildrens(schoolIdx) {
-    this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).then(childrens => {
+    this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
       this.childrens.length = 0;
       this.childrens.push(...childrens);
       this.dataSource._updateChangeSubscription();

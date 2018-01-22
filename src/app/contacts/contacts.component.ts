@@ -17,6 +17,6 @@ export class ContactsComponent implements OnInit {
   }
 
   public sendMessage() {
-    this.mailService.sendMail(this.mail).then(() => this.snackBar.open('Сообщение отправлено', 'ОК', {duration: 2000}));
+    this.mailService.sendMail(this.mail).$observable.subscribe(() => this.snackBar.open('Сообщение отправлено', 'ОК', {duration: 2000}));
   }
 }

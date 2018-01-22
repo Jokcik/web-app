@@ -23,7 +23,7 @@ export class SchoolsDialogAdd {
     this.school = data.school ? data.school : this.school;
     this.isEditDialog = data.edit;
 
-    this.regionService.query().then(regions => {
+    this.regionService.query().$observable.subscribe(regions => {
       this.regions = regions;
       this.regionIdx = this.odUtils.getIdInArray(this.school.region.title, regions, 'title');
     });

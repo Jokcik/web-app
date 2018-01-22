@@ -1,7 +1,7 @@
 export const ROUTES = [
   '/',
-  '/history/:id',
-  '/address/:id',
+  '/history/*',
+  '/address/*',
   '/news',
   '/competition',
   '/bank-data-od',
