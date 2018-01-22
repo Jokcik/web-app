@@ -19,7 +19,7 @@ export class HistoryComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.mainpageService.querySafeHtml({type: 0, url: params['id']}).subscribe(descriptions => this.descriptions = descriptions);
+      this.mainpageService.querySafeHtml({type: 0, url: params['id']}).then(descriptions => this.descriptions = descriptions);
     });
   }
 }

@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Materials} from '../../../news/shared/materials';
 import {HistoryService} from '../../../history/history.service';
 import {Dummy} from '../../../core/dummy';
 import {MatSnackBar} from '@angular/material';
-import {switchMap, tap} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -20,17 +19,14 @@ export class MainComponent implements OnInit {
               public snackBar: MatSnackBar) {
   }
 
-  ngOnInit() {
-    this.mainpageService.queryMainpage({type: 0}).$observable
-      .pipe(
-        tap((histories => this.materials = histories)),
-        switchMap(() => this.route.params)
-      )
-      .subscribe(params => this.currentMaterial = this.materials.find(material => material.url == params['url']) || this.materials[0]);
+  async ngOnInit() {
+    this.materials = await this.mainpageService.queryMainpage({type: 0});
+    let params = await this.route.params.toPromise();
+    this.currentMaterial = this.materials.find(material => material.url == params['url']) || this.materials[0];
   }
 
   public saveHistory(material: Materials) {
     let a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
-    this.mainpageService.update(a).$observable.subscribe(() => this.snackBar.open('История успешно изменена', 'ОК', {duration: 2000}));
+    this.mainpageService.update(a).then(() => this.snackBar.open('История успешно изменена', 'ОК', {duration: 2000}));
   }
 }

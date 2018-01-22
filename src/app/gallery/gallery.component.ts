@@ -45,7 +45,7 @@ export class GalleryComponent implements OnInit {
   }
 
   public update() {
-    this.galleryService.query().$observable.subscribe(galleries => {
+    this.galleryService.query().then(galleries => {
       this.galleries = galleries;
       this.galleryImages = galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
     });
@@ -62,19 +62,19 @@ export class GalleryComponent implements OnInit {
       if (!result || !result.gallery) return;
 
       if (result.type == -1) {
-        return this.galleryService.remove({_id: result.gallery._id}).$observable.subscribe(() => {
+        return this.galleryService.remove({_id: result.gallery._id}).then(() => {
           this.update();
           this.snackBar.open('Фотография успешно удалена', 'ОК', {duration: 2000})
         });
       }
 
       if (result.gallery._id) {
-        this.galleryService.update(result.gallery).$observable.subscribe(() => {
+        this.galleryService.update(result.gallery).then(() => {
           this.update();
           this.snackBar.open('Фотография успешно обновлена', 'ОК', {duration: 2000})
         });
       } else {
-        this.galleryService.save(result.gallery).$observable.subscribe(() => {
+        this.galleryService.save(result.gallery).then(() => {
           this.update();
           this.snackBar.open('Фотография успешно добавлена', 'ОК', {duration: 2000})
         });

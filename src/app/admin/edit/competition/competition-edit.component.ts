@@ -23,7 +23,7 @@ export class CompetitionEditComponent implements OnInit {
   }
 
   public updateCompetitions() {
-    this.competitionService.query().$observable.subscribe(competitions => this.competitions = competitions);
+    this.competitionService.query().then(competitions => this.competitions = competitions);
   }
 
   public openDialog(result: {competition: Competition, type: string}) {
@@ -38,12 +38,12 @@ export class CompetitionEditComponent implements OnInit {
 
   public saveCompetition(competition: Competition) {
     if (!competition._id) {
-      this.competitionService.save(competition).$observable.subscribe(() => {
+      this.competitionService.save(competition).then(() => {
         this.updateCompetitions();
         this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
     } else {
-      this.competitionService.update(competition).$observable.subscribe(() => {
+      this.competitionService.update(competition).then(() => {
         this.updateCompetitions();
         this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка изменения. ${error2}`));
@@ -51,7 +51,7 @@ export class CompetitionEditComponent implements OnInit {
   }
 
   public deleteCompetition(competition: Competition) {
-    this.competitionService.remove({_id: competition._id}).$observable.subscribe(() => {
+    this.competitionService.remove({_id: competition._id}).then(() => {
       this.updateCompetitions();
       this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000});
     }, error2 => window.alert(`Ошибка удаления. ${error2}`));
