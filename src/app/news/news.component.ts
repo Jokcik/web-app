@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HistoryService} from '../history/history.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from '../announce/update.service';
-import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'od-news',
@@ -27,7 +26,7 @@ export class NewsComponent implements OnInit {
   }
 
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1}).then(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
@@ -39,7 +38,7 @@ export class NewsComponent implements OnInit {
 
   public remove(news: Materials) {
     if (window.confirm('Вы действительно хотите удалить эту новость?')) {
-      this.mainpageService.remove({_id: news._id}).$observable.subscribe(() => {
+      this.mainpageService.remove({_id: news._id}).then(() => {
         this.descriptions = this.descriptions.filter(material => material._id != news._id);
       })
     }

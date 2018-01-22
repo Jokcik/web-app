@@ -32,12 +32,12 @@ export class CompetitionsDialogAdd {
     this.currentCompetition = data.competition ? data.competition : this.currentCompetition;
     this.isEditDialog = data.edit || this.isEditDialog;
 
-    this.competitionService.queryLevels().$observable.subscribe(levels => {
+    this.competitionService.queryLevels().then(levels => {
       this.levels = levels;
       this.levelIdx = this.odUtils.getIdInArray(this.currentCompetition.level.title, levels, 'title');
     });
 
-    this.childrenService.querySpecializations().$observable.subscribe(speicializations => {
+    this.childrenService.querySpecializations().then(speicializations => {
       this.specializations = speicializations;
 
       if (!this.currentCompetition.specialization) return;

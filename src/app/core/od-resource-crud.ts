@@ -1,49 +1,40 @@
 import {ODResource} from './od-resource';
-import {ResourceAction, ResourceMethod, ResourceMethodStrict} from 'ngx-resource';
 import {Http, RequestMethod} from '@angular/http';
 import {Injectable} from '@angular/core';
+import {IResourceMethod, IResourceMethodStrict, ResourceAction, ResourceRequestMethod} from '@ngx-resource/core';
 
 @Injectable()
 export class ODResourceCrud<TQuery, TShort, TFull> extends ODResource {
 
-  constructor(http: Http) {
-    super(http);
-  }
-
   @ResourceAction({
     isArray: true
   })
-  query: ResourceMethod<TQuery, TShort[]>;
+  query: IResourceMethod<TQuery, TShort[]>;
 
   @ResourceAction({
     path: '/{!_id}'
   })
-  get: ResourceMethod<{id: any}, TFull>;
+  get: IResourceMethod<{id: any}, TFull>;
 
   @ResourceAction({
+    method: ResourceRequestMethod.Post
+  })
+  save: IResourceMethod<TFull, TFull>;
+
+  @ResourceAction({
+    method: ResourceRequestMethod.Put,
     path: '/{!_id}'
   })
-  get2: ResourceMethodStrict<TFull, {id: any}, TFull>;
+  update: IResourceMethod<TFull, TFull>;
 
   @ResourceAction({
-    method: RequestMethod.Post
-  })
-  save: ResourceMethod<TFull, TFull>;
-
-  @ResourceAction({
-    method: RequestMethod.Put,
+    method: ResourceRequestMethod.Delete,
     path: '/{!_id}'
   })
-  update: ResourceMethod<TFull, TFull>;
-
-  @ResourceAction({
-    method: RequestMethod.Delete,
-    path: '/{!_id}'
-  })
-  remove: ResourceMethod<{_id: any}, any>;
+  remove: IResourceMethod<{_id: any}, any>;
 
   // Alias to save
-  create(data: TFull, callback?: (res: TFull) => any): TFull {
+  create(data: TFull, callback?: (res: TFull) => any): Promise<TFull> {
     return this.save(data, callback);
   }
 }

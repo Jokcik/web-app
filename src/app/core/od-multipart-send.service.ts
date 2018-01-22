@@ -3,6 +3,8 @@ import {Headers, Http, RequestMethod, RequestOptions, Response} from '@angular/h
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 import {empty} from 'rxjs/observable/empty';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ResourceRequestMethod} from '@ngx-resource/core';
 
 export class MultipartItem {
   name: string;
@@ -13,37 +15,37 @@ export class MultipartItem {
 @Injectable()
 export class ODMultipartSendService {
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
-  public sendMultipart<T>(path: string, object: MultipartItem[], method: RequestMethod = RequestMethod.Post): Observable<T> {
+  public sendMultipart<T>(path: string, object: MultipartItem[], method: ResourceRequestMethod = ResourceRequestMethod.Post): Promise<T> {
     let formData = new FormData();
 
     object.forEach(value => formData.append(value.name, value.value));
 
-    let $result: Observable<Response>;
+    let $result: Promise<T>;
     switch (method) {
-      case RequestMethod.Post:
-        $result = this.http.post(environment.host + path, formData, this.getRequestOptions());
+      case ResourceRequestMethod.Post:
+        $result = this.http.post<T>(environment.host + path, formData, this.getRequestOptions()).toPromise();
         break;
-      case RequestMethod.Put:
-        $result = this.http.put(environment.host + path, formData, this.getRequestOptions());
+      case ResourceRequestMethod.Put:
+        $result = this.http.put<T>(environment.host + path, formData, this.getRequestOptions()).toPromise();
         break;
       default:
-        return empty();
+        return Promise.resolve<T>(<any>false);
     }
 
-    return $result.map(value => <T>value.json());
+    return $result;
   }
 
-  private getHeaders(): Headers {
-    let headers = new Headers();
+  private getHeaders(): HttpHeaders {
+    let headers = new HttpHeaders();
     headers.append('Accept', 'application/json');
     headers.append('enctype', 'multipart/form-data');
     return headers;
   }
 
-  private getRequestOptions(): RequestOptions {
-    return new RequestOptions({headers: this.getHeaders(), withCredentials: true});
+  private getRequestOptions() {
+    return {headers: this.getHeaders()};
   }
 }

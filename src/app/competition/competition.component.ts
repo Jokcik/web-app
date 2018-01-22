@@ -38,10 +38,10 @@ export class CompetitionComponent implements OnInit {
               public userService: UserService) {
   }
 
-  ngOnInit() {
-    this.specializations = this.childrenService.querySpecializations();
-    this.levels = this.competitionService.queryLevels();
+  async ngOnInit() {
     this.route.data.subscribe(data => this.isEditOpen = data['edit'] || this.isEditOpen);
+    this.specializations = await this.childrenService.querySpecializations();
+    this.levels = await this.competitionService.queryLevels();
 
     this.updateCompetitions();
   }
@@ -71,7 +71,7 @@ export class CompetitionComponent implements OnInit {
   }
 
   public updateCompetitions() {
-    this.competitionService.query().$observable.subscribe(competitions => {
+    this.competitionService.query().then(competitions => {
       this.competitions = competitions;
       this.formatCompetitions();
     });
@@ -89,12 +89,12 @@ export class CompetitionComponent implements OnInit {
 
   public saveCompetition(competition: Competition) {
     if (!competition._id) {
-      this.competitionService.save(competition).$observable.subscribe(() => {
+      this.competitionService.save(competition).then(() => {
         this.updateCompetitions();
         this.snackBar.open('Конкурс успешно добавлен', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка сохранения. ${error2}`));
     } else {
-      this.competitionService.update(competition).$observable.subscribe(() => {
+      this.competitionService.update(competition).then(() => {
         this.updateCompetitions();
         this.snackBar.open('Конкурс успешно изменен', 'ОК', {duration: 2000});
       }, error2 => window.alert(`Ошибка изменения. ${error2}`));
@@ -102,7 +102,7 @@ export class CompetitionComponent implements OnInit {
   }
 
   public deleteCompetition(competition: Competition) {
-    this.competitionService.remove({_id: competition._id}).$observable.subscribe(() => {
+    this.competitionService.remove({_id: competition._id}).then(() => {
       this.updateCompetitions();
       this.snackBar.open('Конкурс успешно удален', 'ОК', {duration: 2000});
     }, error2 => window.alert(`Ошибка удаления. ${error2}`));

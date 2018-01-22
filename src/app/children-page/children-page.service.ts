@@ -2,7 +2,7 @@ import {ODResourceCrud} from '../core/od-resource-crud';
 import {Children, Instruments, Specialization} from '../admin/edit/shared/children';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
+import {IResourceMethod, ResourceAction, ResourceParams} from '@ngx-resource/core';
 
 export interface IQueryParams {
   school_id?: string;
@@ -13,13 +13,10 @@ export interface IQueryParams {
 @Injectable()
 @ResourceParams({pathPrefix: 'children'})
 export class ChildrenPageService extends ODResourceCrud<IQueryParams, Children, Children> {
-  constructor(http: Http) {
-    super(http);
-  }
 
   @ResourceAction({path: '/specializations', isArray: true})
-  querySpecializations: ResourceMethod<void, Specialization[]>;
+  querySpecializations: IResourceMethod<void, Specialization[]>;
 
   @ResourceAction({path: '/instruments', isArray: true})
-  queryInstruments: ResourceMethod<IQueryParams, Instruments[]>;
+  queryInstruments: IResourceMethod<IQueryParams, Instruments[]>;
 }

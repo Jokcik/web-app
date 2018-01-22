@@ -7,11 +7,12 @@ import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule} from '@ang
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {ProfileComponent} from './profile/profile.component';
-import {AnnounceComponent} from './announce/announce.component';
 import {Forbidden403Component} from './exceptions/403-forbidden/403-forbidden.component';
 import {CommonModule} from '@angular/common';
 import {NotFound404Component} from './exceptions/404-not-found/404-not-found.component';
 import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {ResourceModule} from '@ngx-resource/handler-ngx-http';
 
 @NgModule({
   imports: [
@@ -21,6 +22,10 @@ import {BrowserModule} from '@angular/platform-browser';
     ODCommonModule.forRoot(),
     CommonModule,
     ODRoutingModule,
+
+    ResourceModule.forRoot(),
+
+    HttpClientModule,
     MatIconModule,
     MatCardModule,
 

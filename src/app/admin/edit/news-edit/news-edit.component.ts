@@ -49,7 +49,7 @@ export class NewsEditComponent implements OnInit {
               private utils: ODUtils) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.galleryOptions = [
       {
         image: false,
@@ -58,14 +58,13 @@ export class NewsEditComponent implements OnInit {
       }
     ];
 
-    this.route.params
-      .pipe(switchMap(params => params['url'] ? this.service.queryMainpage({url: params['url']}).$observable : of([this.news])))
-      .subscribe(news => {
-        this.news = news[0];
-        if (this.news.images && this.news.images.length) {
-          this.galleryImages = this.news.images.map(image => {return {small: image, big: image};});
-        }
-      });
+    let params = await this.route.params.toPromise();
+    let news = params['url'] ? await this.service.queryMainpage({url: params['url']}) : [this.news];
+
+    this.news = news[0];
+    if (this.news.images && this.news.images.length) {
+      this.galleryImages = this.news.images.map(image => {return {small: image, big: image};});
+    }
   }
 
   public filterDate(d): boolean {
@@ -92,14 +91,14 @@ export class NewsEditComponent implements OnInit {
       {name: 'type', value: 'news'}
     ];
 
-    return this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).toPromise();
+    return this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems);
   }
 
   public saveNews() {
     this.news.images = this.galleryImages.map(value => <string>value.small);
 
     if (this.news._id) {
-      return this.service.update(this.news).$observable.subscribe(res => {
+      return this.service.update(this.news).then(res => {
         this.updateMaterials();
         this.router.navigate(['news', res.url]);
       });
@@ -108,7 +107,7 @@ export class NewsEditComponent implements OnInit {
     this.news.url = this.utils.translit(<any>this.news.title);
     this.news.date = this.news.type == 2 ? this.news.date : new Date();
 
-    return this.service.save(this.news).$observable.subscribe(res => {
+    return this.service.save(this.news).then(res => {
       this.updateMaterials();
       this.router.navigate(['news', res.url]);
     });

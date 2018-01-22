@@ -36,17 +36,17 @@ export class ChildrenDialogAdd {
       this.currentChildren.schools = this.schools[this.currentSchool]._id;
     }
 
-    this.specializations = this.childrenService.querySpecializations();
+    this.childrenService.querySpecializations().then(spec => this.specializations = spec);
   }
 
-  public selectedRegion(regionId: number) {
+  public async selectedRegion(regionId: number) {
     this.currentRegion = regionId;
-    this.schools = this.schoolService.query({region_id: this.regions[regionId]._id});
+    this.schools = await this.schoolService.query({region_id: this.regions[regionId]._id});
   }
 
   public selectedSpecializations(specializationId: number) {
     this.currentSpecialization = specializationId;
-    this.instruments = this.childrenService.queryInstruments({specialization_id: this.specializations[specializationId]._id});
+    this.childrenService.queryInstruments({specialization_id: this.specializations[specializationId]._id}).then(instr => this.instruments = instr);
   }
 
   public add(): void {

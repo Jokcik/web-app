@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileService.getUser().$observable.subscribe(
+    this.profileService.getUser().then(
       user => user ? this.userService.setUser(user) : this.userService.noAuthUser(401),
       error => this.userService.noAuthUser(error)
     );
