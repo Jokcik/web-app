@@ -36,7 +36,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 app.engine('html', ngExpressEngine({
   bootstrap: ODServerModuleNgFactory,
   providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
+    provideModuleMap(LAZY_MODULE_MAP),
   ]
 }));
 

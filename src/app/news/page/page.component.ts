@@ -27,6 +27,8 @@ export class PageComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
     this.galleryOptions = [
       {
         image: false,
@@ -47,13 +49,10 @@ export class PageComponent implements OnInit {
         }
         this.material = materials[0];
 
-        this.galleryImages = this.material.images.map(image => {
-          return {small: image, medium: image, big: image};
-        });
+        // this.galleryImages = this.material.images.map(image => {
+        //   return {small: image, medium: image, big: image};
+        // });
 
-        setInterval(() => {
-
-        })
       });
   }
 
