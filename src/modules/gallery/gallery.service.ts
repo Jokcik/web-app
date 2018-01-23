@@ -12,7 +12,7 @@ export class GalleryService {
   }
 
   async findAll() {
-    return await this.galleriesModel.find().sort({date: 1});
+    return await this.galleriesModel.find().sort({date: -1});
   }
 
   async createGallery(gallery: CreateGalleryDto) {
