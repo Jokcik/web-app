@@ -13,10 +13,12 @@
     border: 0;
   }
 
+  transition: transform .15s ease-out,-webkit-transform .15s ease-out;
   .card:hover {
+    z-index: 1;
     //background-color: gainsboro;
     cursor: pointer;
-    box-shadow: 0 22px 50px rgba(14,21,47,.2), 0 8px 20px rgba(14,21,47,.2);
+    box-shadow: 0 -5px 50px rgba(14,21,47,0.2), 0 8px 20px rgba(14,21,47,0.2);
     transform: translateY(-10px);
   }
 
