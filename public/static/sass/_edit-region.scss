@@ -30,11 +30,15 @@
 
   .example-table {
     flex: 1 1 auto;
+    cursor: pointer;
     //max-height: 500px;
     padding: 0 24px;
   }
 
   .example-header-row, .example-row {
+    :hover {
+      background-color: aliceblue;
+    }
     display: flex;
     border-bottom: 1px solid #ccc;
     align-items: center;
