@@ -36,14 +36,15 @@
   }
 
   .example-header-row, .example-row {
-    :hover {
-      background-color: aliceblue;
-    }
     display: flex;
     border-bottom: 1px solid #ccc;
     align-items: center;
     min-height: 32px;
     padding: 0 8px;
+  }
+
+  cdk-row:hover {
+    background-color: aliceblue;
   }
 
   .example-cell, .example-header-cell {
