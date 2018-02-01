@@ -27,7 +27,7 @@ export class NewsComponent implements OnInit {
   }
 
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
+    this.mainpageService.queryMainpage({type: 1}).$observable.subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
