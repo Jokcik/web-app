@@ -38,9 +38,11 @@ mat-card {
   .announce-container {
     position: relative;
     text-align: justify;
+    transition: transform .15s ease-out,-webkit-transform .15s ease-out;
 
     &:hover {
-      box-shadow: 0 42px 36px -20px rgba(0,0,0,0.2)
+      box-shadow: 0 42px 36px -20px rgba(0,0,0,0.2);
+      transform: translateY(-10px);
     }
   }
 
