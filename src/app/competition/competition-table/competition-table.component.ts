@@ -15,6 +15,8 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
   @Input() isOpenEdit: boolean = false;
   @Output() changeCompetition: EventEmitter<any> = new EventEmitter<any>();
 
+
+  public JSON = JSON;
   public displayedColumns = ['id', 'title'];
   public dataSource: MatTableDataSource<Competition> = new MatTableDataSource(this.dataSourceCompetition);
 

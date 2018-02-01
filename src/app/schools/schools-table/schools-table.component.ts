@@ -16,6 +16,7 @@ export class SchoolsTableComponent implements DoCheck, AfterViewInit {
 
   public displayedColumns = ['title', 'nameMainPerson'];
   public dataSource: MatTableDataSource<Schools> = new MatTableDataSource(this.dataSourceSchools);
+  public JSON = JSON;
   private differ: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

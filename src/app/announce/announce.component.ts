@@ -15,6 +15,7 @@ import {startWith} from 'rxjs/operators';
 export class AnnounceComponent implements OnInit {
   public descriptions: Materials[] = [];
   public loaded: boolean = true;
+  public JSON = JSON;
 
   constructor(private service: HistoryService,
               public userService: UserService,

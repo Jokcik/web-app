@@ -13,6 +13,7 @@ import {UpdateService} from '../announce/update.service';
 export class NewsComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded: boolean = true;
+  public JSON = JSON;
 
   constructor(private mainpageService: HistoryService,
               public userService: UserService,
