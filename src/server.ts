@@ -23,7 +23,7 @@ async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule, s);
   app.use(bodyParser.json());
   app.use(cors({allowedOrigins: ['localhost:4200', 'localhost:8080', 'rumc31.ru:4200', 'rumc31.ru:8080', 'localhost:3001', 'rumc31.ru', '85.143.175.134'], headers: ['Content-Type', 'enctype', 'Authorization']}));
-  // app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api');
   app.useGlobalFilters(new HttpExceptionFilter());
 
   app.use((req, res, next) => {
