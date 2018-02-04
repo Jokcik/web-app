@@ -31,7 +31,7 @@ export class NewsService {
 
     let model = this.newsModel.find(obj);
     if (type == 2) {
-      model = model.where({date: {$gte: Date.now()}})
+      model = model.where({date: {$lte: Date.now()}})
     }
 
     if (type != 0) {
