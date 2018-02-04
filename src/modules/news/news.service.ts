@@ -31,13 +31,13 @@ export class NewsService {
 
     let model = this.newsModel.find(obj);
     if (type == 2) {
-      model = model.where({date: {$lte: Date.now()}})
+      model = model.where({date: {$gte: Date.now()}}).sort({date: -1})
     }
 
-    if (type != 0) {
-      model = model.sort({date: -1}).limit(10);
+    if (type == 1) {
+      model = model.sort({date: -1});
     }
 
-    return await model;
+    return await model.limit(10);
   }
 }
