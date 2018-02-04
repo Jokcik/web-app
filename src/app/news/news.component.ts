@@ -5,6 +5,7 @@ import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from '../announce/update.service';
+import {ODUtils} from '../core/od-utils';
 
 @Component({
   selector: 'od-news',
@@ -13,10 +14,10 @@ import {UpdateService} from '../announce/update.service';
 export class NewsComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded: boolean = true;
-  public JSON = JSON;
 
   constructor(private mainpageService: HistoryService,
               public userService: UserService,
+              public utils: ODUtils,
               private updateService: UpdateService,
               private router: Router) {
   }
@@ -27,7 +28,7 @@ export class NewsComponent implements OnInit {
   }
 
   public formatNews() {
-    this.mainpageService.queryMainpage({type: 1}).$observable.subscribe(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });
