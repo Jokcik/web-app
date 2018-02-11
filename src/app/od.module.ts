@@ -1,5 +1,4 @@
-import {NgModule} from '@angular/core';
-
+import {NgModule, LOCALE_ID} from '@angular/core';
 import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
@@ -11,6 +10,11 @@ import {AnnounceComponent} from './announce/announce.component';
 import {Forbidden403Component} from './exceptions/403-forbidden/403-forbidden.component';
 import {CommonModule} from '@angular/common';
 import {NotFound404Component} from './exceptions/404-not-found/404-not-found.component';
+
+import localeRu from '@angular/common/locales/ru';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localeRu);
 
 @NgModule({
   imports: [
@@ -31,7 +35,7 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
     Forbidden403Component,
     NotFound404Component,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [ODComponent]
 })
 export class ODModule {

@@ -15,7 +15,11 @@
             <div class="container" style="display: flex;">
               <div class="col-sm-3" style="position: relative;">
                 <img *ngIf="material.img" [src]="material.img"/>
-                <div class="news-date">{{material.date | odDate}}</div>
+                <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
+                <ng-container *ngIf="material.start_date">
+                  <div class="news-date">{{material.start_date | date: 'dd MMMM'}} - </div>
+                  <div class="news-date" style="top: 18px;">{{material.date | date: 'dd MMMM'}}</div>
+                </ng-container>
               </div>
               <div class="col-sm-9">
                 <div class="sidebar-module sidebar-module-inset">
