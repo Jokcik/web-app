@@ -9,6 +9,7 @@ import {MatCardModule, MatIconModule} from '@angular/material';
 import {PageComponent} from './page/page.component';
 import {AnnounceComponent} from '../announce/announce.component';
 import {NgxGalleryModule} from 'ngx-gallery';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {NgxGalleryModule} from 'ngx-gallery';
     ODCommonModule,
     CommonModule,
     FormsModule,
+    RouterModule,
 
     MatCardModule,
     MatIconModule,
