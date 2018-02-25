@@ -7,6 +7,7 @@ export class Materials {
   url: string;
   img: string;
   date: Date;
+  start_date: Date;
   type: number = 1;
   description: Description = new Description();
 

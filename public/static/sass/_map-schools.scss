@@ -1,0 +1,333 @@
+
+.region-map {
+  padding-bottom: 15px
+}
+
+.region-map .green-line {
+  margin-bottom: 30px;
+  margin-top: 0
+}
+
+.region-map .region {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: #fff;
+  stroke: rgba(0, 0, 0, .12);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  position: relative;
+  z-index: 1
+}
+
+.region-map .district-group * {
+  -webkit-transition: all .25s;
+  transition: all .25s
+}
+
+.region-map .district-group a {
+  text-decoration: none !important
+}
+
+.region-map .district-group .district {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  fill: transparent;
+  stroke: rgba(0, 0, 0, .12);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10
+}
+
+.region-map .district-group .city {
+  fill: rgba(0, 0, 0, .5);
+  stroke: none
+}
+
+.region-map .district-group .city.polis {
+  fill: transparent
+}
+
+.region-map .district-group .city-name {
+  fill: rgba(0, 0, 0, .5);
+  stroke: none;
+  font-family: Merriweather, serif;
+  font-weight: 700;
+  font-size: 87.5%;
+  text-shadow: 0 0 2px #fff
+}
+
+.region-map .district-group .flag polygon {
+  fill: #666;
+  stroke: none
+}
+
+.region-map .district-group .flag .text {
+  fill: #fff;
+  stroke: none;
+  font-family: Merriweather, serif;
+  font-size: 75%;
+  text-anchor: middle
+}
+
+.region-map .district-group:hover {
+  z-index: 2
+}
+
+.region-map .district-group:hover .district {
+  stroke: #4f7eaa;
+  fill: #cbd4e1
+}
+
+.region-map .district-group:hover .city {
+  fill: #4f7eaa
+}
+
+.region-map .district-group:hover .city-name {
+  fill: #002844;
+  text-shadow: 0 0 2px #fff
+}
+
+.region-map .district-group:hover .flag polygon {
+  fill: #f04639
+}
+
+.region-map .district-group.active {
+  z-index: 3
+}
+
+.region-map .district-group.active .district {
+  fill: #002844;
+  stroke: #002844
+}
+
+.region-map .district-group.active .city {
+  fill: #4f7eaa
+}
+
+.region-map .district-group.active .city-name {
+  fill: #fff;
+  text-shadow: 0 0 2px #002844
+}
+
+.region-map .district-group.active .flag polygon {
+  fill: #f04639
+}
+
+.blinded.scheme1 .region-map .region {
+  fill: #fff;
+  stroke: rgba(0, 0, 0, .5)
+}
+
+.blinded.scheme1 .region-map .district-group .district {
+  stroke: rgba(0, 0, 0, .5)
+}
+
+.blinded.scheme1 .region-map .district-group .city {
+  fill: #000
+}
+
+.blinded.scheme1 .region-map .district-group .city-name {
+  fill: #000;
+  text-shadow: 0 0 2px #fff
+}
+
+.blinded.scheme1 .region-map .district-group .flag polygon {
+  fill: #fff;
+  stroke: #000
+}
+
+.blinded.scheme1 .region-map .district-group .flag .text {
+  fill: #000
+}
+
+.blinded.scheme1 .region-map .district-group:hover .district {
+  fill: #000
+}
+
+.blinded.scheme1 .region-map .district-group:hover .city {
+  fill: #fff
+}
+
+.blinded.scheme1 .region-map .district-group:hover .city-name {
+  fill: #fff;
+  text-shadow: 0 0 2px #000
+}
+
+.blinded.scheme1 .region-map .district-group:hover .flag polygon {
+  fill: #fff;
+  stroke: #000
+}
+
+.blinded.scheme1 .region-map .district-group:hover .flag .text {
+  fill: #000
+}
+
+.blinded.scheme1 .region-map .district-group.active .district {
+  fill: #000;
+  stroke: #000
+}
+
+.blinded.scheme1 .region-map .district-group.active .city {
+  fill: #000
+}
+
+.blinded.scheme1 .region-map .district-group.active .city-name {
+  fill: #fff;
+  text-shadow: 0 0 2px #000
+}
+
+.blinded.scheme1 .region-map .district-group.active .flag polygon {
+  fill: #666;
+  stroke: #666
+}
+
+.blinded.scheme1 .region-map .district-group.active .flag .text {
+  fill: #fff
+}
+
+.blinded.scheme2 .region-map .region {
+  fill: #000;
+  stroke: rgba(255, 255, 255, .5)
+}
+
+.blinded.scheme2 .region-map .district-group .district {
+  stroke: rgba(255, 255, 255, .5)
+}
+
+.blinded.scheme2 .region-map .district-group .city {
+  fill: #666
+}
+
+.blinded.scheme2 .region-map .district-group .city-name {
+  fill: #fff;
+  text-shadow: 0 0 2px #000
+}
+
+.blinded.scheme2 .region-map .district-group .flag polygon {
+  fill: #000;
+  stroke: #fff
+}
+
+.blinded.scheme2 .region-map .district-group .flag .text {
+  fill: #fff
+}
+
+.blinded.scheme2 .region-map .district-group:hover .district {
+  fill: #fff
+}
+
+.blinded.scheme2 .region-map .district-group:hover .city {
+  fill: #000
+}
+
+.blinded.scheme2 .region-map .district-group:hover .city-name {
+  fill: #000;
+  text-shadow: 0 0 2px #fff
+}
+
+.blinded.scheme2 .region-map .district-group:hover .flag polygon {
+  fill: #fff;
+  stroke: #000
+}
+
+.blinded.scheme2 .region-map .district-group:hover .flag .text {
+  fill: #000
+}
+
+.blinded.scheme2 .region-map .district-group.active .district {
+  fill: #fff;
+  stroke: #fff
+}
+
+.blinded.scheme2 .region-map .district-group.active .city {
+  fill: #fff
+}
+
+.blinded.scheme2 .region-map .district-group.active .city-name {
+  fill: #000;
+  text-shadow: 0 0 2px #fff
+}
+
+.blinded.scheme2 .region-map .district-group.active .flag polygon {
+  fill: #666;
+  stroke: #666
+}
+
+.blinded.scheme2 .region-map .district-group.active .flag .text {
+  fill: #fff
+}
+
+.blinded.scheme3 .region-map .region {
+  fill: #082c68;
+  stroke: rgba(255, 246, 106, .5)
+}
+
+.blinded.scheme3 .region-map .district-group .district {
+  stroke: rgba(255, 246, 106, .5)
+}
+
+.blinded.scheme3 .region-map .district-group .city {
+  fill: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group .city-name {
+  fill: #fff66a;
+  text-shadow: 0 0 2px #082c68
+}
+
+.blinded.scheme3 .region-map .district-group .flag polygon {
+  fill: #082c68;
+  stroke: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group .flag .text {
+  fill: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group:hover .district {
+  fill: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group:hover .city {
+  fill: #082c68
+}
+
+.blinded.scheme3 .region-map .district-group:hover .city-name {
+  fill: #082c68;
+  text-shadow: 0 0 2px #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group:hover .flag polygon {
+  fill: #082c68;
+  stroke: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group:hover .flag .text {
+  fill: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group.active .district {
+  fill: #fff66a;
+  stroke: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group.active .city {
+  fill: #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group.active .city-name {
+  fill: #082c68;
+  text-shadow: 0 0 2px #fff66a
+}
+
+.blinded.scheme3 .region-map .district-group.active .flag polygon {
+  fill: #f04639;
+  stroke: #f04639
+}
+
+.blinded.scheme3 .region-map .district-group.active .flag .text {
+  fill: #fff
+}

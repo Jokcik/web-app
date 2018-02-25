@@ -6,6 +6,13 @@ mat-card {
     padding-top: 30px;
     //padding-left: 200px;
     //padding-right: 150px;
+    p {
+      line-height: 1.2!important;
+      font-family:Courier New,Courier,monospace!important;
+      span, font {
+        font-family:Courier New,Courier,monospace!important;
+      }
+    }
   }
 
   h4 {

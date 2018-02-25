@@ -1,5 +1,4 @@
-import {Injector, NgModule} from '@angular/core';
-
+import {NgModule, Injector, LOCALE_ID} from '@angular/core';
 import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
@@ -15,6 +14,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HistoryService} from './history/history.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceLocator} from './core/service-locator';
+
+import localeRu from '@angular/common/locales/ru';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localeRu);
 
 @NgModule({
   imports: [
@@ -37,7 +41,7 @@ import {ServiceLocator} from './core/service-locator';
     Forbidden403Component,
     NotFound404Component,
   ],
-  providers: [HistoryService],
+  providers: [HistoryService, { provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [ODComponent]
 })
 export class ODModule {
