@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Schools} from '../shared/school';
 import {Region} from '../shared/region';
 import {Children} from '../shared/children';
@@ -6,14 +6,14 @@ import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
 import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
-import {ChildrenDialogAdd} from './children-dialog-add';
+import {ChildrenDialogAddComponent} from './children-dialog-add.component';
 import {UserService} from '../../../core/user-service/user.service';
 
 @Component({
   selector: 'od-edit-children',
   templateUrl: './children.component.html'
 })
-export class ChildrenComponent implements OnInit {
+export class ChildrenComponent implements OnInit, AfterViewInit {
   public regions: Region[] = [];
   public schools: Schools[] = [];
   public childrens: Children[] = [];
@@ -29,8 +29,8 @@ export class ChildrenComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public editable: boolean = false;
-  public currentIndex: number = -2;
+  public editable = false;
+  public currentIndex = -2;
   /*  конец таблицы  */
 
 
@@ -66,19 +66,19 @@ export class ChildrenComponent implements OnInit {
   }
 
   public openDialog() {
-    let data = {regions: this.regions, currentRegion: this.currentRegion, currentSchool: this.currentSchool, schools: this.schools};
-    this.dialog.open(ChildrenDialogAdd, {width: '900px', data: data}).afterClosed().subscribe(result => {
-      if (!result) return;
+    const data = {regions: this.regions, currentRegion: this.currentRegion, currentSchool: this.currentSchool, schools: this.schools};
+    this.dialog.open(ChildrenDialogAddComponent, {width: '900px', data: data}).afterClosed().subscribe(result => {
+      if (!result) { return; }
 
       if (result._id) {
         this.childrenService.update(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
-          this.snackBar.open('Успешно сохранено', 'ОК', {duration: 2000})
+          this.snackBar.open('Успешно сохранено', 'ОК', {duration: 2000});
         });
       } else {
         this.childrenService.save(result).$observable.subscribe(res => {
           this.updateChildrens(this.currentSchool);
-          this.snackBar.open('Ученик добавлен в базу', 'ОК', {duration: 2000})
+          this.snackBar.open('Ученик добавлен в базу', 'ОК', {duration: 2000});
         });
       }
     });
@@ -96,9 +96,9 @@ export class ChildrenComponent implements OnInit {
   }
 
   public editChildren(region: any, index: number) {
-    if (!this.userService.user) return;
+    if (!this.userService.user) { return; }
 
-    if (index != this.currentIndex) {
+    if (index !== this.currentIndex) {
       this.editable = true;
       this.currentIndex = index;
     } else {
@@ -111,7 +111,7 @@ export class ChildrenComponent implements OnInit {
     if (window.confirm('Действительно хотите удалить этот регион?')) {
       this.childrenService.remove({_id: row._id}).$observable.subscribe(() => {
         this.updateChildrens(this.currentSchool);
-        this.snackBar.open('Успешно удалено', 'ОК', {duration: 2000})
+        this.snackBar.open('Успешно удалено', 'ОК', {duration: 2000});
       });
     }
   }
@@ -121,6 +121,6 @@ export class ChildrenComponent implements OnInit {
       this.childrens.length = 0;
       this.childrens.push(...childrens);
       this.dataSource._updateChangeSubscription();
-    })
+    });
   }
 }

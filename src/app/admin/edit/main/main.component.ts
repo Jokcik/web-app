@@ -26,11 +26,11 @@ export class MainComponent implements OnInit {
         tap((histories => this.materials = histories)),
         switchMap(() => this.route.params)
       )
-      .subscribe(params => this.currentMaterial = this.materials.find(material => material.url == params['url']) || this.materials[0]);
+      .subscribe(params => this.currentMaterial = this.materials.find(material => material.url === params['url']) || this.materials[0]);
   }
 
   public saveHistory(material: Materials) {
-    let a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
+    const a = JSON.parse(JSON.stringify(material, (key, value) => key.startsWith('$') ? undefined : value));
     this.mainpageService.update(a).$observable.subscribe(() => this.snackBar.open('История успешно изменена', 'ОК', {duration: 2000}));
   }
 }

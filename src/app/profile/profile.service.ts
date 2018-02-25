@@ -5,7 +5,7 @@ import {Http, RequestMethod} from '@angular/http';
 import {User} from '../core/user-service/user';
 
 interface IQueryParam {
-
+  _id?: string;
 }
 
 @Injectable()

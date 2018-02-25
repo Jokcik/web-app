@@ -4,27 +4,26 @@ import {CompetitionService} from '../competition.service';
 import {Component, Inject} from '@angular/core';
 import {Specialization} from '../../admin/edit/shared/children';
 import {CompetitionLevel} from '../../admin/edit/shared/competition-level';
-import {Competition, CompetitionFiles} from '../../admin/edit/shared/competition';
+import {Competition} from '../../admin/edit/shared/competition';
 import {ODUtils} from '../../core/od-utils';
-import {Dummy} from '../../core/dummy';
 
 @Component({
   selector: 'competition-dialog-add',
-  templateUrl: 'competitions-dialog-add.html',
+  templateUrl: 'competitions-dialog-add.competition.html',
 })
-export class CompetitionsDialogAdd {
+export class CompetitionsDialogAddComponent {
   public currentCompetition: Competition = new Competition();
-  public isEditDialog: boolean = false;
+  public isEditDialog = false;
 
   public specializations: Specialization[] = [];
   public currentSpecializations: boolean[] = [];
 
   public levels: CompetitionLevel[] = [];
-  public levelIdx: number = -1;
+  public levelIdx = -1;
 
-  public selectYear: number = 2018;
+  public selectYear = 2018;
 
-  constructor(public dialogRef: MatDialogRef<CompetitionsDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<CompetitionsDialogAddComponent>,
               private competitionService: CompetitionService,
               private childrenService: ChildrenPageService,
               private odUtils: ODUtils,
@@ -40,9 +39,9 @@ export class CompetitionsDialogAdd {
     this.childrenService.querySpecializations().$observable.subscribe(speicializations => {
       this.specializations = speicializations;
 
-      if (!this.currentCompetition.specialization) return;
+      if (!this.currentCompetition.specialization) { return; }
       this.currentSpecializations = this.specializations.map(specialization => {
-        return !!this.currentCompetition.specialization.find(spec => spec.title == specialization.title)
+        return !!this.currentCompetition.specialization.find(spec => spec.title === specialization.title);
       });
     });
 
@@ -52,13 +51,14 @@ export class CompetitionsDialogAdd {
 
   public add(): void {
     this.currentCompetition.level = <any>this.currentCompetition.level._id;
-    this.currentCompetition.specialization = <any>this.currentSpecializations.map((value, idx) => value ? this.specializations[idx] : '').filter(value => !!value);
+    this.currentCompetition.specialization = <any>this.currentSpecializations
+      .map((value, idx) => value ? this.specializations[idx] : '').filter(value => !!value);
 
     this.dialogRef.close({competition: this.currentCompetition, type: 'add'});
   }
 
   public deleteCompetition() {
-    if (!window.confirm('Вы действительно хотите удалить этот конкурс?')) return;
+    if (!window.confirm('Вы действительно хотите удалить этот конкурс?')) { return; }
     this.dialogRef.close({competition: this.currentCompetition, type: 'remove'});
   }
 }

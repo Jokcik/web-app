@@ -7,16 +7,16 @@ import {Region} from '../../admin/edit/shared/region';
 
 @Component({
   selector: 'schools-dialog-add',
-  templateUrl: 'schools-dialog-add.html',
+  templateUrl: 'schools-dialog-add.component.html',
 })
-export class SchoolsDialogAdd {
-  public isEditDialog: boolean = false;
+export class SchoolsDialogAddComponent {
+  public isEditDialog = false;
   public school: Schools = new Schools();
 
   public regions: Region[] = [];
-  public regionIdx: number = -1;
+  public regionIdx = -1;
 
-  constructor(public dialogRef: MatDialogRef<SchoolsDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<SchoolsDialogAddComponent>,
               private regionService: RegionService,
               private odUtils: ODUtils,
               @Inject(MAT_DIALOG_DATA) public data: any) {

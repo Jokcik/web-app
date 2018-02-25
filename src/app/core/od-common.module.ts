@@ -1,7 +1,7 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {ODClickOutside} from './od-click-outside';
+import {OdClickOutsideDirective} from './od-click-outside.directive';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
 import {ODUtils} from './od-utils';
@@ -15,12 +15,12 @@ import {UpdateService} from '../announce/update.service';
     RouterModule
   ],
   declarations: [
-    ODClickOutside,
+    OdClickOutsideDirective,
     ODImageDirective,
     ODDatePipe
   ],
   exports: [
-    ODClickOutside,
+    OdClickOutsideDirective,
     ODImageDirective,
     ODDatePipe
   ],

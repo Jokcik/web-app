@@ -30,13 +30,13 @@ export class PageComponent implements OnInit {
     this.galleryOptions = [
       {
         image: false,
-        height: "100px",
+        height: '100px',
         previewCloseOnEsc: true,
         previewCloseOnClick: true
       },
       {
         breakpoint: 500,
-        width: "100%"
+        width: '100%'
       }
     ];
 
@@ -53,7 +53,7 @@ export class PageComponent implements OnInit {
 
         setInterval(() => {
 
-        })
+        });
       });
   }
 

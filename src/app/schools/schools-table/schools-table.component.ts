@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, DoCheck, EventEmitter, Input, IterableDiffers, Output, ViewChild} from '@angular/core';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Schools} from '../../admin/edit/shared/school';
-import {SchoolsDialogAdd} from './schools-dialog-add';
+import {SchoolsDialogAddComponent} from './schools-dialog-add.component';
 
 @Component({
   selector: 'od-schools-table',
@@ -10,8 +10,8 @@ import {SchoolsDialogAdd} from './schools-dialog-add';
 export class SchoolsTableComponent implements DoCheck, AfterViewInit {
   public dataSourceSchools: Schools[] = [];
   @Input() schools: Schools[];
-  @Input() isOpenEdit: boolean = false;
-  @Input() type: number = 0;
+  @Input() isOpenEdit = false;
+  @Input() type = 0;
   @Output() changeSchools: EventEmitter<any> = new EventEmitter<any>();
 
   public displayedColumns = ['title', 'nameMainPerson'];
@@ -49,7 +49,8 @@ export class SchoolsTableComponent implements DoCheck, AfterViewInit {
   }
 
   public openSchools(school: Schools) {
-    this.dialog.open(SchoolsDialogAdd, {width: this.isOpenEdit ? '1100px' : '800px', data: {school: school, edit: this.isOpenEdit}})
+    this.dialog.open(SchoolsDialogAddComponent,
+      {width: this.isOpenEdit ? '1100px' : '800px', data: {school: school, edit: this.isOpenEdit}})
       .afterClosed()
       .subscribe(result => result && this.changeSchools.emit(result));
   }

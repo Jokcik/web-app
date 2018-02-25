@@ -33,10 +33,10 @@ import {HistoryService} from '../../history/history.service';
 import {MainComponent} from './main/main.component';
 import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
-import {RegionDialogAdd} from './region/region-dialog-add';
+import {RegionDialogAddComponent} from './region/region-dialog-add.component';
 import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {SchoolsService} from '../../schools/schools.service';
-import {DshiDialogAdd} from './schools-edit/schools-dialog-add';
+import {SchoolsDialogAddComponent} from './schools-edit/schools-dialog-add.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
 import {ChildrenPageService} from '../../children-page/children-page.service';
@@ -93,15 +93,15 @@ import {NgxGalleryModule} from 'ngx-gallery';
     EditComponent,
     MainComponent,
     RegionComponent,
-    RegionDialogAdd,
+    RegionDialogAddComponent,
     SchoolEditComponent,
-    DshiDialogAdd,
+    SchoolsDialogAddComponent,
     NewsEditComponent,
     CompetitionEditComponent,
   ],
   entryComponents: [
-    RegionDialogAdd,
-    DshiDialogAdd,
+    RegionDialogAddComponent,
+    SchoolsDialogAddComponent,
   ],
   providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},

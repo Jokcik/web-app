@@ -18,11 +18,11 @@ export class HistoryService extends ODResourceCrud<void, Materials, Materials> {
 
   public querySafeHtml(value: {type?: number, url?: string}): Observable<Materials[]> {
     return this.queryMainpage(value).$observable.map(array => {
-      array.forEach((value, index) => {
-        if (typeof value.description.description == 'object') return;
-        array[index].description.description = this.sanitizer.bypassSecurityTrustHtml(value.description.description);
-        array[index].description.short_description = this.sanitizer.bypassSecurityTrustHtml(<string>value.description.short_description);
-        array[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>value.title);
+      array.forEach((val, index) => {
+        if (typeof val.description.description === 'object') { return; }
+        array[index].description.description = this.sanitizer.bypassSecurityTrustHtml(val.description.description);
+        array[index].description.short_description = this.sanitizer.bypassSecurityTrustHtml(<string>val.description.short_description);
+        array[index].title = this.sanitizer.bypassSecurityTrustHtml(<string>val.title);
       });
 
       return array;

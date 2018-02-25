@@ -22,9 +22,9 @@ export class ODResource extends Resource {
 
 
   protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
-    let obser = observable.map(value => {
-      let val = value.json();
-      if (val.statusCode >= 400) throw new Error(value.json().message);
+    const obser = observable.map(value => {
+      const val = value.json();
+      if (val.statusCode >= 400) { throw new Error(value.json().message); }
       return value;
     });
     return super.$responseInterceptor(obser, req, methodOptions);

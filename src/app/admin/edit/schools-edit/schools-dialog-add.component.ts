@@ -5,13 +5,13 @@ import {Region} from '../shared/region';
 
 @Component({
   selector: 'dshi-dialog-add',
-  templateUrl: 'schools-dialog-add.html',
+  templateUrl: 'schools-dialog-add.component.html',
 })
-export class DshiDialogAdd {
+export class SchoolsDialogAddComponent {
   public currentSchool: Schools = new Schools();
   public regions: Region[] = [];
 
-  constructor(public dialogRef: MatDialogRef<DshiDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<SchoolsDialogAddComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.regions = data;
   }

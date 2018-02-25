@@ -7,9 +7,9 @@ import {ChildrenPageService} from '../../../children-page/children-page.service'
 import {SchoolsService} from '../../../schools/schools.service';
 
 @Component({
-  templateUrl: 'children-dialog-add.html',
+  templateUrl: 'children-dialog-add.component.html',
 })
-export class ChildrenDialogAdd {
+export class ChildrenDialogAddComponent {
   public currentChildren: Children = new Children();
   public regions: Region[] = [];
   public schools: Schools[] = [];
@@ -19,9 +19,9 @@ export class ChildrenDialogAdd {
   public currentRegion: number;
   public currentSchool: number;
   public currentSpecialization: number;
-  public ssuz: boolean = false;
+  public ssuz = false;
 
-  constructor(public dialogRef: MatDialogRef<ChildrenDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<ChildrenDialogAddComponent>,
               private childrenService: ChildrenPageService,
               private schoolService: SchoolsService,
               @Inject(MAT_DIALOG_DATA) public data: any) {

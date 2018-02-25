@@ -4,7 +4,7 @@ class Person {
   name: String;
   post: String;
   telephone: String;
-  stationary: String
+  stationary: String;
 }
 
 export class Schools {
@@ -17,6 +17,6 @@ export class Schools {
   email: String = '';
 
   mainPerson: Person = new Person();
-  oldPerson: [Person]
+  oldPerson: [Person];
 }
 

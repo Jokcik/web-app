@@ -17,7 +17,7 @@ export class ODMultipartSendService {
   }
 
   public sendMultipart<T>(path: string, object: MultipartItem[], method: RequestMethod = RequestMethod.Post): Observable<T> {
-    let formData = new FormData();
+    const formData = new FormData();
 
     object.forEach(value => formData.append(value.name, value.value));
 
@@ -37,7 +37,7 @@ export class ODMultipartSendService {
   }
 
   private getHeaders(): Headers {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('enctype', 'multipart/form-data');
     return headers;

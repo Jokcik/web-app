@@ -8,7 +8,7 @@ import {
   MatSortModule
 } from '@angular/material';
 import {CdkTableModule} from '@angular/cdk/table';
-import {CompetitionsDialogAdd} from './competitions-dialog-add';
+import {CompetitionsDialogAddComponent} from './competitions-dialog-add.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {ChildrenPageService} from '../../children-page/children-page.service';
@@ -36,11 +36,11 @@ import {ODMultipartSendService} from '../../core/od-multipart-send.service';
   ],
   declarations: [
     CompetitionTableComponent,
-    CompetitionsDialogAdd,
+    CompetitionsDialogAddComponent,
     ExpansionYearFilesComponent
   ],
   entryComponents: [
-    CompetitionsDialogAdd
+    CompetitionsDialogAddComponent
   ],
   exports: [
     CompetitionTableComponent

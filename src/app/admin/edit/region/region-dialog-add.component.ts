@@ -3,13 +3,13 @@ import {Component, Inject} from '@angular/core';
 
 @Component({
   selector: 'region-dialog-add',
-  templateUrl: 'region-dialog-add.html',
+  templateUrl: 'region-dialog-add.component.html',
 })
-export class RegionDialogAdd {
+export class RegionDialogAddComponent {
   public title: string;
   public telephone: string;
 
-  constructor(public dialogRef: MatDialogRef<RegionDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<RegionDialogAddComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 

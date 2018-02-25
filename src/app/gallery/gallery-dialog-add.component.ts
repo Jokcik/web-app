@@ -5,22 +5,22 @@ import {MultipartItem, ODMultipartSendService} from '../core/od-multipart-send.s
 
 @Component({
   selector: 'dshi-dialog-add',
-  templateUrl: 'gallery-dialog-add.html',
+  templateUrl: 'gallery-dialog-add.component.html',
 })
-export class GalleryDialogAdd {
+export class GalleryDialogAddComponent {
   public gallery: Gallery;
   public imgFile: File;
 
-  constructor(public dialogRef: MatDialogRef<GalleryDialogAdd>,
+  constructor(public dialogRef: MatDialogRef<GalleryDialogAddComponent>,
               private multipart: ODMultipartSendService,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.gallery = data ? data: new Gallery();
+    this.gallery = data ? data : new Gallery();
   }
 
   public loadFile() {
-    if (!this.imgFile) return;
+    if (!this.imgFile) { return; }
 
-    let multipartItems: MultipartItem[] = [
+    const multipartItems: MultipartItem[] = [
       {name: 'logo', value: this.imgFile},
       {name: 'type', value: 'gallery'}
     ];

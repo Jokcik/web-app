@@ -9,7 +9,7 @@ import {UserService} from '../core/user-service/user.service';
   templateUrl: './auth.component.html',
 })
 export class AuthComponent implements OnInit {
-  public register: boolean = false;
+  public register = false;
   public user: User = new User();
   public password: string;
   public roles: typeof Roles = Roles;
@@ -21,7 +21,7 @@ export class AuthComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.route.params.subscribe(params => this.register = params['action'] == 'register');
+    this.route.params.subscribe(params => this.register = params['action'] === 'register');
   }
 
   public loginUser() {
@@ -33,7 +33,7 @@ export class AuthComponent implements OnInit {
   }
 
   public registerUser() {
-    let login = Object.assign(this.user, {password: this.password});
+    const login = Object.assign(this.user, {password: this.password});
     this.profileService.register(this.user).$observable.subscribe(data => {
       this.userService.setUser(this.user);
       localStorage.setItem('access_token', data.access_token);

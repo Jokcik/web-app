@@ -11,7 +11,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ODCommonModule} from '../../../core/od-common.module';
 import {ChildrenComponent} from './children.component';
-import {ChildrenDialogAdd} from './children-dialog-add';
+import {ChildrenDialogAddComponent} from './children-dialog-add.component';
 import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
@@ -46,10 +46,10 @@ import {SchoolsService} from '../../../schools/schools.service';
   ],
   declarations: [
     ChildrenComponent,
-    ChildrenDialogAdd
+    ChildrenDialogAddComponent
   ],
   entryComponents: [
-    ChildrenDialogAdd
+    ChildrenDialogAddComponent
   ],
   exports: [
     ChildrenComponent,

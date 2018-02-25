@@ -6,7 +6,7 @@ import {Http} from '@angular/http';
 
 @Injectable()
 @ResourceParams({pathPrefix: 'region'})
-export class RegionService extends ODResourceCrud<void, Region, Region>{
+export class RegionService extends ODResourceCrud<void, Region, Region> {
   constructor(http: Http) {
     super(http);
   }

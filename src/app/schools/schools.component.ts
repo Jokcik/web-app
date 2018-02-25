@@ -15,14 +15,14 @@ import {UserService} from '../core/user-service/user.service';
   templateUrl: './schools.component.html'
 })
 export class SchoolsComponent implements OnInit {
-  public isEdit: boolean = false;
+  public isEdit = false;
 
   public regions: Region[] = [];
   public currentId: any = 0;
 
   public schools: Schools[] = [];
   public filteredSchools: Schools[] = Dummy.factory(Schools, 10);
-  public type: number = 0;
+  public type = 0;
 
   constructor(private schoolsService: SchoolsService,
               public snackBar: MatSnackBar,
@@ -42,7 +42,7 @@ export class SchoolsComponent implements OnInit {
       this.schoolsService.query().$observable,
       this.route.params
     ).subscribe(([schools, params]) => {
-      this.type = params['id'] == 'administration' ? 1 : 0;
+      this.type = params['id'] === 'administration' ? 1 : 0;
       this.schools = schools;
       this.formatSchools(this.currentId);
     });
@@ -52,18 +52,18 @@ export class SchoolsComponent implements OnInit {
     this.currentId = id || this.currentId;
     this.filteredSchools.length = 0;
 
-    let filterPredicate: (value: Schools) => boolean = value => value.type == this.type && (!id || value.region._id == id);
+    const filterPredicate: (value: Schools) => boolean = value => +value.type === this.type && (!id || value.region._id === id);
     this.filteredSchools.push(...this.schools.filter(value => filterPredicate(value)));
 
   }
 
   public openDialog(result: { school: Schools, type: string, region: string }) {
     console.log('redirectToSchool', result);
-    if (result.type == 'redirectToSchool') {
+    if (result.type === 'redirectToSchool') {
       this.redirectToSchool(result.region);
-    } else if (result.type == 'add') {
+    } else if (result.type === 'add') {
       this.saveSchool(result.school);
-    } else if (result.type == 'remove') {
+    } else if (result.type === 'remove') {
       this.deleteSchool(result.school);
     }
   }

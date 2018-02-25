@@ -2,9 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Gallery} from './shared/gallery';
 import {GalleryService} from './gallery.service';
-import {NgxGalleryAnimation, NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
+import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
 import {ActivatedRoute} from '@angular/router';
-import {GalleryDialogAdd} from './gallery-dialog-add';
+import {GalleryDialogAddComponent} from './gallery-dialog-add.component';
 import {UserService} from '../core/user-service/user.service';
 
 @Component({
@@ -13,7 +13,7 @@ import {UserService} from '../core/user-service/user.service';
 })
 export class GalleryComponent implements OnInit {
   public galleries: Gallery[] = [];
-  public isEditOpen: boolean = false;
+  public isEditOpen = false;
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[] = [];
@@ -47,7 +47,7 @@ export class GalleryComponent implements OnInit {
   public update() {
     this.galleryService.query().$observable.subscribe(galleries => {
       this.galleries = galleries;
-      this.galleryImages = galleries.map(image => {return {small: image.img, medium: image.img, big: image.img, description: image.title}});
+      this.galleryImages = galleries.map(image => ({small: image.img, medium: image.img, big: image.img, description: image.title}));
     });
   }
 
@@ -57,26 +57,26 @@ export class GalleryComponent implements OnInit {
       return;
     }
 
-    let gallery = this.galleries[idx];
-    this.dialog.open(GalleryDialogAdd, {width: '500px', data: gallery ? gallery : ''}).afterClosed().subscribe(result => {
-      if (!result || !result.gallery) return;
+    const gallery = this.galleries[idx];
+    this.dialog.open(GalleryDialogAddComponent, {width: '500px', data: gallery ? gallery : ''}).afterClosed().subscribe(result => {
+      if (!result || !result.gallery) { return; }
 
-      if (result.type == -1) {
+      if (+result.type === -1) {
         return this.galleryService.remove({_id: result.gallery._id}).$observable.subscribe(() => {
           this.update();
-          this.snackBar.open('Фотография успешно удалена', 'ОК', {duration: 2000})
+          this.snackBar.open('Фотография успешно удалена', 'ОК', {duration: 2000});
         });
       }
 
       if (result.gallery._id) {
         this.galleryService.update(result.gallery).$observable.subscribe(() => {
           this.update();
-          this.snackBar.open('Фотография успешно обновлена', 'ОК', {duration: 2000})
+          this.snackBar.open('Фотография успешно обновлена', 'ОК', {duration: 2000});
         });
       } else {
         this.galleryService.save(result.gallery).$observable.subscribe(() => {
           this.update();
-          this.snackBar.open('Фотография успешно добавлена', 'ОК', {duration: 2000})
+          this.snackBar.open('Фотография успешно добавлена', 'ОК', {duration: 2000});
         });
       }
     });

@@ -1,5 +1,10 @@
 import {SafeHtml} from '@angular/platform-browser';
 
+export class Description {
+  description: SafeHtml;
+  short_description: SafeHtml;
+}
+
 export class Materials {
   _id: string;
   title: SafeHtml;
@@ -8,13 +13,8 @@ export class Materials {
   img: string;
   date: Date;
   start_date: Date;
-  type: number = 1;
+  type = 1;
   description: Description = new Description();
 
   images: string[] = [];
-}
-
-export class Description {
-  description: SafeHtml;
-  short_description: SafeHtml;
 }

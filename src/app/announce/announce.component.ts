@@ -14,7 +14,7 @@ import {startWith} from 'rxjs/operators';
 })
 export class AnnounceComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
-  public loaded: boolean = true;
+  public loaded = true;
 
   constructor(private service: HistoryService,
               public userService: UserService,
@@ -29,8 +29,8 @@ export class AnnounceComponent implements OnInit {
   public remove(news: Materials) {
     if (window.confirm('Вы действительно хотите удалить этот аннос?')) {
       this.service.remove({_id: news._id}).$observable.subscribe(() => {
-        this.descriptions = this.descriptions.filter(material => material._id != news._id);
-      })
+        this.descriptions = this.descriptions.filter(material => material._id !== news._id);
+      });
     }
   }
 

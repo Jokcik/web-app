@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from "@angular/core";
+import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from '@angular/core';
 
 /**
  * Директива для внешнего клика:
@@ -9,7 +9,7 @@ import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from "
 @Directive({
   selector: '[odClickOutside]',
 })
-export class ODClickOutside {
+export class OdClickOutsideDirective {
   @Output('odClickOutside') public event: EventEmitter<Event> = new EventEmitter();
   @Input('ignore') public ignoreElements: (HTMLElement[] | string)[];
 
@@ -18,19 +18,19 @@ export class ODClickOutside {
 
   @HostListener('document:mousedown', ['$event', '$event.target'])
   public clickHandler(event: MouseEvent, targetElement: HTMLElement): void {
-    let checkInterection = (array: HTMLElement[], target) => array.some(el => el.contains(target));
-    let ignore = [];
+    const checkInterection = (array: HTMLElement[], target) => array.some(el => el.contains(target));
+    const ignore = [];
     if (!(this.ignoreElements instanceof Array)) {
       this.ignoreElements = [this.ignoreElements];
     }
 
     this.ignoreElements.forEach(value => {
-        if (typeof value === "string") {
-          let arr = document.querySelectorAll(value);
+        if (typeof value === 'string') {
+          const arr = document.querySelectorAll(value);
           for (let i = 0; i < arr.length; ++i) {
             ignore.push(arr[i]);
           }
-        } else if(value instanceof HTMLElement) {
+        } else if (value instanceof HTMLElement) {
           ignore.push(value);
         }
     });

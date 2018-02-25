@@ -8,9 +8,9 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class UserService {
   public user: User;
-  public isCheckAuth: boolean = false;
+  public isCheckAuth = false;
   public onLogin = new Subject<User>();
-  public errorAuth: boolean = false;
+  public errorAuth = false;
 
   public setUser(user: User) {
     this.isCheckAuth = true;
@@ -29,7 +29,7 @@ export class UserService {
     if (this.errorAuth) {
       return of(this.user);
     }
-    return this.user ? of(this.user) : this.onLogin.pipe(catchError(error => of(null)))
+    return this.user ? of(this.user) : this.onLogin.pipe(catchError(error => of(null)));
   }
 
   public logout() {

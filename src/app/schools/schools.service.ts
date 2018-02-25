@@ -11,7 +11,7 @@ export interface IQueryParams {
 
 @Injectable()
 @ResourceParams({pathPrefix: 'schools-region'})
-export class SchoolsService extends ODResourceCrud<IQueryParams, Schools, Schools>{
+export class SchoolsService extends ODResourceCrud<IQueryParams, Schools, Schools> {
   constructor(http: Http) {
     super(http);
   }
