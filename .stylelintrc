@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "rule-empty-line-before": null,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": ["always", { "except": ["empty"] }],
+    "selector-attribute-quotes": "always",
+    "string-quotes": "double",
+    "max-nesting-depth": 3,
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "0,3,2",
+    "at-rule-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "no-empty-source": null,
+    "selector-class-pattern": "[a-z-]+",
+    "selector-id-pattern": "[a-z-]+",
+    "selector-no-qualifying-type": [true, {"ignore": ["attribute", "class", "id"]}],
+    "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg"],
+    "max-line-length": 120,
+    "selector-type-no-unknown": [ true, {
+      "ignoreTypes": ["mat-form-field", "mat-expansion-panel"]
+    } ]
+  }
+}
