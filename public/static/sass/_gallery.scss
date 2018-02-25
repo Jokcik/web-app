@@ -3,7 +3,9 @@
     line-height: inherit!important;
   }
 
-
+  .card > img {
+    margin-bottom: .75rem;
+  }
 
   .card {
     transition: transform .15s ease-out,-webkit-transform .15s ease-out;
@@ -65,9 +67,6 @@
     }
   }
 
-  .card > img {
-    margin-bottom: .75rem;
-  }
 
   .card-text {
     font-size: 85%;

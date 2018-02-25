@@ -8,9 +8,9 @@ mat-card {
     //padding-right: 150px;
     p {
       line-height: 1.2!important;
-      font-family:Courier New,Courier,monospace!important;
+      font-family: "Courier New", Courier, monospace!important;
       span, font {
-        font-family:Courier New,Courier,monospace!important;
+        font-family: "Courier New", Courier, monospace!important;
       }
     }
   }
@@ -18,7 +18,7 @@ mat-card {
   h4 {
     margin-bottom: 20px;
     text-align: center;
-    font-family: 'noto_sans', sans-serif;
+    font-family: "noto_sans", sans-serif;
     color: #484B50;
     text-transform: uppercase;
     text-decoration: none;
@@ -162,7 +162,7 @@ mat-card {
         text-align: center;
         line-height: 45px;
         text-shadow: darkgray 1px 1px;
-        font-family: 'pt_sans_narrowbold', serif;
+        font-family: "pt_sans_narrowbold", serif;
         color: #787878;
         text-decoration: none;
         font-size: 33px;
@@ -182,10 +182,6 @@ mat-card {
   padding: 0!important;
 }
 
-.text {
-
-}
-
 p, ul, ol {
   font-size: 16px;
   line-height: 28px;
@@ -194,7 +190,7 @@ p, ul, ol {
 
 button:focus, a:focus {
   outline: none!important;
-  border: none!important;;
+  border: none!important;
 }
 
 .cke_textarea_inline {

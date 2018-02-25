@@ -15,23 +15,6 @@ header {
     background-color: #EBEAE6 !important;
   }
 
-  div > ul > li {
-    &:hover {
-      background-color: darkgray;
-
-      > a {
-        color: white !important;
-      }
-    }
-
-    > a {
-
-      padding-left: 1.6rem !important;
-      padding-right: 1.6rem !important;
-      text-align: center !important;
-    }
-  }
-
   od-profile {
     li > a {
       padding-left: .2rem !important;
@@ -51,6 +34,12 @@ header {
         background-color: darkgray !important;
       }
 
+      a, span {
+        color: #484B50 !important;
+        font-weight: bold !important;
+        font-family: "roboto_lt", Arial, Helvetica, sans-serif !important;
+      }
+
       .dropdown-menu {
         margin: 0 !important;
         background-color: darkgray !important;
@@ -67,10 +56,20 @@ header {
         }
       }
 
-      a, span {
-        color: #484B50 !important;
-        font-weight: bold !important;
-        font-family: 'roboto_lt', Arial, Helvetica, sans-serif !important;
+    }
+  }
+  div > ul > li {
+    > a {
+      padding-left: 1.6rem !important;
+      padding-right: 1.6rem !important;
+      text-align: center !important;
+    }
+
+    &:hover {
+      background-color: darkgray;
+
+      > a {
+        color: white !important;
       }
     }
   }
@@ -89,15 +88,16 @@ header {
       left: -30px;
       top: 5px;
     }
+    a {
+      text-decoration: none;
+    }
 
     a:visited, a:link {
       color: #1e61ac;
       text-shadow: #1e61ac 1px 1px 0;
     }
 
-    a {
-      text-decoration: none;
-    }
+
   }
 
   .img-block {
@@ -167,11 +167,11 @@ header {
     }
 
     .title {
-      $titleColor: rgba(249, 163, 1, 0.98);;
+      $titleColor: rgba(249, 163, 1, 0.98);
       font-size: 30px;
       color: rgba(249, 1, 68, 0.98);
       font-weight: 700;
-      font-family: "Century", Cursive, serif;
+      font-family: Century, Cursive, serif;
       text-shadow: rgba(249, 1, 68, 0.98) 1px 1px 0, $titleColor 2px 2px 0,
       $titleColor 3px 3px 0, $titleColor 4px 4px 0,
       $titleColor 5px 5px 0;

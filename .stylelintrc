@@ -9,22 +9,31 @@
     "function-url-quotes": ["always", { "except": ["empty"] }],
     "selector-attribute-quotes": "always",
     "string-quotes": "double",
-    "max-nesting-depth": 3,
-    "selector-max-compound-selectors": 3,
-    "selector-max-specificity": "0,3,2",
+    "selector-max-specificity": null,
     "at-rule-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
-    "property-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "no-empty-source": null,
     "selector-class-pattern": "[a-z-]+",
     "selector-id-pattern": "[a-z-]+",
     "selector-no-qualifying-type": [true, {"ignore": ["attribute", "class", "id"]}],
-    "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg"],
+    "unit-whitelist": ["px", "%", "rem", "vw", "vh", "deg", "s", "em"],
     "max-line-length": 120,
     "selector-type-no-unknown": [ true, {
-      "ignoreTypes": ["mat-form-field", "mat-expansion-panel"]
+      "ignoreTypes": [
+        "mat-form-field",
+        "mat-card",
+        "mat-radio-button",
+        "mat-radio-group",
+        "mat-expansion-panel",
+        "cdk-header-row",
+        "cdk-header-cell",
+        "cdk-cell",
+        "cdk-row",
+        "od-profile",
+        "ngx-gallery"
+      ]
     } ]
   }
 }
