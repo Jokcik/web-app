@@ -1,7 +1,7 @@
 import { Model, Schema } from 'mongoose';
 import { Component, Inject } from '@nestjs/common';
 import {Children} from './interfaces/children.interface';
-import {ChildrenModelToken, InstrumentsModelToken, SpecializationModelToken} from '../constants';
+import {ChildrenModelToken, InstrumentsModelToken, SpecializationModelName, SpecializationModelToken} from '../constants';
 import {CreateChildrenDto} from './dto/create-children.dto';
 import {Specialization} from '../others/interface/specialization.interface';
 import {Instruments} from '../others/interface/instruments.interface';
@@ -16,6 +16,18 @@ export class ChildrenService {
 
   async findAllSpecialization() {
     return await this.specializationModel.find();
+  }
+
+  async findById(id: string) {
+    return this.childrenModel.findById(id)
+      .populate({path: 'instruments', populate: {path: 'specialization'}})
+      .populate({path: 'schools', populate: {path: 'region'}})
+      .populate({path: 'ssuzInfo.specialization'})
+      .populate({path: 'competitions.place'})
+      .populate({path: 'competitions.level'})
+      .populate({path: 'competitions.specialization'})
+      .populate({path: 'competitions.competition', select: '-files', populate: [{path: 'level'}, {path: 'specialization'}]});
+      // .populate({path: 'competitions.competition', populate: {path: 'level'}});
   }
 
   async findAllInstruments(specializationId: ObjectId) {

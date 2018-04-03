@@ -14,9 +14,9 @@ export class HistoryService extends ODResourceCrud<void, Materials, Materials> {
   }
 
   @ResourceAction({isArray: true})
-  queryMainpage: ResourceMethod<{type?: number, url?: string}, Materials[]>;
+  queryMainpage: ResourceMethod<{type?: number, url?: string, page?: number}, Materials[]>;
 
-  public querySafeHtml(value: {type?: number, url?: string}): Observable<Materials[]> {
+  public querySafeHtml(value: {type?: number, url?: string, page?: number}): Observable<Materials[]> {
     return this.queryMainpage(value).$observable.map(array => {
       array.forEach((val, index) => {
         if (typeof val.description.description === 'object') { return; }

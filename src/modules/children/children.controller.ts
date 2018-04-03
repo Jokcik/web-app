@@ -32,6 +32,11 @@ export class ChildrenController {
     return this.childrenService.findAllInstruments(specializationId);
   }
 
+  @Get(':id')
+  async findById(@Param('id') id: string): Promise<Children> {
+    return this.childrenService.findById(id);
+  }
+
   @Put(':id')
   async update(@Param('id') id: ObjectId, @Body() createChildrenDto: CreateChildrenDto): Promise<Children> {
     return this.childrenService.update(id, createChildrenDto);

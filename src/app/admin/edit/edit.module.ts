@@ -39,8 +39,6 @@ import {SchoolsService} from '../../schools/schools.service';
 import {SchoolsDialogAddComponent} from './schools-edit/schools-dialog-add.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
-import {ChildrenPageService} from '../../children-page/children-page.service';
-import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
 import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
@@ -61,7 +59,6 @@ import {NgxGalleryModule} from 'ngx-gallery';
     FormsModule,
     EditRoutingModule,
     ODCkeditorModule,
-    ChildrenModule,
     CompetitionTableModule,
     SchoolsModule,
     GalleryModule,
@@ -71,7 +68,6 @@ import {NgxGalleryModule} from 'ngx-gallery';
     MatButtonModule,
     MatCardModule,
     MatTableModule,
-    MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
@@ -103,7 +99,7 @@ import {NgxGalleryModule} from 'ngx-gallery';
     RegionDialogAddComponent,
     SchoolsDialogAddComponent,
   ],
-  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
+  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

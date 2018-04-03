@@ -10,6 +10,7 @@ import {PageComponent} from './page/page.component';
 import {AnnounceComponent} from '../announce/announce.component';
 import {NgxGalleryModule} from 'ngx-gallery';
 import {RouterModule} from '@angular/router';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule,
+    InfiniteScrollModule,
 
     MatCardModule,
     MatIconModule,

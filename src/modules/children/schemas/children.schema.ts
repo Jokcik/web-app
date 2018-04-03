@@ -1,21 +1,44 @@
 import * as mongoose from 'mongoose';
-import {InstrumentsModelName, SchoolsRegionModelName} from '../../constants';
+import {
+  CompetitionLevelModelName,
+  CompetitionModelName,
+  CompetitionPlaceModelName,
+  InstrumentsModelName,
+  SchoolsRegionModelName, SpecializationModelName
+} from '../../constants';
 import ObjectId = mongoose.Schema.Types.ObjectId;
 
-export const ChildrenSchema = new mongoose.Schema({
-  name: String,
-  surname: String,
-  middleName: String,
+const ChildrenCompetitionSchema = new mongoose.Schema({
+  competition: {type: ObjectId, ref: CompetitionModelName, required: true},
+  year: {type: Number, required: true},
+  specialization: {type: ObjectId, ref: SpecializationModelName, required: true},
+  level: {type: ObjectId, ref: CompetitionLevelModelName, required: true},
+  place: {type: ObjectId, ref: CompetitionPlaceModelName, required: true},
+}, {_id: false});
 
-  schools: {
-    type: ObjectId,
-    ref: SchoolsRegionModelName
-  },
-  instruments: {
-    type: ObjectId,
-    ref: InstrumentsModelName
-  },
+const SsuzInfo  = new mongoose.Schema({
+  year: Number,
+  name: Number,
+  otherName: String,
+  specialization: {type: ObjectId, ref: SpecializationModelName},
+}, {_id: false});
+
+export const ChildrenSchema = new mongoose.Schema({
+  name: {type: String, required: true},
+  surname: {type: String, required: true},
+  middleName: {type: String, required: true},
+
+  schools: {type: ObjectId, ref: SchoolsRegionModelName, required: true},
+  instruments: {type: ObjectId, ref: InstrumentsModelName, required: true},
 
   classDSHI: Number,
-  class: Number
+  class: Number,
+
+  birthday: Date,
+  graduateDSHI: Number,
+  ssuz: Boolean,
+  leave: Boolean,
+  competitions: [ChildrenCompetitionSchema],
+
+  ssuzInfo: SsuzInfo,
 });

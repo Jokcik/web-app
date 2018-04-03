@@ -1,5 +1,4 @@
 import {CompetitionLevel} from './competition-level';
-import {CompetitionPlace} from './competition-place';
 import {Specialization} from './children';
 
 export class Competition {

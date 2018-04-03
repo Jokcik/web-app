@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 blog-main">
-      <div class="outer-wrap-news" [class.dummy]="loaded">
+      <div infiniteScroll (scrolled)="setPage()" [infiniteScrollDistance]="0.1" class="outer-wrap-news" [class.dummy]="loaded">
         <h4 style="margin-bottom: 20px; text-align: center;">Новости</h4>
         <div *ngFor="let material of descriptions" class="news-container">
           <div *ngIf="userService.user" class="news-icon edit" (click)="edit(material)">

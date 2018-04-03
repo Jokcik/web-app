@@ -1,0 +1,53 @@
+<h4 class="bold text-center">Результаты конкурсных выступлений (указывать наивысший уровень участия в конкурсе)</h4>
+<div class="form-group">
+  <mat-form-field class="col-lg-12">
+    <mat-select panelClass="big-select" placeholder="Конкурс" [value]="competitionIndex"
+                (valueChange)="currentCompetition.competition = competitions[$event]">
+      <mat-option *ngFor="let competition of competitions; let idx = index" [value]="idx">{{ competition.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="form-group">
+  <mat-form-field class="col-lg-1">
+    <mat-select panelClass="big-select" placeholder="Год" [value]="currentCompetition.year"
+                [disabled]="!currentCompetition.competition" (valueChange)="currentCompetition.year = $event">
+      <mat-option *ngIf="currentCompetition.competition?.year2017" [value]="2017">2017</mat-option>
+      <mat-option *ngIf="currentCompetition.competition?.year2018" [value]="2018">2018</mat-option>
+      <mat-option *ngIf="currentCompetition.competition?.year2019" [value]="2019">2019</mat-option>
+      <mat-option *ngIf="currentCompetition.competition?.year2020" [value]="2020">2020</mat-option>
+      <mat-option *ngIf="currentCompetition.competition?.year2021" [value]="2021">2021</mat-option>
+      <mat-option *ngIf="currentCompetition.competition?.year2022" [value]="2022">2022</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-lg-4">
+    <mat-select panelClass="big-select" placeholder="Специализация"
+                [disabled]="!currentCompetition.competition" [value]="specializationIndex"
+                (valueChange)="currentCompetition.specialization = currentCompetition.competition?.specialization[$event]">
+      <mat-option *ngFor="let specialization of currentCompetition.competition?.specialization; let idx = index" [value]="idx">{{ specialization.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-lg-4">
+    <mat-select panelClass="big-select" placeholder="Уровень конкурса" [value]="levelIndex" 
+                [disabled]="!currentCompetition.competition" (valueChange)="currentCompetition.level = levels[$event]">
+      <ng-container *ngFor="let level of levels; let idx = index">
+        <mat-option *ngIf="level.rate <= currentCompetition.competition?.level?.rate" [value]="idx">{{ level.title }}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="col-lg-3">
+    <mat-select panelClass="big-select" placeholder="Призовое место" [value]="placeIndex"
+                (valueChange)="currentCompetition.place = places[$event]">
+        <mat-option *ngFor="let place of places; let idx = index" [value]="idx">{{ place.title }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="group-button-right" >
+  <button mat-raised-button (click)="add()" color="primary">{{edit ? 'Изменить' : 'Добавить'}} конкурс</button>
+  <button mat-raised-button (click)="deleteCompetition()" color="warn" *ngIf="edit">Удалить</button>
+</div>

@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
-import {SpecializationSchema} from './specialization.schema.ru';
 import ObjectId = mongoose.Schema.Types.ObjectId;
+import {SpecializationModelName} from '../../constants';
 
 export const InstrumentsSchema = new mongoose.Schema({
   title: {
@@ -9,6 +9,6 @@ export const InstrumentsSchema = new mongoose.Schema({
   },
   specialization: {
     type: ObjectId,
-    ref: SpecializationSchema
+    ref: SpecializationModelName
   }
 });

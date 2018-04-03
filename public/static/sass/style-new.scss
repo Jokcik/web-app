@@ -1,3 +1,16 @@
+// Bootstrap
+@import "bootstrap/variables";
+@import "bootstrap/mixins/grid";
+@import "bootstrap/mixins/clearfix";
+@import "bootstrap/mixins/center-block";
+@import "bootstrap/mixins/hide-text";
+@import "bootstrap/mixins/responsive-visibility";
+@import "bootstrap/grid-framework";
+@import "bootstrap/grid";
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+// =====================================
+
 @import "variables";
 @import "header";
 @import "footer";
@@ -16,19 +29,4 @@
 @import "children-edit";
 @import "map-schools";
 @import "/indigo-pink.css";
-
-img {
-  width: inherit;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  //background: url(/images/fon/main.jpg) repeat-y 0 0;
-  background-size: cover;
-}
-
-
-.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
-  transform: none !important;
-}
+@import "uikit";

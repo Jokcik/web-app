@@ -26,7 +26,7 @@ export class NewsController {
   }
 
   @Get()
-  async findAll(@Query('type') type: number, @Query('url') url: string): Promise<News[]> {
-    return this.newsService.findAll(type, url);
+  async findAll(@Query('type') type: number, @Query('url') url: string, @Query('page') page: string): Promise<News[]> {
+    return this.newsService.findAll(type, url, +page);
   }
 }

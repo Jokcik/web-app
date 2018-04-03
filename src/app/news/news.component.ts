@@ -14,6 +14,8 @@ export class NewsComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded = true;
 
+  public page: number = 1;
+
   constructor(private mainpageService: HistoryService,
               public userService: UserService,
               private updateService: UpdateService,
@@ -22,14 +24,27 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.formatNews();
-    this.updateService.changeNews.subscribe(() => this.formatNews());
+    this.updateService.changeNews.subscribe(() => {
+      this.page = 1;
+      this.descriptions = [];
+      this.formatNews();
+    });
   }
 
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1}).subscribe(descriptions => {
-      this.descriptions = descriptions;
+    this.mainpageService.querySafeHtml({type: 1, page: this.page}).subscribe(descriptions => {
+      if (!this.descriptions[0] || !this.descriptions[0]._id ) {
+        this.descriptions = [];
+      }
+
+      this.descriptions.push(...descriptions);
       this.loaded = false;
     });
+  }
+
+  public setPage() {
+    this.page += 1;
+    this.formatNews();
   }
 
   public edit(news: Materials) {

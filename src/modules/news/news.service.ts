@@ -24,20 +24,23 @@ export class NewsService {
     return await this.newsModel.findByIdAndUpdate(id, createNewsDto, {new: true});
   }
 
-  async findAll(type: number, url: string): Promise<News[]> {
+  async findAll(type: number, url: string, page: number): Promise<News[]> {
+    const onPage = 10;
+    page = page || 1;
+
     let obj = {};
     obj = Object.assign(obj, type ? {type} : {});
     obj = Object.assign(obj, url ? {url} : {});
 
     let model = this.newsModel.find(obj);
     if (type == 2) {
-      model = model.where({date: {$gte: Date.now()}}).sort({date: 1})
+      model = model.where({date: {$gte: Date.now()}}).sort({date: 1});
     }
 
     if (type == 1) {
       model = model.sort({date: -1});
     }
 
-    return await model.limit(10);
+    return await model.skip((page - 1) * onPage).limit(10);
   }
 }

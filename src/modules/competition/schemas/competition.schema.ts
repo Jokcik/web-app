@@ -3,6 +3,7 @@ import {CompetitionLevelSchema} from '../../others/schemas/competition-level.sch
 import {SpecializationSchema} from '../../others/schemas/specialization.schema.ru';
 import ObjectID = mongoose.Schema.Types.ObjectId;
 import {CompetitionFiles} from '../../../app/admin/edit/shared/competition';
+import {CompetitionLevelModelName, SpecializationModelName} from '../../constants';
 
 export const CompetitionFilesSchema = new mongoose.Schema({
   name: String,
@@ -45,11 +46,11 @@ export const CompetitionSchema = new mongoose.Schema({
   },
   level: {
     type: ObjectID,
-    ref: CompetitionLevelSchema
+    ref: CompetitionLevelModelName
   },
   specialization: [{
     type: ObjectID,
-    ref: SpecializationSchema
+    ref: SpecializationModelName
   }],
 
   files: {

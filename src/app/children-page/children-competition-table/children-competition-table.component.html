@@ -1,0 +1,39 @@
+<div class="example-container table">
+  <!--<div class="example-header">-->
+    <!--<mat-form-field>-->
+      <!--<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск по конкурсам">-->
+    <!--</mat-form-field>-->
+  <!--</div>-->
+
+  <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+
+    <ng-container cdkColumnDef="{{displayedColumns[0]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-8"> Название </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row;" class="example-cell col-lg-8">{{row.competition.title}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="{{displayedColumns[1]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Год </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-1">{{row.year}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="{{displayedColumns[2]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Уровень </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-1 text-center">{{row.level.title}}</cdk-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="{{displayedColumns[3]}}">
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Результативность </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-1 text-center">{{row.place.title}}</cdk-cell>
+    </ng-container>
+
+    <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+    <cdk-row *cdkRowDef="let row; columns: displayedColumns; let idx = index;" class="example-row" (click)="openCompetition(idx, row)"></cdk-row>
+  </cdk-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 30, 50]"></mat-paginator>
+</div>
+
+<div class="right" >
+  <button mat-raised-button color="primary" (click)="add()">Добавить конкурс</button>
+</div>

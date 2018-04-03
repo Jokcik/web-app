@@ -4,3 +4,9 @@
     width: 100%;
   }
 }
+
+.big-select {
+  &.mat-select-panel {
+    max-height: 400px;
+  }
+}

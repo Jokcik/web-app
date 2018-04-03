@@ -28,6 +28,10 @@ header {
   }
 
   ul {
+    .nav-item {
+      padding: 0!important;
+    }
+
     li {
       .dropdown-item:focus,
       .dropdown-item:hover {
@@ -153,6 +157,7 @@ header {
         font-weight: 900;
         text-shadow: #0595d8 1px 1px 0;
       }
+
     }
 
     .cap {

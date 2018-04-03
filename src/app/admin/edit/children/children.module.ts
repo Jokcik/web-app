@@ -2,54 +2,51 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA, MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatDialogRef, MatFormFieldModule, MatGridListModule,
-  MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatSortModule, MatTableModule,
-  MatTabNav, MatTabsModule,
+  MAT_DIALOG_DATA,
+  MatButtonModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatDialogRef,
+  MatInputModule,
+  MatNativeDateModule, MatPaginatorModule,
+  MatSelectModule, MatSortModule,
 } from '@angular/material';
-import {CdkTableModule} from '@angular/cdk/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ODCommonModule} from '../../../core/od-common.module';
 import {ChildrenComponent} from './children.component';
-import {ChildrenDialogAddComponent} from './children-dialog-add.component';
 import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {RegionService} from '../region/region.service';
 import {SchoolsService} from '../../../schools/schools.service';
+import {ChildrenCompetitionTableModule} from '../../../children-page/children-competition-table/children-competition-table.module';
+import {ChildrenEditPageComponent} from './edit-page-children/children-edit-page.component';
+import {ChildrenRoutingModule} from './children-routing.module';
+import {CdkTableModule} from '@angular/cdk/table';
 
 @NgModule({
   imports: [
     FormsModule,
     HttpModule,
-    MatNativeDateModule,
+    ChildrenRoutingModule,
     ReactiveFormsModule,
     ODCommonModule,
     CommonModule,
     FormsModule,
+    ChildrenCompetitionTableModule,
 
+    MatNativeDateModule,
     MatButtonModule,
-    MatCardModule,
-    MatTableModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTabsModule,
-    CdkTableModule,
-
-    MatDialogModule,
-    MatIconModule,
     MatSelectModule,
-    MatRadioModule,
-    MatListModule,
-    MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+
+    CdkTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   declarations: [
     ChildrenComponent,
-    ChildrenDialogAddComponent
-  ],
-  entryComponents: [
-    ChildrenDialogAddComponent
+    ChildrenEditPageComponent,
   ],
   exports: [
     ChildrenComponent,

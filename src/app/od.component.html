@@ -1,13 +1,13 @@
 <div class="page">
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="collapse navbar-collapse container" id="navbarCollapse" style="text-transform: none;">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" routerLink="/news">Новости</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
-          <li class="nav-item dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
+      <div class="collapse navbar-collapse container col-lg-12" id="navbarCollapse" style="text-transform: none;">
+        <ul class="navbar-nav mr-auto col-lg-10">
+          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/news">Новости</a></li>
+          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
+          <!--<li class="nav-item"><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>-->
+          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
+          <li class="nav-item col-lg-2 dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
             <a class="nav-link">История</a>
             <div class="dropdown-menu" [class.show]="historyShow" (click)="historyShow = false">
               <a class="dropdown-item" routerLink="/history/rumc">Роль РУМЦ в развитии ДШИ области</a>
@@ -30,7 +30,7 @@
               <a class="dropdown-item" routerLink="/address/schools">Детские школы искусств</a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
+          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
         </ul>
         <od-profile></od-profile>
       </div>
@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="img-block">
-            <div class="img-wrap">
+            <div class="img-wrap" [routerLink]="'/'" style="cursor: pointer;">
               <img src="/images/logo/logo.png"/>
             </div>
             <div class="btn-block">
