@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ChildrenCompetitionTableComponent} from './children-competition-table.component';
 import {ODCommonModule} from '../../core/od-common.module';
 import {
+  MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatDialogModule,
@@ -14,11 +15,14 @@ import {
 import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {ChildrenEditCompetitionDialogComponent} from './children-edit-competition-dialog.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {TeacherService} from '../../admin/edit/teacher/teacher.service';
 
 @NgModule({
   imports: [
     CommonModule,
     ODCommonModule,
+    ReactiveFormsModule,
 
     CdkTableModule,
     MatPaginatorModule,
@@ -29,8 +33,10 @@ import {ChildrenEditCompetitionDialogComponent} from './children-edit-competitio
     MatCardModule,
     MatButtonModule,
 
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
   ],
+  providers: [TeacherService],
   declarations: [
     ChildrenEditCompetitionDialogComponent,
     ChildrenCompetitionTableComponent

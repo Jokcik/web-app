@@ -4,7 +4,7 @@ import {
   CompetitionModelName,
   CompetitionPlaceModelName,
   InstrumentsModelName,
-  SchoolsRegionModelName, SpecializationModelName
+  SchoolsRegionModelName, SpecializationModelName, TeacherModelName
 } from '../../constants';
 import ObjectId = mongoose.Schema.Types.ObjectId;
 
@@ -14,6 +14,7 @@ const ChildrenCompetitionSchema = new mongoose.Schema({
   specialization: {type: ObjectId, ref: SpecializationModelName, required: true},
   level: {type: ObjectId, ref: CompetitionLevelModelName, required: true},
   place: {type: ObjectId, ref: CompetitionPlaceModelName, required: true},
+  teacher: {type: ObjectId, ref: TeacherModelName, required: true},
 }, {_id: false});
 
 const SsuzInfo  = new mongoose.Schema({

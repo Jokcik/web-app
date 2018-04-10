@@ -21,7 +21,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="col-lg-4">
+  <mat-form-field class="col-lg-3">
     <mat-select panelClass="big-select" placeholder="Специализация"
                 [disabled]="!currentCompetition.competition" [value]="specializationIndex"
                 (valueChange)="currentCompetition.specialization = currentCompetition.competition?.specialization[$event]">
@@ -29,8 +29,8 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="col-lg-4">
-    <mat-select panelClass="big-select" placeholder="Уровень конкурса" [value]="levelIndex" 
+  <mat-form-field class="col-lg-2">
+    <mat-select panelClass="big-select" placeholder="Уровень конкурса" [value]="levelIndex"
                 [disabled]="!currentCompetition.competition" (valueChange)="currentCompetition.level = levels[$event]">
       <ng-container *ngFor="let level of levels; let idx = index">
         <mat-option *ngIf="level.rate <= currentCompetition.competition?.level?.rate" [value]="idx">{{ level.title }}</mat-option>
@@ -38,16 +38,23 @@
     </mat-select>
   </mat-form-field>
 
-
-  <mat-form-field class="col-lg-3">
+  <mat-form-field class="col-lg-2">
     <mat-select panelClass="big-select" placeholder="Призовое место" [value]="placeIndex"
                 (valueChange)="currentCompetition.place = places[$event]">
         <mat-option *ngFor="let place of places; let idx = index" [value]="idx">{{ place.title }}</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-form-field class="col-lg-4">
+    <input type="text" placeholder="Преподаватель" aria-label="Number" matInput [formControl]="teacherControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="saveTeacher($event)">
+      <mat-option [value]="{_id: '000000000000'}">Нет</mat-option>
+      <mat-option *ngFor="let teacher of teachers" [value]="teacher">{{ teacher?.suname + ' ' + teacher?.name + ' ' + teacher?.middleName }}</mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 </div>
 
 <div class="group-button-right" >
-  <button mat-raised-button (click)="add()" color="primary">{{edit ? 'Изменить' : 'Добавить'}} конкурс</button>
+  <button mat-raised-button (click)="add()" [disabled]="!teacher" color="primary">{{edit ? 'Изменить' : 'Добавить'}} конкурс</button>
   <button mat-raised-button (click)="deleteCompetition()" color="warn" *ngIf="edit">Удалить</button>
 </div>

@@ -11,6 +11,7 @@ export class EditComponent implements OnInit {
     {path: '/admin/edit/news', label: 'Добавить событие', class: 'col-lg-2'},
     {path: '/admin/edit/competition', label: 'Конкурсы', class: 'col-lg-2'},
     {path: '/admin/edit/children', label: 'Банк данных ОД', class: 'col-lg-2'},
+    {path: '/admin/edit/teacher', label: 'Преподаватели', class: 'col-lg-2'},
     {path: '/admin/edit/regions', label: 'Район, город', class: 'col-lg-2'},
     {path: '/admin/edit/schools', label: 'ДШИ', class: 'col-lg-1'},
     {path: '/admin/edit/gallery', label: 'Галерея', class: 'col-lg-2'},

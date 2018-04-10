@@ -38,6 +38,7 @@ export class ChildrenPageService extends ODResourceCrud<IQueryParams, Children, 
       competition.level = competition.level._id || competition.level;
       competition.competition = competition.competition._id || competition.competition;
       competition.specialization = competition.specialization._id || competition.specialization;
+      competition.teacher = competition.teacher._id || competition.teacher;
 
       return competition;
     });

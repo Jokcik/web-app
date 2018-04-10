@@ -2,6 +2,7 @@ import {Schools} from './school';
 import {CompetitionLevel} from './competition-level';
 import {Competition} from './competition';
 import {CompetitionPlace} from './competition-place';
+import {Teacher} from './teacher';
 
 export class Specialization {
   _id: string;
@@ -20,6 +21,7 @@ export class ChildrenCompetition {
   year: number = 2018;
   level: CompetitionLevel;
   place: CompetitionPlace;
+  teacher: Teacher;
 }
 
 export class SsuzInfo {

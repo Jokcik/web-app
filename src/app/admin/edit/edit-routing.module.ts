@@ -4,11 +4,10 @@ import {EditComponent} from './edit.component';
 import {MainComponent} from './main/main.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {RegionComponent} from './region/region.component';
-import {ChildrenComponent} from './children/children.component';
 import {SchoolsComponent} from '../../schools/schools.component';
 import {GalleryComponent} from '../../gallery/gallery.component';
 import {CompetitionComponent} from '../../competition/competition.component';
-import {ChildrenEditPageComponent} from './children/edit-page-children/children-edit-page.component';
+import {TeacherComponent} from './teacher/teacher.component';
 
 
 @NgModule({
@@ -25,6 +24,7 @@ import {ChildrenEditPageComponent} from './children/edit-page-children/children-
         {path: 'news', component: NewsEditComponent},
         {path: 'news/:url', component: NewsEditComponent},
         {path: 'regions', component: RegionComponent},
+        {path: 'teacher', component: TeacherComponent},
         {path: 'schools', component: SchoolsComponent, data: {edit: true}},
         {path: 'gallery', component: GalleryComponent, data: {edit: true}}
       ]

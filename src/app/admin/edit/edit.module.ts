@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA,
+  MAT_DIALOG_DATA, MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
@@ -47,6 +47,8 @@ import {GalleryModule} from '../../gallery/gallery.module';
 import {CompetitionModule} from '../../competition/competition.module';
 import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
 import {NgxGalleryModule} from 'ngx-gallery';
+import { TeacherComponent } from './teacher/teacher.component';
+import {TeacherService} from './teacher/teacher.service';
 
 @NgModule({
   imports: [
@@ -83,7 +85,8 @@ import {NgxGalleryModule} from 'ngx-gallery';
     MatGridListModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule
   ],
   declarations: [
     EditComponent,
@@ -93,13 +96,14 @@ import {NgxGalleryModule} from 'ngx-gallery';
     SchoolEditComponent,
     SchoolsDialogAddComponent,
     NewsEditComponent,
+    TeacherComponent,
     CompetitionEditComponent,
   ],
   entryComponents: [
     RegionDialogAddComponent,
     SchoolsDialogAddComponent,
   ],
-  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService,
+  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService, TeacherService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

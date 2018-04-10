@@ -26,6 +26,7 @@ export class ChildrenService {
       .populate({path: 'competitions.place'})
       .populate({path: 'competitions.level'})
       .populate({path: 'competitions.specialization'})
+      .populate({path: 'competitions.teacher'})
       .populate({path: 'competitions.competition', select: '-files', populate: [{path: 'level'}, {path: 'specialization'}]});
       // .populate({path: 'competitions.competition', populate: {path: 'level'}});
   }
