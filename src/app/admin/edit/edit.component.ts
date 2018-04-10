@@ -22,11 +22,11 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(user => {
-      if (!user) {
-        this.router.navigate(['/403-forbidden'], {skipLocationChange: true});
-      }
-    });
+    // this.userService.getUser().subscribe(user => {
+    //   if (!user) {
+    //     this.router.navigate(['/403-forbidden'], {skipLocationChange: true});
+    //   }
+    // });
   }
 
 }

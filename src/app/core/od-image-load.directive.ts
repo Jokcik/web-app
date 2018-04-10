@@ -24,8 +24,9 @@ export class ODImageDirective {
               private utils: ODUtils) {
   }
 
-  @HostListener('change', ['event'])
+  @HostListener('change', ['$event'])
   public onChange(event) {
+    console.log(event);
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
       if (this.elRef.nativeElement.attributes['multiple']) {
