@@ -1,8 +1,8 @@
 import * as mongoose from 'mongoose';
 
 const TeacherFile = new mongoose.Schema({
-  name: {type: String, required: true},
-  url: {type: String, required: true},
+  name: {type: String},
+  url: {type: String},
 }, { _id: false });
 
 export const TeacherSchema = new mongoose.Schema({
