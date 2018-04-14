@@ -5,6 +5,7 @@ import {FormControl} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {empty} from 'rxjs/observable/empty';
 import {MatSnackBar} from '@angular/material';
+import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 
 @Component({
   selector: 'od-teacher',
@@ -19,6 +20,7 @@ export class TeacherComponent implements OnInit {
   public teacherEdit: Teacher;
 
   constructor(private teacherService: TeacherService,
+              public multipart: ODMultipartSendService,
               public snackBar: MatSnackBar) {
   }
 
@@ -28,6 +30,25 @@ export class TeacherComponent implements OnInit {
       distinctUntilChanged(),
       switchMap(value => value ? this.teacherService.search({name: value}).$observable : empty<any>())
     ).subscribe(teachers => this.teachers = teachers);
+  }
+
+  public async loadFile(file: File) {
+    const multipartItems: MultipartItem[] = [
+      {name: 'files', value: file},
+      {name: 'type', value: 'files'}
+    ];
+
+    const data = await this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).toPromise();
+    if (this.type === 0) {
+      this.teacher.file = {};
+      this.teacher.file.url = data.url;
+      this.teacher.file.name = file.name;
+      return;
+    }
+
+    this.teacherEdit.file = {};
+    this.teacherEdit.file.url = data.url;
+    this.teacherEdit.file.name = file.name;
   }
 
   public saveTeacher(a) {
