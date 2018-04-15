@@ -14,6 +14,7 @@ export class UploadsService {
 
     let url = '/images/' + fields.type + '/' + uniqid() + path.extname(files.logo.name);
     mv(files.logo.path, './public' + url, err => {console.log(err)});
+    // TODO: сжимать файлы
     // fs.renameSync(files.logo.path, './public' + url);
     return {url: host + url};
   }

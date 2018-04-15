@@ -5,6 +5,7 @@ import {Http, Request} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
 import {_throw} from 'rxjs/observable/throw';
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 @ResourceParams({url: environment.host})
@@ -24,9 +25,10 @@ export class ODResource extends Resource {
   protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
     const obser = observable.map(value => {
       const val = value.json();
-      if (val.statusCode >= 400) { throw new Error(value.json().message); }
+      if (val.statusCode >= 400) { throw new Error(val.message); }
       return value;
-    });
+    }).pipe(catchError(err => {throw new Error(err.json().message); }));
+
     return super.$responseInterceptor(obser, req, methodOptions);
   }
 }

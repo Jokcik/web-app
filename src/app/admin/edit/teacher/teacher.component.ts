@@ -60,26 +60,28 @@ export class TeacherComponent implements OnInit {
     if (!window.confirm('Вы действительно хотите удалить этого преподавателя?')) { return; }
 
     this.teacherService.remove({_id: this.teacherEdit._id}).$observable.subscribe(() => {
-      this.snackBar.open('Преподаватель успешно удален с базы', 'ОК', {duration: 2000});
+      const name = this.teacherEdit.name + ' ' + this.teacherEdit.suname + ' ' + this.teacherEdit.middleName;
+      this.snackBar.open(`Преподаватель '${name}' успешно удален с базы`, 'ОК', {duration: 2000});
       this.teacherEdit = null;
       this.teacherControl.setValue('', {emitEvent: false});
-    }, (err) => window.alert('Ошибка ' + JSON.stringify(err)));
+    }, (err) => window.alert('Ошибка ' + JSON.stringify(err.message)));
   }
 
   public addTeacher() {
     if (this.type === 0) {
       this.teacherService.save(this.teacher).$observable.subscribe(teacher => {
         const name = this.teacher.name + ' ' + this.teacher.suname + ' ' + this.teacher.middleName;
-        this.snackBar.open(`Преподаватель '${name}' успешно добавлен`, 'ОК', {duration: 4000});
+        this.snackBar.open( `Преподаватель '${name}' успешно добавлен`, 'ОК', {duration: 4000});
         this.teacher = new Teacher();
-      }, err => window.alert('Ошибка ' + JSON.stringify(err)));
+      }, err => window.alert('Ошибка ' + JSON.stringify(err.message)));
       return;
     }
 
     this.teacherService.update(this.teacherEdit).$observable.subscribe(teacher => {
-        this.snackBar.open('Преподаватель успешно изменен', 'ОК', {duration: 2000});
+      const name = this.teacher.name + ' ' + this.teacher.suname + ' ' + this.teacher.middleName;
+        this.snackBar.open(`Преподаватель '${name}' успешно изменен`, 'ОК', {duration: 2000});
         this.teacherEdit = teacher;
-      }, err => window.alert('Ошибка ' + JSON.stringify(err))
+      }, err => window.alert('Ошибка ' + JSON.stringify(err.message))
     );
   }
 }

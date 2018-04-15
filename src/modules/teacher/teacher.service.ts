@@ -18,8 +18,6 @@ export class TeacherService {
         { middleName: new RegExp('^' + createTeacherDto.middleName.trim() + '$')}
     ]});
 
-    console.log(teacherOld);
-
     if (teacherOld.length) throw new BadRequestException('Такой преподаватель уже добавлен в базу');
 
     return await teacher.save();
