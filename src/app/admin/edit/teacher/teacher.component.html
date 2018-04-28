@@ -2,7 +2,7 @@
   <div class="form-group col-lg-12">
     <mat-radio-group class="col-lg-12" [(ngModel)]="type">
       <mat-radio-button class="col-lg-3" [value]="0">Добавить преподавателя</mat-radio-button>
-      <mat-radio-button class="col-lg-3" [value]="1">Редактировать преподавателя</mat-radio-button>
+      <mat-radio-button *ngIf="userService.user?.role == 5" class="col-lg-3" [value]="1">Редактировать преподавателя</mat-radio-button>
     </mat-radio-group>
   </div>
 

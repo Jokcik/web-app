@@ -1,11 +1,15 @@
+<div *ngIf="userService.user?.role === 5">
+  <button mat-raised-button color="primary" [routerLink]="'/auth/register'">Зарегистрировать нового пользователя</button>
+</div>
 <nav class="outer-edit" mat-tab-nav-bar>
-  <a mat-tab-link
-     *ngFor="let link of navLinks"
-     [routerLink]="link.path"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive">
-    {{link.label}}
-  </a>
+  <ng-container *ngFor="let link of navLinks">
+    <a mat-tab-link *ngIf="link.role <= userService.user?.role"
+       [routerLink]="link.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </ng-container>
 </nav>
 
 <router-outlet></router-outlet>

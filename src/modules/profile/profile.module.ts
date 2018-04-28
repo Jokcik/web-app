@@ -8,6 +8,7 @@ import * as passport from 'passport';
 
 const routes: any[] = [
   { path: '/profiles', method: RequestMethod.GET },
+  { path: '/profiles/register', method: RequestMethod.POST },
 ];
 
 @Module({

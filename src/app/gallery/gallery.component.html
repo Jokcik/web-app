@@ -1,5 +1,5 @@
 <div class="outer-wrap-gallery album text-muted" [class.admin]="isEditOpen">
-  <a *ngIf="userService.user && !isEditOpen" routerLink="/admin/edit/gallery">Редактировать</a>
+  <a *ngIf="userService.user?.role === 5 && !isEditOpen" routerLink="/admin/edit/gallery">Редактировать</a>
   <div class="container">
 
     <div class="row">

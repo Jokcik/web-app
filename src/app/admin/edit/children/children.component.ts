@@ -7,6 +7,9 @@ import {SchoolsService} from '../../../schools/schools.service';
 import {ChildrenPageService} from '../../../children-page/children-page.service';
 import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {UserService} from '../../../core/user-service/user.service';
+import {ODUtils} from '../../../core/od-utils';
+import {switchMap} from 'rxjs/operators';
+import {empty} from 'rxjs/observable/empty';
 
 @Component({
   selector: 'od-edit-children',
@@ -35,19 +38,32 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
               private childrenService: ChildrenPageService,
               public userService: UserService,
               public snackBar: MatSnackBar,
+              private odUtils: ODUtils,
               public dialog: MatDialog) {
   }
 
   public ngOnInit() {
     this.dataSource = new MatTableDataSource(this.childrens);
-    this.regions = this.regionService.query();
+
+    this.regionService.query().$observable.pipe(switchMap(regions => {
+      this.regions = regions;
+      if (!this.userService.user.schools) { return empty<any>(); }
+      const idx = this.odUtils.getIdInArray(this.userService.user.schools.region.title, this.regions, 'title');
+
+      return this.selectedRegion(idx).$observable;
+    })).subscribe(schools => {
+      this.schools = schools;
+      const idx = this.odUtils.getIdInArray(this.userService.user.schools.title, this.schools, 'title');
+
+      this.selectedSchools(idx);
+    });
   }
 
   public selectedRegion(regionIdx: number) {
     this.currentRegion = regionIdx;
     this.currentSchool = -1;
-    this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
     this.childrens.length = 0;
+    return this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
   }
 
   public selectedSchools(schoolIdx: number) {

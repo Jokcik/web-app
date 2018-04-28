@@ -1,8 +1,8 @@
 <div class="sidebar-module sidebar-module-inset" [class.dummy]="loaded">
   <h4 style="margin-bottom: 20px; text-align: center;">Анонсы</h4>
   <div *ngFor="let material of descriptions; let last = last" class="announce-container">
-      <div *ngIf="userService.user" class="announce-icon edit" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
-      <div *ngIf="userService.user" class="announce-icon remove" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
+      <div *ngIf="userService.user?.role === 5" class="announce-icon edit" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
+      <div *ngIf="userService.user?.role === 5" class="announce-icon remove" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
     <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
       <p><b [innerHTML]="material.title"></b></p>
       <ng-container *ngIf="material.title">

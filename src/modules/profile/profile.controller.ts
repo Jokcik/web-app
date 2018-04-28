@@ -13,12 +13,12 @@ export class ProfileController {
   }
 
   @Post('register')
-  async register(@Body() user: any) {
-    return this.profilesService.register(user);
+  async register(@Body() user: any, @Request() req) {
+    return this.profilesService.register(req.user, user);
   }
 
   @Get()
-  async getUser(@Request() req): Promise<Profile[]> {
-    return this.profilesService.getUser(req.user);
+  async getUser(@Request() req): Promise<Profile> {
+    return await this.profilesService.getUser(req.user);
   }
 }

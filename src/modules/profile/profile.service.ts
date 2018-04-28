@@ -1,5 +1,5 @@
 import {Model, Schema} from 'mongoose';
-import {BadRequestException, Component, Inject} from '@nestjs/common';
+import {BadRequestException, Component, ForbiddenException, Inject} from '@nestjs/common';
 import {Profile} from './interfaces/profile.interface';
 import {ProfileModelToken} from '../constants';
 import {AuthService} from '../authenticate/auth.service';
@@ -10,11 +10,17 @@ export class ProfileService {
               private authService: AuthService) {
   }
 
-  async register(user): Promise<any> {
-    let token = await this.authService.createToken(Object.assign({}, user, {password: undefined}));
-    user.access_token = token.access_token;
+  async register(currentUser, user): Promise<any> {
+    console.log(currentUser.role, user.role);
+    if (currentUser.role <= user.role) {
+      throw new ForbiddenException();
+    }
+
     const profiles = new this.profilesModel(user);
-    return await profiles.save();
+    const regUser = await profiles.save();
+
+    let token = await this.authService.createToken(Object.assign({}, user, {password: undefined, _id: regUser._id}));
+    return this.profilesModel.findByIdAndUpdate(regUser._id, {$set: {access_token: token.access_token}}, {new: true});
   }
 
   async login(auth: {password: string, login: string}): Promise<any> {
@@ -25,7 +31,7 @@ export class ProfileService {
     return user;
   }
 
-  public getUser(user) {
-    return user;
+  public async getUser(user) {
+    return await this.profilesModel.findById(user._id).populate({path: 'schools', options: {populate: 'region'}});
   }
 }

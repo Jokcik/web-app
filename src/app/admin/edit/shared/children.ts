@@ -35,7 +35,7 @@ export class Children {
   _id: string;
   name: string;
   surname: string;
-  birthday: Date = new Date();
+  birthday: Date = new Date(2000, 0, 1);
   graduateDSHI: number; // год окончания ДШИ
   middleName: string;
   ssuz: boolean;

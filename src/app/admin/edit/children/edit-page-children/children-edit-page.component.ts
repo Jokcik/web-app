@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Children, Instruments, Specialization} from '../../shared/children';
 import {Region} from '../../shared/region';
 import {Schools} from '../../shared/school';
@@ -7,10 +7,10 @@ import {ChildrenPageService} from '../../../../children-page/children-page.servi
 import {RegionService} from '../../region/region.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {empty} from 'rxjs/observable/empty';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import {of} from 'rxjs/observable/of';
 import {ODUtils} from '../../../../core/od-utils';
+import {UserService} from '../../../../core/user-service/user.service';
 
 @Component({
   selector: 'od-edit-page-children',
@@ -33,6 +33,7 @@ export class ChildrenEditPageComponent implements OnInit {
               private regionService: RegionService,
               private route: ActivatedRoute,
               private router: Router,
+              public userService: UserService,
               private odUtils: ODUtils,
               private schoolService: SchoolsService) {
   }
@@ -50,7 +51,11 @@ export class ChildrenEditPageComponent implements OnInit {
   }
 
   public formatChildren(children: Children) {
-    if (!children) { return; }
+    if (!children) {
+      if (this.userService.user.role !== 1) { return; }
+      children = new Children();
+      children.schools = this.userService.user.schools;
+    }
 
     this.currentChildren = children;
     this.currentRegion = this.odUtils.getIdInArray(children.schools.region.title, this.regions, 'title');

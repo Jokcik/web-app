@@ -4,10 +4,10 @@
       <div infiniteScroll (scrolled)="setPage()" [infiniteScrollDistance]="0.1" class="outer-wrap-news" [class.dummy]="loaded">
         <h4 style="margin-bottom: 20px; text-align: center;">Новости</h4>
         <div *ngFor="let material of descriptions" class="news-container">
-          <div *ngIf="userService.user" class="news-icon edit" (click)="edit(material)">
+          <div *ngIf="userService.user?.role === 5" class="news-icon edit" (click)="edit(material)">
             <mat-icon>edit</mat-icon>
           </div>
-          <div *ngIf="userService.user" class="news-icon remove" (click)="remove(material)">
+          <div *ngIf="userService.user?.role === 5" class="news-icon remove" (click)="remove(material)">
             <mat-icon>delete forever</mat-icon>
           </div>
           <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">

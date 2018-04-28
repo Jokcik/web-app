@@ -6,6 +6,7 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {empty} from 'rxjs/observable/empty';
 import {MatSnackBar} from '@angular/material';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
+import {UserService} from '../../../core/user-service/user.service';
 
 @Component({
   selector: 'od-teacher',
@@ -20,6 +21,7 @@ export class TeacherComponent implements OnInit {
   public teacherEdit: Teacher;
 
   constructor(private teacherService: TeacherService,
+              public userService: UserService,
               public multipart: ODMultipartSendService,
               public snackBar: MatSnackBar) {
   }

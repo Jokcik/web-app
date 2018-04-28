@@ -8,26 +8,26 @@ import {Router} from '@angular/router';
 })
 export class EditComponent implements OnInit {
   navLinks = [
-    {path: '/admin/edit/news', label: 'Добавить событие', class: 'col-lg-2'},
-    {path: '/admin/edit/competition', label: 'Конкурсы', class: 'col-lg-2'},
-    {path: '/admin/edit/children', label: 'Банк данных ОД', class: 'col-lg-2'},
-    {path: '/admin/edit/teacher', label: 'Преподаватели', class: 'col-lg-2'},
-    {path: '/admin/edit/regions', label: 'Район, город', class: 'col-lg-2'},
-    {path: '/admin/edit/schools', label: 'ДШИ', class: 'col-lg-1'},
-    {path: '/admin/edit/gallery', label: 'Галерея', class: 'col-lg-2'},
-    {path: '/admin/edit/history', label: 'История', class: 'col-lg-1'},
+    {path: '/admin/edit/news', label: 'Добавить событие', role: 5},
+    {path: '/admin/edit/competition', label: 'Конкурсы', role: 5},
+    {path: '/admin/edit/children', label: 'Банк данных ОД', role: 1},
+    {path: '/admin/edit/teacher', label: 'Преподаватели', role: 1},
+    {path: '/admin/edit/regions', label: 'Район, город', role: 5},
+    {path: '/admin/edit/schools', label: 'ДШИ', role: 5},
+    {path: '/admin/edit/gallery', label: 'Галерея', role: 5},
+    {path: '/admin/edit/history', label: 'История', role: 5},
   ];
 
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
               private router: Router) {
   }
 
   ngOnInit() {
-    // this.userService.getUser().subscribe(user => {
-    //   if (!user) {
-    //     this.router.navigate(['/403-forbidden'], {skipLocationChange: true});
-    //   }
-    // });
+    this.userService.getUser().subscribe(user => {
+      if (!user) {
+        this.router.navigate(['/403-forbidden'], {skipLocationChange: true});
+      }
+    });
   }
 
 }

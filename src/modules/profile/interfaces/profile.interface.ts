@@ -1,4 +1,5 @@
 import { Document } from 'mongoose';
+import {Schools} from '../../../app/admin/edit/shared/school';
 
 export interface Profile extends Document {
   readonly id: string;
@@ -7,4 +8,5 @@ export interface Profile extends Document {
   readonly middleName: string;
   readonly role: number;
   readonly nickname: string;
+  readonly schools: Schools;
 }

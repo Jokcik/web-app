@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Roles, User} from '../core/user-service/user';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from '../core/user-service/user.service';
+import {SchoolsService} from '../schools/schools.service';
+import {Schools} from '../admin/edit/shared/school';
 
 @Component({
   selector: 'od-auth',
@@ -14,13 +16,18 @@ export class AuthComponent implements OnInit {
   public password: string;
   public roles: typeof Roles = Roles;
 
+  public schools: Schools[] = [];
+  public selectedSchoolId: string;
+
   constructor(private route: ActivatedRoute,
               private profileService: ProfileService,
               private userService: UserService,
+              private schoolsService: SchoolsService,
               private router: Router) {
   }
 
   public ngOnInit() {
+    this.schools = this.schoolsService.query();
     this.route.params.subscribe(params => this.register = params['action'] === 'register');
   }
 
@@ -33,11 +40,10 @@ export class AuthComponent implements OnInit {
   }
 
   public registerUser() {
-    const login = Object.assign(this.user, {password: this.password});
-    this.profileService.register(this.user).$observable.subscribe(data => {
-      this.userService.setUser(this.user);
-      localStorage.setItem('access_token', data.access_token);
-      this.router.navigate(['/']);
+    const login = Object.assign({}, this.user, {password: this.password, schools: this.selectedSchoolId, role: 1});
+    this.profileService.register(login).$observable.subscribe(data => {
+      window.alert(`Вы успешно зарегистрировали пользователя ${login.surname + ' ' + login.name + ' ' + login.middleName}.
+      \nлогин: ${login.nickname}\nпароль: ${login.password}`);
     });
   }
 }
