@@ -46,6 +46,8 @@
 
     <mat-form-field class="col-lg-4">
       <mat-select placeholder="Класс ДШИ на 01.09.2017" [value]="currentChildren.classDSHI" (valueChange)="currentChildren.classDSHI = +$event">
+        <mat-option [value]="2">2 класс</mat-option>
+        <mat-option [value]="3">3 класс</mat-option>
         <mat-option [value]="4">4 класс</mat-option>
         <mat-option [value]="5">5 класс</mat-option>
         <mat-option [value]="6">6 класс</mat-option>
