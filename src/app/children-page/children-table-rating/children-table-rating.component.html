@@ -1,0 +1,33 @@
+<div class="outer-children-edit col-lg-12">
+  <div class="example-container mat-elevation-z8 outer-region-edit table">
+
+    <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+      <ng-container cdkColumnDef="id">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> № </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell col-lg-1">{{idx + 1}}</cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="fio">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-4"> ФИО </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-4">{{row.surname + ' ' +  row.name + ' ' + row.middleName}}</cdk-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container cdkColumnDef="school">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-6"> Школа </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell col-lg-6">{{row.schools.title}}</cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="rating">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Рейтинг (баллы) </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell col-lg-1">{{row.rating}}</cdk-cell>
+      </ng-container>
+
+      <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
+      <cdk-row *cdkRowDef="let row; columns: displayedColumns;" (click)="clickChildren(row)" class="example-row"></cdk-row>
+    </cdk-table>
+
+    <mat-paginator [pageSizeOptions]="[20, 40, 100]"></mat-paginator>
+  </div>
+
+</div>

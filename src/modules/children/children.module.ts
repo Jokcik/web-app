@@ -5,7 +5,7 @@ import { ChildrenProviders } from './children.providers';
 import { DatabaseModule } from '../database/database.module';
 import * as passport from 'passport';
 import {OthersProviders} from '../others/others.providers';
-import {RatingService} from './rating';
+import {RatingService} from './rating/rating';
 
 const routes: any[] = [
   { path: '/children*',  method: RequestMethod.POST },

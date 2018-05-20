@@ -6,7 +6,7 @@ import {CreateChildrenDto} from './dto/create-children.dto';
 import {Specialization} from '../others/interface/specialization.interface';
 import {Instruments} from '../others/interface/instruments.interface';
 import ObjectId = Schema.Types.ObjectId;
-import {RatingService} from './rating';
+import {RatingService} from './rating/rating';
 import * as _ from 'lodash';
 
 @Component()
@@ -38,18 +38,20 @@ export class ChildrenService {
     return this.instrumentsModel.find({specialization: specializationId});
   }
 
-  async getRating(id: string) {
+  async getRating() {
     const childrens = await this.childrenModel.find()
+      .populate('schools')
       .populate({path: 'competitions.place'})
       .populate({path: 'competitions.level'});
 
     const result = [];
     childrens.forEach(children => {
-      const rating = this.getRatingByChidren(children);
-      return result.push({rating, name: children.surname + children.name});
+      const childrenObj = children.toObject();
+      childrenObj['rating'] = this.getRatingByChidren(children);
+      return result.push(childrenObj);
     });
 
-    return _.sortBy(result, 'rating');
+    return  _.sortBy(result, [function(o) { return -o.rating; }]);
   }
 
   private getRatingByChidren(children: Children) {

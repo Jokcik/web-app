@@ -23,7 +23,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
   public currentRegion = -1;
   public currentSchool = -1;
   /*  Таблица  */
-  public displayedColumns = ['surname', 'name', 'middleName'];
+  public displayedColumns = ['id', 'surname', 'name', 'middleName', 'rating'];
   public dataSource: MatTableDataSource<Children>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -49,7 +49,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
       this.regions = regions;
 
       const schools: Schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
-      if (!schools) { return empty<any>(); }
+      if (!schools || !schools.region) { return empty<any>(); }
       const idx = this.odUtils.getIdInArray(schools.region.title, this.regions, 'title');
 
       return this.selectedRegion(idx).$observable.map(value => [schools, value]);

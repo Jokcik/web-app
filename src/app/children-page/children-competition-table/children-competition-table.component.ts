@@ -65,7 +65,9 @@ export class ChildrenCompetitionTableComponent implements OnInit, OnChanges, Aft
   }
 
   private removeResult(index) {
-    this.competitions = this.competitions.filter((data, idx) => idx !== index);
+    const compFilter = this.competitions.filter((data, idx) => idx !== index);;
+    this.competitions.length = 0;
+    this.competitions.push(...compFilter);
   }
 
   private editResult(index, result) {

@@ -13,6 +13,11 @@
   <div class="example-container mat-elevation-z8 outer-region-edit table" *ngIf="currentSchool >= 0" (odClickOutside)="close()">
 
     <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
+      <ng-container cdkColumnDef="id">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> № </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{idx + 1}}</cdk-cell>
+      </ng-container>
+
       <ng-container cdkColumnDef="surname">
         <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Фамилия </cdk-header-cell>
         <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{row.surname}}</cdk-cell>
@@ -27,6 +32,11 @@
       <ng-container cdkColumnDef="middleName">
         <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Отчество </cdk-header-cell>
         <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{row.middleName}}</cdk-cell>
+      </ng-container>
+
+      <ng-container cdkColumnDef="rating">
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> Рейтинг (баллы) </cdk-header-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{row.rating}}</cdk-cell>
       </ng-container>
 
       <cdk-header-row *cdkHeaderRowDef="displayedColumns" class="example-header-row"></cdk-header-row>
