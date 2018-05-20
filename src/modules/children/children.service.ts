@@ -81,23 +81,26 @@ export class ChildrenService {
   async findAll(schoolId: ObjectId, long: boolean): Promise<Children[]> {
     let obj = schoolId ? {schools: schoolId} : {};
     if (long) {
-      return await this.childrenModel.find(obj).populate('schools').populate('instruments');
+      const childrens = await this.childrenModel.find(obj)
+        .populate('schools')
+        .populate('instruments')
+        .populate({path: 'competitions.place'})
+        .populate({path: 'competitions.level'});
+
+      const result = [];
+      childrens.forEach(children => {
+        const childrenObj = children.toObject();
+        childrenObj['rating'] = this.getRatingByChidren(children);
+
+        result.push(childrenObj);
+      });
+
+
+      return <any[]>_.sortBy(result, [function(o) { return -o.rating; }]);
+
     }
 
-    const childrens = await this.childrenModel.find(obj)
-      .populate({path: 'competitions.place'})
-      .populate({path: 'competitions.level'});
-
-    const result = [];
-    childrens.forEach(children => {
-      const childrenObj = children.toObject();
-      childrenObj['rating'] = this.getRatingByChidren(children);
-
-      result.push(childrenObj);
-    });
-
-
-    return <any[]>_.sortBy(result, [function(o) { return -o.rating; }]);
+    return await this.childrenModel.find(obj);
   }
 
   public remove(id: Schema.Types.ObjectId) {
