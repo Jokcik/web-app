@@ -12,7 +12,7 @@ export class Specialization {
 export class Instruments {
   _id: string;
   title: string;
-  specialization: Specialization;
+  specialization: Specialization = new Specialization();
 }
 
 export class ChildrenCompetition {
@@ -44,7 +44,7 @@ export class Children {
 
   ssuzInfo: SsuzInfo = <any>{year: new Date().getFullYear()};
   schools: Schools;
-  instruments: Instruments;
+  instruments: Instruments = new Instruments();
 
   classDSHI: number;
   class: number;

@@ -22,6 +22,11 @@ export class ChildrenController {
     return this.childrenService.findAll(schoolId, long);
   }
 
+  // @Get('rating/:id')
+  // async rating(@Param('id') id: string): Promise<number> {
+    // return this.childrenService.getRating(id);
+  // }
+
   @Get('specializations')
   async findAllSpecialization(): Promise<Specialization[]> {
     return this.childrenService.findAllSpecialization();

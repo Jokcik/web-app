@@ -46,15 +46,19 @@ export class ChildrenEditPageComponent implements OnInit {
     ).subscribe(([regions, specializations, children]) => {
       this.regions = regions;
       this.specializations = specializations;
-      this.formatChildren(children);
+      try {
+        this.formatChildren(children);
+      } catch (e) {
+        console.log(e);
+      }
     });
   }
 
   public formatChildren(children: Children) {
     if (!children) {
-      if (this.userService.user.role !== 1) { return; }
+      // if (this.userService.user.role !== 1) { return; }
       children = new Children();
-      children.schools = this.userService.user.schools;
+      children.schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
     }
 
     this.currentChildren = children;

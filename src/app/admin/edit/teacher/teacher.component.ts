@@ -13,7 +13,7 @@ import {UserService} from '../../../core/user-service/user.service';
   templateUrl: './teacher.component.html',
 })
 export class TeacherComponent implements OnInit {
-  public type: number = 0;
+  public type = 0;
   public teacher: Teacher = new Teacher();
 
   public teacherControl: FormControl = new FormControl('');
@@ -55,14 +55,14 @@ export class TeacherComponent implements OnInit {
 
   public saveTeacher(a) {
     this.teacherEdit = a.option.value;
-    this.teacherControl.setValue(this.teacherEdit.name + ' ' + this.teacherEdit.suname + ' ' + this.teacherEdit.middleName);
+    this.teacherControl.setValue(this.teacherEdit.suname + ' ' + this.teacherEdit.name + ' ' + this.teacherEdit.middleName);
   }
 
   public deleteTeacher() {
     if (!window.confirm('Вы действительно хотите удалить этого преподавателя?')) { return; }
 
     this.teacherService.remove({_id: this.teacherEdit._id}).$observable.subscribe(() => {
-      const name = this.teacherEdit.name + ' ' + this.teacherEdit.suname + ' ' + this.teacherEdit.middleName;
+      const name = this.teacherEdit.suname + ' ' + this.teacherEdit.name + ' ' + this.teacherEdit.middleName;
       this.snackBar.open(`Преподаватель '${name}' успешно удален с базы`, 'ОК', {duration: 2000});
       this.teacherEdit = null;
       this.teacherControl.setValue('', {emitEvent: false});
@@ -71,6 +71,7 @@ export class TeacherComponent implements OnInit {
 
   public addTeacher() {
     if (this.type === 0) {
+      this.deleteEmpty(this.teacher);
       this.teacherService.save(this.teacher).$observable.subscribe(teacher => {
         const name = this.teacher.name + ' ' + this.teacher.suname + ' ' + this.teacher.middleName;
         this.snackBar.open( `Преподаватель '${name}' успешно добавлен`, 'ОК', {duration: 4000});
@@ -79,11 +80,18 @@ export class TeacherComponent implements OnInit {
       return;
     }
 
+    this.deleteEmpty(this.teacherEdit);
     this.teacherService.update(this.teacherEdit).$observable.subscribe(teacher => {
       const name = this.teacher.name + ' ' + this.teacher.suname + ' ' + this.teacher.middleName;
         this.snackBar.open(`Преподаватель '${name}' успешно изменен`, 'ОК', {duration: 2000});
         this.teacherEdit = teacher;
       }, err => window.alert('Ошибка ' + JSON.stringify(err.message))
     );
+  }
+
+  public deleteEmpty(teacher: Teacher) {
+    teacher.middleName = teacher.middleName.trim();
+    teacher.name = teacher.name.trim();
+    teacher.suname = teacher.suname.trim();
   }
 }

@@ -8,8 +8,8 @@
   <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
 
     <ng-container cdkColumnDef="{{displayedColumns[0]}}">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-8"> Название </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row;" class="example-cell col-lg-8">{{row.competition.title}}</cdk-cell>
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-7"> Название </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row;" class="example-cell col-lg-7">{{row.competition.title}}</cdk-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="{{displayedColumns[1]}}">
@@ -18,8 +18,8 @@
     </ng-container>
 
     <ng-container cdkColumnDef="{{displayedColumns[2]}}">
-      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Уровень </cdk-header-cell>
-      <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-1 text-center">{{row.level.title}}</cdk-cell>
+      <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-2"> Уровень </cdk-header-cell>
+      <cdk-cell *cdkCellDef="let row" class="example-cell col-lg-2">{{row.level.title}}</cdk-cell>
     </ng-container>
 
     <ng-container cdkColumnDef="{{displayedColumns[3]}}">

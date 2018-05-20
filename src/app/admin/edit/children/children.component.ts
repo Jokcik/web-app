@@ -47,13 +47,15 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
 
     this.regionService.query().$observable.pipe(switchMap(regions => {
       this.regions = regions;
-      if (!this.userService.user.schools) { return empty<any>(); }
-      const idx = this.odUtils.getIdInArray(this.userService.user.schools.region.title, this.regions, 'title');
 
-      return this.selectedRegion(idx).$observable;
-    })).subscribe(schools => {
+      const schools: Schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
+      if (!schools) { return empty<any>(); }
+      const idx = this.odUtils.getIdInArray(schools.region.title, this.regions, 'title');
+
+      return this.selectedRegion(idx).$observable.map(value => [schools, value]);
+    })).subscribe(([oldSchools, schools]) => {
       this.schools = schools;
-      const idx = this.odUtils.getIdInArray(this.userService.user.schools.title, this.schools, 'title');
+      const idx = this.odUtils.getIdInArray(oldSchools.title, this.schools, 'title');
 
       this.selectedSchools(idx);
     });
@@ -69,6 +71,10 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
   public selectedSchools(schoolIdx: number) {
     this.currentSchool = schoolIdx;
     this.updateChildrens(schoolIdx);
+
+    if (this.schools) {
+      localStorage.setItem('od_select_schools', JSON.stringify(this.schools[schoolIdx]));
+    }
   }
 
   // /* Функции для таблицы */
@@ -83,6 +89,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
   }
 
   public updateChildrens(schoolIdx) {
+    console.log('updateChildrens', schoolIdx);
     this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
       this.childrens.length = 0;
       this.childrens.push(...childrens);
