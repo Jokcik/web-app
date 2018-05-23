@@ -41,6 +41,7 @@ export class ChildrenService {
   async getRating() {
     const childrens = await this.childrenModel.find()
       .populate('schools')
+      .populate({path: 'competitions.competition'})
       .populate({path: 'competitions.place'})
       .populate({path: 'competitions.level'});
 
@@ -65,7 +66,7 @@ export class ChildrenService {
   }
 
   private getRatingByCompetition(competition: ChildrenCompetition) {
-    const rateCompetitionLevel = competition.level.rate;
+    const rateCompetitionLevel = competition.competition.rateLevel || competition.level.rate;
     const rateCompetitionPlace = competition.place.rate;
 
     return [rateCompetitionLevel, rateCompetitionPlace];

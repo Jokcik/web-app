@@ -4,6 +4,7 @@ import {Specialization} from './children';
 export class Competition {
   _id: string;
   title: string;
+  rateLevel: number;
   shortTitle: string;
   year2017 = false;
   year2018 = false;

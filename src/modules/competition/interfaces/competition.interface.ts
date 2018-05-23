@@ -13,4 +13,5 @@ export interface Competition extends Document {
   readonly year2022: boolean;
   readonly speicialization: Specialization;
   readonly level: string;
+  readonly rateLevel: number;
 }

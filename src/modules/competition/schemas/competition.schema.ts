@@ -20,6 +20,9 @@ export const CompetitionSchema = new mongoose.Schema({
   shortTitle: {
     type: String,
   },
+  rateLevel: {
+    type: Number,
+  },
   year2017: {
     type: Boolean,
     default: false

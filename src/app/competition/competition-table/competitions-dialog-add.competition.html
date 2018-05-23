@@ -46,6 +46,11 @@
                style="text-decoration: underline; color: #1d75b3; cursor: pointer;"> 2022 </label>
       </div>
 
+      <mat-form-field *ngIf="isEditDialog">
+        <input matInput [(ngModel)]="currentCompetition.rateLevel"
+               placeholder="Коэффициент конкуса (если 0, то используется коэффициент по умолчанию в зависимости от уровня конкурса)">
+      </mat-form-field>
+
       <mat-form-field *ngIf="isEditDialog" style="margin-top: 10px; margin-bottom: 10px;">
         <mat-select placeholder="Уровень конкурса" (valueChange)="currentCompetition.level = levels[$event]"
                     [value]="levelIdx">

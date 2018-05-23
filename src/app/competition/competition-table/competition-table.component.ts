@@ -67,8 +67,11 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
   public async openCompetition(competition: Competition) {
     if (await this.router.navigate([], {queryParams: competition ? {number: competition.num} : {}})) { return; }
     this.dialog.open(CompetitionsDialogAddComponent, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
-      .afterClosed()
-      .subscribe(result => result && this.changeCompetition.emit(result));
+      .afterClosed().subscribe(result => {
+        const url = this.isOpenEdit ? 'admin/edit/competition' : '/competition';
+        this.router.navigateByUrl(url);
+        return result && this.changeCompetition.emit(result)
+      });
   }
 
   public newCompetitions() {
