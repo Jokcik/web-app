@@ -7,7 +7,7 @@ import {UserService} from '../core/user-service/user.service';
 })
 export class ChildrenPageComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
   }

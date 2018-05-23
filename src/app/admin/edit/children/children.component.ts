@@ -43,6 +43,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit() {
+    console.log('ngOnInit', this.paginator);
     this.dataSource = new MatTableDataSource(this.childrens);
 
     this.regionService.query().$observable.pipe(switchMap(regions => {

@@ -10,12 +10,12 @@
     </mat-select>
   </mat-form-field>
 
-  <div class="example-container mat-elevation-z8 outer-region-edit table" *ngIf="currentSchool >= 0" (odClickOutside)="close()">
+  <div class="example-container mat-elevation-z8 outer-region-edit table" [style.display]="currentSchool >= 0 ? 'flex' : 'none'" (odClickOutside)="close()">
 
     <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
       <ng-container cdkColumnDef="id">
         <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell"> № </cdk-header-cell>
-        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{idx + 1}}</cdk-cell>
+        <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell">{{paginator.pageIndex * paginator.pageSize + idx + 1}}</cdk-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="surname">
