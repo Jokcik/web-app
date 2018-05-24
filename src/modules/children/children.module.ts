@@ -6,6 +6,7 @@ import { DatabaseModule } from '../database/database.module';
 import * as passport from 'passport';
 import {OthersProviders} from '../others/others.providers';
 import {RatingService} from './rating/rating';
+import {CronService} from '../cron/cron.service';
 
 const routes: any[] = [
   { path: '/children*',  method: RequestMethod.POST },
@@ -19,6 +20,7 @@ const routes: any[] = [
   components: [
     ChildrenService,
     RatingService,
+    CronService,
     ...ChildrenProviders,
     ...OthersProviders
   ],

@@ -34,6 +34,10 @@ export const ChildrenSchema = new mongoose.Schema({
 
   classDSHI: Number,
   class: Number,
+  rating: {
+    type: Number,
+    default: 0
+  },
 
   birthday: Date,
   graduateDSHI: Number,

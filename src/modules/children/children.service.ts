@@ -1,20 +1,23 @@
-import { Model, Schema } from 'mongoose';
-import { Component, Inject } from '@nestjs/common';
+import {Model, Schema} from 'mongoose';
+import {Component, Inject} from '@nestjs/common';
 import {Children, ChildrenCompetition} from './interfaces/children.interface';
-import {ChildrenModelToken, InstrumentsModelToken, SpecializationModelName, SpecializationModelToken} from '../constants';
+import {ChildrenModelToken, InstrumentsModelToken, SpecializationModelToken} from '../constants';
 import {CreateChildrenDto} from './dto/create-children.dto';
 import {Specialization} from '../others/interface/specialization.interface';
 import {Instruments} from '../others/interface/instruments.interface';
-import ObjectId = Schema.Types.ObjectId;
 import {RatingService} from './rating/rating';
 import * as _ from 'lodash';
+import {CronService} from '../cron/cron.service';
+import ObjectId = Schema.Types.ObjectId;
 
 @Component()
 export class ChildrenService {
   constructor(@Inject(ChildrenModelToken) private readonly childrenModel: Model<Children>,
               @Inject(InstrumentsModelToken) private readonly instrumentsModel: Model<Instruments>,
               @Inject(SpecializationModelToken) private readonly specializationModel: Model<Specialization>,
+              private readonly cronService: CronService,
               private readonly ratingService: RatingService) {
+    this.cronService.start10Min(() => this.updateRating(), this);
   }
 
   async findAllSpecialization() {
@@ -38,7 +41,7 @@ export class ChildrenService {
     return this.instrumentsModel.find({specialization: specializationId});
   }
 
-  async getRating() {
+  async updateRating() {
     const childrens = await this.childrenModel.find()
       .populate('schools')
       .populate({path: 'competitions.competition'})
@@ -52,7 +55,19 @@ export class ChildrenService {
       return result.push(childrenObj);
     });
 
-    return  _.sortBy(result, [function(o) { return -o.rating; }]);
+
+    result.forEach(async children => {
+      await this.childrenModel.findByIdAndUpdate(children._id, {rating: children.rating}, {new: true})
+    });
+  }
+
+  async getRating() {
+    return await this.childrenModel.find()
+      .populate('schools')
+      .populate({path: 'competitions.competition'})
+      .populate({path: 'competitions.place'})
+      .populate({path: 'competitions.level'})
+      .sort('-rating');
   }
 
   private getRatingByChidren(children: Children) {
