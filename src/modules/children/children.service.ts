@@ -64,9 +64,6 @@ export class ChildrenService {
   async getRating() {
     return await this.childrenModel.find()
       .populate('schools')
-      .populate({path: 'competitions.competition'})
-      .populate({path: 'competitions.place'})
-      .populate({path: 'competitions.level'})
       .sort('-rating');
   }
 
