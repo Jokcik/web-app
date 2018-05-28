@@ -11,6 +11,7 @@ import {CommonModule, registerLocaleData} from '@angular/common';
 import {NotFound404Component} from './exceptions/404-not-found/404-not-found.component';
 
 import localeRu from '@angular/common/locales/ru';
+import {CWCounter} from './counter/counter.component';
 
 registerLocaleData(localeRu);
 
@@ -32,6 +33,8 @@ registerLocaleData(localeRu);
     ProfileComponent,
     Forbidden403Component,
     NotFound404Component,
+
+    CWCounter
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [ODComponent]

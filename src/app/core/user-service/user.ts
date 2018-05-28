@@ -5,6 +5,7 @@ export const Roles = {
 };
 
 export class User {
+  _id: string;
   surname: string;
   name: string;
   middleName: string;
