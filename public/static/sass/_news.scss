@@ -5,6 +5,15 @@
     text-decoration: none;
   }
 
+  .sidebar-module-inset {
+    text-align: justify;
+  }
+
+  .title-news {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
   mat-card > div {
     margin-bottom: 5px;
   }
@@ -27,17 +36,21 @@
     }
   }
 
+  .form-group {
+    margin-bottom: 5px;
+    padding-left: 30px;
+    .news-title {
+      color: $mainText;
+      font-weight: 700;
+
+    }
+  }
+
   .news-container {
     position: relative;
     margin-top: 10px;
     padding: 10px 0;
     transition: transform .15s ease-out,-webkit-transform .15s ease-out;
-
-    .news-title {
-      margin-bottom: 5px;
-      color: black;
-      padding-left: 30px
-    }
 
     &:hover {
       box-shadow: 0 22px 50px rgba(14,21,47,.2), 0 8px 20px rgba(14,21,47,.2);

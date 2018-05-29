@@ -1,10 +1,10 @@
-<div class="sidebar-module sidebar-module-inset" [class.dummy]="loaded">
-  <h4 style="margin-bottom: 20px; text-align: center;">Анонсы</h4>
+<div class="outer-wrap-news sidebar-module sidebar-module-inset" [class.dummy]="loaded">
+  <h4 class="news-title">Анонсы</h4>
   <div *ngFor="let material of descriptions; let last = last" class="announce-container">
       <div *ngIf="userService.user?.role === 5" class="announce-icon edit" (click)="edit(material)"><mat-icon>edit</mat-icon></div>
       <div *ngIf="userService.user?.role === 5" class="announce-icon remove" (click)="remove(material)"><mat-icon>delete forever</mat-icon></div>
-    <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-      <p><b [innerHTML]="material.title"></b></p>
+    <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}" class="form-group">
+      <p class="news-title" [innerHTML]="material.title"></p>
       <ng-container *ngIf="material.title">
         <img [src]="material.img ? material.img : '/images/news/50kds1qjbdyq831.jpg'" style="height: 130px; float: left; margin-right: 10px; min-width: 190px"/>
         <div class="announce-date">{{material.date | odDate: 'onlyDate'}}</div>

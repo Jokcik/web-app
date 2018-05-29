@@ -12,7 +12,8 @@ header {
   flex: 0 0 auto;
 
   .bg-dark {
-    background-color: #EBEAE6 !important;
+    background-color: $main !important;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
   }
 
   od-profile {
@@ -25,6 +26,12 @@ header {
         cursor: default;
       }
     }
+
+    .nav-item {
+      a:hover {
+        color: $mainText!important;
+      }
+    }
   }
 
   ul {
@@ -35,18 +42,18 @@ header {
     li {
       .dropdown-item:focus,
       .dropdown-item:hover {
-        background-color: darkgray !important;
+        background-color: $hover !important;
       }
 
       a, span {
-        color: #484B50 !important;
+        color: $mainTextTheme !important;
         font-weight: bold !important;
         font-family: "roboto_lt", Arial, Helvetica, sans-serif !important;
       }
 
       .dropdown-menu {
         margin: 0 !important;
-        background-color: darkgray !important;
+        background-color: $hover !important;
         box-shadow: 56px 41px 54px -12px rgba(0,0,0,0.2);
         border: 0;
         border-radius: 0;
@@ -54,12 +61,11 @@ header {
         > a {
           color: white !important;
           &:hover {
-            color: #484B50 !important;
+            color: $mainText !important;
             background-color: #EBEAE6;
           }
         }
       }
-
     }
   }
   div > ul > li {
@@ -70,7 +76,7 @@ header {
     }
 
     &:hover {
-      background-color: darkgray;
+      background-color: $hover;
 
       > a {
         color: white !important;

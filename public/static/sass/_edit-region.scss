@@ -61,7 +61,10 @@
   }
 
   cdk-row:hover {
-    background-color: aliceblue;
+    background-color: $main;
+    .cdk-cell {
+      color: $mainTextTheme;
+    }
   }
 
   .example-cell, .example-header-cell {
