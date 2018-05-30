@@ -11,7 +11,7 @@ import {UpdateService} from '../announce/update.service';
   templateUrl: './news.component.html'
 })
 export class NewsComponent implements OnInit {
-  public descriptions: Materials[] = Dummy.factory(Materials, 4);
+  public descriptions: Materials[] = Dummy.factory(Materials, 6);
   public loaded = true;
 
   public page: number = 1;

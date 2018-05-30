@@ -4,7 +4,7 @@
       <div class="col-lg-12 blog-main">
         <div class="outer-wrap-news" [class.dummy]="loaded">
           <h4 class="title-news">Новости</h4>
-          <div *ngFor="let material of news | odLimit: 4" class="news-container col-lg-3">
+          <div *ngFor="let material of news | odLimit: 4" class="news-container col-lg-2">
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
               <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
@@ -33,7 +33,7 @@
       <div class="col-lg-12 blog-main">
         <div class="outer-wrap-news" [class.dummy]="loaded">
           <h4 class="title-news">Анонсы</h4>
-          <div *ngFor="let material of announce | odLimit: 4" class="news-container col-lg-3">
+          <div *ngFor="let material of announce | odLimit: 4" class="news-container col-lg-2">
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
               <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">

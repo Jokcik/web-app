@@ -13,8 +13,8 @@ import {combineLatest} from 'rxjs/observable/combineLatest';
   providers: [EventService]
 })
 export class AnnounceComponent implements OnInit {
-  public actualAnnounce: Materials[] = Dummy.factory(Materials, 4);
-  public announce: Materials[] = Dummy.factory(Materials, 4);
+  public actualAnnounce: Materials[] = Dummy.factory(Materials, 6);
+  public announce: Materials[] = Dummy.factory(Materials, 6);
   public loaded = true;
 
   public page = 1;
