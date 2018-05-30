@@ -5,17 +5,23 @@
         <div class="outer-wrap-news" [class.dummy]="loaded">
           <h4 class="title-news">Актуальные анонсы</h4>
           <div *ngFor="let material of actualAnnounce" class="news-container col-lg-2">
+            <div *ngIf="userService.user?.role === 5" class="news-icon edit" (click)="edit(material)">
+              <mat-icon>edit</mat-icon>
+            </div>
+            <div *ngIf="userService.user?.role === 5" class="news-icon remove" (click)="remove(material)">
+              <mat-icon>delete forever</mat-icon>
+            </div>
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
                 <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
                 <ng-container *ngIf="material.start_date">
                   <div class="news-date">{{material.start_date | date: 'dd'}} - {{material.date | date: 'dd MMMM'}}</div>
                 </ng-container>
               </div>
-              <div class="sidebar-module sidebar-module-inset">
-                <p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>
-              </div>
+              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
+              <!--<div class="sidebar-module sidebar-module-inset">-->
+                <!--<p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>-->
+              <!--</div>-->
             </a>
           </div>
         </div>
@@ -31,17 +37,23 @@
         <div class="outer-wrap-news" [class.dummy]="loaded">
           <h4 class="title-news">Прошедшие анонсы</h4>
           <div *ngFor="let material of announce" class="news-container col-lg-2">
+            <div *ngIf="userService.user?.role === 5" class="news-icon edit" (click)="edit(material)">
+              <mat-icon>edit</mat-icon>
+            </div>
+            <div *ngIf="userService.user?.role === 5" class="news-icon remove" (click)="remove(material)">
+              <mat-icon>delete forever</mat-icon>
+            </div>
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
                 <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
                 <ng-container *ngIf="material.start_date">
                   <div class="news-date">{{material.start_date | date: 'dd'}} - {{material.date | date: 'dd MMMM'}}</div>
                 </ng-container>
               </div>
-              <div class="sidebar-module sidebar-module-inset">
-                <p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>
-              </div>
+              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
+              <!--<div class="sidebar-module sidebar-module-inset">-->
+                <!--<p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>-->
+              <!--</div>-->
             </a>
           </div>
         </div>

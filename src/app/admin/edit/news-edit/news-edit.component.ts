@@ -124,13 +124,12 @@ export class NewsEditComponent implements OnInit {
   }
 
   public deleteNews() {
-    // this.service.remove
-    // if (+this.news.type === 2) {
-    //   this.updateService.changeAnnounce.next();
-    // }
-    // if (+this.news.type === 1) {
-    //   this.updateService.changeNews.next();
-    // }
+    if (!window.confirm('Вы действительно хотите удалить это событие?')) { return; }
+
+    this.service.remove({_id: this.news._id}).$observable.subscribe(() => {
+      this.updateMaterials();
+      this.router.navigate(['/'])
+    })
   }
 
   removeImageGallery(event) {
