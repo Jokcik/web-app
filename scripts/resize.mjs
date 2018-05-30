@@ -40,7 +40,7 @@ async function init() {
   const resize = new Resize('./public/images/news');
   const files = resize.getFiles();
   for (let i = 0; i < files.length; ++i) {
-    console.log(i);
+    console.log(i, files[i]);
     await resize.resize(files[i]);
   }
 }
