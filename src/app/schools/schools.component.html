@@ -1,6 +1,5 @@
 <div class="widget-box schools">
   <div class="container">
-    <div class="row">
       <a *ngIf="userService.user?.role === 5 && !isEdit" routerLink="/admin/edit/schools" class="bold">Редактировать</a>
       <div class="outer-wrap-schools" [class.admin]="isEdit">
 
@@ -18,7 +17,6 @@
 
         <od-schools-table [isOpenEdit]="isEdit" [schools]="filteredSchools" [type]="type"
             (changeSchools)="openDialog($event)"></od-schools-table>
-      </div>
     </div>
   </div>
 </div>
