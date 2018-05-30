@@ -5,7 +5,7 @@ import {EventService} from '../history/event.service';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from './update.service';
-import {combineLatest} from 'rxjs/observable/combineLatest';
+import {combineLatest} from 'rxjs';
 
 @Component({
   selector: 'od-announce',

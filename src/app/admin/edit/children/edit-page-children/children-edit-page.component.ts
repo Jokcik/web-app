@@ -7,8 +7,7 @@ import {ChildrenPageService} from '../../../../children-page/children-page.servi
 import {RegionService} from '../../region/region.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {combineLatest} from 'rxjs/observable/combineLatest';
-import {of} from 'rxjs/observable/of';
+import {combineLatest, of} from 'rxjs';
 import {ODUtils} from '../../../../core/od-utils';
 import {UserService} from '../../../../core/user-service/user.service';
 

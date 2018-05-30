@@ -1,8 +1,9 @@
+import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {Headers, Http, RequestMethod, RequestOptions, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {empty} from 'rxjs/observable/empty';
+import {EMPTY} from 'rxjs/internal/observable/empty';
 
 export class MultipartItem {
   name: string;
@@ -30,10 +31,10 @@ export class ODMultipartSendService {
         $result = this.http.put(environment.host + path, formData, this.getRequestOptions());
         break;
       default:
-        return empty();
+        return EMPTY;
     }
 
-    return $result.map(value => <T>value.json());
+    return $result.pipe(map(value => <T>value.json()));
   }
 
   private getHeaders(): Headers {

@@ -3,10 +3,10 @@ import {Teacher} from '../shared/teacher';
 import {TeacherService} from './teacher.service';
 import {FormControl} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
-import {empty} from 'rxjs/observable/empty';
 import {MatSnackBar} from '@angular/material';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {UserService} from '../../../core/user-service/user.service';
+import {EMPTY} from 'rxjs/internal/observable/empty';
 
 @Component({
   selector: 'od-teacher',
@@ -30,7 +30,7 @@ export class TeacherComponent implements OnInit {
     this.teacherControl.valueChanges.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      switchMap(value => value ? this.teacherService.search({name: value}).$observable : empty<any>())
+      switchMap(value => value ? this.teacherService.search({name: value}).$observable : EMPTY)
     ).subscribe(teachers => this.teachers = teachers);
   }
 

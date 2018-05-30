@@ -3,7 +3,7 @@ import {ODCommonModule} from '../core/od-common.module';
 import {ContactsRoutingModule} from './contacts-routing.module';
 import {ContactsComponent} from './contacts.component';
 import {CommonModule} from '@angular/common';
-import {MatButtonModule, MatInputModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import {ContactsService} from './contacts.service';
 import {FormsModule} from '@angular/forms';
 
@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
     MatInputModule,
     MatSnackBarModule,
     FormsModule,
+    MatFormFieldModule,
   ],
   declarations: [
     ContactsComponent,

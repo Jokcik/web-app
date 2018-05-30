@@ -5,7 +5,7 @@ import {Region} from '../admin/edit/shared/region';
 import {RegionService} from '../admin/edit/region/region.service';
 import {Dummy} from '../core/dummy';
 import {ActivatedRoute} from '@angular/router';
-import {combineLatest} from 'rxjs/observable/combineLatest';
+import {combineLatest} from 'rxjs';
 import {Competition} from '../admin/edit/shared/competition';
 import {MatSnackBar} from '@angular/material';
 import {UserService} from '../core/user-service/user.service';

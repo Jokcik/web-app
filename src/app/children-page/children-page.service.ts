@@ -3,7 +3,7 @@ import {Children, Instruments, Specialization} from '../admin/edit/shared/childr
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
 export interface IQueryParams {
   school_id?: string;

@@ -5,8 +5,7 @@ import {EventService} from '../history/event.service';
 import {Router} from '@angular/router';
 import {UpdateService} from '../announce/update.service';
 import {UserService} from '../core/user-service/user.service';
-import {combineLatest} from 'rxjs/observable/combineLatest';
-import {merge} from 'rxjs/observable/merge';
+import {combineLatest, merge} from 'rxjs';
 import {startWith} from 'rxjs/operators';
 
 @Component({

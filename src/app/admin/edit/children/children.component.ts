@@ -1,3 +1,4 @@
+import {map, switchMap} from 'rxjs/operators';
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Schools} from '../shared/school';
 import {Region} from '../shared/region';
@@ -8,8 +9,9 @@ import {ChildrenPageService} from '../../../children-page/children-page.service'
 import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from '@angular/material';
 import {UserService} from '../../../core/user-service/user.service';
 import {ODUtils} from '../../../core/od-utils';
-import {switchMap} from 'rxjs/operators';
-import {empty} from 'rxjs/observable/empty';
+import {EMPTY} from 'rxjs/internal/observable/empty';
+import {Observable} from 'rxjs/Observable';
+import {ResourceMethod} from 'ngx-resource/src/Interfaces';
 
 @Component({
   selector: 'od-edit-children',
@@ -50,11 +52,11 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
       this.regions = regions;
 
       const schools: Schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
-      if (!schools || !schools.region) { return empty<any>(); }
+      if (!schools || !schools.region) { return EMPTY; }
       const idx = this.odUtils.getIdInArray(schools.region.title, this.regions, 'title');
 
-      return this.selectedRegion(idx).$observable.map(value => [schools, value]);
-    })).subscribe(([oldSchools, schools]) => {
+      return this.selectedRegion(idx).pipe(map(value => [schools, value]));
+    })).subscribe(([oldSchools, schools]: any) => {
       this.schools = schools;
       const idx = this.odUtils.getIdInArray(oldSchools.title, this.schools, 'title');
 
@@ -62,11 +64,14 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public selectedRegion(regionIdx: number) {
+  public selectedRegion(regionIdx: number): Observable<Schools[]> {
     this.currentRegion = regionIdx;
     this.currentSchool = -1;
     this.childrens.length = 0;
-    return this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
+    const result = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
+    this.schools = result
+
+    return result.$observable;
   }
 
   public selectedSchools(schoolIdx: number) {

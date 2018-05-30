@@ -1,9 +1,11 @@
+
+import {map} from 'rxjs/operators';
 import {Materials} from '../news/shared/materials';
 import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {ODResourceCrud} from '../core/od-resource-crud';
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable()
@@ -17,7 +19,7 @@ export class EventService extends ODResourceCrud<void, Materials, Materials> {
   queryMainpage: ResourceMethod<{type?: number, url?: string, page?: number, onPage?: number, unactual?: boolean}, Materials[]>;
 
   public querySafeHtml(value: {type?: number, url?: string, page?: number, onPage?: number}): Observable<Materials[]> {
-    return this.queryMainpage(value).$observable.map(array => {
+    return this.queryMainpage(value).$observable.pipe(map(array => {
       array.forEach((val, index) => {
         if (typeof val.description.description === 'object') { return; }
         array[index].description.description = this.sanitizer.bypassSecurityTrustHtml(val.description.description);
@@ -26,7 +28,7 @@ export class EventService extends ODResourceCrud<void, Materials, Materials> {
       });
 
       return array;
-    });
+    }));
   }
 
 }

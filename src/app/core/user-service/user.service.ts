@@ -1,9 +1,7 @@
 import {User} from './user';
-import {Subject} from 'rxjs/Subject';
+import {Subject, Observable, of} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {catchError} from 'rxjs/operators';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class UserService {

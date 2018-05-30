@@ -23,10 +23,10 @@
           <input matInput placeholder="Тема" required [(ngModel)]="mail.subject">
         </mat-form-field>
 
-        <mat-input-container class="input-text">
-          <textarea matInput matTextareaAutosize placeholder="Сообщение" matAutosizeMinRows="7" required
+        <mat-form-field class="input-text">
+          <textarea matInput placeholder="Сообщение" matAutosizeMinRows="7" required
                     [(ngModel)]="mail.text"></textarea>
-        </mat-input-container>
+        </mat-form-field>
 
         <button mat-raised-button color="primary" (click)="sendMessage()">Отправить</button>
       </div>

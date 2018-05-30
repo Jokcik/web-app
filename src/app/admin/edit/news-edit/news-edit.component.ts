@@ -5,7 +5,7 @@ import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-
 import {ActivatedRoute, Router} from '@angular/router';
 import {ODUtils} from '../../../core/od-utils';
 import {switchMap} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import {of} from 'rxjs';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {UpdateService} from '../../../announce/update.service';

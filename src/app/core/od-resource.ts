@@ -1,11 +1,9 @@
+import {catchError, map} from 'rxjs/operators';
 import {Resource, ResourceActionBase, ResourceParams} from 'ngx-resource';
 import {environment} from '../../environments/environment';
 import {Injectable} from '@angular/core';
 import {Http, Request} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-
-import {_throw} from 'rxjs/observable/throw';
-import {catchError} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 @ResourceParams({url: environment.host})
@@ -23,11 +21,11 @@ export class ODResource extends Resource {
 
 
   protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
-    const obser = observable.map(value => {
+    const obser = observable.pipe(map(value => {
       const val = value.json();
       if (val.statusCode >= 400) { throw new Error(val.message); }
       return value;
-    }).pipe(catchError(err => {throw new Error(err.json().message); }));
+    })).pipe(catchError(err => {throw new Error(err.json().message); }));
 
     return super.$responseInterceptor(obser, req, methodOptions);
   }

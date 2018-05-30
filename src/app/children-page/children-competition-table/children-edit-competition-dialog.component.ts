@@ -7,9 +7,9 @@ import {ChildrenCompetition} from '../../admin/edit/shared/children';
 import {ODUtils} from '../../core/od-utils';
 import {FormControl} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
-import {empty} from 'rxjs/observable/empty';
 import {TeacherService} from '../../admin/edit/teacher/teacher.service';
 import {Teacher} from '../../admin/edit/shared/teacher';
+import {EMPTY} from 'rxjs/internal/observable/empty';
 
 @Component({
   templateUrl: 'children-edit-competition-dialog.component.html',
@@ -57,7 +57,7 @@ export class ChildrenEditCompetitionDialogComponent {
     this.teacherControl.valueChanges.pipe(
       debounceTime(400),
       distinctUntilChanged(),
-      switchMap(value => value ? this.teacherService.search({name: value}).$observable : empty<any>())
+      switchMap(value => value ? this.teacherService.search({name: value}).$observable : EMPTY)
     ).subscribe(teachers => this.teachers = teachers);
   }
 
