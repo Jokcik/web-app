@@ -123,6 +123,16 @@ export class NewsEditComponent implements OnInit {
     }
   }
 
+  public deleteNews() {
+    // this.service.remove
+    // if (+this.news.type === 2) {
+    //   this.updateService.changeAnnounce.next();
+    // }
+    // if (+this.news.type === 1) {
+    //   this.updateService.changeNews.next();
+    // }
+  }
+
   removeImageGallery(event) {
     if (!window.confirm('Вы действительно хотите удалить эту картинку?')) { return; }
     this.galleryImages = this.galleryImages.filter((value, idx) => idx !== +event.index);
