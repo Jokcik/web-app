@@ -47,7 +47,7 @@ export class GalleryComponent implements OnInit {
   public update() {
     this.galleryService.query().$observable.subscribe(galleries => {
       this.galleries = galleries;
-      this.galleryImages = galleries.map(image => ({small: image.img, medium: image.img, big: image.img, description: image.title}));
+      this.galleryImages = galleries.map(image => ({small: image.preview, medium: image.preview, big: image.img, description: image.title}));
     });
   }
 

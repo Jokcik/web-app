@@ -11,10 +11,11 @@ import {UpdateService} from '../announce/update.service';
   templateUrl: './news.component.html'
 })
 export class NewsComponent implements OnInit {
-  public descriptions: Materials[] = Dummy.factory(Materials, 5);
+  public descriptions: Materials[] = Dummy.factory(Materials, 4);
   public loaded = true;
 
   public page: number = 1;
+  public onPage: number = 12;
 
   constructor(private mainpageService: EventService,
               public userService: UserService,
@@ -32,7 +33,7 @@ export class NewsComponent implements OnInit {
   }
 
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1, page: this.page}).subscribe(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1, page: this.page, onPage: 12}).subscribe(descriptions => {
       if (!this.descriptions[0] || !this.descriptions[0]._id ) {
         this.descriptions = [];
       }

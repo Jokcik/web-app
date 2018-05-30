@@ -5,6 +5,7 @@ import {EventService} from '../history/event.service';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from './update.service';
+import {combineLatest} from 'rxjs/observable/combineLatest';
 
 @Component({
   selector: 'od-announce',
@@ -12,12 +13,15 @@ import {UpdateService} from './update.service';
   providers: [EventService]
 })
 export class AnnounceComponent implements OnInit {
-  public descriptions: Materials[] = Dummy.factory(Materials, 5);
+  public actualAnnounce: Materials[] = Dummy.factory(Materials, 4);
+  public announce: Materials[] = Dummy.factory(Materials, 4);
   public loaded = true;
+
+  public page = 1;
 
   constructor(private service: EventService,
               public userService: UserService,
-              private announceService: UpdateService,
+              private updateService: UpdateService,
               private router: Router) { }
 
 
@@ -28,20 +32,30 @@ export class AnnounceComponent implements OnInit {
   public remove(news: Materials) {
     if (window.confirm('Вы действительно хотите удалить этот аннос?')) {
       this.service.remove({_id: news._id}).$observable.subscribe(() => {
-        this.descriptions = this.descriptions.filter(material => material._id !== news._id);
+        this.actualAnnounce = this.actualAnnounce.filter(material => material._id !== news._id);
       });
     }
   }
 
   ngOnInit() {
     this.formatAnnounce();
-    this.announceService.changeAnnounce.subscribe(() => this.formatAnnounce());
+    this.updateService.changeAnnounce.subscribe(() => this.formatAnnounce());
   }
 
   public formatAnnounce() {
-    this.service.queryMainpage({type: 2}).$observable.subscribe(descriptions => {
-      this.descriptions = descriptions;
+    combineLatest(
+      this.service.queryMainpage({type: 2, page: this.page}).$observable,
+      this.service.queryMainpage({type: 2, page: this.page, unactual: true}).$observable
+    ).subscribe(([actualAnnounce, announce]) => {
+      this.actualAnnounce = [...actualAnnounce];
+      this.announce = [...announce];
       this.loaded = false;
     });
+  }
+
+  public setPage() {
+    this.page += 1;
+    const obj = {type: 2, page: this.page, unactual: true};
+    this.service.queryMainpage(obj).$observable.subscribe(announce => this.announce.push(...announce))
   }
 }

@@ -12,7 +12,7 @@
           </div>
           <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
             <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
-              <div class="news-img-block" [ngStyle]="{'background-image': (material.img ? 'url(\'' + material.img + '\')' : '')}">
+              <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
                 <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
                 <ng-container *ngIf="material.start_date">
                   <div class="news-date">{{material.start_date | date: 'dd'}} - {{material.date | date: 'dd MMMM'}}</div>

@@ -14,8 +14,8 @@ import {startWith} from 'rxjs/operators';
   templateUrl: './mainpage.component.html',
 })
 export class MainpageComponent implements OnInit {
-  public news: Materials[] = Dummy.factory(Materials, 5);
-  public announce: Materials[] = Dummy.factory(Materials, 5);
+  public news: Materials[] = Dummy.factory(Materials, 4);
+  public announce: Materials[] = Dummy.factory(Materials, 4);
   public loaded = true;
 
   constructor(private eventService: EventService,

@@ -14,9 +14,9 @@ export class EventService extends ODResourceCrud<void, Materials, Materials> {
   }
 
   @ResourceAction({isArray: true})
-  queryMainpage: ResourceMethod<{type?: number, url?: string, page?: number}, Materials[]>;
+  queryMainpage: ResourceMethod<{type?: number, url?: string, page?: number, onPage?: number, unactual?: boolean}, Materials[]>;
 
-  public querySafeHtml(value: {type?: number, url?: string, page?: number}): Observable<Materials[]> {
+  public querySafeHtml(value: {type?: number, url?: string, page?: number, onPage?: number}): Observable<Materials[]> {
     return this.queryMainpage(value).$observable.map(array => {
       array.forEach((val, index) => {
         if (typeof val.description.description === 'object') { return; }

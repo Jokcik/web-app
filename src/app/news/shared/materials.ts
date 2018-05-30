@@ -11,6 +11,7 @@ export class Materials {
   name: string;
   url: string;
   img: string;
+  preview: string;
   date: Date;
   start_date: Date;
   type = 1;
