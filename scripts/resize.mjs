@@ -26,9 +26,9 @@ class Resize {
       const filename = path.basename(file, mime);
       const dir = path.dirname(file);
 
-      await sharp(file)
+      return await sharp(file)
         .resize(width)
-        .toFile(dir + '/' + filename + '_preview' + mime, (err) => err && console.log(err));
+        .toFile(dir + '/' + filename + '_preview' + mime);
     }catch (e) {
       console.log(e);
     }
@@ -41,9 +41,14 @@ async function init() {
   const files = resize.getFiles();
   for (let i = 0; i < files.length; ++i) {
     console.log(i, files[i]);
-    await resize.resize(files[i]);
+    // resize.resize(files[i]);
+    // await timeout(100);
+    const result = await resize.resize(files[i]);
+    console.log(JSON.stringify(result));
   }
 }
+
+const timeout = async (time) => new Promise(res => setTimeout(res, time));
 
 init();
 // files.forEach(file => );
