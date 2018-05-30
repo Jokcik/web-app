@@ -1,18 +1,24 @@
-<a *ngIf="userService.user?.role === 5 && !isEdit" routerLink="/admin/edit/schools" class="bold">Редактировать</a>
-<div class="outer-wrap-schools" [class.admin]="isEdit">
+<div class="widget-box schools">
+  <div class="container">
+    <div class="row">
+      <a *ngIf="userService.user?.role === 5 && !isEdit" routerLink="/admin/edit/schools" class="bold">Редактировать</a>
+      <div class="outer-wrap-schools" [class.admin]="isEdit">
 
-  <mat-radio-group (change)="changeType($event.value)" [value]="type">
-    <mat-radio-button [value]="0">Школы</mat-radio-button>
-    <mat-radio-button [value]="1">Управления</mat-radio-button>
-  </mat-radio-group>
+        <mat-radio-group (change)="changeType($event.value)" [value]="type">
+          <mat-radio-button [value]="0">Школы</mat-radio-button>
+          <mat-radio-button [value]="1">Управления</mat-radio-button>
+        </mat-radio-group>
 
-  <mat-form-field class="select">
-    <mat-select placeholder="Район" (valueChange)="formatSchools($event)" [value]="currentId">
-      <mat-option [value]="0"> все </mat-option>
-      <mat-option *ngFor="let region of regions" [value]="region._id">{{region.title}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field class="select">
+          <mat-select placeholder="Район" (valueChange)="formatSchools($event)" [value]="currentId">
+            <mat-option [value]="0"> все </mat-option>
+            <mat-option *ngFor="let region of regions" [value]="region._id">{{region.title}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-  <od-schools-table [isOpenEdit]="isEdit" [schools]="filteredSchools" [type]="type"
-      (changeSchools)="openDialog($event)"></od-schools-table>
+        <od-schools-table [isOpenEdit]="isEdit" [schools]="filteredSchools" [type]="type"
+            (changeSchools)="openDialog($event)"></od-schools-table>
+      </div>
+    </div>
+  </div>
 </div>
