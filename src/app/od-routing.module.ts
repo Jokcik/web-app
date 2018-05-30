@@ -2,13 +2,13 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {Forbidden403Component} from './exceptions/403-forbidden/403-forbidden.component';
 import {NotFound404Component} from './exceptions/404-not-found/404-not-found.component';
-import {ChildrenPageModule} from './children-page/children-page.module';
 
 export const routes: Routes = [
-  {path: '', loadChildren: 'app/news/news.module#NewsModule', pathMatch: 'full'},
+  {path: '', loadChildren: 'app/mainpage/mainpage.module#MainpageModule', pathMatch: 'full'},
   {path: 'history/:id', loadChildren: 'app/history/history.module#HistoryModule'},
   {path: 'address/:id', loadChildren: 'app/schools/schools.module#SchoolsModule'},
   {path: 'news', loadChildren: 'app/news/news.module#NewsModule'},
+  {path: 'announce', loadChildren: 'app/announce/announce.module#AnnounceModule'},
   {path: 'competition', loadChildren: 'app/competition/competition.module#CompetitionModule'},
   {path: 'children', loadChildren: 'app/children-page/children-page.module#ChildrenPageModule'},
   {path: 'galleries', loadChildren: 'app/gallery/gallery.module#GalleryModule'},

@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HistoryService} from '../../../history/history.service';
+import {EventService} from '../../../history/event.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -41,7 +41,7 @@ export class NewsEditComponent implements OnInit {
 
   @ViewChild(NgxGalleryComponent) galleryComponent: NgxGalleryComponent;
 
-  constructor(private service: HistoryService,
+  constructor(private service: EventService,
               private multipart: ODMultipartSendService,
               private router: Router,
               private updateService: UpdateService,

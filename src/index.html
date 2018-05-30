@@ -25,7 +25,101 @@
   </script>
 </head>
 <body>
-<od-root></od-root>
+<od-root>
+  <div class="page">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="collapse navbar-collapse container col-lg-12" id="navbarCollapse" style="text-transform: none;">
+          <ul class="navbar-nav mr-auto col-lg-10">
+            <li class="dropdown" (mouseover)="showEvent = true" (mouseleave)="showEvent = false">
+              <a class="nav-link" routerLink="/news">События</a>
+              <div class="dropdown-menu col-lg-12" [class.show]="showEvent" (click)="showEvent = false">
+                <a class="dropdown-item" routerLink="/news">Новости</a>
+                <a class="dropdown-item" routerLink="/announce">Анонсы</a>
+              </div>
+            </li>
+            <li class=""><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
+            <li class=""><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>
+            <li class="dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
+              <a class="nav-link" routerLink="/history/rumc">История</a>
+              <div class="dropdown-menu" [class.show]="historyShow" (click)="historyShow = false">
+                <a class="dropdown-item" routerLink="/history/rumc">Роль РУМЦ в развитии ДШИ области</a>
+                <a class="dropdown-item" routerLink="/history/fortepiano">Развитие специализации "фортепиано"</a>
+                <a class="dropdown-item" routerLink="/history/narodnie-instrumenty">Развитие специализации "народные инструменты"</a>
+                <a class="dropdown-item" routerLink="/history/dyhovie-instrumenty">Развитие специализации "духовые и ударные инструменты"</a>
+                <a class="dropdown-item" routerLink="/history/strynnie-smichkovie-instrumenty">Развитие специализации "струнные смычковые инструменты"</a>
+                <a class="dropdown-item" routerLink="/history/folklor">Развитие специализации "фольклор"</a>
+                <a class="dropdown-item" routerLink="/history/horovoe-penie">Развитие специализации "хоровое пение"</a>
+                <a class="dropdown-item" routerLink="/history/izobrazitelnoe-iskusstvo">Развитие специализации "изобразительное искусство"</a>
+                <a class="dropdown-item" routerLink="/history/horeografia">Развитие специализации "хореография"</a>
+                <a class="dropdown-item" routerLink="/history/teatralnoe-iskusstvo">Развитие специализации "театральное искусство"</a>
+                <a class="dropdown-item" routerLink="/history/muzikalno-teoreticheskie-distiplini">Развитие специализации "Музыкально-теоретические дисциплины в ДШИ"</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown" (mouseover)="historyAddress = true" (mouseleave)="historyAddress = false">
+              <a class="nav-link" routerLink="/address/administration">Адреса</a>
+              <div class="dropdown-menu" [class.show]="historyAddress" (click)="historyAddress = false">
+                <a class="dropdown-item" routerLink="/address/administration">Муниципальные управления культуры</a>
+                <a class="dropdown-item" routerLink="/address/schools">Детские школы искусств</a>
+              </div>
+            </li>
+            <li class=""><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
+            <li class=""><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
+          </ul>
+          <od-profile></od-profile>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <!--<div class="col-md-12">-->
+          <div class="col-md-2">
+            <div class="img-block">
+              <div class="img-wrap" [routerLink]="'/'" style="cursor: pointer;">
+                <img src="/images/logo/logo.png"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 btn-block center-block">
+            <div class="block-logo">Одаренные дети Белгородской области</div>
+          </div>
+          <div class="col-md-4">
+            <p class="title-text">Управление культуры Белгородской области</p>
+            <p class="title-text">Белгородский государственный институт искусств и культуры</p>
+            <p class="title-text">Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+          <!--</div>-->
+          <!--<div class="col-md-1 img-wrap" routerLink="/">-->
+          <!--<img src="/images/logo/logo-bgik.png"/>-->
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+    <div class="outer-wrap-main">
+      <div class="blog-main">
+        <router-outlet></router-outlet>
+      </div>
+      <!--<aside class="col-sm-4 ml-sm-auto blog-sidebar">-->
+      <!--<od-announce></od-announce>-->
+      <!--</aside>-->
+    </div>
+    <footer class="footer" style="height: auto;">
+      <div class="container" style="margin-top: 10px; margin-bottom: 15px;">
+        <span class="title-text">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>
+        <br/>
+        <div style="margin-top: 15px;">
+          <a target="_blank" href="http://www.belkult.ru/"><img src="/images/logo/belkult.png" style="height: 70px;"/></a>
+          <a target="_blank" href="http://www.iroski.ru/"><img src="/images/logo/roski.png" style="margin-left: 15px;"/></a>
+          <a target="_blank" href="http://new.beliro.ru/"><img src="/images/logo/beliro.jpg" style="margin-left: 15px; height: 70px;"/></a>
+          <a target="_blank" href="http://bgiik.ru/"><img src="/images/logo/bgiik.jpg" style="margin-left: 15px;"/></a>
+          <a target="_blank" href="http://bus.gov.ru/"><img src="/images/logo/i.jpg" style="margin-left: 15px; height: 70px;"/></a>
+        </div>
+      </div>
+      <app-counter></app-counter>
+    </footer>
+  </div>
+</od-root>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

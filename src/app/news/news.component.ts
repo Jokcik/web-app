@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HistoryService} from '../history/history.service';
+import {EventService} from '../history/event.service';
 import {Materials} from './shared/materials';
 import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
@@ -16,7 +16,7 @@ export class NewsComponent implements OnInit {
 
   public page: number = 1;
 
-  constructor(private mainpageService: HistoryService,
+  constructor(private mainpageService: EventService,
               public userService: UserService,
               private updateService: UpdateService,
               private router: Router) {

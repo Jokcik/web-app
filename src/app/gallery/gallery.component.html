@@ -1,6 +1,7 @@
 <div class="outer-wrap-gallery album text-muted" [class.admin]="isEditOpen">
-  <a *ngIf="userService.user?.role === 5 && !isEditOpen" routerLink="/admin/edit/gallery" class="bold">Редактировать</a>
   <div class="container">
+    <a *ngIf="userService.user?.role === 5 && !isEditOpen" routerLink="/admin/edit/gallery"
+       class="bold">Редактировать</a>
 
     <div class="row">
       <div class="card" *ngIf="isEditOpen" (click)="openDialog()">
@@ -8,7 +9,8 @@
         <p class="card-text" style="text-align: center;" (click)="openDialog()">Добавить фотографию</p>
       </div>
 
-      <div class="card" *ngFor="let gallery of galleries; trackBy:trackFunc; let idx = index;" (click)="openDialog(idx)">
+      <div class="card" *ngFor="let gallery of galleries; trackBy:trackFunc; let idx = index;"
+           (click)="openDialog(idx)">
         <img style="width: 100%; display: block;" [src]="gallery.img">
         <p class="card-text" [innerHTML]="gallery.title"></p>
       </div>

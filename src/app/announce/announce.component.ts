@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dummy} from '../core/dummy';
 import {Materials} from '../news/shared/materials';
-import {HistoryService} from '../history/history.service';
+import {EventService} from '../history/event.service';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from './update.service';
-import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'od-announce',
   templateUrl: './announce.component.html',
-  providers: [HistoryService]
+  providers: [EventService]
 })
 export class AnnounceComponent implements OnInit {
   public descriptions: Materials[] = Dummy.factory(Materials, 5);
   public loaded = true;
 
-  constructor(private service: HistoryService,
+  constructor(private service: EventService,
               public userService: UserService,
               private announceService: UpdateService,
               private router: Router) { }
@@ -40,7 +39,7 @@ export class AnnounceComponent implements OnInit {
   }
 
   public formatAnnounce() {
-    this.service.querySafeHtml({type: 2}).subscribe(descriptions => {
+    this.service.queryMainpage({type: 2}).$observable.subscribe(descriptions => {
       this.descriptions = descriptions;
       this.loaded = false;
     });

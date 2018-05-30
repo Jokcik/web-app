@@ -3,16 +3,16 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="collapse navbar-collapse container col-lg-12" id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto col-lg-10">
-          <li class="nav-item col-lg-2 dropdown" (mouseover)="showEvent = true" (mouseleave)="showEvent = false">
+          <li class="dropdown" (mouseover)="showEvent = true" (mouseleave)="showEvent = false">
             <a class="nav-link" routerLink="/news">События</a>
             <div class="dropdown-menu col-lg-12" [class.show]="showEvent" (click)="showEvent = false">
               <a class="dropdown-item" routerLink="/news">Новости</a>
-              <a class="dropdown-item" routerLink="/galleries">Фотогалерея</a>
+              <a class="dropdown-item" routerLink="/announce">Анонсы</a>
             </div>
           </li>
-          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>
-          <li class="nav-item col-lg-2 dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
+          <li class=""><a class="nav-link" routerLink="/competition" routerLinkActive="active">Конкурсы</a></li>
+          <li class=""><a class="nav-link" routerLink="/children" routerLinkActive="active">Одаренные дети</a></li>
+          <li class="dropdown" (mouseover)="historyShow = true" (mouseleave)="historyShow = false">
             <a class="nav-link" routerLink="/history/rumc">История</a>
             <div class="dropdown-menu" [class.show]="historyShow" (click)="historyShow = false">
               <a class="dropdown-item" routerLink="/history/rumc">Роль РУМЦ в развитии ДШИ области</a>
@@ -35,7 +35,8 @@
               <a class="dropdown-item" routerLink="/address/schools">Детские школы искусств</a>
             </div>
           </li>
-          <li class="nav-item col-lg-2"><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
+          <li class=""><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
+          <li class=""><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
         </ul>
         <od-profile></od-profile>
       </div>
@@ -44,41 +45,37 @@
   <div class="jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <div class="img-block">
-            <div class="img-wrap" [routerLink]="'/'" style="cursor: pointer;">
-              <img src="/images/logo/logo.png"/>
-            </div>
-            <div class="btn-block">
-              <div class="block-logo">Одаренные дети Белгородской области</div>
+        <!--<div class="col-md-12">-->
+          <div class="col-md-2">
+            <div class="img-block">
+              <div class="img-wrap" [routerLink]="'/'" style="cursor: pointer;">
+                <img src="/images/logo/logo.png"/>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-5">
-          <p class="title-text">Управление культуры Белгородской области</p>
-          <p class="title-text">Белгородский государственный институт искусств и культуры</p>
-          <p class="title-text">Региональный учебно-методический центр по художественному образованию</p>
-        </div>
-        <div class="col-md-1 img-wrap" routerLink="/">
-          <img src="/images/logo/logo-bgik.png"/>
-        </div>
+          <div class="col-md-6 btn-block center-block">
+            <div class="block-logo">Одаренные дети Белгородской области</div>
+          </div>
+          <div class="col-md-4">
+            <p class="title-text">Управление культуры Белгородской области</p>
+            <p class="title-text">Белгородский государственный институт искусств и культуры</p>
+            <p class="title-text">Региональный учебно-методический центр по художественному образованию</p>
+          </div>
+        <!--</div>-->
+        <!--<div class="col-md-1 img-wrap" routerLink="/">-->
+          <!--<img src="/images/logo/logo-bgik.png"/>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
-  <mat-card class="outer_wrap_main">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 blog-main">
-          <router-outlet></router-outlet>
-        </div>
-        <!--<aside class="col-sm-4 ml-sm-auto blog-sidebar">-->
-          <!--<od-announce></od-announce>-->
-        <!--</aside>-->
+  <div class="outer-wrap-main">
+      <div class="blog-main">
+        <router-outlet></router-outlet>
       </div>
-    </div>
-  </mat-card>
+      <!--<aside class="col-sm-4 ml-sm-auto blog-sidebar">-->
+        <!--<od-announce></od-announce>-->
+      <!--</aside>-->
+  </div>
   <footer class="footer" style="height: auto;">
     <div class="container" style="margin-top: 10px; margin-bottom: 15px;">
       <span class="title-text">© 2009-2017 Региональный учебно-методический центр по художественному образованию БГИИК</span>

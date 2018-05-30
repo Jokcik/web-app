@@ -8,7 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 @Injectable()
 @ResourceParams({pathPrefix: 'news'})
-export class HistoryService extends ODResourceCrud<void, Materials, Materials> {
+export class EventService extends ODResourceCrud<void, Materials, Materials> {
   constructor(http: Http, private sanitizer: DomSanitizer) {
     super(http);
   }

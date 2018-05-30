@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {HistoryService} from '../../history/history.service';
+import {EventService} from '../../history/event.service';
 import {Materials} from '../shared/materials';
 import {UserService} from '../../core/user-service/user.service';
 import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
@@ -22,7 +22,7 @@ export class PageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private mainpageService: HistoryService,
+              private mainpageService: EventService,
               public userService: UserService) {
   }
 

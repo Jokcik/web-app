@@ -29,7 +29,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
-import {HistoryService} from '../../history/history.service';
+import {EventService} from '../../history/event.service';
 import {MainComponent} from './main/main.component';
 import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
@@ -103,7 +103,7 @@ import {TeacherService} from './teacher/teacher.service';
     RegionDialogAddComponent,
     SchoolsDialogAddComponent,
   ],
-  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService, TeacherService,
+  providers: [EventService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService, TeacherService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]
