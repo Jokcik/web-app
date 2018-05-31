@@ -26,7 +26,8 @@ export class ODUtils {
   }
 
   public translit(text: string) {
-    // Символ, на который будут заменяться все спецсимволы
+    text = text.toLowerCase();
+// Символ, на который будут заменяться все спецсимволы
     const space = '-';
 
     const TrimStr = (s) => {
