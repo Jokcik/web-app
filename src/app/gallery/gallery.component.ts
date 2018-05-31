@@ -44,11 +44,11 @@ export class GalleryComponent implements OnInit {
     this.update();
   }
 
-  public update() {
-    this.galleryService.query().$observable.subscribe(galleries => {
-      this.galleries = galleries;
-      this.galleryImages = galleries.map(image => ({small: image.preview, medium: image.preview, big: image.img, description: image.title}));
-    });
+  public async update() {
+    console.log(123);
+    this.galleries = await this.galleryService.query().$observable.toPromise();
+    console.log(this.galleries);
+    this.galleryImages = this.galleries.map(image => ({small: image.preview, medium: image.preview, big: image.img, description: image.title}));
   }
 
   public openDialog(idx?: number) {

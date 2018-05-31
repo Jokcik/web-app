@@ -8,5 +8,5 @@ export const environment = {
   isServer: false,
   // for prerender
   host: 'http://localhost:3001/api/'
-};
 
+};

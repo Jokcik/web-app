@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Children, Instruments, Specialization} from '../../shared/children';
 import {Region} from '../../shared/region';
 import {Schools} from '../../shared/school';
@@ -10,6 +10,7 @@ import {switchMap} from 'rxjs/operators';
 import {combineLatest, of} from 'rxjs';
 import {ODUtils} from '../../../../core/od-utils';
 import {UserService} from '../../../../core/user-service/user.service';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'od-edit-page-children',
@@ -31,6 +32,7 @@ export class ChildrenEditPageComponent implements OnInit {
   constructor(private childrenService: ChildrenPageService,
               private regionService: RegionService,
               private route: ActivatedRoute,
+              @Inject(PLATFORM_ID) private platformId: Object,
               private router: Router,
               public userService: UserService,
               private odUtils: ODUtils,
@@ -57,7 +59,7 @@ export class ChildrenEditPageComponent implements OnInit {
     if (!children) {
       // if (this.userService.user.role !== 1) { return; }
       children = new Children();
-      children.schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
+      children.schools = this.userService.user.schools || (isPlatformBrowser(this.platformId) && <any>(JSON.parse(localStorage.getItem('od_select_schools'))));
     }
 
     this.currentChildren = children;

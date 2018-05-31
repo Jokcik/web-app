@@ -1,5 +1,5 @@
 import {map, switchMap} from 'rxjs/operators';
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {Schools} from '../shared/school';
 import {Region} from '../shared/region';
 import {Children} from '../shared/children';
@@ -12,6 +12,7 @@ import {ODUtils} from '../../../core/od-utils';
 import {EMPTY} from 'rxjs/internal/observable/empty';
 import {Observable} from 'rxjs/Observable';
 import {ResourceMethod} from 'ngx-resource/src/Interfaces';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'od-edit-children',
@@ -40,6 +41,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
               private childrenService: ChildrenPageService,
               public userService: UserService,
               public snackBar: MatSnackBar,
+              @Inject(PLATFORM_ID) private platformId: Object,
               private odUtils: ODUtils,
               public dialog: MatDialog) {
   }
@@ -51,7 +53,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
     this.regionService.query().$observable.pipe(switchMap(regions => {
       this.regions = regions;
 
-      const schools: Schools = this.userService.user.schools || <any>(JSON.parse(localStorage.getItem('od_select_schools')));
+      const schools: Schools = this.userService.user.schools || (isPlatformBrowser(this.platformId) && <any>(JSON.parse(localStorage.getItem('od_select_schools'))));
       if (!schools || !schools.region) { return EMPTY; }
       const idx = this.odUtils.getIdInArray(schools.region.title, this.regions, 'title');
 
@@ -69,7 +71,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
     this.currentSchool = -1;
     this.childrens.length = 0;
     const result = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
-    this.schools = result
+    this.schools = result;
 
     return result.$observable;
   }
@@ -78,7 +80,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
     this.currentSchool = schoolIdx;
     this.updateChildrens(schoolIdx);
 
-    if (this.schools) {
+    if (this.schools && isPlatformBrowser(this.platformId)) {
       localStorage.setItem('od_select_schools', JSON.stringify(this.schools[schoolIdx]));
     }
   }

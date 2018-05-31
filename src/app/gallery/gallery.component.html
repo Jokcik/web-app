@@ -11,8 +11,8 @@
 
       <div class="card" *ngFor="let gallery of galleries; trackBy:trackFunc; let idx = index;"
            (click)="openDialog(idx)">
-        <img style="width: 100%; display: block;" [src]="gallery.preview">
-        <p class="card-text" [innerHTML]="gallery.title"></p>
+        <img style="width: 100%; display: block;" [src]="gallery.preview | odSafe: 'url'">
+        <p class="card-text" [innerHTML]="gallery.title | odSafe: 'html'"></p>
       </div>
 
     </div>

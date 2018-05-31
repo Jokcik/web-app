@@ -1,4 +1,4 @@
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {Injector, LOCALE_ID, NgModule} from '@angular/core';
 import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
@@ -12,15 +12,18 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
 
 import localeRu from '@angular/common/locales/ru';
 import {CWCounter} from './counter/counter.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {ServiceLocator} from './core/service-locator';
+import {CookieService} from 'ngx-cookie-service';
 
 registerLocaleData(localeRu);
 
 @NgModule({
   imports: [
     HttpModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
     BrowserAnimationsModule,
     ODCommonModule.forRoot(),
-    CommonModule,
     ODRoutingModule,
     MatIconModule,
     MatCardModule,
@@ -36,8 +39,11 @@ registerLocaleData(localeRu);
 
     CWCounter
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' }, CookieService],
   bootstrap: [ODComponent]
 })
 export class ODModule {
+  constructor(private injector: Injector) {
+    ServiceLocator.injector = this.injector;
+  }
 }

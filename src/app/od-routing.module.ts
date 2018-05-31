@@ -23,7 +23,7 @@ export const routes: Routes = [
 
 
 @NgModule({                                 // TODO: Custom preloadingStrategy!
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {initialNavigation: 'enabled', preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class ODRoutingModule {
