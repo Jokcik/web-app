@@ -10,6 +10,7 @@ import {ODDatePipe} from './od-date/od-date.pipe';
 import {UpdateService} from '../announce/update.service';
 import {OdSafePipe} from './od-safe/od-safe.pipe';
 import {OdLimitPipe} from './od-limit/od-limit.pipe';
+import {ODEngineService} from './od-engine.service';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ export class ODCommonModule {
         ProfileService,
         UserService,
         ODUtils,
-        UpdateService
+        UpdateService,
+        ODEngineService
       ]
     };
   }

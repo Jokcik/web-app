@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from './update.service';
 import {combineLatest} from 'rxjs';
+import {ODEngineService} from '../core/od-engine.service';
 
 @Component({
   selector: 'od-announce',
@@ -18,10 +19,12 @@ export class AnnounceComponent implements OnInit {
   public loaded = true;
 
   public page = 1;
+  public isBig: boolean = true;
 
   constructor(private service: EventService,
               public userService: UserService,
               private updateService: UpdateService,
+              private engineService: ODEngineService,
               private router: Router) { }
 
 
@@ -38,8 +41,14 @@ export class AnnounceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setEngine();
+    window.addEventListener('resize', this.setEngine.bind(this));
     this.formatAnnounce();
     this.updateService.changeAnnounce.subscribe(() => this.formatAnnounce());
+  }
+
+  public setEngine() {
+    this.isBig = this.engineService.isBigDesktop();
   }
 
   public formatAnnounce() {

@@ -68,7 +68,7 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
     this.currentSchool = -1;
     this.childrens.length = 0;
     const result = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
-    this.schools = result
+    this.schools = result;
 
     return result.$observable;
   }
@@ -94,7 +94,6 @@ export class ChildrenComponent implements OnInit, AfterViewInit {
   }
 
   public updateChildrens(schoolIdx) {
-    console.log('updateChildrens', schoolIdx);
     this.childrenService.query({school_id: this.schools[schoolIdx]._id, long: true}).$observable.subscribe(childrens => {
       this.childrens.length = 0;
       this.childrens.push(...childrens);
