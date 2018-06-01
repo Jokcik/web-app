@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Materials} from '../news/shared/materials';
 import {Dummy} from '../core/dummy';
 import {EventService} from '../history/event.service';
@@ -7,29 +7,27 @@ import {UpdateService} from '../announce/update.service';
 import {UserService} from '../core/user-service/user.service';
 import {combineLatest, merge} from 'rxjs';
 import {startWith} from 'rxjs/operators';
-import {isPlatformBrowser} from '@angular/common';
-import {Http} from '@angular/http';
-import {TransferHttpService} from '@gorniv/ngx-transfer-http';
+import {ODEngineService} from '../core/od-engine.service';
 
 @Component({
   selector: 'od-mainpage',
   templateUrl: './mainpage.component.html',
 })
-export class MainpageComponent implements OnInit {
+export class MainpageComponent implements OnInit, OnDestroy {
   public news: Materials[] = Dummy.factory(Materials, 6);
   public announce: Materials[] = Dummy.factory(Materials, 6);
-  public loaded = false;
+  public loaded = true;
+  public isBig: boolean = true;
 
   constructor(private eventService: EventService,
               public userService: UserService,
               private updateService: UpdateService,
-              private http: TransferHttpService,
-              @Inject(PLATFORM_ID) private platformId: Object,
-              private router: Router) {
-    this.loaded = isPlatformBrowser(this.platformId);
-  }
+              private engineService: ODEngineService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.setEngine();
+    window.addEventListener('resize', this.setEngine.bind(this));
     this.formatEvent();
     merge(
       this.updateService.changeNews.pipe(startWith()),
@@ -37,18 +35,22 @@ export class MainpageComponent implements OnInit {
     ).subscribe(() => this.formatEvent());
   }
 
+  public setEngine() {
+    this.isBig = this.engineService.isBigDesktop();
+  }
+
   public formatEvent() {
-    this.http.get('http://localhost:3001/api/news?type=1&page=1').subscribe(res => {
-      console.log(res);
-      this.news = [...res];
-    });
     combineLatest(
-      // this.eventService.queryMainpage({type: 1, page: 1}).$observable,
+      this.eventService.queryMainpage({type: 1, page: 1}).$observable,
       this.eventService.queryMainpage({type: 2, page: 1}).$observable
-    ).subscribe(([announce]) => {
-      // this.news = [...news];
+    ).subscribe(([news, announce]) => {
+      this.news = [...news];
       this.announce = [...announce];
       this.loaded = false;
-    }, err => console.log(err));
+    });
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.setEngine.bind(this));
   }
 }

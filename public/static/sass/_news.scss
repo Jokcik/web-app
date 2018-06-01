@@ -118,3 +118,16 @@
     }
   }
 }
+
+@media (max-width: $od-small-block) {
+  .widget-box.news.mainpage .news-container {
+    height: 460px;
+  }
+  .outer-wrap-news  {
+    .form-group  {
+      .news-title {
+        height: 40px;
+      }
+    }
+  }
+}

@@ -9,4 +9,3 @@ export const environment = {
   // for prerender
   host: 'http://localhost:3001/api/'
 };
-

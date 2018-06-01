@@ -1,4 +1,4 @@
-$height: 200px;
+$height: 180px;
 
 .widget-box {
   &.gray{
@@ -20,6 +20,7 @@ $height: 200px;
 }
 
 .outer-wrap-main {
+  min-height: 800px;
   .all-link{
     display: inline-block;
     font-size: 1.375em;
@@ -148,9 +149,9 @@ $height: 200px;
       }
     }
 
-    .container {
-      height: 140px!important;
-    }
+    //.container {
+    //  height: 140px!important;
+    //}
 
     background-color: $main!important;
   }
@@ -164,7 +165,10 @@ $height: 200px;
 
 .jumbotron {
   .btn-block {
-    transform: translate(12%, 35%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     .block-logo {
       font-family: "pt_sans_narrowbold", serif;
       color: $mainTextTheme;
@@ -228,8 +232,15 @@ $height: 200px;
   padding: 0!important;
 }
 
-p, ul, ol {
-  font-size: 16px;
+@media (max-width: $od-small-block) {
+  p, ul, ol, a {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+
+p, ul, ol, a {
   line-height: 28px;
   color: $text;
 }

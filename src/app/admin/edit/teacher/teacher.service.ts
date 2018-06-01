@@ -15,6 +15,6 @@ export class TeacherService extends ODResourceCrud<IQueryParams, Teacher, Teache
     super(http);
   }
 
-  @ResourceAction({path: '/search/{!name}', isArray: true})
+  @ResourceAction({path: '/search/{name}', isArray: true})
   search: ResourceMethod<IQueryParams, Teacher[]>;
 }

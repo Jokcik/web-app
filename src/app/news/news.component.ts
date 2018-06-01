@@ -5,6 +5,7 @@ import {Dummy} from '../core/dummy';
 import {Router} from '@angular/router';
 import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from '../announce/update.service';
+import {ODEngineService} from '../core/od-engine.service';
 
 @Component({
   selector: 'od-news',
@@ -16,14 +17,18 @@ export class NewsComponent implements OnInit {
 
   public page: number = 1;
   public onPage: number = 12;
+  public isBig: boolean = true;
 
   constructor(private mainpageService: EventService,
               public userService: UserService,
               private updateService: UpdateService,
+              private engineService: ODEngineService,
               private router: Router) {
   }
 
   ngOnInit() {
+    this.setEngine();
+    window.addEventListener('resize', this.setEngine.bind(this));
     this.formatNews();
     this.updateService.changeNews.subscribe(() => {
       this.page = 1;
@@ -32,8 +37,12 @@ export class NewsComponent implements OnInit {
     });
   }
 
+  public setEngine() {
+    this.isBig = this.engineService.isBigDesktop();
+  }
+
   public formatNews() {
-    this.mainpageService.querySafeHtml({type: 1, page: this.page, onPage: 12}).subscribe(descriptions => {
+    this.mainpageService.querySafeHtml({type: 1, page: this.page, onPage: this.onPage}).subscribe(descriptions => {
       if (!this.descriptions[0] || !this.descriptions[0]._id ) {
         this.descriptions = [];
       }
