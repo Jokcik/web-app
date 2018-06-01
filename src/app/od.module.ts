@@ -1,5 +1,4 @@
-import {LOCALE_ID, NgModule} from '@angular/core';
-import {NgModule, Injector, LOCALE_ID} from '@angular/core';
+import {Injector, LOCALE_ID, NgModule} from '@angular/core';
 import {ODComponent} from './od.component';
 import {ODCommonModule} from './core/od-common.module';
 import {ODRoutingModule} from './od-routing.module';
@@ -11,7 +10,6 @@ import {Forbidden403Component} from './exceptions/403-forbidden/403-forbidden.co
 import {CommonModule, registerLocaleData} from '@angular/common';
 import {NotFound404Component} from './exceptions/404-not-found/404-not-found.component';
 import {BrowserModule} from '@angular/platform-browser';
-import {HistoryService} from './history/history.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ServiceLocator} from './core/service-locator';
 

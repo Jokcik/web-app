@@ -51,9 +51,6 @@ export class PageComponent implements OnInit {
           return {small: image, medium: image, big: image};
         });
 
-        setInterval(() => {
-
-        });
       });
   }
 

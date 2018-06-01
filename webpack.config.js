@@ -1,29 +1,25 @@
-// Work around for https://github.com/angular/angular-cli/issues/7200
-
 const path = require('path');
 const webpack = require('webpack');
-
+/**
+ * This is a server config which should be merged on top of common config
+ */
 module.exports = {
+  mode: 'development',
+  externals: [/(node_modules|main\..*\.js)/],
+
   entry: {
     // This is our Express server for Dynamic universal
     server: './server.ts',
     // This is an example of Static prerendering (generative)
     prerender: './prerender.ts'
   },
-  target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
-  // Make sure we include all node_modules etc
-  externals: [/(node_modules|main\..*\.js)/,],
+  resolve: { extensions: [".js", ".ts"] },
   output: {
     // Puts the output at the root of the dist folder
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname),
     filename: '[name].js'
   },
-  module: {
-    rules: [
-      { test: /\.ts$/, loader: 'ts-loader' }
-    ]
-  },
+
   plugins: [
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
@@ -37,6 +33,9 @@ module.exports = {
       path.join(__dirname, 'src'),
       {}
     )
-  ]
-}
-  
+  ],
+  target: 'node',
+  node: {
+    __dirname: false
+  },
+};

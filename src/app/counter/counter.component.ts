@@ -1,15 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {UserService} from '../core/user-service/user.service';
+import {isPlatformServer} from '@angular/common';
 
 @Component({
   selector: 'app-counter',
   template: ``,
 })
 export class CWCounter implements OnInit {
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              @Inject(PLATFORM_ID) private platformId: Object) {
   }
 
   ngOnInit() {
+    if (isPlatformServer(this.platformId)) { return; }
     setInterval(() => {
       this.send();
     }, 60000);

@@ -10,7 +10,7 @@ import {MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource} from 
 import {UserService} from '../../../core/user-service/user.service';
 import {ODUtils} from '../../../core/od-utils';
 import {EMPTY} from 'rxjs/internal/observable/empty';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {ResourceMethod} from 'ngx-resource/src/Interfaces';
 
 @Component({
