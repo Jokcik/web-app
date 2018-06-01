@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Competition} from '../shared/competition';
 import {CompetitionService} from '../../../competition/competition.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
-import {DshiDialogAdd} from '../schools-edit/schools-dialog-add';
-import {CompetitionsDialogAdd} from '../../../competition/competition-table/competitions-dialog-add';
 import {Dummy} from '../../../core/dummy';
 
 @Component({
@@ -27,11 +25,11 @@ export class CompetitionEditComponent implements OnInit {
   }
 
   public openDialog(result: {competition: Competition, type: string}) {
-    if (!result || !result.competition) return;
+    if (!result || !result.competition) { return; }
 
-    if (result.type == 'add') {
-      this.saveCompetition(result.competition)
-    } else if (result.type == 'remove') {
+    if (result.type === 'add') {
+      this.saveCompetition(result.competition);
+    } else if (result.type === 'remove') {
       this.deleteCompetition(result.competition);
     }
   }

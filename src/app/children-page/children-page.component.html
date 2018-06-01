@@ -1,1 +1,11 @@
-<od-edit-children></od-edit-children>
+<div class="widget-box">
+  <div class="container">
+    <a routerLink="/admin/edit/children" class="bold">Редактировать банк данных</a>
+    <ng-container *ngIf="userService.user">
+      <od-children-table-rating></od-children-table-rating>
+    </ng-container>
+    <ng-container *ngIf="!userService.user">
+      <div class="text-center">Авторизуйтесь, чтобы просмотреть банк данных одаренный детей</div>
+    </ng-container>
+  </div>
+</div>

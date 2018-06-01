@@ -1,11 +1,9 @@
+import {catchError, map} from 'rxjs/operators';
 import {Resource, ResourceActionBase, ResourceParams} from 'ngx-resource';
 import {environment} from '../../environments/environment';
 import {Injectable, PLATFORM_ID} from '@angular/core';
 import {Http, Request} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-
-import {_throw} from 'rxjs/observable/throw';
-import {Inject} from '@nestjs/common';
+import {Observable} from 'rxjs';
 import {isPlatformBrowser, isPlatformServer} from '@angular/common';
 import {ServiceLocator} from './service-locator';
 
@@ -37,11 +35,12 @@ export class ODResource extends Resource {
 
 
   protected $responseInterceptor(observable: Observable<any>, req: Request, methodOptions?: ResourceActionBase): Observable<any> {
-    let obser = observable.map(value => {
-      let val = value.json();
-      if (val.statusCode >= 400) throw new Error(value.json().message);
+    const obser = observable.pipe(map(value => {
+      const val = value.json();
+      if (val.statusCode >= 400) { throw new Error(val.message); }
       return value;
-    });
+    })).pipe(catchError(err => {throw new Error(err.json().message); }));
+
     return super.$responseInterceptor(obser, req, methodOptions);
   }
 }

@@ -4,3 +4,24 @@
     width: 100%;
   }
 }
+
+.big-select {
+  &.mat-select-panel {
+    max-height: 400px;
+  }
+}
+
+.teacher-edit {
+  margin-top: 10px;
+  .form-group {
+    margin-top: 5px;
+  }
+
+  .label-file {
+    margin-top: 6px;
+  }
+
+  #fileToUpload1, #fileToUpload2 {
+    margin-top: 5px;
+  }
+}

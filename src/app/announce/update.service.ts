@@ -1,4 +1,4 @@
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 import {Materials} from '../news/shared/materials';
 
 export class UpdateService {

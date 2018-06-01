@@ -1,8 +1,9 @@
+import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {Headers, Http, RequestMethod, RequestOptions, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {empty} from 'rxjs/observable/empty';
+import {EMPTY} from 'rxjs/internal/observable/empty';
 
 export class MultipartItem {
   name: string;
@@ -17,7 +18,7 @@ export class ODMultipartSendService {
   }
 
   public sendMultipart<T>(path: string, object: MultipartItem[], method: RequestMethod = RequestMethod.Post): Observable<T> {
-    let formData = new FormData();
+    const formData = new FormData();
 
     object.forEach(value => formData.append(value.name, value.value));
 
@@ -30,14 +31,14 @@ export class ODMultipartSendService {
         $result = this.http.put(environment.host + path, formData, this.getRequestOptions());
         break;
       default:
-        return empty();
+        return EMPTY;
     }
 
-    return $result.map(value => <T>value.json());
+    return $result.pipe(map(value => <T>value.json()));
   }
 
   private getHeaders(): Headers {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('enctype', 'multipart/form-data');
     return headers;

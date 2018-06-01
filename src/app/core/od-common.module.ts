@@ -1,13 +1,16 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {ODClickOutside} from './od-click-outside';
+import {OdClickOutsideDirective} from './od-click-outside.directive';
 import {ProfileService} from '../profile/profile.service';
 import {UserService} from './user-service/user.service';
 import {ODUtils} from './od-utils';
 import {ODImageDirective} from './od-image-load.directive';
 import {ODDatePipe} from './od-date/od-date.pipe';
 import {UpdateService} from '../announce/update.service';
+import {OdSafePipe} from './od-safe/od-safe.pipe';
+import {OdLimitPipe} from './od-limit/od-limit.pipe';
+import {ODEngineService} from './od-engine.service';
 
 @NgModule({
   imports: [
@@ -15,14 +18,18 @@ import {UpdateService} from '../announce/update.service';
     RouterModule
   ],
   declarations: [
-    ODClickOutside,
+    OdClickOutsideDirective,
     ODImageDirective,
-    ODDatePipe
+    ODDatePipe,
+    OdSafePipe,
+    OdLimitPipe
   ],
   exports: [
-    ODClickOutside,
+    OdClickOutsideDirective,
     ODImageDirective,
-    ODDatePipe
+    ODDatePipe,
+    OdSafePipe,
+    OdLimitPipe
   ],
 })
 export class ODCommonModule {
@@ -33,7 +40,8 @@ export class ODCommonModule {
         ProfileService,
         UserService,
         ODUtils,
-        UpdateService
+        UpdateService,
+        ODEngineService
       ]
     };
   }

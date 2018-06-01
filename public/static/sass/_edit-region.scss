@@ -9,14 +9,31 @@
 }
 
 .outer-region-edit, .table {
+  cdk-cell {
+    .show {
+      display: inline-block;
+    }
+    .edit {
+      display: none;
+    }
+
+    &.edit {
+      .edit {
+        display: inline-block;
+      }
+      .show {
+        display: none;
+      }
+    }
+  }
 
   &.dummy {
-    cdk-header-row > cdk-header-cell:nth-child(1), cdk-header-cell:nth-child(2) {
+    cdk-header-cell:nth-child(2), cdk-header-row > cdk-header-cell:nth-child(1) {
       background-color: #F0F0F0;
       color: #F0F0F0;
     }
 
-    cdk-row > cdk-cell:nth-child(1), cdk-cell:nth-child(2) {
+    cdk-cell:nth-child(2), cdk-row > cdk-cell:nth-child(1) {
       background-color: #F0F0F0;
       color: #F0F0F0;
     }
@@ -44,7 +61,10 @@
   }
 
   cdk-row:hover {
-    background-color: aliceblue;
+    background-color: $main;
+    .cdk-cell {
+      color: $mainTextTheme;
+    }
   }
 
   .example-cell, .example-header-cell {
@@ -71,24 +91,6 @@
   .example-header .mat-form-field {
     font-size: 14px;
     width: 100%;
-  }
-
-  cdk-cell {
-    .show {
-      display: inline-block;
-    }
-    .edit {
-      display: none;
-    }
-
-    &.edit {
-      .edit {
-        display: inline-block;
-      }
-      .show {
-        display: none;
-      }
-    }
   }
 
 }

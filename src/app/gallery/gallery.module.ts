@@ -5,7 +5,8 @@ import {GalleryComponent} from './gallery.component';
 import {GalleryService} from './gallery.service';
 import {MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatSnackBarModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
-import {GalleryDialogAdd} from './gallery-dialog-add';
+import {HttpModule} from '@angular/http';
+import {GalleryDialogAddComponent} from './gallery-dialog-add.component';
 import {FormsModule} from '@angular/forms';
 import {ODMultipartSendService} from '../core/od-multipart-send.service';
 import {NgxGalleryModule} from 'ngx-gallery';
@@ -15,6 +16,7 @@ import {NgxGalleryModule} from 'ngx-gallery';
     GalleryRoutingModule,
     ODCommonModule,
     CommonModule,
+    HttpModule,
     FormsModule,
     NgxGalleryModule,
 
@@ -28,10 +30,10 @@ import {NgxGalleryModule} from 'ngx-gallery';
   ],
   declarations: [
     GalleryComponent,
-    GalleryDialogAdd,
+    GalleryDialogAddComponent,
   ],
-  entryComponents:[
-    GalleryDialogAdd
+  entryComponents: [
+    GalleryDialogAddComponent
   ],
   providers: [GalleryService, ODMultipartSendService]
 })

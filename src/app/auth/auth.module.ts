@@ -5,6 +5,7 @@ import {AuthComponent} from './auth.component';
 import {MatButtonModule, MatInputModule, MatOptionModule, MatSelectModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {SchoolsService} from '../schools/schools.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import {CommonModule} from '@angular/common';
   declarations: [
     AuthComponent,
   ],
-  providers: []
+  providers: [SchoolsService]
 })
 export class AuthModule {
 }

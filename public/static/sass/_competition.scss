@@ -21,8 +21,10 @@
   }
 
   mat-expansion-panel {
-    input[type='file'], label {
-      margin-bottom: 0; cursor: pointer; margin-left: 10px;
+    input[type="file"], label {
+      margin-bottom: 0;
+      cursor: pointer;
+      margin-left: 10px;
     }
 
     .label-file {
@@ -32,10 +34,10 @@
     }
   }
 
-  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
-  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-    background-color: #3f51b5;
-  }
+  //.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  //.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  //  background-color: #3f51b5;
+  //}
 
   .checkbox {
     margin-right: 20px;
@@ -70,31 +72,4 @@
     }
   }
 
-  &.table {
-    .example-header {
-      .mat-form-field {
-        width: 100%;
-      }
-    }
-    .mat-form-field {
-      width: auto;
-    }
-    .example-row {
-      cursor: pointer;
-    }
-    .cdk-cell {
-      &.level {
-        text-align: center;
-      }
-
-      &.specialization {
-        text-align: center;
-      }
-    }
-    .example-header-cell {
-      button {
-        margin: 0 auto;
-      }
-    }
-  }
 }

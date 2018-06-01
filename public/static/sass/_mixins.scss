@@ -1,0 +1,16 @@
+@mixin link-line($color){
+  display: inline-block;
+  text-decoration: none;
+  &:after{
+    content:'';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: $color;
+  }
+  &:hover{
+    &:after{
+      background-color: transparent;
+    }
+  }
+}

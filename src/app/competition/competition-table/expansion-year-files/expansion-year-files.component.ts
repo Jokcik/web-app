@@ -25,11 +25,11 @@ export class ExpansionYearFilesComponent implements OnInit {
   }
 
   public emitFiles() {
-    this.competitionFileChange.emit(this.competitionFile)
+    this.competitionFileChange.emit(this.competitionFile);
   }
 
   public loadFile(file: File, idx: number) {
-    let multipartItems: MultipartItem[] = [
+    const multipartItems: MultipartItem[] = [
       {name: 'logo', value: file},
       {name: 'type', value: 'files'}
     ];
@@ -42,8 +42,8 @@ export class ExpansionYearFilesComponent implements OnInit {
   }
 
   public removeCompetitionFile(idx: number) {
-    if (idx == this.competitionFile.length - 1) return;
-    this.competitionFile = this.competitionFile.filter((value, index) => idx != index);
+    if (idx === this.competitionFile.length - 1) { return; }
+    this.competitionFile = this.competitionFile.filter((value, index) => idx !== index);
     this.emitFiles();
   }
 
@@ -51,7 +51,7 @@ export class ExpansionYearFilesComponent implements OnInit {
     this.competitionFile[idx].title = title;
     this.emitFiles();
 
-    if (title && idx == this.competitionFile.length - 1) {
+    if (title && idx === this.competitionFile.length - 1) {
       this.competitionFile.push(new CompetitionFiles());
     }
   }

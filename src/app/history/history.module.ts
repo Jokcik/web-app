@@ -3,7 +3,7 @@ import {ODCommonModule} from '../core/od-common.module';
 import {HistoryComponent} from './history.component';
 import {HistoryRoutingModule} from './history-routing.module';
 import {CommonModule} from '@angular/common';
-import {HistoryService} from './history.service';
+import {EventService} from './event.service';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
@@ -23,7 +23,7 @@ import {CKEditorModule} from 'ngx-ckeditor';
   declarations: [
     HistoryComponent,
   ],
-  providers: [HistoryService]
+  providers: [EventService]
 })
 export class HistoryModule {
 }

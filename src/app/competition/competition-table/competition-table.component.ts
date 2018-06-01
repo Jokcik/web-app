@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit, ViewChild, SimpleChanges, AfterView
 import {Dummy} from '../../core/dummy';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Competition} from '../../admin/edit/shared/competition';
-import {CompetitionsDialogAdd} from './competitions-dialog-add';
+import {CompetitionsDialogAddComponent} from './competitions-dialog-add.component';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewInit {
   public dataSourceCompetition: Competition[] = [];
   @Input() competitions: Competition[] = Dummy.factory(Competition, 10);
-  @Input() isOpenEdit: boolean = false;
+  @Input() isOpenEdit = false;
   @Output() changeCompetition: EventEmitter<any> = new EventEmitter<any>();
 
 
@@ -37,15 +37,15 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
     this.dataSourceCompetition.push(...this.competitions);
     this.dataSource._updateChangeSubscription();
 
-    if (!(this.competitions.length && this.competitions[0].title)) return;
+    if (!(this.competitions.length && this.competitions[0].title)) { return; }
 
-    //TODO: придумать ченить получше
+    // TODO: придумать ченить получше
     setTimeout(() => {
       this.route.queryParams.subscribe(params => {
-        let number = params['number'];
-        let competition = this.competitions.filter(competition => competition.num == number);
+        const number = params['number'];
+        const competition = this.competitions.filter(comp => comp.num === +number);
 
-        if (!competition || !competition.length) return;
+        if (!competition || !competition.length) { return; }
         this.openCompetition(competition[0]);
       });
     }, 0);
@@ -67,10 +67,13 @@ export class CompetitionTableComponent implements OnInit, OnChanges, AfterViewIn
   }
 
   public async openCompetition(competition: Competition) {
-    if(await this.router.navigate([], {queryParams: competition ? {number: competition.num} : {}})) return;
-    this.dialog.open(CompetitionsDialogAdd, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
-      .afterClosed()
-      .subscribe(result => result && this.changeCompetition.emit(result));
+    if (await this.router.navigate([], {queryParams: competition ? {number: competition.num} : {}})) { return; }
+    this.dialog.open(CompetitionsDialogAddComponent, {width: '800px', data: {competition: competition, edit: this.isOpenEdit}})
+      .afterClosed().subscribe(result => {
+        const url = this.isOpenEdit ? 'admin/edit/competition' : '/competition';
+        this.router.navigateByUrl(url);
+        return result && this.changeCompetition.emit(result)
+      });
   }
 
   public newCompetitions() {

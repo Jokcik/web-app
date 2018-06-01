@@ -14,7 +14,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './competition.component.html'
 })
 export class CompetitionComponent implements OnInit {
-  public isEditOpen: boolean = false;
+  public isEditOpen = false;
   public competitions: Competition[];
   public filteredCompetitions: Competition[] = Dummy.factory(Competition, 10);
 
@@ -24,12 +24,12 @@ export class CompetitionComponent implements OnInit {
   public levels: CompetitionLevel[] = [];
   public levelId: any = 0;
 
-  public year2017: boolean = true;
-  public year2018: boolean = true;
-  public year2019: boolean = true;
-  public year2020: boolean = true;
-  public year2021: boolean = true;
-  public year2022: boolean = true;
+  public year2017 = true;
+  public year2018 = true;
+  public year2019 = true;
+  public year2020 = true;
+  public year2021 = true;
+  public year2022 = true;
 
   constructor(private competitionService: CompetitionService,
               private route: ActivatedRoute,
@@ -64,8 +64,9 @@ export class CompetitionComponent implements OnInit {
       value.year2020 && this.year2020 ||
       value.year2021 && this.year2021
     );
-    filter = filter.filter(value => !this.levelId || value.level && value.level._id == this.levelId);
-    filter = filter.filter(value => !this.specializationId || value.specialization && value.specialization.some(spec => spec._id == this.specializationId));
+    filter = filter.filter(value => !this.levelId || value.level && value.level._id === this.levelId);
+    filter = filter.filter(value => !this.specializationId ||
+      value.specialization && value.specialization.some(spec => spec._id === this.specializationId));
 
     this.filteredCompetitions = filter;
   }
@@ -78,11 +79,11 @@ export class CompetitionComponent implements OnInit {
   }
 
   public openDialog(result: {competition: Competition, type: string}) {
-    if (!result || !result.competition) return;
+    if (!result || !result.competition) { return; }
 
-    if (result.type == 'add') {
-      this.saveCompetition(result.competition)
-    } else if (result.type == 'remove') {
+    if (result.type === 'add') {
+      this.saveCompetition(result.competition);
+    } else if (result.type === 'remove') {
       this.deleteCompetition(result.competition);
     }
   }

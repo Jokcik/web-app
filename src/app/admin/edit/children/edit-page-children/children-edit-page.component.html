@@ -1,0 +1,126 @@
+<div class="outer-dshi-edit">
+  <h4 class="text-center bold">{{currentChildren._id ? 'Редактировать' : 'Добавить'}} одаренного ребенка</h4>
+  <div mat-dialog-content>
+    <mat-form-field class="col-lg-4">
+      <mat-select placeholder="Район, город" [disabled]="userService.user?.role !== 5" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+        <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">{{ region.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-8">
+      <mat-select placeholder="Школа" [disabled]="userService.user?.role !== 5 || currentRegion < 0" (valueChange)="currentChildren.schools = schools[$event]" [value]="currentSchool">
+        <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">{{ school.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-3">
+      <input matInput placeholder="Фамилия" [(ngModel)]="currentChildren.surname">
+    </mat-form-field>
+    <mat-form-field class="col-lg-3">
+      <input matInput placeholder="Имя" [(ngModel)]="currentChildren.name">
+    </mat-form-field>
+    <mat-form-field class="col-lg-3">
+      <input matInput placeholder="Отчество" [(ngModel)]="currentChildren.middleName">
+    </mat-form-field>
+
+    <!-- TODO: Добавить фильтр на дату -->
+    <mat-form-field class="col-lg-3">
+      <input matInput [matDatepicker]="picker" placeholder="Дата рождения" [value]="currentChildren.birthday"
+             [disabled]="false" (dateChange)="currentChildren.birthday = $event.value">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]="false" [startAt]="currentChildren.birthday"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-6">
+      <mat-select placeholder="Специализация" [value]="currentSpecialization" (valueChange)="selectedSpecializations($event)">
+        <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">{{ specialization.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-6">
+      <mat-select placeholder="Инструмент" [disabled]="currentSpecialization < 0" [value]="currentInstrument"
+                  (valueChange)="currentChildren.instruments = instruments[$event]">
+        <mat-option *ngFor="let instrument of instruments; let idx = index" [value]="idx">{{ instrument.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-4">
+      <mat-select placeholder="Класс ДШИ на 01.09.2017" [value]="currentChildren.classDSHI" (valueChange)="currentChildren.classDSHI = +$event">
+        <mat-option [value]="2">2 класс</mat-option>
+        <mat-option [value]="3">3 класс</mat-option>
+        <mat-option [value]="4">4 класс</mat-option>
+        <mat-option [value]="5">5 класс</mat-option>
+        <mat-option [value]="6">6 класс</mat-option>
+        <mat-option [value]="7">7 класс</mat-option>
+        <mat-option [value]="8">8 класс</mat-option>
+        <mat-option [value]="9">9 класс</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-4">
+      <mat-select placeholder="Класс СОШ на 01.09.2017" [value]="currentChildren.class" (valueChange)="currentChildren.class = +$event">
+        <mat-option [value]="2">2 класс</mat-option>
+        <mat-option [value]="3">3 класс</mat-option>
+        <mat-option [value]="4">4 класс</mat-option>
+        <mat-option [value]="5">5 класс</mat-option>
+        <mat-option [value]="6">6 класс</mat-option>
+        <mat-option [value]="7">7 класс</mat-option>
+        <mat-option [value]="8">8 класс</mat-option>
+        <mat-option [value]="9">9 класс</mat-option>
+        <mat-option [value]="10">10 класс</mat-option>
+        <mat-option [value]="11">11 класс</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-4">
+      <mat-select placeholder="Год окончания ДШИ" [value]="currentChildren.graduateDSHI" (valueChange)="currentChildren.graduateDSHI = +$event">
+        <mat-option [value]="2018">2018</mat-option>
+        <mat-option [value]="2019">2019</mat-option>
+        <mat-option [value]="2020">2020</mat-option>
+        <mat-option [value]="2021">2021</mat-option>
+        <mat-option [value]="2022">2022</mat-option>
+        <mat-option [value]="2023">2023</mat-option>
+        <mat-option [value]="2024">2024</mat-option>
+        <mat-option [value]="2025">2025</mat-option>
+        <mat-option [value]="2026">2026</mat-option>
+        <mat-option [value]="2027">2027</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="col-lg-12 text-center" style="padding: 10px; border: 2px solid black">
+      <label class="bold">Результаты конкурсных выступлений (указывать наивысший уровень участия в конкурсе)</label>
+      <od-children-competition-table [competitions]="currentChildren.competitions"></od-children-competition-table>
+    </div>
+
+    <div class="col-lg-12 text-center bold" style="padding-top: 10px;">Отсроченный мониторинг</div>
+    <mat-checkbox class="checkbox col-lg-12" [(ngModel)]="currentChildren.leave"> Выбыл из школы (смена местожительства, перевод в другое учебное заведение) </mat-checkbox>
+    <mat-checkbox class="checkbox col-lg-12" [(ngModel)]="currentChildren.ssuz">Планирует поступление (уже поступил) в профильное учебное заведение</mat-checkbox>
+    <div *ngIf="currentChildren.ssuz">
+      <mat-form-field class="col-lg-1"><input matInput placeholder="Год" type="number" min="2018" [(ngModel)]="currentChildren.ssuzInfo.year"></mat-form-field>
+
+      <mat-form-field class="col-lg-5">
+        <mat-select placeholder="Учебное заведение" [value]="currentChildren.ssuzInfo.name" (valueChange)="currentChildren.ssuzInfo.name = +$event">
+          <mat-option [value]="1">БГИИК СПО Белгородский музыкальный колледж им С.А. Дегтярева</mat-option>
+          <mat-option [value]="2">БГИИК СПО Губкинский музыкальный колледж</mat-option>
+          <mat-option [value]="3">БГИИК ВУЗ</mat-option>
+          <mat-option [value]="4">Другое</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-6">
+        <mat-select placeholder="Специализация" [value]="currentSsuzSpecialization" (valueChange)="currentChildren.ssuzInfo.specialization = specializations[$event]">
+          <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">{{ specialization.title }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-12" *ngIf="currentChildren.ssuzInfo.name == 4">
+        <input matInput placeholder="Другое учебное заведение" [(ngModel)]="currentChildren.ssuzInfo.otherName">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="group-button-right" >
+    <button mat-raised-button (click)="add()" color="primary">{{currentChildren._id ? 'Изменить' : 'Добавить'}} ребенка</button>
+    <button mat-raised-button (click)="deleteChildren()" color="warn" *ngIf="currentChildren._id">Удалить из базы данных</button>
+  </div>
+</div>

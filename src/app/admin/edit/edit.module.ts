@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import {
-  MAT_DIALOG_DATA,
+  MAT_DIALOG_DATA, MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatCheckboxModule,
@@ -29,18 +29,16 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {ODCommonModule} from '../../core/od-common.module';
 import {EditComponent} from './edit.component';
-import {HistoryService} from '../../history/history.service';
+import {EventService} from '../../history/event.service';
 import {MainComponent} from './main/main.component';
 import {RegionComponent} from './region/region.component';
 import {RegionService} from './region/region.service';
-import {RegionDialogAdd} from './region/region-dialog-add';
+import {RegionDialogAddComponent} from './region/region-dialog-add.component';
 import {SchoolEditComponent} from './schools-edit/schools-edit.component';
 import {SchoolsService} from '../../schools/schools.service';
-import {DshiDialogAdd} from './schools-edit/schools-dialog-add';
+import {SchoolsDialogAddComponent} from './schools-edit/schools-dialog-add.component';
 import {NewsEditComponent} from './news-edit/news-edit.component';
 import {ODMultipartSendService} from '../../core/od-multipart-send.service';
-import {ChildrenPageService} from '../../children-page/children-page.service';
-import {ChildrenModule} from './children/children.module';
 import {CompetitionEditComponent} from './competition/competition-edit.component';
 import {CompetitionService} from '../../competition/competition.service';
 import {CompetitionTableModule} from '../../competition/competition-table/competition-table.module';
@@ -49,6 +47,8 @@ import {GalleryModule} from '../../gallery/gallery.module';
 import {CompetitionModule} from '../../competition/competition.module';
 import {ODCkeditorModule} from '../../core/od-ckeditor/od-ckeditor.module';
 import {NgxGalleryModule} from 'ngx-gallery';
+import { TeacherComponent } from './teacher/teacher.component';
+import {TeacherService} from './teacher/teacher.service';
 
 @NgModule({
   imports: [
@@ -61,7 +61,6 @@ import {NgxGalleryModule} from 'ngx-gallery';
     FormsModule,
     EditRoutingModule,
     ODCkeditorModule,
-    ChildrenModule,
     CompetitionTableModule,
     SchoolsModule,
     GalleryModule,
@@ -71,7 +70,6 @@ import {NgxGalleryModule} from 'ngx-gallery';
     MatButtonModule,
     MatCardModule,
     MatTableModule,
-    MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
@@ -87,23 +85,25 @@ import {NgxGalleryModule} from 'ngx-gallery';
     MatGridListModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule
   ],
   declarations: [
     EditComponent,
     MainComponent,
     RegionComponent,
-    RegionDialogAdd,
+    RegionDialogAddComponent,
     SchoolEditComponent,
-    DshiDialogAdd,
+    SchoolsDialogAddComponent,
     NewsEditComponent,
+    TeacherComponent,
     CompetitionEditComponent,
   ],
   entryComponents: [
-    RegionDialogAdd,
-    DshiDialogAdd,
+    RegionDialogAddComponent,
+    SchoolsDialogAddComponent,
   ],
-  providers: [HistoryService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, ChildrenPageService, CompetitionService,
+  providers: [EventService, RegionService, SchoolsService, ODMultipartSendService, MatTabNav, CompetitionService, TeacherService,
     {provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MatDialogRef, useValue: {}}
   ]

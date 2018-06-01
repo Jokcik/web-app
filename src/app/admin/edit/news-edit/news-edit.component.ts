@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HistoryService} from '../../../history/history.service';
+import {EventService} from '../../../history/event.service';
 import {Materials} from '../../../news/shared/materials';
 import {MultipartItem, ODMultipartSendService} from '../../../core/od-multipart-send.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ODUtils} from '../../../core/od-utils';
 import {switchMap} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import {of} from 'rxjs';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import {UpdateService} from '../../../announce/update.service';
@@ -41,7 +41,7 @@ export class NewsEditComponent implements OnInit {
 
   @ViewChild(NgxGalleryComponent) galleryComponent: NgxGalleryComponent;
 
-  constructor(private service: HistoryService,
+  constructor(private service: EventService,
               private multipart: ODMultipartSendService,
               private router: Router,
               private updateService: UpdateService,
@@ -63,31 +63,31 @@ export class NewsEditComponent implements OnInit {
       .subscribe(news => {
         this.news = news[0];
         if (this.news.images && this.news.images.length) {
-          this.galleryImages = this.news.images.map(image => {return {small: image, big: image};});
+          this.galleryImages = this.news.images.map(image => ({small: image, big: image}));
         }
       });
   }
 
   public filterDate(d): boolean {
-    let date = new Date(d.format());
-    let now = new Date();
+    const date = new Date(d.format());
+    const now = new Date();
     now.setDate(now.getDate() - 1);
     return +now < +date && date.getFullYear() < 2023;
-  };
+  }
 
   public async loadLogoFile() {
     this.news.img = (await this.loadFile()).url;
   }
 
   public async loadGalleryFile() {
-    let url = (await this.loadFile()).url;
+    const url = (await this.loadFile()).url;
     this.galleryImages.push({small: url, big: url});
   }
 
   private async loadFile(): Promise<{url: string}> {
-    if (!this.imgFile) return;
+    if (!this.imgFile) { return; }
 
-    let multipartItems: MultipartItem[] = [
+    const multipartItems: MultipartItem[] = [
       {name: 'logo', value: this.imgFile},
       {name: 'type', value: 'news'}
     ];
@@ -106,7 +106,7 @@ export class NewsEditComponent implements OnInit {
     }
 
     this.news.url = this.utils.translit(<any>this.news.title);
-    this.news.date = this.news.type == 2 ? this.news.date : new Date();
+    this.news.date = +this.news.type === 2 ? this.news.date : new Date();
 
     return this.service.save(this.news).$observable.subscribe(res => {
       this.updateMaterials();
@@ -115,16 +115,25 @@ export class NewsEditComponent implements OnInit {
   }
 
   public updateMaterials() {
-    if (this.news.type == 2) {
+    if (+this.news.type === 2) {
       this.updateService.changeAnnounce.next();
     }
-    if (this.news.type == 1) {
+    if (+this.news.type === 1) {
       this.updateService.changeNews.next();
     }
   }
 
+  public deleteNews() {
+    if (!window.confirm('Вы действительно хотите удалить это событие?')) { return; }
+
+    this.service.remove({_id: this.news._id}).$observable.subscribe(() => {
+      this.updateMaterials();
+      this.router.navigate(['/'])
+    })
+  }
+
   removeImageGallery(event) {
-    if (!window.confirm('Вы действительно хотите удалить эту картинку?')) return;
-    this.galleryImages = this.galleryImages.filter((value, idx) => idx != event.index);
+    if (!window.confirm('Вы действительно хотите удалить эту картинку?')) { return; }
+    this.galleryImages = this.galleryImages.filter((value, idx) => idx !== +event.index);
   }
 }

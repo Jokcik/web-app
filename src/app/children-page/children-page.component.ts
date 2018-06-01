@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../core/user-service/user.service';
 
 @Component({
   selector: 'od-children-page',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildrenPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
   }

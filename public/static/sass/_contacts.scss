@@ -1,7 +1,12 @@
 .outer-wrap-contacts {
   background-color: #ffffff;
+  margin-left: 40px;
   border-radius: 50px 50px;
   flex-flow: column nowrap;
+
+  .form-group {
+    margin-top: 20px;
+  }
 
   p {
     margin: 0;
@@ -22,10 +27,11 @@
 
   .title-input {
     margin-bottom: 20px;
-    color: royalblue;
+    color: $mainText;
+
     text-transform: uppercase;
-    text-shadow: $text 1px 1px 0;
-    font-weight: bold;
+    //text-shadow: $text 1px 1px 0;
+    font-weight: 700;
   }
 
 }

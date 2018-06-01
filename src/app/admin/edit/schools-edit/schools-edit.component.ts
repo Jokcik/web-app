@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Schools} from '../shared/school';
 import {SchoolsService} from '../../../schools/schools.service';
-import {RegionDialogAdd} from '../region/region-dialog-add';
 import {MatDialog, MatSnackBar} from '@angular/material';
-import {DshiDialogAdd} from './schools-dialog-add';
+import {SchoolsDialogAddComponent} from './schools-dialog-add.component';
 import {RegionService} from '../region/region.service';
 import {Region} from '../shared/region';
-import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'od-dshi-edit',
@@ -33,12 +31,12 @@ export class SchoolEditComponent implements OnInit {
   }
 
   public openDialog(): void {
-    this.dialog.open(DshiDialogAdd, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
-      if (!result) return;
+    this.dialog.open(SchoolsDialogAddComponent, {width: '900px', data: this.regions}).afterClosed().subscribe(result => {
+      if (!result) { return; }
       this.schoolService.save(result.school).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
-        this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
+        this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000});
       });
     });
   }
@@ -48,7 +46,7 @@ export class SchoolEditComponent implements OnInit {
     this.schoolService.update(this.currentSchool).$observable.subscribe(res => {
       this.updateSchools();
       this.currentSchool = null;
-      this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000})
+      this.snackBar.open('Данные успешно сохранены', 'ОК', {duration: 2000});
     });
   }
 
@@ -57,7 +55,7 @@ export class SchoolEditComponent implements OnInit {
       this.schoolService.remove({_id: this.currentSchool._id}).$observable.subscribe(() => {
         this.currentSchool = null;
         this.updateSchools();
-        this.snackBar.open('Данные успешно удалены', 'ОК', {duration: 2000})
+        this.snackBar.open('Данные успешно удалены', 'ОК', {duration: 2000});
       });
     }
   }

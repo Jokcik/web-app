@@ -1,46 +1,50 @@
-<div class="outer-wrap-auth">
-  <p class="text title-input" *ngIf="!register">Вход</p>
-  <p class="text title-input" *ngIf="register">Регистрация</p>
-  <div *ngIf="register">
-    <mat-form-field class="input-text">
-      <input matInput placeholder="Фамилия" required [(ngModel)]="user.surname">
-    </mat-form-field>
-    <mat-form-field class="input-text">
-      <input matInput placeholder="Имя" required [(ngModel)]="user.name">
-    </mat-form-field>
-    <mat-form-field class="input-text">
-      <input matInput placeholder="Отчество" required [(ngModel)]="user.middleName">
-    </mat-form-field>
-    <mat-form-field class="input-text">
-      <input matInput placeholder="Логин на сайте" required [(ngModel)]="user.nickname">
-    </mat-form-field>
-    <mat-form-field class="input-text">
-      <input matInput type="password" placeholder="Пароль" required [(ngModel)]="password">
-    </mat-form-field>
-    <div class="register" *ngIf="register">
-      <div>
-        <p class="text select-text">Уровень доступа:</p>
-        <mat-form-field class="example-full-width">
-          <mat-select [value]="roles.ADMIN" (valueChange)="user.role = $event">
-            <mat-option [value]="roles.ADMIN">РУМЦ</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="!register">
-    <mat-form-field class="input-text">
-      <input matInput placeholder="Логин" required [(ngModel)]="user.nickname">
-    </mat-form-field>
-    <mat-form-field class="input-text">
-      <input matInput type="password" placeholder="Пароль" required [(ngModel)]="password">
-    </mat-form-field>
-  </div>
+<div class="widget-box">
+  <div class="container">
+      <div class="outer-wrap-auth">
+        <p class="text title-input" *ngIf="!register">Вход</p>
+        <p class="text title-input" *ngIf="register">Регистрация</p>
+        <div *ngIf="register">
+          <mat-form-field class="col-lg-4">
+            <input matInput placeholder="Фамилия" required [(ngModel)]="user.surname">
+          </mat-form-field>
+          <mat-form-field class="col-lg-4">
+            <input matInput placeholder="Имя" required [(ngModel)]="user.name">
+          </mat-form-field>
+          <mat-form-field class="col-lg-4">
+            <input matInput placeholder="Отчество" required [(ngModel)]="user.middleName">
+          </mat-form-field>
 
-  <div class="sign-in" *ngIf="!register">
-    <button mat-raised-button color="primary" (click)="loginUser()">Войти</button>
-  </div>
-  <div class="register" *ngIf="register">
-    <button mat-raised-button color="primary" (click)="registerUser()">Зарегистрировать</button>
+          <mat-form-field class="col-lg-12">
+            <mat-select placeholder="Школа" (valueChange)="selectedSchoolId = $event">
+              <mat-option *ngFor="let school of schools" [value]="school._id">{{ school.title }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="col-lg-6">
+            <input matInput placeholder="Логин на сайте" required [(ngModel)]="user.nickname">
+          </mat-form-field>
+          <mat-form-field class="col-lg-6">
+            <input matInput type="password" placeholder="Пароль" required [(ngModel)]="password">
+          </mat-form-field>
+        </div>
+        <div *ngIf="!register">
+          <mat-form-field class="input-text">
+            <input matInput placeholder="Логин" required [(ngModel)]="user.nickname">
+          </mat-form-field>
+          <mat-form-field class="input-text">
+            <input matInput type="password" placeholder="Пароль" required [(ngModel)]="password">
+          </mat-form-field>
+        </div>
+
+        <div class="sign-in" *ngIf="!register">
+          <button mat-raised-button color="primary" (click)="loginUser()">Войти</button>
+        </div>
+        <div class="register" class="col-lg-12" *ngIf="register">
+          <button mat-raised-button color="primary"
+                  [disabled]="!user.name || !user.surname || !user.middleName || !user.nickname || !password || !selectedSchoolId"
+                  (click)="registerUser()">Зарегистрировать
+          </button>
+        </div>
+    </div>
   </div>
 </div>

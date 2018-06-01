@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@a
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Region} from '../shared/region';
 import {RegionService} from './region.service';
-import {RegionDialogAdd} from './region-dialog-add';
+import {RegionDialogAddComponent} from './region-dialog-add.component';
 import {Dummy} from '../../../core/dummy';
 import {UserService} from '../../../core/user-service/user.service';
 
@@ -19,8 +19,8 @@ export class RegionComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
   private regions: Region[] = Dummy.factory(Region, 10);
 
-  public editable: boolean = false;
-  public currentIndex: number = -2;
+  public editable = false;
+  public currentIndex = -2;
 
   constructor(private regionService: RegionService,
               public userService: UserService,
@@ -34,7 +34,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
 
   public updateRegion() {
     this.regionService.query().$observable.subscribe(regions => {
-      this.currentIndex = this.currentIndex == -2 ? -1 : this.currentIndex;
+      this.currentIndex = this.currentIndex === -2 ? -1 : this.currentIndex;
       this.regions.length = 0;
       this.regions.push(...regions);
       this.dataSource._updateChangeSubscription();
@@ -42,10 +42,10 @@ export class RegionComponent implements OnInit, AfterViewInit {
   }
 
   public openDialog(): void {
-    this.dialog.open(RegionDialogAdd, {width: '400px'}).afterClosed().subscribe(result => {
-      if (!result) return;
+    this.dialog.open(RegionDialogAddComponent, {width: '400px'}).afterClosed().subscribe(result => {
+      if (!result) { return; }
       this.regionService.save(result);
-      this.updateRegion()
+      this.updateRegion();
     });
   }
 
@@ -61,7 +61,7 @@ export class RegionComponent implements OnInit, AfterViewInit {
   }
 
   public editRegion(region: any, index: number) {
-    if (index != this.currentIndex) {
+    if (index !== this.currentIndex) {
       this.editable = true;
       this.currentIndex = index;
     } else {

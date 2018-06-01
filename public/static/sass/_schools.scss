@@ -8,21 +8,6 @@
     }
   }
 
-  &.dummy {
-    mat-select {
-      .mat-select-value {
-        background-color: #F0F0F0;
-      }
-    }
-
-    mat-card {
-      div {
-        background-color: #F0F0F0;
-        color: #F0F0F0;
-      }
-    }
-  }
-
   &.admin {
     margin-top: 20px;
   }
@@ -84,6 +69,21 @@
     .school-mainperson {
       text-align: left;
       margin-top: 20px;
+    }
+  }
+
+  &.dummy {
+    mat-select {
+      .mat-select-value {
+        background-color: #F0F0F0;
+      }
+    }
+
+    mat-card {
+      div {
+        background-color: #F0F0F0;
+        color: #F0F0F0;
+      }
     }
   }
 }

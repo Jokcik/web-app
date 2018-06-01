@@ -1,0 +1,73 @@
+<div class="teacher-edit">
+  <div class="form-group col-lg-12">
+    <mat-radio-group class="col-lg-12" [(ngModel)]="type">
+      <mat-radio-button class="col-lg-3" [value]="0">Добавить преподавателя</mat-radio-button>
+      <mat-radio-button *ngIf="userService.user?.role == 5" class="col-lg-3" [value]="1">Редактировать преподавателя</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="form-group" *ngIf="type == 0">
+    <div class="col-lg-12">
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Фамилия" matInput [(ngModel)]="teacher.suname">
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Имя" matInput [(ngModel)]="teacher.name">
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Отчество" matInput [(ngModel)]="teacher.middleName">
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-12">
+      <label class="label-file col-lg-3"> Информация о преподавателе: </label>
+      <input id="fileToUpload1" (fileChange)="loadFile($event)" odImageLoad type="file" *ngIf="!teacher.file.name">
+      <ng-container *ngIf="teacher.file.name">
+        <label class="label-file"> {{ teacher.file.name }} </label>
+        <button mat-raised-button color="warn" (click)="teacher.file.name = null">Удалить файл</button>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="form-group col-lg-12" *ngIf="type == 1">
+    <div class="col-lg-12">
+      <mat-form-field class="col-lg-6">
+        <input type="text" placeholder="Преподаватель" aria-label="Number" matInput [formControl]="teacherControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="saveTeacher($event)">
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher">{{ teacher.suname + ' ' + teacher.name + ' ' + teacher.middleName }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-12">
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Фамилия" matInput [disabled]="!teacherEdit" [ngModel]="teacherEdit?.suname" (ngModelChange)="teacherEdit.suname = $event">
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Имя" matInput [disabled]="!teacherEdit" [ngModel]="teacherEdit?.name" (ngModelChange)="teacherEdit.name = $event">
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-4">
+        <input type="text" placeholder="Отчество" matInput [disabled]="!teacherEdit" [ngModel]="teacherEdit?.middleName" (ngModelChange)="teacherEdit.middleName = $event">
+      </mat-form-field>
+
+      <div>
+        <label class="label-file col-lg-3"> Информация о преподавателе: </label>
+        <input id="fileToUpload2" [disabled]="!teacherEdit" (fileChange)="loadFile($event)" odImageLoad type="file" *ngIf="!teacherEdit?.file?.name">
+        <ng-container *ngIf="teacherEdit?.file?.name">
+          <label class="label-file"> {{ teacherEdit.file.name }} </label>
+          <button mat-raised-button color="warn" (click)="teacherEdit.file.name = null">Удалить файл</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 group-button-right">
+    <button mat-raised-button (click)="addTeacher()" *ngIf="type == 0" [disabled]="!teacher.name || !teacher.suname || !teacher.middleName" color="primary">Добавить преподавателя</button>
+    <button mat-raised-button (click)="addTeacher()" *ngIf="type == 1" [disabled]="!teacherEdit" color="primary">Изменить преподавателя</button>
+    <button mat-raised-button (click)="deleteTeacher()" color="warn" [disabled]="!teacherEdit" *ngIf="type == 1">Удалить</button>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-import {Directive, ElementRef, EventEmitter, Input, Output} from "@angular/core";
-import {SafeUrl} from "@angular/platform-browser";
+import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import {SafeUrl} from '@angular/platform-browser';
 import {ODUtils} from './od-utils';
 
 /**
@@ -8,9 +8,9 @@ import {ODUtils} from './od-utils';
  */
 @Directive({
   selector: '[odImageLoad]',
-  host: {
-    '(change)': 'onChange($event)'
-  },
+  // host: {
+  //   '(change)': 'onChange($event)'
+  // },
 })
 export class ODImageDirective {
   @Input() public file: File;
@@ -24,12 +24,14 @@ export class ODImageDirective {
               private utils: ODUtils) {
   }
 
+  @HostListener('change', ['$event'])
   public onChange(event) {
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
+    console.log(event);
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
       if (this.elRef.nativeElement.attributes['multiple']) {
-        let urls: SafeUrl[] = [];
-        let files: File[] = [];
+        const urls: SafeUrl[] = [];
+        const files: File[] = [];
         for (let i = 0; i < fileList.length; ++i) {
           urls.push(this.utils.getSafeUrl(URL.createObjectURL(fileList.item(i))));
           files.push(fileList.item(i));
@@ -39,9 +41,9 @@ export class ODImageDirective {
         this.srcChange.emit(urls);
       } else {
 
-        let file = fileList[0];
+        const file = fileList[0];
 
-        let url = this.utils.getSafeUrl(URL.createObjectURL(file));
+        const url = this.utils.getSafeUrl(URL.createObjectURL(file));
 
         this.fileChange.emit(file);
         this.srcChange.emit(<any> url);

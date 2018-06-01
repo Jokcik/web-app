@@ -1,0 +1,28 @@
+img {
+  width: inherit;
+}
+
+.img-wrap:focus, li:focus, .group-button-right, .cdk-row {
+    outline: none!important;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  //background: url(/images/fon/main.jpg) repeat-y 0 0;
+  background-size: cover;
+}
+
+
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+  transform: none !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.group-button-right {
+  margin-top: 20px;
+  text-align: right;
+}

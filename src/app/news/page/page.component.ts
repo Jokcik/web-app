@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {HistoryService} from '../../history/history.service';
+import {EventService} from '../../history/event.service';
 import {Materials} from '../shared/materials';
 import {UserService} from '../../core/user-service/user.service';
 import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-gallery';
@@ -22,23 +22,21 @@ export class PageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private mainpageService: HistoryService,
+              private mainpageService: EventService,
               public userService: UserService) {
   }
 
   ngOnInit() {
-
-
     this.galleryOptions = [
       {
         image: false,
-        height: "100px",
+        height: '100px',
         previewCloseOnEsc: true,
         previewCloseOnClick: true
       },
       {
         breakpoint: 500,
-        width: "100%"
+        width: '100%'
       }
     ];
 
@@ -49,10 +47,13 @@ export class PageComponent implements OnInit {
         }
         this.material = materials[0];
 
-        // this.galleryImages = this.material.images.map(image => {
-        //   return {small: image, medium: image, big: image};
-        // });
+        this.galleryImages = this.material.images.map(image => {
+          return {small: image, medium: image, big: image};
+        });
 
+        setInterval(() => {
+
+        });
       });
   }
 

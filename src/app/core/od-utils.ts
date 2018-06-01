@@ -1,6 +1,5 @@
-
-import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
-import {Injectable} from "@angular/core";
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ODUtils {
@@ -16,21 +15,22 @@ export class ODUtils {
   }
 
   public getSafeUrl(url: string): SafeUrl {
-    let safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    const safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     safeUrl.toString = () => (<any> safeUrl).changingThisBreaksApplicationSecurity;
 
     return safeUrl;
   }
 
   public getIdInArray(value: any, array: any[], field: string) {
-    return array.map(value => value[field]).indexOf(value);
+    return array.map(val => val[field]).indexOf(value);
   }
 
   public translit(text: string) {
-    // Символ, на который будут заменяться все спецсимволы
+    text = text.toLowerCase();
+// Символ, на который будут заменяться все спецсимволы
     const space = '-';
 
-    let TrimStr = (s) => {
+    const TrimStr = (s) => {
       s = s.replace(/^-/, '');
       return s.replace(/-$/, '');
     };
@@ -52,16 +52,14 @@ export class ODUtils {
     let result = '';
     let curent_sim = '';
 
-    for(let i=0; i < text.length; i++) {
+    for (let i = 0; i < text.length; i++) {
       // Если символ найден в массиве то меняем его
-      if(transl[text[i]] != undefined) {
-        if(curent_sim != transl[text[i]] || curent_sim != space){
+      if (transl[text[i]] !== undefined) {
+        if (curent_sim !== transl[text[i]] || curent_sim !== space) {
           result += transl[text[i]];
           curent_sim = transl[text[i]];
         }
-      }
-      // Если нет, то оставляем так как есть
-      else {
+      } else {
         result += text[i];
         curent_sim = text[i];
       }

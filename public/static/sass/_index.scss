@@ -1,25 +1,56 @@
-$height: 250px;
+$height: 180px;
 
-mat-card {
-  &.outer_wrap_main {
-    flex: 1 0 auto;
-    padding-top: 30px;
-    //padding-left: 200px;
-    //padding-right: 150px;
-    p {
-      line-height: 1.2!important;
-      font-family:Courier New,Courier,monospace!important;
-      span, font {
-        font-family:Courier New,Courier,monospace!important;
-      }
+.widget-box {
+  &.gray{
+    background-color: $gray;
+  }
+  padding-bottom: 20px;
+  padding-top: 10px;
+  .mat-card {
+    padding: 10px 0 0 0;
+  }
+}
+
+.container {
+  .row {
+
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.outer-wrap-main {
+  min-height: 800px;
+  .all-link{
+    display: inline-block;
+    font-size: 1.375em;
+    color: $black;
+    @include link-line($mainText);
+    &:hover{
+      color: $hover;
+      text-decoration: none;
+    }
+  }
+
+  margin-top: 24px;
+  flex: 1 0 auto;
+  //padding-left: 200px;
+  //padding-right: 150px;
+  p {
+    line-height: 1.4!important;
+    //font-family: "Courier New", Courier, monospace!important;
+    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif!important;
+    span, font {
+      //font-family: "Courier New", Courier, monospace!important;
+      font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif!important;
     }
   }
 
   h4 {
     margin-bottom: 20px;
     text-align: center;
-    font-family: 'noto_sans', sans-serif;
-    color: #484B50;
+    color: $mainText;
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
   }
@@ -80,10 +111,6 @@ mat-card {
     }
   }
 
-  a:hover {
-    text-decoration: none;
-  }
-
   p > b {
     //text-transform: uppercase;
   }
@@ -93,20 +120,24 @@ mat-card {
       max-width: 30%;
     }
   }
+}
 
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1300px;
-    }
+@media (min-width: 1200px) {
+  .container {
+    max-width: 2800px !important;
   }
+}
+
+.title-text {
+  color: $mainTextTheme;
 }
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 2rem 0 0.5rem !important;
+    padding: 0.5rem 0 0.5rem !important;
     margin-bottom: 0!important;
     p {
-      font-weight: bold;
+      //font-weight: bold;
       text-align: right;
     }
 
@@ -118,11 +149,11 @@ mat-card {
       }
     }
 
-    .container {
-      height: 180px!important;
-    }
+    //.container {
+    //  height: 140px!important;
+    //}
 
-    background-color: #f1f1f1!important;
+    background-color: $main!important;
   }
 }
 
@@ -132,13 +163,25 @@ mat-card {
   }
 }
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1300px !important;
-  }
-}
-
 .jumbotron {
+  .btn-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .block-logo {
+      font-family: "pt_sans_narrowbold", serif;
+      color: $mainTextTheme;
+      text-decoration: none;
+      font-size: 33px;
+      text-transform: uppercase;
+    }
+  }
+  .title-text {
+    //margin: 2px;
+    margin-top: 10px;
+    line-height: normal;
+  }
   .img-block {
     display: flex;
     .img-wrap {
@@ -149,7 +192,10 @@ mat-card {
     }
 
     .btn-block {
-      margin-left: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      transform: translate(50%, 0);
+
       button {
         display: block;
         margin-top: 20px;
@@ -161,15 +207,19 @@ mat-card {
         margin-top: 15px;
         text-align: center;
         line-height: 45px;
-        text-shadow: darkgray 1px 1px;
-        font-family: 'pt_sans_narrowbold', serif;
-        color: #787878;
+        //text-shadow: white 1px 1px;
+        font-family: "pt_sans_narrowbold", serif;
+        color: $mainTextTheme;
         text-decoration: none;
         font-size: 33px;
         text-transform: uppercase;
       }
     }
   }
+}
+
+.right {
+  text-align: right;
 }
 
 .page {
@@ -182,21 +232,32 @@ mat-card {
   padding: 0!important;
 }
 
-.text {
-
+@media (max-width: $od-small-block) {
+  p, ul, ol, a {
+    font-size: 12px;
+    line-height: 20px;
+  }
 }
 
-p, ul, ol {
-  font-size: 16px;
+
+p, ul, ol, a {
   line-height: 28px;
   color: $text;
 }
 
 button:focus, a:focus {
   outline: none!important;
-  border: none!important;;
+  border: none!important;
 }
 
 .cke_textarea_inline {
   border: 1px solid rgba(0,0,0,.15)
+}
+
+a {
+  color: $mainText!important;
+}
+a:hover {
+  color: $main!important;
+  text-decoration: none!important;
 }

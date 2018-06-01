@@ -9,7 +9,7 @@ import {CommonModule} from '@angular/common';
 import {ODCommonModule} from '../../core/od-common.module';
 import {NgModule} from '@angular/core';
 import {SchoolsTableComponent} from './schools-table.component';
-import {SchoolsDialogAdd} from './schools-dialog-add';
+import {SchoolsDialogAddComponent} from './schools-dialog-add.component';
 import {RegionService} from '../../admin/edit/region/region.service';
 
 @NgModule({
@@ -31,10 +31,10 @@ import {RegionService} from '../../admin/edit/region/region.service';
   ],
   declarations: [
     SchoolsTableComponent,
-    SchoolsDialogAdd,
+    SchoolsDialogAddComponent,
   ],
   entryComponents: [
-    SchoolsDialogAdd,
+    SchoolsDialogAddComponent,
   ],
   exports: [
     SchoolsTableComponent

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {CKEditorComponent} from 'ngx-ckeditor/lib/ck-editor.component';
 import {ODMultipartSendService} from '../od-multipart-send.service';
 import {environment} from '../../../environments/environment';
@@ -10,79 +10,13 @@ import {environment} from '../../../environments/environment';
                #ckEditor></ck-editor>`
 })
 
-export class ODCkeditorComponent implements OnInit, AfterViewInit {
+export class ODCkeditorComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input('config') newConfig: any = {};
   @Input() value: string;
   @Input() name: string;
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild(CKEditorComponent) ckEditor: CKEditorComponent;
-
-  constructor(private multipart: ODMultipartSendService) {
-  }
-
-  ngOnInit() {
-    if (this.name) {
-      this.ckEditor.ck.nativeElement.setAttribute('name', this.name);
-      this.ckEditor.ck.nativeElement.setAttribute('contenteditable', true);
-    }
-
-    Object.assign(this.config, this.newConfig);
-  }
-
-  ngAfterViewInit(): void {
-    if (!this.name) return;
-
-    this.initUploadFile();
-  }
-
-  ngOnDestroy() {
-    console.log('ngOnDestroy', window['CKEDITOR'].instances)
-  }
-
-  private initUploadFile() {
-    const editor = window['CKEDITOR'].instances[this.name];
-
-    editor.on('fileUploadRequest', async (evt) => {
-      const fileLoader = evt.data.fileLoader;
-      const formData = new FormData();
-
-      formData.append('logo', fileLoader.file, fileLoader.fileName);
-      formData.append('type', 'uploads');
-      fileLoader.xhr.send(formData);
-
-      evt.stop();
-    });
-
-    editor.on('fileUploadResponse', function (evt) {
-      evt.stop();
-
-      const response = evt.data.fileLoader.xhr.responseText.split('|');
-      if (response[1]) {
-        evt.data.message = response[1]; // An error occurred during upload.
-        evt.cancel();
-      } else {
-        evt.data.url = JSON.parse(response[0]).url;
-      }
-    });
-  }
-
-
-  // public loadFile(file: File) {
-  //   if (!file) return;
-  //
-  //   let multipartItems: MultipartItem[] = [
-  //     {name: 'logo', value: file},
-  //     {name: 'type', value: 'news'}
-  //   ];
-  //
-  //   return this.multipart.sendMultipart<{ url: string }>(`upload`, multipartItems).toPromise();
-  // }
-
-  public changeValue(value) {
-    this.value = value;
-    this.valueChange.emit(value);
-  }
 
   public config = {
     toolbarGroups: [
@@ -129,4 +63,58 @@ export class ODCkeditorComponent implements OnInit, AfterViewInit {
     autoGrow_onStartup: true,
     // removePlugins: 'contextmenu,tabletools,tableselection,liststyle,elementspath,sourcedialog,dropler'
   };
+
+  constructor(private multipart: ODMultipartSendService) {
+  }
+
+  ngOnInit() {
+    if (this.name) {
+      this.ckEditor.ck.nativeElement.setAttribute('name', this.name);
+      this.ckEditor.ck.nativeElement.setAttribute('contenteditable', true);
+    }
+
+    Object.assign(this.config, this.newConfig);
+  }
+
+  ngAfterViewInit(): void {
+    if (!this.name) { return; }
+
+    this.initUploadFile();
+  }
+
+  ngOnDestroy() {
+    // console.log('ngOnDestroy', window['CKEDITOR'].instances);
+  }
+
+  private initUploadFile() {
+    const editor = window['CKEDITOR'].instances[this.name];
+
+    editor.on('fileUploadRequest', async (evt) => {
+      const fileLoader = evt.data.fileLoader;
+      const formData = new FormData();
+
+      formData.append('logo', fileLoader.file, fileLoader.fileName);
+      formData.append('type', 'uploads');
+      fileLoader.xhr.send(formData);
+
+      evt.stop();
+    });
+
+    editor.on('fileUploadResponse', function (evt) {
+      evt.stop();
+
+      const response = evt.data.fileLoader.xhr.responseText.split('|');
+      if (response[1]) {
+        evt.data.message = response[1]; // An error occurred during upload.
+        evt.cancel();
+      } else {
+        evt.data.url = JSON.parse(response[0]).url;
+      }
+    });
+  }
+
+  public changeValue(value) {
+    this.value = value;
+    this.valueChange.emit(value);
+  }
 }
