@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Dummy} from '../core/dummy';
 import {Materials} from '../news/shared/materials';
 import {EventService} from '../history/event.service';
@@ -7,6 +7,7 @@ import {UserService} from '../core/user-service/user.service';
 import {UpdateService} from './update.service';
 import {combineLatest} from 'rxjs';
 import {ODEngineService} from '../core/od-engine.service';
+import {isPlatformServer} from '@angular/common';
 
 @Component({
   selector: 'od-announce',
@@ -20,12 +21,15 @@ export class AnnounceComponent implements OnInit {
 
   public page = 1;
   public isBig: boolean = true;
+  public isServer: boolean = false;
 
   constructor(private service: EventService,
               public userService: UserService,
               private updateService: UpdateService,
+              @Inject(PLATFORM_ID) private platformId: Object,
               private engineService: ODEngineService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
 
   public edit(news: Materials) {
@@ -41,6 +45,7 @@ export class AnnounceComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isServer = isPlatformServer(this.platformId);
     this.setEngine();
     window.addEventListener('resize', this.setEngine.bind(this));
     this.formatAnnounce();

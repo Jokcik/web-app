@@ -16,7 +16,7 @@ module.exports = {
   resolve: { extensions: [".js", ".ts"] },
   output: {
     // Puts the output at the root of the dist folder
-    path: path.join(__dirname),
+    path: path.join(__dirname + '/server'),
     filename: '[name].js'
   },
 

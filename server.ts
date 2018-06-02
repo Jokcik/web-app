@@ -20,7 +20,7 @@ Object.defineProperty(win.document.body.style, 'transform', {
 });
 global['document'] = win.document;
 global['CSS'] = null;
-// global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
+global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
 global['Prism'] = null;
 
 import 'reflect-metadata';
@@ -32,12 +32,11 @@ const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader')
 
 
 const mainFiles = files.filter(file => file.startsWith('main'));
-console.log('mainFiles', mainFiles);
 const hash = mainFiles[0].split('.')[1];
 const { OdServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./dist-server/main.${hash}`);
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.SSR_PORT || 4200;
 
 enableProdMode();
 

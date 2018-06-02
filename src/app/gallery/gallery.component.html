@@ -5,11 +5,11 @@
 
     <div class="row">
       <div class="card" *ngIf="isEditOpen" (click)="openDialog()">
-        <img style="width: 100%; display: block; cursor: pointer;" src="https://rumc31.ru/images/gallery/add.png">
+        <img style="width: 100%; display: block; cursor: pointer;" [src]="'https://rumc31.ru/images/gallery/add.png' | odSafe: 'url'">
         <p class="card-text" style="text-align: center;" (click)="openDialog()">Добавить фотографию</p>
       </div>
 
-      <div class="card" *ngFor="let gallery of galleries; trackBy:trackFunc; let idx = index;"
+      <div class="card" *ngFor="let gallery of galleries; let idx = index;"
            (click)="openDialog(idx)">
         <img style="width: 100%; display: block;" [src]="gallery.preview | odSafe: 'url'">
         <p class="card-text" [innerHTML]="gallery.title | odSafe: 'html'"></p>

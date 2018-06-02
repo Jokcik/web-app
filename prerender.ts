@@ -18,7 +18,7 @@ Object.defineProperty(win.document.body.style, 'transform', {
 });
 global['document'] = win.document;
 global['CSS'] = null;
-// global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
+global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
 global['Prism'] = null;
 
 // Load zone.js for the server.

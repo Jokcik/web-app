@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Gallery} from './shared/gallery';
 import {GalleryService} from './gallery.service';
@@ -6,6 +6,8 @@ import {NgxGalleryComponent, NgxGalleryImage, NgxGalleryOptions} from 'ngx-galle
 import {ActivatedRoute} from '@angular/router';
 import {GalleryDialogAddComponent} from './gallery-dialog-add.component';
 import {UserService} from '../core/user-service/user.service';
+import {environment} from '../../environments/environment';
+import {TransferHttpService} from '@gorniv/ngx-transfer-http';
 
 @Component({
   selector: 'od-gallery',
@@ -23,6 +25,8 @@ export class GalleryComponent implements OnInit {
   constructor(public dialog: MatDialog,
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
+              private http: TransferHttpService,
+              @Inject(PLATFORM_ID) private platformId: Object,
               public userService: UserService,
               private galleryService: GalleryService) {
   }
@@ -44,11 +48,11 @@ export class GalleryComponent implements OnInit {
     this.update();
   }
 
-  public async update() {
-    console.log(123);
-    this.galleries = await this.galleryService.query().$observable.toPromise();
-    console.log(this.galleries);
-    this.galleryImages = this.galleries.map(image => ({small: image.preview, medium: image.preview, big: image.img, description: image.title}));
+  public update() {
+    this.http.get(environment.host + 'galleries').subscribe(galleries => {
+      this.galleries = galleries;
+      this.galleryImages = this.galleries.map(image => ({small: image.preview, medium: image.preview, big: image.img, description: image.title}));
+    });
   }
 
   public openDialog(idx?: number) {

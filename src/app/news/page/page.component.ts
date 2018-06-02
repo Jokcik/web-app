@@ -50,10 +50,6 @@ export class PageComponent implements OnInit {
         this.galleryImages = this.material.images.map(image => {
           return {small: image, medium: image, big: image};
         });
-
-        setInterval(() => {
-
-        });
       });
   }
 
