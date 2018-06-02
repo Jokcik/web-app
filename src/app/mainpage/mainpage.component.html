@@ -6,16 +6,16 @@
           <h4 class="title-news">Новости</h4>
           <div *ngFor="let material of news | odLimit: (isBig ? 6 : 4)" class="news-container" [ngClass]="isBig ? 'col-lg-2' : 'col-lg-3'">
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
                 <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
                 <ng-container *ngIf="material.start_date">
                   <div class="news-date">{{material.start_date | date: 'dd'}} - {{material.date | date: 'dd MMMM'}}</div>
                 </ng-container>
               </div>
-              <div class="sidebar-module sidebar-module-inset">
-                <p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>
-              </div>
+              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
+              <!--<div class="sidebar-module sidebar-module-inset">-->
+                <!--<p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>-->
+              <!--</div>-->
             </a>
           </div>
         </div>
@@ -35,16 +35,16 @@
           <h4 class="title-news">Анонсы</h4>
           <div *ngFor="let material of announce | odLimit: (isBig ? 6 : 4)" class="news-container" [ngClass]="isBig ? 'col-lg-2' : 'col-lg-3'">
             <a href="/news/{{material.url}}" routerLink="/news/{{material.url}}">
-              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
               <div class="news-img-block" [ngStyle]="{'background-image': (material.preview ? 'url(\'' + material.preview + '\')' : '')}">
                 <div class="news-date" *ngIf="!material.start_date">{{material.date | odDate}}</div>
                 <ng-container *ngIf="material.start_date">
                   <div class="news-date">{{material.start_date | date: 'dd'}} - {{material.date | date: 'dd MMMM'}}</div>
                 </ng-container>
               </div>
-              <div class="sidebar-module sidebar-module-inset">
-                <p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>
-              </div>
+              <div class="form-group"><p class="news-title" [innerHTML]="material.title"></p></div>
+              <!--<div class="sidebar-module sidebar-module-inset">-->
+                <!--<p [innerHTML]="material.description.short_description | odSafe: 'html'"></p>-->
+              <!--</div>-->
             </a>
           </div>
         </div>
