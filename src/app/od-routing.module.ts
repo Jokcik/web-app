@@ -9,7 +9,7 @@ export const routes: Routes = [
   {path: 'address/:id', loadChildren: 'app/schools/schools.module#SchoolsModule', data: {title: 'Адреса'}},
   {path: 'news', loadChildren: 'app/news/news.module#NewsModule', data: {title: 'Новости'}},
   {path: 'announce', loadChildren: 'app/announce/announce.module#AnnounceModule', data: {title: 'Анонсы'}},
-  {path: 'competition', loadChildren: 'app/competition/competition.module#CompetitionModule', data: {title: 'История'}},
+  {path: 'competition', loadChildren: 'app/competition/competition.module#CompetitionModule', data: {title: 'Конкурсы'}},
   {path: 'children', loadChildren: 'app/children-page/children-page.module#ChildrenPageModule', data: {title: 'Одаренные дети'}},
   {path: 'galleries', loadChildren: 'app/gallery/gallery.module#GalleryModule', data: {title: 'Галерея'}},
   {path: 'contacts', loadChildren: 'app/contacts/contacts.module#ContactsModule', data: {title: 'Контакты'}},
