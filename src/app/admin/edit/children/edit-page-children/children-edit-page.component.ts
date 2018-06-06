@@ -8,7 +8,7 @@ import {RegionService} from '../../region/region.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {combineLatest, of} from 'rxjs';
-import {ODUtils} from '../../../../core/od-utils';
+import {ODUtils, Ssuz} from '../../../../core/od-utils';
 import {UserService} from '../../../../core/user-service/user.service';
 
 @Component({
@@ -28,6 +28,8 @@ export class ChildrenEditPageComponent implements OnInit {
   public currentInstrument = -1;
   public currentSsuzSpecialization = -1;
 
+  public ssuzs: Ssuz[] = [];
+
   constructor(private childrenService: ChildrenPageService,
               private regionService: RegionService,
               private route: ActivatedRoute,
@@ -38,6 +40,7 @@ export class ChildrenEditPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ssuzs = this.odUtils.getSsuz();
     combineLatest(
       this.regionService.query().$observable,
       this.childrenService.querySpecializations().$observable,

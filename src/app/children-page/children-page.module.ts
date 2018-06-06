@@ -7,6 +7,8 @@ import {ChildrenModule} from '../admin/edit/children/children.module';
 import {MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule} from '@angular/material';
 import { ChildrenTableRatingComponent } from './children-table-rating/children-table-rating.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import { ChildrenEntrantComponent } from './children-entrant/children-entrant.component';
+import {ChildrenTableEntrantComponent} from './children-entrant/children-table-entrant/children-table-entrant.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import {CdkTableModule} from '@angular/cdk/table';
   declarations: [
     ChildrenPageComponent,
     ChildrenTableRatingComponent,
+    ChildrenTableEntrantComponent,
+    ChildrenEntrantComponent,
   ],
   providers: []
 })

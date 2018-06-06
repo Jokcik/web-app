@@ -1,6 +1,11 @@
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {Injectable} from '@angular/core';
 
+export interface Ssuz {
+  title: string;
+  id: number;
+}
+
 @Injectable()
 export class ODUtils {
   public constructor(private sanitizer: DomSanitizer) {
@@ -12,6 +17,15 @@ export class ODUtils {
 
   public copyObjectWithoutObservables<T>(object: T): T {
     return JSON.parse(this.jsonObjectWithoutObservables(object));
+  }
+
+  public getSsuz(): Ssuz[] {
+    return [
+      {id: 1, title: "БГИИК СПО Белгородский музыкальный колледж им С.А. Дегтярева"},
+      {id: 2, title: "БГИИК СПО Губкинский музыкальный колледж"},
+      {id: 3, title: "БГИИК ВУЗ"},
+      {id: 4, title: "Другое"},
+    ]
   }
 
   public getSafeUrl(url: string): SafeUrl {

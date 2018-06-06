@@ -100,10 +100,7 @@
 
       <mat-form-field class="col-lg-5">
         <mat-select placeholder="Учебное заведение" [value]="currentChildren.ssuzInfo.name" (valueChange)="currentChildren.ssuzInfo.name = +$event">
-          <mat-option [value]="1">БГИИК СПО Белгородский музыкальный колледж им С.А. Дегтярева</mat-option>
-          <mat-option [value]="2">БГИИК СПО Губкинский музыкальный колледж</mat-option>
-          <mat-option [value]="3">БГИИК ВУЗ</mat-option>
-          <mat-option [value]="4">Другое</mat-option>
+          <mat-option *ngFor="let ssuz of ssuzs" [value]="ssuz.id">{{ssuz.title}}</mat-option>
         </mat-select>
       </mat-form-field>
 

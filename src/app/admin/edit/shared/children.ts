@@ -26,7 +26,7 @@ export class ChildrenCompetition {
 
 export class SsuzInfo {
   year: number;
-  name: string;
+  name: number;
   otherName: string;
   specialization: Specialization;
 }

@@ -29,6 +29,10 @@ export class ChildrenPageService extends ODResourceCrud<IQueryChildrenParams, Ch
   @ResourceAction({path: '/rating', isArray: true})
   getChildrenWithRating: ResourceMethod<IQueryChildrenParams, Children[]>;
 
+  @ResourceAction({path: '/entrant', isArray: true})
+  getEntrant: ResourceMethod<void, Children[]>;
+
+
   private formatChildren(value: Children) {
     const children: any = Object.assign({}, value);
     children.schools = children.schools._id || children.schools;

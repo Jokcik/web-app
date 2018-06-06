@@ -1,0 +1,27 @@
+<div class="widget-box">
+  <div class="container">
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="ССУЗ" (valueChange)="selectedSsuz($event)">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let ssuz of ssuzs; let idx = index" [value]="idx">{{ ssuz.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-2">
+      <mat-select placeholder="Год поступления" (valueChange)="selectedYear($event)">
+        <mat-option [value]="0"> все </mat-option>
+        <mat-option [value]="2018">2018</mat-option>
+        <mat-option [value]="2019">2019</mat-option>
+        <mat-option [value]="2020">2020</mat-option>
+        <mat-option [value]="2021">2021</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <ng-container *ngIf="userService.user">
+      <od-children-table-entrant [childrens]="childrens"></od-children-table-entrant>
+    </ng-container>
+    <ng-container *ngIf="!userService.user">
+      <div class="text-center">Авторизуйтесь, чтобы просмотреть банк данных одаренный детей</div>
+    </ng-container>
+  </div>
+</div>
