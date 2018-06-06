@@ -5,15 +5,17 @@ import {Http} from '@angular/http';
 import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {Observable} from 'rxjs';
 
-export interface IQueryParams {
+export interface IQueryChildrenParams {
   school_id?: string;
+  region_id?: string;
   specialization_id?: string;
+  instrument_id?: string;
   long?: boolean;
 }
 
 @Injectable()
 @ResourceParams({pathPrefix: 'children'})
-export class ChildrenPageService extends ODResourceCrud<IQueryParams, Children, Children> {
+export class ChildrenPageService extends ODResourceCrud<IQueryChildrenParams, Children, Children> {
   constructor(http: Http) {
     super(http);
   }
@@ -22,10 +24,10 @@ export class ChildrenPageService extends ODResourceCrud<IQueryParams, Children, 
   querySpecializations: ResourceMethod<void, Specialization[]>;
 
   @ResourceAction({path: '/instruments', isArray: true})
-  queryInstruments: ResourceMethod<IQueryParams, Instruments[]>;
+  queryInstruments: ResourceMethod<IQueryChildrenParams, Instruments[]>;
 
   @ResourceAction({path: '/rating', isArray: true})
-  getChildrenWithRating: ResourceMethod<IQueryParams, Children[]>;
+  getChildrenWithRating: ResourceMethod<IQueryChildrenParams, Children[]>;
 
   private formatChildren(value: Children) {
     const children: any = Object.assign({}, value);

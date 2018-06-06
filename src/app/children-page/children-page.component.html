@@ -1,8 +1,38 @@
 <div class="widget-box">
   <div class="container">
-    <a routerLink="/admin/edit/children" class="bold">Редактировать банк данных</a>
+    <a routerLink="/admin/edit/children" class="bold btn-block">Редактировать банк данных</a>
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="Район" (valueChange)="selectedRegion($event)">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">{{ region.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="Школа" [disabled]="currentRegion < 0" (valueChange)="selectedSchools($event)" [value]="currentSchool">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">{{ school.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="Специализация" (valueChange)="selectedSpecialization($event)">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+          {{specialization.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="Инструмент" [disabled]="currentSpecialization < 0" (valueChange)="selectedInstruments($event)" [value]="currentInstrument">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let instrument of instruments; let idx = index" [value]="idx">
+          {{instrument.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <ng-container *ngIf="userService.user">
-      <od-children-table-rating></od-children-table-rating>
+      <od-children-table-rating [childrens]="childrens"></od-children-table-rating>
     </ng-container>
     <ng-container *ngIf="!userService.user">
       <div class="text-center">Авторизуйтесь, чтобы просмотреть банк данных одаренный детей</div>

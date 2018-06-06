@@ -5,10 +5,7 @@ import {ChildrenPageComponent} from './children-page.component';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {
-      path: '',
-      component: ChildrenPageComponent,
-    }
+    {path: '', component: ChildrenPageComponent}
   ])],
   exports: [RouterModule]
 })

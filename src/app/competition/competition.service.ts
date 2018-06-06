@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ResourceAction, ResourceMethod, ResourceParams} from 'ngx-resource';
 import {ODResourceCrud} from '../core/od-resource-crud';
-import {IQueryParams} from '../children-page/children-page.service';
+import {IQueryChildrenParams} from '../children-page/children-page.service';
 import {Competition} from '../admin/edit/shared/competition';
 import {CompetitionLevel} from '../admin/edit/shared/competition-level';
 import {CompetitionPlace} from '../admin/edit/shared/competition-place';
@@ -18,5 +18,5 @@ export class CompetitionService extends ODResourceCrud<void, Competition, Compet
   queryLevels: ResourceMethod<void, CompetitionLevel[]>;
 
   @ResourceAction({path: '/places', isArray: true})
-  queryPlaces: ResourceMethod<IQueryParams, CompetitionPlace[]>;
+  queryPlaces: ResourceMethod<IQueryChildrenParams, CompetitionPlace[]>;
 }

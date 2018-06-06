@@ -42,7 +42,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 
     CdkTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
   ],
   declarations: [
     ChildrenComponent,
