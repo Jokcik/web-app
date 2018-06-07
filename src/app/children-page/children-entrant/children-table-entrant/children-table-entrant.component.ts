@@ -16,7 +16,7 @@ export class ChildrenTableEntrantComponent implements OnInit, OnChanges {
   public childrens: Children[] = [];
 
   /*  Таблица  */
-  public displayedColumns = ['id', 'fio', 'school', 'ssuz', 'leave'];
+  public displayedColumns = ['id', 'fio', 'instrument', 'school', 'ssuz', 'leave', 'place'];
   public dataSource: MatTableDataSource<Children>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

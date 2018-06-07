@@ -5,7 +5,7 @@
       <a routerLink="/admin/edit/children" class="bold btn-block">Редактировать банк данных</a>
     </div>
     <mat-form-field class="col-lg-3">
-      <mat-select placeholder="Район" (valueChange)="selectedRegion($event)">
+      <mat-select placeholder="Район" (valueChange)="selectedRegion($event)" [value]="currentRegion">
         <mat-option [value]="-1"> все </mat-option>
         <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">{{ region.title }}</mat-option>
       </mat-select>
@@ -18,7 +18,7 @@
     </mat-form-field>
 
     <mat-form-field class="col-lg-3">
-      <mat-select placeholder="Специализация" (valueChange)="selectedSpecialization($event)">
+      <mat-select placeholder="Специализация" (valueChange)="selectedSpecialization($event)" [value]="currentSpecialization">
         <mat-option [value]="-1"> все </mat-option>
         <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
           {{specialization.title}}

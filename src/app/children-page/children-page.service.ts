@@ -10,6 +10,8 @@ export interface IQueryChildrenParams {
   region_id?: string;
   specialization_id?: string;
   instrument_id?: string;
+  ssuz?: boolean;
+  year?: number;
   long?: boolean;
 }
 
