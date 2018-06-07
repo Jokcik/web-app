@@ -30,7 +30,7 @@ export class ChildrenPageService extends ODResourceCrud<IQueryChildrenParams, Ch
   getChildrenWithRating: ResourceMethod<IQueryChildrenParams, Children[]>;
 
   @ResourceAction({path: '/entrant', isArray: true})
-  getEntrant: ResourceMethod<void, Children[]>;
+  getEntrant: ResourceMethod<IQueryChildrenParams, Children[]>;
 
 
   private formatChildren(value: Children) {

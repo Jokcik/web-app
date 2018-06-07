@@ -1,5 +1,10 @@
 <div class="outer-children-edit col-lg-12">
   <div class="example-container mat-elevation-z8 outer-region-edit table">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск по учащимся">
+      </mat-form-field>
+    </div>
 
     <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
       <ng-container cdkColumnDef="id">

@@ -1,5 +1,5 @@
 <div class="outer-dshi-edit">
-  <h4 class="text-center bold">{{currentChildren._id ? 'Редактировать' : 'Добавить'}} одаренного ребенка</h4>
+  <h4 class="text-center bold">{{currentChildren._id ? 'Редактировать' : 'Добавить'}} карточку учащегося</h4>
   <div mat-dialog-content>
     <mat-form-field class="col-lg-4">
       <mat-select placeholder="Район, город" [disabled]="userService.user?.role !== 5" (valueChange)="selectedRegion($event)" [value]="currentRegion">
@@ -117,7 +117,7 @@
 
   </div>
   <div class="group-button-right" >
-    <button mat-raised-button (click)="add()" color="primary">{{currentChildren._id ? 'Изменить' : 'Добавить'}} ребенка</button>
+    <button mat-raised-button (click)="add()" color="primary">{{currentChildren._id ? 'Изменить' : 'Добавить'}} карточка</button>
     <button mat-raised-button (click)="deleteChildren()" color="warn" *ngIf="currentChildren._id">Удалить из базы данных</button>
   </div>
 </div>

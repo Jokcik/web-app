@@ -15,7 +15,7 @@ export class ChildrenTableRatingComponent implements OnInit, OnChanges {
   public childrens: Children[] = [];
 
   /*  Таблица  */
-  public displayedColumns = ['id', 'fio', 'school', 'rating'];
+  public displayedColumns = ['id', 'rating', 'fio', 'school'];
   public dataSource: MatTableDataSource<Children>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -50,25 +50,20 @@ export class ChildrenTableRatingComponent implements OnInit, OnChanges {
     }
   }
 
-  // public selectedRegion(regionIdx: number) {
-  //   this.currentRegion = regionIdx;
-  //   this.currentSchool = -1;
-  //   this.childrens.length = 0;
-  //   return this.schools = this.schoolsService.query({region_id: this.regions[regionIdx]._id});
-  // }
-  //
-  // public selectedSchools(schoolIdx: number) {
-  //   this.currentSchool = schoolIdx;
-  //   this.updateChildrens(schoolIdx);
-  //
-  //   if (this.schools) {
-  //     localStorage.setItem('od_select_schools', JSON.stringify(this.schools[schoolIdx]));
-  //   }
-  // }
-
   // /* Функции для таблицы */
   public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.filterPredicate =
+      (data, filter) => data.name.toLowerCase().includes(filter)
+        || data.surname.toLowerCase().includes(filter)
+        || data.middleName.toLowerCase().includes(filter);
+  }
+
+
+  public applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 }

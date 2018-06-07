@@ -59,10 +59,20 @@ export class ChildrenTableEntrantComponent implements OnInit, OnChanges {
   public ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.filterPredicate =
+      (data, filter) => data.name.toLowerCase().includes(filter)
+        || data.surname.toLowerCase().includes(filter)
+        || data.middleName.toLowerCase().includes(filter);
   }
 
   public getSsuzName(id: number) {
     const ssuz = this.ssuzs.find(ssuz => ssuz.id === id);
     return ssuz ? ssuz.title : '';
+  }
+
+  public applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 }

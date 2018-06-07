@@ -15,6 +15,14 @@
         <mat-option [value]="2021">2021</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field class="col-lg-3">
+      <mat-select placeholder="Специализация" (valueChange)="selectedSpecialization($event)">
+        <mat-option [value]="-1"> все </mat-option>
+        <mat-option *ngFor="let specialization of specializations; let idx = index" [value]="idx">
+          {{specialization.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
 
     <ng-container *ngIf="userService.user">

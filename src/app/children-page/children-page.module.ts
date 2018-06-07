@@ -4,7 +4,7 @@ import {ChildrenPageComponent} from './children-page.component';
 import {ChildrenRoutingModule} from './children-routing.module';
 import {CommonModule} from '@angular/common';
 import {ChildrenModule} from '../admin/edit/children/children.module';
-import {MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule} from '@angular/material';
+import {MatInputModule, MatPaginatorModule, MatSelectModule, MatSnackBarModule, MatTableModule} from '@angular/material';
 import { ChildrenTableRatingComponent } from './children-table-rating/children-table-rating.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import { ChildrenEntrantComponent } from './children-entrant/children-entrant.component';
@@ -21,7 +21,8 @@ import {ChildrenTableEntrantComponent} from './children-entrant/children-table-e
     MatPaginatorModule,
     MatTableModule,
     CdkTableModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule
   ],
   declarations: [
     ChildrenPageComponent,
