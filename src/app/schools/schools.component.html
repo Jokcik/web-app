@@ -1,6 +1,6 @@
 <div class="widget-box schools">
   <div class="container">
-      <a *ngIf="userService.user?.role === 5 && !isEdit" routerLink="/admin/edit/schools" class="bold">Редактировать</a>
+      <a *ngIf="userService.user?.hasModerator() && !isEdit" routerLink="/admin/edit/schools" class="bold">Редактировать</a>
       <div class="outer-wrap-schools" [class.admin]="isEdit">
 
         <mat-radio-group (change)="changeType($event.value)" [value]="type">

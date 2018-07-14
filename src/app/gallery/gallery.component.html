@@ -1,6 +1,6 @@
 <div class="outer-wrap-gallery album text-muted" [class.admin]="isEditOpen">
   <div class="container">
-    <a *ngIf="userService.user?.role === 5 && !isEditOpen" routerLink="/admin/edit/gallery"
+    <a *ngIf="userService.user?.hasModerator() && !isEditOpen" routerLink="/admin/edit/gallery"
        class="bold">Редактировать</a>
 
     <div class="row">

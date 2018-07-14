@@ -1,11 +1,11 @@
 <div class="outer-children-edit col-lg-12">
   <mat-form-field class="col-lg-6">
-    <mat-select placeholder="Район" [disabled]="userService.user?.role !== 5" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+    <mat-select placeholder="Район" [disabled]="!userService.user?.hasModerator()" (valueChange)="selectedRegion($event)" [value]="currentRegion">
       <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">{{ region.title }}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field class="col-lg-6">
-    <mat-select placeholder="Школа" [disabled]="userService.user?.role !== 5 || currentRegion < 0" (valueChange)="selectedSchools($event)" [value]="currentSchool">
+    <mat-select placeholder="Школа" [disabled]="!userService.user?.hasModerator() || currentRegion < 0" (valueChange)="selectedSchools($event)" [value]="currentSchool">
       <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">{{ school.title }}</mat-option>
     </mat-select>
   </mat-form-field>

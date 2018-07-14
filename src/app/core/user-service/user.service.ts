@@ -13,7 +13,7 @@ export class UserService {
   public setUser(user: User) {
     this.isCheckAuth = true;
     this.errorAuth = false;
-    this.user = user;
+    this.user = user ? Object.assign(new User(), user) : null;
     this.onLogin.next(user);
   }
 

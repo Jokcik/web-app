@@ -8,7 +8,7 @@
 
     <cdk-table #table [dataSource]="dataSource" class="example-table" matSort>
       <ng-container cdkColumnDef="id">
-        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> № </cdk-header-cell>
+        <cdk-header-cell *cdkHeaderCellDef mat-sort-header class="example-header-cell col-lg-1"> Место в рейтинге </cdk-header-cell>
         <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell col-lg-1">{{row.place}}</cdk-cell>
       </ng-container>
 

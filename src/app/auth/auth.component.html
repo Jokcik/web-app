@@ -14,8 +14,15 @@
             <input matInput placeholder="Отчество" required [(ngModel)]="user.middleName">
           </mat-form-field>
 
-          <mat-form-field class="col-lg-12">
-            <mat-select placeholder="Школа" (valueChange)="selectedSchoolId = $event">
+          <mat-form-field class="col-lg-3">
+            <mat-select placeholder="Уровень доступа" (valueChange)="typeAuth = $event" [value]="typeAuth">
+              <mat-option [value]="roles.KOORDINATOR">Муниципальный координатор</mat-option>
+              <mat-option [value]="roles.MATERIAL">Региональный пользователь</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="col-lg-9">
+            <mat-select placeholder="Школа" (valueChange)="selectedSchoolId = $event" [disabled]="typeAuth !== roles.KOORDINATOR">
               <mat-option *ngFor="let school of schools" [value]="school._id">{{ school.title }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -41,7 +48,7 @@
         </div>
         <div class="register" class="col-lg-12" *ngIf="register">
           <button mat-raised-button color="primary"
-                  [disabled]="!user.name || !user.surname || !user.middleName || !user.nickname || !password || !selectedSchoolId"
+                  [disabled]="!user.name || !user.surname || !user.middleName || !user.nickname || !password || (typeAuth === roles.KOORDINATOR && !selectedSchoolId)"
                   (click)="registerUser()">Зарегистрировать
           </button>
         </div>

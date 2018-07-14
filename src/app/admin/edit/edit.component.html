@@ -1,6 +1,6 @@
 <div class="widget-box">
   <div class="container">
-    <div *ngIf="userService.user?.role === 5">
+    <div *ngIf="userService.user?.hasModerator()">
       <button mat-raised-button color="primary" [routerLink]="'/auth/register'">Зарегистрировать нового пользователя
       </button>
     </div>

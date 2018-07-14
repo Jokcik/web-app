@@ -1,7 +1,10 @@
 import {Schools} from '../../admin/edit/shared/school';
 
 export const Roles = {
-  ADMIN: 0
+  USER: 0,
+  KOORDINATOR: 1,
+  MATERIAL: 2,
+  ADMIN: 5,
 };
 
 export class User {
@@ -13,4 +16,16 @@ export class User {
   nickname: string;
 
   schools: Schools;
+
+  hasAccessMaterial() {
+    return this.role === Roles.MATERIAL || this.hasKoordinator();
+  }
+
+  hasKoordinator() {
+    return this.role === Roles.KOORDINATOR || this.hasModerator();
+  }
+
+  hasModerator() {
+    return this.role === Roles.ADMIN;
+  }
 }

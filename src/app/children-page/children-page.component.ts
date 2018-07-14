@@ -55,8 +55,8 @@ export class ChildrenPageComponent implements OnInit {
       info.ssuz = false;
     }
 
-    let obser1$ = of();
-    let obser2$ = of();
+    let obser1$;
+    let obser2$;
 
     if (!info.region_id && !info.specialization_id) {
       this.updateChildren(this.info);
@@ -80,6 +80,10 @@ export class ChildrenPageComponent implements OnInit {
         this.selectedInstruments(idx, false);
       });
     }
+
+    if (!obser1$) { obser1$ = of(1)}
+    if (!obser2$) { obser2$ = of(1)}
+
 
     combineLatest(obser1$, obser2$).subscribe(() => this.updateChildren(this.info));
   }

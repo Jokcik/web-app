@@ -1,7 +1,7 @@
 <div class="widget-box">
   <div class="container">
     <div class="row">
-      <a *ngIf="userService.user?.role === 5" routerLink="/admin/edit/history/{{descriptions[0]?.url}}" class="bold">Редактировать</a>
+      <a *ngIf="userService.user?.hasModerator()" routerLink="/admin/edit/history/{{descriptions[0]?.url}}" class="bold">Редактировать</a>
       <div class="outer-wrap-mainpage" *ngFor="let material of descriptions">
         <p [innerHTML]="material.title"></p>
         <div [innerHTML]="material.description.description"></div>

@@ -19,6 +19,8 @@ export class AuthComponent implements OnInit {
   public schools: Schools[] = [];
   public selectedSchoolId: string;
 
+  public typeAuth: number = Roles.KOORDINATOR;
+
   constructor(private route: ActivatedRoute,
               private profileService: ProfileService,
               private userService: UserService,
@@ -40,7 +42,7 @@ export class AuthComponent implements OnInit {
   }
 
   public registerUser() {
-    const login = Object.assign({}, this.user, {password: this.password, schools: this.selectedSchoolId, role: 1});
+    const login = Object.assign({}, this.user, {password: this.password, schools: this.selectedSchoolId, role: this.typeAuth});
     this.profileService.register(login).$observable.subscribe(data => {
       window.alert(`Вы успешно зарегистрировали пользователя ${login.surname + ' ' + login.name + ' ' + login.middleName}.
       \nлогин: ${login.nickname}\nпароль: ${login.password}`);

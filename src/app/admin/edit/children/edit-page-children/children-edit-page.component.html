@@ -2,13 +2,13 @@
   <h4 class="text-center bold">{{currentChildren._id ? 'Редактировать' : 'Добавить'}} карточку учащегося</h4>
   <div mat-dialog-content>
     <mat-form-field class="col-lg-4">
-      <mat-select placeholder="Район, город" [disabled]="userService.user?.role !== 5" (valueChange)="selectedRegion($event)" [value]="currentRegion">
+      <mat-select placeholder="Район, город" [disabled]="!userService.user?.hasModerator()" (valueChange)="selectedRegion($event)" [value]="currentRegion">
         <mat-option *ngFor="let region of regions; let idx = index" [value]="idx">{{ region.title }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="col-lg-8">
-      <mat-select placeholder="Школа" [disabled]="userService.user?.role !== 5 || currentRegion < 0" (valueChange)="currentChildren.schools = schools[$event]" [value]="currentSchool">
+      <mat-select placeholder="Школа" [disabled]="!userService.user?.hasModerator() || currentRegion < 0" (valueChange)="currentChildren.schools = schools[$event]" [value]="currentSchool">
         <mat-option *ngFor="let school of schools; let idx = index" [value]="idx">{{ school.title }}</mat-option>
       </mat-select>
     </mat-form-field>

@@ -40,7 +40,7 @@
       <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
       <cdk-cell *cdkCellDef="let row; let idx = index" class="example-cell" [style.flex]="'0 0 10px'"
                 [class.edit]="idx == currentIndex && editable">
-        <button mat-icon-button (click)="editRegion(row, idx)" *ngIf="userService.user?.role === 5">
+        <button mat-icon-button (click)="editRegion(row, idx)" *ngIf="userService.user?.hasModerator()">
           <mat-icon class="show">edit</mat-icon>
           <mat-icon class="edit">done</mat-icon>
         </button>
@@ -50,7 +50,7 @@
     <ng-container cdkColumnDef="delete">
       <cdk-header-cell *cdkHeaderCellDef class="example-header-cell" [style.flex]="'0 0 40px'"></cdk-header-cell>
       <cdk-cell *cdkCellDef="let row" class="example-cell" [style.flex]="'0 0 10px'">
-        <button mat-icon-button (click)="deleteRegion(row)" *ngIf="userService.user?.role === 5">
+        <button mat-icon-button (click)="deleteRegion(row)" *ngIf="userService.user?.hasModerator()">
           <mat-icon>delete</mat-icon>
         </button>
       </cdk-cell>

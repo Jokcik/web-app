@@ -5,10 +5,10 @@ import {Children, Instruments, Specialization} from '../../admin/edit/shared/chi
 import {ODUtils, Ssuz} from '../../core/od-utils';
 import {Region} from '../../admin/edit/shared/region';
 import {Schools} from '../../admin/edit/shared/school';
-import {combineLatest} from 'rxjs/internal/observable/combineLatest';
 import {RegionService} from '../../admin/edit/region/region.service';
-import {of} from 'rxjs/internal/observable/of';
 import {SchoolsService} from '../../schools/schools.service';
+import {combineLatest} from 'rxjs/internal/observable/combineLatest';
+import {of} from 'rxjs/internal/observable/of';
 
 export interface Info  {
   ssuz?: number;
@@ -54,8 +54,6 @@ export class ChildrenEntrantComponent implements OnInit {
       this.regions = regions;
       this.initInfo();
     })
-
-    // this.updateDBChildrenBySpecializations(this.info, this.infoQuery);
   }
 
   initInfo() {
@@ -66,8 +64,8 @@ export class ChildrenEntrantComponent implements OnInit {
       info.ssuz = true;
     }
 
-    let obser1$ = of();
-    let obser2$ = of();
+    let obser1$;
+    let obser2$;
 
     if (!info.region_id && !info.specialization_id) {
       this.updateDBChildrenBySpecializations(this.info, this.infoQuery);
@@ -91,6 +89,9 @@ export class ChildrenEntrantComponent implements OnInit {
         this.selectedInstruments(idx, false);
       });
     }
+
+    if (!obser1$) { obser1$ = of(1)}
+    if (!obser2$) { obser2$ = of(1)}
 
     combineLatest(obser1$, obser2$).subscribe(() => {
       this.initLastInfo();
@@ -117,7 +118,7 @@ export class ChildrenEntrantComponent implements OnInit {
   updateChildren(info: Info) {
     this.childrens = this.dbChildrens;
 
-    if (info.ssuz) {
+    if (typeof info.ssuz == 'number') {
       this.childrens = this.childrens.filter(child => child.ssuzInfo.name === this.ssuzs[info.ssuz].id);
     }
 
@@ -134,6 +135,7 @@ export class ChildrenEntrantComponent implements OnInit {
 
   selectedSsuz(ssuzIdx: number) {
     this.info.ssuz = ssuzIdx;
+    console.log(this.info.ssuz);
     this.updateChildren(this.info);
   }
 
