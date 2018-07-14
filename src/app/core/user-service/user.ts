@@ -17,6 +17,10 @@ export class User {
 
   schools: Schools;
 
+  hasRegionUser() {
+    return this.role === Roles.MATERIAL || this.hasModerator();
+  }
+
   hasAccessMaterial() {
     return this.role === Roles.MATERIAL || this.hasKoordinator();
   }

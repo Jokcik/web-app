@@ -10,6 +10,7 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 import {TeacherService} from '../../admin/edit/teacher/teacher.service';
 import {Teacher} from '../../admin/edit/shared/teacher';
 import {EMPTY} from 'rxjs/internal/observable/empty';
+import {UserService} from '../../core/user-service/user.service';
 
 @Component({
   templateUrl: 'children-edit-competition-dialog.component.html',
@@ -34,6 +35,7 @@ export class ChildrenEditCompetitionDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<ChildrenEditCompetitionDialogComponent>,
               private teacherService: TeacherService,
+              public userService: UserService,
               public odUtils: ODUtils,
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.currentCompetition = data.competition;

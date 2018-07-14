@@ -65,7 +65,7 @@
     </div>
   </div>
 
-  <div class="col-lg-12 group-button-right">
+  <div class="col-lg-12 group-button-right" *ngIf="userService.user?.hasKoordinator()">
     <button mat-raised-button (click)="addTeacher()" *ngIf="type == 0" [disabled]="!teacher.name || !teacher.suname || !teacher.middleName" color="primary">Добавить преподавателя</button>
     <button mat-raised-button (click)="addTeacher()" *ngIf="type == 1" [disabled]="!teacherEdit" color="primary">Изменить преподавателя</button>
     <button mat-raised-button (click)="deleteTeacher()" color="warn" [disabled]="!teacherEdit" *ngIf="type == 1">Удалить</button>

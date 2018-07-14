@@ -29,6 +29,6 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 30, 50]"></mat-paginator>
 </div>
 
-<div class="right" >
+<div class="right" *ngIf="userService.user?.hasKoordinator()">
   <button mat-raised-button color="primary" (click)="add()">Добавить конкурс</button>
 </div>

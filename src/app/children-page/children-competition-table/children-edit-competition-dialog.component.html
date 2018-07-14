@@ -1,7 +1,7 @@
 <h4 class="bold text-center">Результаты конкурсных выступлений (указывать наивысший уровень участия в конкурсе)</h4>
 <div class="form-group">
   <mat-form-field class="col-lg-12">
-    <mat-select panelClass="big-select" placeholder="Конкурс" [value]="competitionIndex"
+    <mat-select panelClass="big-select" placeholder="Конкурс" [value]="competitionIndex" [disabled]="!userService.user?.hasKoordinator()"
                 (valueChange)="currentCompetition.competition = competitions[$event]">
       <mat-option *ngFor="let competition of competitions; let idx = index" [value]="idx">{{ competition.title }}</mat-option>
     </mat-select>
@@ -11,7 +11,7 @@
 <div class="form-group">
   <mat-form-field class="col-lg-1">
     <mat-select panelClass="big-select" placeholder="Год" [value]="currentCompetition.year"
-                [disabled]="!currentCompetition.competition" (valueChange)="currentCompetition.year = $event">
+                [disabled]="!currentCompetition.competition || !userService.user?.hasKoordinator()" (valueChange)="currentCompetition.year = $event">
       <mat-option *ngIf="currentCompetition.competition?.year2017" [value]="2017">2017</mat-option>
       <mat-option *ngIf="currentCompetition.competition?.year2018" [value]="2018">2018</mat-option>
       <mat-option *ngIf="currentCompetition.competition?.year2019" [value]="2019">2019</mat-option>
@@ -23,7 +23,7 @@
 
   <mat-form-field class="col-lg-3">
     <mat-select panelClass="big-select" placeholder="Специализация"
-                [disabled]="!currentCompetition.competition" [value]="specializationIndex"
+                [disabled]="!currentCompetition.competition || !userService.user?.hasKoordinator()" [value]="specializationIndex"
                 (valueChange)="currentCompetition.specialization = currentCompetition.competition?.specialization[$event]">
       <mat-option *ngFor="let specialization of currentCompetition.competition?.specialization; let idx = index" [value]="idx">{{ specialization.title }}</mat-option>
     </mat-select>
@@ -31,7 +31,7 @@
 
   <mat-form-field class="col-lg-2">
     <mat-select panelClass="big-select" placeholder="Уровень конкурса" [value]="levelIndex"
-                [disabled]="!currentCompetition.competition" (valueChange)="currentCompetition.level = levels[$event]">
+                [disabled]="!currentCompetition.competition || !userService.user?.hasKoordinator()" (valueChange)="currentCompetition.level = levels[$event]">
       <ng-container *ngFor="let level of levels; let idx = index">
         <mat-option *ngIf="level.rate <= currentCompetition.competition?.level?.rate" [value]="idx">{{ level.title }}</mat-option>
       </ng-container>
@@ -39,22 +39,29 @@
   </mat-form-field>
 
   <mat-form-field class="col-lg-2">
-    <mat-select panelClass="big-select" placeholder="Призовое место" [value]="placeIndex"
+    <mat-select panelClass="big-select" placeholder="Призовое место" [value]="placeIndex" [disabled]="!userService.user?.hasKoordinator()"
                 (valueChange)="currentCompetition.place = places[$event]">
         <mat-option *ngFor="let place of places; let idx = index" [value]="idx">{{ place.title }}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="col-lg-4">
-    <input type="text" placeholder="Преподаватель" aria-label="Number" matInput [formControl]="teacherControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="saveTeacher($event)">
-      <mat-option [value]="{_id: '000000000000'}">Нет</mat-option>
-      <mat-option *ngFor="let teacher of teachers" [value]="teacher">{{ teacher?.suname + ' ' + teacher?.name + ' ' + teacher?.middleName }}</mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+  <ng-container>
+    <mat-form-field class="col-lg-4" *ngIf="!userService.user?.hasKoordinator()">
+      <input type="text" placeholder="Преподаватель" aria-label="Number" matInput [value]="teacherControl.value" disabled>
+    </mat-form-field>
+
+    <mat-form-field class="col-lg-4" *ngIf="userService.user?.hasKoordinator()">
+      <input type="text" placeholder="Преподаватель" aria-label="Number" matInput [formControl]="teacherControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="saveTeacher($event)">
+        <mat-option [value]="{_id: '000000000000'}">Нет</mat-option>
+        <mat-option *ngFor="let teacher of teachers" [value]="teacher">{{ teacher?.suname + ' ' + teacher?.name + ' ' + teacher?.middleName }}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </ng-container>
+
 </div>
 
-<div class="group-button-right" >
+<div class="group-button-right" *ngIf="userService.user?.hasKoordinator()">
   <button mat-raised-button (click)="add()" [disabled]="!teacher" color="primary">{{edit ? 'Изменить' : 'Добавить'}} конкурс</button>
   <button mat-raised-button (click)="deleteCompetition()" color="warn" *ngIf="edit">Удалить</button>
 </div>

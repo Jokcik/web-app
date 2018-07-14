@@ -3,7 +3,7 @@
     <ng-container *ngIf="userService.user">
     <div class="form-group btn-block">
       <a routerLink="/children/entrant" *ngIf="userService.user?.hasAccessMaterial()" class="bold btn-block">Информация об абитуриентах</a>
-      <a routerLink="/admin/edit/children" class="bold btn-block">Редактировать банк данных</a>
+      <a routerLink="/admin/edit/children" *ngIf="userService.user?.hasKoordinator()" class="bold btn-block">Редактировать банк данных</a>
     </div>
     <mat-form-field class="col-lg-3">
       <mat-select placeholder="Район" (valueChange)="selectedRegion($event)" [value]="currentRegion">

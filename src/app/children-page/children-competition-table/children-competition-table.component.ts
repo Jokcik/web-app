@@ -6,6 +6,7 @@ import {CompetitionPlace} from '../../admin/edit/shared/competition-place';
 import {CompetitionLevel} from '../../admin/edit/shared/competition-level';
 import {ChildrenEditCompetitionDialogComponent} from './children-edit-competition-dialog.component';
 import {Competition} from '../../admin/edit/shared/competition';
+import {UserService} from '../../core/user-service/user.service';
 
 @Component({
   selector: 'od-children-competition-table',
@@ -27,6 +28,7 @@ export class ChildrenCompetitionTableComponent implements OnInit, OnChanges, Aft
   private fullCompetitions: Competition[] = [];
 
   constructor(private competitionService: CompetitionService,
+              public userService: UserService,
               private dialog: MatDialog) {
   }
 
