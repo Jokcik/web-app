@@ -1,0 +1,108 @@
+server {
+        server_name api.rumc31.ru;
+
+        location @backup_api {
+		rewrite (.*) /api$1 break;
+                proxy_pass http://rumc31.ru:9090;
+        }
+
+        location / {
+                proxy_pass http://rumc31.ru:8080/api/;
+                error_page 404 502 = @backup_api;
+        }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/api.rumc31.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/api.rumc31.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+
+
+server {
+	listen 443 ssl;
+
+	ssl_certificate /etc/nginx/ssl/rumc31.pem;
+	ssl_certificate_key /etc/nginx/ssl/rumc31.key;
+
+	default_type text/html;
+	root /root/web-app/dist;
+	index index.html;
+	set $root /root/web-app;
+	set $bot (Butterfly|Googlebot-Image|Googlebot|SitemapsGenerator|UnwindFetchor|JS-KitURLResolver|YandexMirrorDetector|YandexImages|YandexVideo|YandexMedia|YandexBlogs|YandexAddurl|YandexMetrika|YandexCatalog|YandexNews|YandexImageResizer|Yandex|MetaURI|Crowsnest|TweetmemeBot|Twitterbot|facebook|StackRambler|MRSPUTNIK|Mail.RU|MailRuConnect|Mediapartners-Google|Slurp|WebCrawler|ZyBorg|scooter|Aport|lycos|WebAlta|yahoo|msnbot|ia_archiver|FAST);
+
+	server_name rumc31.ru;
+
+	location /google9813e9e4830aceea.html {
+                root /root/web-app/public;
+                expires 1d;
+        }
+
+	location /robots.txt {
+                root /root/web-app/public;
+                expires 1d;
+        }
+
+	location /sitemap.xml {
+		root /root/web-app/public;
+		expires 1d;
+	}
+
+	location /favicon.ico {
+                root /root/web-app/public;
+                expires 1d;
+        }
+
+	location ~ ^/(images|static|js)/ {
+		root /root/web-app/public;
+		expires 1d;
+	}
+
+	location /indigo-pink.css {
+                root /root/web-app/node_modules/@angular/material/prebuilt-themes;
+                expires 1d;
+        }
+
+	location ~ ^/(api)/ {
+		proxy_pass http://rumc31.ru:8080;
+		error_page 404 502 = @backup;
+        }
+
+	location / {
+		if ($http_user_agent ~ (Butterfly|Googlebot-Image|Googlebot|SitemapsGenerator|UnwindFetchor|JS-KitURLResolver|YandexMirrorDetector|YandexImages|YandexVideo|YandexMedia|YandexBlogs|YandexAddurl|YandexMetrika|YandexCatalog|YandexNews|YandexImageResizer|Yandex|MetaURI|Crowsnest|TweetmemeBot|Twitterbot|facebook|StackRambler|MRSPUTNIK|Mail.RU|MailRuConnect|Mediapartners-Google|Slurp|WebCrawler|ZyBorg|scooter|Aport|lycos|WebAlta|yahoo|msnbot|ia_archiver|FAST)) {
+			#rewrite ^/(.*)$ /static/snapshots/$1.html;
+			proxy_pass http://rumc31.ru:4200;
+			error_page 404 $uri;
+		}
+
+		#proxy_pass http://rumc31.ru:8080;
+		try_files $uri $uri/ /index.html;
+        }
+
+	location @backup {
+		proxy_pass http://rumc31.ru:9090;
+	}
+
+}
+
+server {
+        listen 80;
+        server_name rumc31.ru;
+	return 301 https://rumc31.ru$request_uri;
+}
+
+
+
+server {
+    if ($host = api.rumc31.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        server_name api.rumc31.ru;
+    return 404; # managed by Certbot
+}
