@@ -14,6 +14,7 @@ export const routes: Routes = [
   {path: 'galleries', loadChildren: 'app/gallery/gallery.module#GalleryModule', data: {title: 'Галерея'}},
   {path: 'contacts', loadChildren: 'app/contacts/contacts.module#ContactsModule', data: {title: 'Контакты'}},
   {path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule', data: {title: 'Авторизация'}},
+  {path: 'documents', loadChildren: 'app/documents/documents.module#DocumentsModule', data: {title: 'Документы'}},
   {path: 'admin/edit', loadChildren: 'app/admin/edit/edit.module#EditModule', data: {title: 'Администрирование'}},
 
   {path: '403-forbidden', component: Forbidden403Component},

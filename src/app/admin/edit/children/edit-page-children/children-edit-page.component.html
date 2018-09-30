@@ -77,6 +77,10 @@
     <mat-form-field class="col-lg-4">
       <mat-select placeholder="Год окончания ДШИ"  [disabled]="!userService.user?.hasKoordinator()"
                   [value]="currentChildren.graduateDSHI" (valueChange)="currentChildren.graduateDSHI = +$event">
+        <mat-option [value]="2014">2014</mat-option>
+        <mat-option [value]="2015">2015</mat-option>
+        <mat-option [value]="2016">2016</mat-option>
+        <mat-option [value]="2017">2017</mat-option>
         <mat-option [value]="2018">2018</mat-option>
         <mat-option [value]="2019">2019</mat-option>
         <mat-option [value]="2020">2020</mat-option>

@@ -1,0 +1,56 @@
+<div class="outer-documents" [class.edit]="edit">
+  <div class="container">
+    <a  *ngIf="userService.user?.hasModerator()" (click)="edit = !edit"
+      class="bold edit">{{ edit ? 'Отменить редактирование': 'Редактировать' }}</a>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let document of documents$ | async">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span *ngIf="!edit">{{ document.title }}</span>
+
+          <div *ngIf="edit">
+            <mat-form-field>
+              <input type="text" [ngModel]="document.title" matInput required #inputTitleDocuments>
+            </mat-form-field>
+            <button mat-raised-button class="btn" color="primary"
+              (click)="changeTitleDocument(document, inputTitleDocuments.value)">Сохранить</button>
+            <button mat-raised-button class="btn" color="warn" (click)="deleteDocument(document)">Удалить Список</button>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ol>
+        <li *ngFor="let item of document.documents">
+          <a [href]="item.url">{{ item.title }}</a>
+          <span class="form-group" *ngIf="edit">
+          <button mat-raised-button class="del-item" color="warn" (click)="deleteItem(document, item)">Удалить файл</button>
+      </span>
+        </li>
+      </ol>
+
+      <div class="form-group" *ngIf="edit">
+        <label>Добавить документ: </label>
+        <mat-form-field>
+          <input type="text" placeholder="Название документа" matInput required #inputItemTitleDocuments>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" placeholder="Ссылка на документ" matInput required #inputItemUrlDocuments>
+        </mat-form-field>
+        <button mat-raised-button class="btn" color="primary"
+          (click)="saveItemDocuments(document, inputItemTitleDocuments.value, inputItemUrlDocuments.value)">Сохранить</button>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <div class="form-group" *ngIf="edit">
+    <label>Создать список документов: </label>
+    <mat-form-field>
+      <input type="text" placeholder="Название списка" matInput required #inputDocuments>
+    </mat-form-field>
+    <button mat-raised-button class="btn" color="primary" (click)="saveDocuments(inputDocuments.value)">Сохранить</button>
+  </div>
+  </div>
+
+</div>
