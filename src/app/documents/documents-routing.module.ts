@@ -8,6 +8,10 @@ import {DocumentsComponent} from './documents.component';
     {
       path: '',
       component: DocumentsComponent,
+    },
+    {
+      path: ':id',
+      component: DocumentsComponent,
     }
   ])],
   exports: [RouterModule]

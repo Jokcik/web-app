@@ -3,7 +3,7 @@
     <a  *ngIf="userService.user?.hasModerator()" (click)="edit = !edit"
       class="bold edit">{{ edit ? 'Отменить редактирование': 'Редактировать' }}</a>
   <mat-accordion>
-    <mat-expansion-panel *ngFor="let document of documents$ | async">
+    <mat-expansion-panel *ngFor="let document of documents$ | async; let idx = index" [expanded]="document._id === openId">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <span *ngIf="!edit">{{ document.title }}</span>

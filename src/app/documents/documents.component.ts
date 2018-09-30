@@ -1,28 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {DocumentsService} from './documents.service';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Documents} from './shared/documents';
 import {first} from 'rxjs/operators';
 import {UserService} from '../core/user-service/user.service';
 import {ItemDocument} from './shared/item-document';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   templateUrl: './documents.component.html',
 })
 export class DocumentsComponent implements OnInit {
-  public documents$: Observable<Documents[]>;
-  public edit: boolean = true;
+  public documents$: Observable<Documents[]> = of([]);
+  public edit: boolean = false;
+  public openId: string = "";
+
+  @ViewChild('inputDocuments') inputDocuments: ElementRef<HTMLInputElement>;
 
   constructor(private documentsService: DocumentsService,
+              private route: ActivatedRoute,
               public userService: UserService) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => this.openId = params['id']);
     this.findDocuments();
   }
 
   public findDocuments() {
-    this.documents$ = this.documentsService.query().$observable;
+    this.documentsService.query().$observable.subscribe(values => {
+      this.documents$ = of(values);
+    });
   }
 
   public async changeTitleDocument(document: Documents, title: string) {
@@ -36,6 +44,7 @@ export class DocumentsComponent implements OnInit {
     if (!title.trim()) { return; }
 
     await this.documentsService.save({ title }).$observable.pipe(first()).toPromise();
+    this.inputDocuments.nativeElement.value = '';
     this.findDocuments();
   }
 

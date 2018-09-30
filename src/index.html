@@ -63,7 +63,13 @@
                 <a class="dropdown-item" routerLink="/address/schools">Детские школы искусств</a>
               </div>
             </li>
-            <li class=""><a class="nav-link" routerLink="/galleries" routerLinkActive="active">Фотогалерея</a></li>
+            <li class="dropdown" (mouseover)="showDocuments = true" (mouseleave)="showDocuments = false">
+              <a class="nav-link" routerLink="/documents">Документы</a>
+              <div class="dropdown-menu col-lg-12" [class.show]="showDocuments" (click)="showDocuments = false">
+                <a class="dropdown-item" *ngFor="let document of documents$ | async" [routerLink]="'/documents/' + document._id" >{{ document.title }}</a>
+              </div>
+            </li>
+
             <li class=""><a class="nav-link" routerLink="/contacts" routerLinkActive="active">Контакты</a></li>
           </ul>
           <od-profile></od-profile>

@@ -12,6 +12,7 @@ import {NotFound404Component} from './exceptions/404-not-found/404-not-found.com
 
 import localeRu from '@angular/common/locales/ru';
 import {CWCounter} from './counter/counter.component';
+import {DocumentsService} from './documents/documents.service';
 
 registerLocaleData(localeRu);
 
@@ -36,7 +37,10 @@ registerLocaleData(localeRu);
 
     CWCounter
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'ru' },
+    DocumentsService
+  ],
   bootstrap: [ODComponent]
 })
 export class ODModule {
