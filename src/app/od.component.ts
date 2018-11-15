@@ -16,6 +16,8 @@ export class ODComponent implements OnInit {
   showEvent: boolean;
   showDocuments: boolean;
 
+  public headMenuToggle: boolean = false;
+
   public documents$: Observable<Documents[]>;
 
   constructor(private activatedRoute: ActivatedRoute,

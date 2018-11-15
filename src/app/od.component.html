@@ -1,11 +1,20 @@
 <div class="page">
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="collapse navbar-collapse container col-lg-12" id="navbarCollapse" style="text-transform: none;">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" [class.show-menu]="headMenuToggle">
+      <span class="mat-icon">
+        <mat-icon (click)="headMenuToggle = !headMenuToggle">menu</mat-icon>
+      </span>
+      <div class="img-block">
+        <div class="img-wrap" [routerLink]="'/'" style="cursor: pointer;">
+          <img src="/images/logo/logo.png"/>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse container col-lg-12" (click)="headMenuToggle = false"
+           id="navbarCollapse" style="text-transform: none;">
         <ul class="navbar-nav mr-auto col-lg-10">
           <li class="dropdown" (mouseover)="showEvent = true" (mouseleave)="showEvent = false">
             <a class="nav-link" routerLink="/news">События</a>
-            <div class="dropdown-menu" [class.show]="showEvent" (click)="showEvent = false">
+            <div class="dropdown-menu events" [class.show]="showEvent" (click)="showEvent = false">
               <a class="dropdown-item" routerLink="/news">Новости</a>
               <a class="dropdown-item" routerLink="/announce">Анонсы</a>
               <a class="dropdown-item" routerLink="/galleries">Фотогалерея</a>
