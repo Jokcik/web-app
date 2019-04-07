@@ -1,0 +1,20 @@
+<div class="form-group" [formGroup]="form">
+  <h5>Тест проходит: {{ user?.surname }} {{ user?.name }} {{ user?.middleName }}</h5>
+  <hr>
+
+  <div *ngFor="let question of data; let idxQuestion = index">
+    <h6 class="question bold">Вопрос №{{ question.id }}. {{ question.title }}: </h6>
+    <mat-hint *ngFor="let hint of question.hint; let idx = index; let last = last" [class.last]="last">
+      {{ idx + 1 }}.  {{ hint }}
+    </mat-hint>
+    <mat-radio-group [formControl]="formControls[idxQuestion]">
+      <mat-radio-button class="block" *ngFor="let option of question.options; let idx = index; let last = last" [value]="idx">
+        {{ option }}{{ last ? '.' : ',' }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="exit()">Завершить тест</button>
+  </div>
+</div>

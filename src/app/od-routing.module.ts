@@ -15,6 +15,7 @@ export const routes: Routes = [
   {path: 'contacts', loadChildren: 'app/contacts/contacts.module#ContactsModule', data: {title: 'Контакты'}},
   {path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule', data: {title: 'Авторизация'}},
   {path: 'documents', loadChildren: 'app/documents/documents.module#DocumentsModule', data: {title: 'Документы'}},
+  {path: 'question', loadChildren: 'app/question/question.module#QuestionModule', data: {title: 'Итоговый тест'}},
   {path: 'admin/edit', loadChildren: 'app/admin/edit/edit.module#EditModule', data: {title: 'Администрирование'}},
 
   {path: '403-forbidden', component: Forbidden403Component},

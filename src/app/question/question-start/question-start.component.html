@@ -1,0 +1,19 @@
+<div class="form-group">
+
+  <h5 class="title-question-start">Преподаватель: </h5>
+  <mat-form-field class="col-lg-4">
+    <input matInput type="text" [(ngModel)]="currentUser.surname" placeholder="Фамилия">
+  </mat-form-field>
+
+  <mat-form-field class="col-lg-4">
+    <input matInput type="text" [(ngModel)]="currentUser.name" placeholder="Имя">
+  </mat-form-field>
+
+  <mat-form-field class="col-lg-4">
+    <input matInput type="text" [(ngModel)]="currentUser.middleName" placeholder="Отчество">
+  </mat-form-field>
+
+  <div class="col-lg-2">
+    <button mat-raised-button color="primary" [disabled]="isDisable()" (click)="startTest()">Начать тест</button>
+  </div>
+</div>

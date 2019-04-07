@@ -1,0 +1,17 @@
+.question {
+  text-indent: 30px;
+  margin-top: 20px;
+}
+
+.block {
+  display: block;
+}
+
+.mat-hint {
+  display: block;
+  margin-left: 20px;
+  font-weight: bold;
+  &.last {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,25 @@
+<div class="form-group">
+  <h5 class="text-center">Результаты теста: {{ user?.surname }} {{ user?.name }} {{ user?.middleName }}</h5>
+  <hr>
+
+  <div class="result text-center">
+    <p>Всего вопросов: {{ data.length }}</p>
+    <p><span style="color: green">Правильных ответов: {{ right }}</span></p>
+    <p><span style="color: red">Неправильных ответов: {{ wrong }}</span></p>
+    <br>
+
+    <ng-container *ngIf="result">
+      <p>Ваш результат: <b>'Зачтено'</b></p>
+      <p>ПОЗДРАВЛЯЮ!!!</p>
+      <!--<img src="/images/shared/9ipLEoEAT.jpg">-->
+      <img  height="300" src="/images/shared/9iR5dgdnT.jpg">
+    </ng-container>
+
+    <ng-container *ngIf="!result">
+      <p>Ваш результат: <b>'Не зачтено'</b></p>
+      <p>Вам необходимо улучшить свои знания по нормативной базе образовательных учреждений дополнительного образования детей</p>
+      <img height="300" src="/images/shared/9ipLEoEAT.jpg">
+    </ng-container>
+
+  </div>
+</div>

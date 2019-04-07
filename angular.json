@@ -131,7 +131,7 @@
       "inlineStyle": false,
       "inlineTemplate": false,
       "prefix": "od",
-      "styleext": "css"
+      "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "od"

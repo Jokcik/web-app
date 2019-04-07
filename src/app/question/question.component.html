@@ -1,0 +1,13 @@
+
+<div class="container question-container">
+  <h3 class="text-center question-title">Нормативная база образовательных учреждений дополнительного образования детей</h3>
+  <div class="button-group" *ngIf="step !== 1">
+    <button mat-raised-button (click)="clear()" color="primary">Начать заново</button>
+  </div>
+
+  <ng-container [ngSwitch]="step">
+    <od-question-start *ngSwitchCase="1" (user)="setUserQuestion($event)"></od-question-start>
+    <od-question-go *ngSwitchCase="2" [user]="user" [data]="data" (answers)="setAnswers($event)"></od-question-go>
+    <od-question-end *ngSwitchCase="3" [user]="user" [data]="data" [answers]="answers"></od-question-end>
+  </ng-container>
+</div>
