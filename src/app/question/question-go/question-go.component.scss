@@ -15,3 +15,8 @@
     margin-bottom: 10px;
   }
 }
+
+
+/deep/ .block.mat-radio-button .mat-radio-label {
+  white-space: normal;
+}
