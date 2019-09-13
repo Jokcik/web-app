@@ -45,7 +45,7 @@
     </mat-form-field>
 
     <mat-form-field class="col-lg-4">
-      <mat-select placeholder="Класс ДШИ на 01.09.2018"  [disabled]="!userService.user?.hasKoordinator()"
+      <mat-select placeholder="Класс ДШИ на 01.09.2019"  [disabled]="!userService.user?.hasKoordinator()"
                   [value]="currentChildren.classDSHI" (valueChange)="currentChildren.classDSHI = +$event">
         <mat-option [value]="2">2 класс</mat-option>
         <mat-option [value]="3">3 класс</mat-option>
@@ -55,11 +55,12 @@
         <mat-option [value]="7">7 класс</mat-option>
         <mat-option [value]="8">8 класс</mat-option>
         <mat-option [value]="9">9 класс</mat-option>
+        <mat-option [value]="10">Окончил ДШИ</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="col-lg-4">
-      <mat-select placeholder="Класс СОШ на 01.09.2018"  [disabled]="!userService.user?.hasKoordinator()"
+      <mat-select placeholder="Класс СОШ на 01.09.2019"  [disabled]="!userService.user?.hasKoordinator()"
                   [value]="currentChildren.class" (valueChange)="currentChildren.class = +$event">
         <mat-option [value]="2">2 класс</mat-option>
         <mat-option [value]="3">3 класс</mat-option>
@@ -71,6 +72,7 @@
         <mat-option [value]="9">9 класс</mat-option>
         <mat-option [value]="10">10 класс</mat-option>
         <mat-option [value]="11">11 класс</mat-option>
+        <mat-option [value]="12">Окончил СОШ</mat-option>
       </mat-select>
     </mat-form-field>
 

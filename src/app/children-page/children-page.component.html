@@ -1,6 +1,7 @@
 <div class="widget-box">
   <div class="container">
-    <ng-container *ngIf="userService.user">
+<!--    <ng-container *ngIf="userService.user">-->
+    <ng-container>
     <div class="form-group btn-block">
       <a routerLink="/children/entrant" *ngIf="userService.user?.hasAccessMaterial()" class="bold btn-block">Информация об абитуриентах</a>
       <a routerLink="/admin/edit/children" *ngIf="userService.user?.hasKoordinator()" class="bold btn-block">Редактировать банк данных</a>
@@ -37,8 +38,8 @@
 
       <od-children-table-rating [childrens]="childrens"></od-children-table-rating>
     </ng-container>
-    <ng-container *ngIf="!userService.user">
-      <a class="text-center" routerLink="/auth/login"><h2>Авторизуйтесь, чтобы просмотреть банк данных одаренный детей</h2></a>
-    </ng-container>
+<!--    <ng-container *ngIf="!userService.user">-->
+<!--      <a class="text-center" routerLink="/auth/login"><h2>Авторизуйтесь, чтобы просмотреть банк данных одаренный детей</h2></a>-->
+<!--    </ng-container>-->
   </div>
 </div>

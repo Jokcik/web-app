@@ -45,6 +45,7 @@ export class ChildrenTableRatingComponent implements OnInit, OnChanges {
   }
 
   public clickChildren(children: Children) {
+    if (!this.userService.user) { return; }
     if (this.userService.user.hasRegionUser() || (this.userService.user.schools && this.userService.user.schools._id == children.schools._id)) {
       this.router.navigate(['/admin/edit/children/edit/' + children._id])
     }
